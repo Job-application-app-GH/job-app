@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid gray;
+}
+.icons {
+  padding: 20px;
+}
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 8vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_icons {
+  padding: 20px;
+  color: purple;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  padding: 25px;
+  height: 50vh;
+  border-radius: 20px;
+  background-size: cover;
+  box-shadow: 0px 16px 52px 0px black;
+  background-position: center;
+}
+
+.cardsPile {
+  display: flex;
+  justify-content: center;
+  margin-top: 6vh;
+}
+
+.swipe {
+  position: absolute;
+}
+.chat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 20px;
+  border-bottom: 2px solid gray;
+}
+.chat_det {
+  flex: 1;
+}
+.chat_time {
+  color: gray;
+}
+.chat_avatar {
+  margin-right: 25px;
+}
