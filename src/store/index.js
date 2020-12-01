@@ -6,8 +6,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import skills from './skills'
 import userSkills from './userSkills'
 import user from './user'
+import job from './job'
 
-const reducer = combineReducers({skills, userSkills, user})
+const reducer = combineReducers({skills, userSkills, user, job})
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
