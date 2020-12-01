@@ -148,7 +148,20 @@ async function seed() {
   ])
 
   await users[0].setCandidate(candidates[0])
-  await candidates[0].addSkill(skills[0])
+  await users[1].setCandidate(candidates[1])
+  await users[2].setCandidate(candidates[2])
+  await users[3].setOrganization(organizations[0])
+  await users[4].setOrganization(organizations[1])
+  await users[5].setOrganization(organizations[2])
+  await candidates[0].addSkills([skills[0], skills[1]])
+  await candidates[1].addSkills([skills[1], skills[2], skills[4]])
+  await candidates[2].addSkills([skills[0], skills[3], skills[4]])
+  await organizations[0].addJobs(jobs[0])
+  await organizations[1].addJobs(jobs[1])
+  await organizations[2].addJobs(jobs[2])
+  await jobs[0].addSkills([skills[0], skills[1]])
+  await jobs[1].addSkills([skills[1], skills[2], skills[4]])
+  await jobs[2].addSkills([skills[0], skills[3], skills[4]])
 }
 
 async function runSeed() {
