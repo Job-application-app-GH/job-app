@@ -5,8 +5,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 import skills from './skills'
 import userSkills from './userSkills'
+import user from './user'
 
-const reducer = combineReducers({skills, userSkills})
+const reducer = combineReducers({skills, userSkills, user})
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
@@ -24,3 +25,4 @@ export default store
 
 export * from './skills'
 export * from './userSkills'
+export * from './user'
