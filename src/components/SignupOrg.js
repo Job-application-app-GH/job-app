@@ -12,6 +12,9 @@ const SignUp = (props) => {
 
   return (
     <div>
+      <Link>
+        <button>Back</button>
+      </Link>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="companyName">
