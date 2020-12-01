@@ -1,10 +1,7 @@
-import React from "react";
-import "./App.css";
-import Header from "./Header";
-import NameCards from "./NameCards";
-import Chats from "./Chats";
-import FooterButtons from "./FooterButtons";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react'
+import {NameCards, Chats, Header, Skills, FooterButtons} from './components'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import './styles/App.css'
 
 function App() {
   return (
@@ -15,6 +12,10 @@ function App() {
             <Header />
             <Chats />
           </Route>
+          <Route path="/skills">
+            <Header />
+            <Skills />
+          </Route>
           <Route path="/">
             <Header />
             <NameCards />
@@ -23,7 +24,7 @@ function App() {
         <FooterButtons />
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
