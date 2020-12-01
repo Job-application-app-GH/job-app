@@ -1,5 +1,5 @@
 import React from 'react'
-import {NameCards, Chats, Header, FooterButtons} from './components'
+import {NameCards, Chats, Header, Skills, FooterButtons} from './components'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './styles/App.css'
 
@@ -11,6 +11,10 @@ function App() {
           <Route path="/chat">
             <Header />
             <Chats />
+          </Route>
+          <Route path="/skills">
+            <Header />
+            <Skills />
           </Route>
           <Route path="/">
             <Header />

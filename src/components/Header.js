@@ -10,7 +10,9 @@ export default class Header extends Component {
   render() {
     return (
       <div className="header">
-        <AccountCircleIcon className="icons" fontSize="large" />
+        <Link to="/skills">
+          <AccountCircleIcon className="icons" fontSize="large" />
+        </Link>
         <Link to="/">
           <LinkedInIcon className="icons" fontSize="large" />
         </Link>
