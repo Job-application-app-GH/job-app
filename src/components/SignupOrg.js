@@ -2,19 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
  */
-const SignUp = (props) => {
+const SignUpOrg = (props) => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
     <div>
-      <Link>
-        <button>Back</button>
-      </Link>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="companyName">
@@ -48,9 +44,7 @@ const SignUp = (props) => {
           />
         </div>
         <div>
-          <Link to="/signup/organization/createposting">
-            <button>{displayName}</button>
-          </Link>
+          <button>{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />
@@ -87,18 +81,19 @@ const mapDispatch = (dispatch) => {
       const positionTitle = evt.target.positionTitle.value
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(signup(companyName, positionTitle, email, password))
+      const userType = 'ORGANIZATION'
+      dispatch(signup(companyName, positionTitle, email, password, userType))
     },
   }
 }
 
-const SignupOrg = connect(mapSignup, mapDispatch)(SignUp)
+const SignupOrg = connect(mapSignup, mapDispatch)(SignUpOrg)
 export default SignupOrg
 
 /**
  * PROP TYPES
  */
-SignUp.propTypes = {
+SignUpOrg.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,

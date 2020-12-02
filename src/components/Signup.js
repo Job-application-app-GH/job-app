@@ -14,17 +14,10 @@ const SignUp = (props) => {
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="firstName">
-            <small>First Name</small>
+          <label htmlFor="fullName">
+            <small>Full Name</small>
           </label>
-          <input className="form-control" name="firstName" required />
-        </div>
-
-        <div>
-          <label htmlFor="lastName">
-            <small>Last Name</small>
-          </label>
-          <input className="form-control" name="lastName" required />
+          <input className="form-control" name="fullName" required />
         </div>
 
         <div>
@@ -78,17 +71,18 @@ const mapDispatch = (dispatch) => {
     handleSubmit(evt) {
       evt.preventDefault()
 
-      const firstName = evt.target.firstName.value
-      const lastName = evt.target.lastName.value
+      const fullName = evt.target.fullName.value
+
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(signup(firstName, lastName, email, password))
+      const userType = 'CANDIDATE'
+      dispatch(signup(fullName, email, password, userType))
     },
   }
 }
 
-const Signup = connect(mapSignup, mapDispatch)(SignUp)
-export default Signup
+const SignupDetails = connect(mapSignup, mapDispatch)(SignUp)
+export default SignupDetails
 
 /**
  * PROP TYPES

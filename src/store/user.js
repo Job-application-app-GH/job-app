@@ -53,16 +53,21 @@ const addUser = (user) => {
     user,
   }
 }
-export const signup = (firstName, lastName, email, password) => async (
-  dispatch
-) => {
+export const signup = (
+  fullName,
+
+  email,
+  password,
+  userType
+) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/signup`, {
-      firstName,
-      lastName,
+      fullName,
+
       email,
       password,
+      userType,
     })
     dispatch(addUser(res))
   } catch (signupError) {
