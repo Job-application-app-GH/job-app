@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from 'axios'
 
 const SET_SKILLS = 'SET_SKILLS'
 // const DUMMY_SKILLS_LIST = ["C++", "JavaScript", "SQL", "HTML"];
@@ -13,9 +13,11 @@ const setSkills = (skills) => ({type: SET_SKILLS, skills})
 
 export const getAllSkills = () => async (dispatch) => {
   try {
+    console.log('Inside the thunk')
     //Access API to get the skills list from DB table
-    // const {data : skills} = await axios.get(`/api/skills`);
+    const {data} = await axios.get(`/api/users`)
     // dispatch(setSkills(skills));
+    console.log('Received data from db: ', data)
     console.log('dispatching set skills')
     dispatch(setSkills(DUMMY_SKILLS_LIST))
   } catch (err) {
