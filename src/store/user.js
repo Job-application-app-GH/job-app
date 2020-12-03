@@ -49,12 +49,10 @@ export const auth = (email, password, method) => async (dispatch) => {
 }
 
 //route is not being called properly
-export const putUserType = (user) => {
-  console.log('usertype in thunk', user)
+export const putUserType = (type) => {
   return async (dispatch) => {
-    console.log('return async dispatch', user)
     try {
-      let {data} = await axios.put('/api/users', user)
+      let {data} = await axios.put('/api/users', type)
       dispatch(updateUserType(data))
     } catch (error) {
       console.log(error, 'error in put user type thunk')

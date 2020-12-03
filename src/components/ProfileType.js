@@ -7,7 +7,6 @@ class ProfileType extends React.Component {
   constructor(props) {
     super(props)
   }
-
   render() {
     return (
       <div>
@@ -15,7 +14,6 @@ class ProfileType extends React.Component {
           <button
             onClick={() =>
               this.props.updateUserType({
-                userId: this.props.user.id,
                 userType: 'CANDIDATE',
               })
             }
@@ -24,7 +22,11 @@ class ProfileType extends React.Component {
           </button>
         </Link>
         <Link to="/signup/organization">
-          <button onClick={() => this.props.updateUserType('ORGANIZATION')}>
+          <button
+            onClick={() =>
+              this.props.updateUserType({userType: 'ORGANIZATION'})
+            }
+          >
             I need to hire someone
           </button>
         </Link>
@@ -33,16 +35,10 @@ class ProfileType extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return {
-    user: state.user,
-  }
-}
-
 const mapDispatch = (dispatch) => {
   return {
-    updateUserType: (type) => putUserType(type),
+    updateUserType: (type) => dispatch(putUserType(type)),
   }
 }
 
-export default connect(mapState, mapDispatch)(ProfileType)
+export default connect(null, mapDispatch)(ProfileType)
