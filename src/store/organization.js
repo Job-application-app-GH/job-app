@@ -1,10 +1,16 @@
 import axios from 'axios'
 
 const CREATE_NEW_ORGANIZATION = 'CREATE_NEW_ORGANIZATION'
+const GET_ORGANIZATION = 'GET_ORGANIZATION'
 
-const createNewOrganization = (userId) => ({
+const createNewOrganization = (organization) => ({
   type: CREATE_NEW_ORGANIZATION,
-  userId,
+  organization,
+})
+
+const getOrganization = (organization) => ({
+  type: GET_ORGANIZATION,
+  organization,
 })
 
 export const postNewOrganization = (organization) => {
@@ -20,12 +26,26 @@ export const postNewOrganization = (organization) => {
   }
 }
 
+export const fetchOrganization = (id) => {
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.get('/api/organization/')
+      console.log('data from dispatch', data)
+      dispatch(getOrganization(data))
+    } catch (error) {
+      console.log(error, 'error in fetch org thunk')
+    }
+  }
+}
+
 const initialState = {}
 
 export default function organization(state = initialState, action) {
   switch (action.type) {
     case CREATE_NEW_ORGANIZATION:
-      return action.userId
+      return action.organization
+    case GET_ORGANIZATION:
+      return action.organization
     default:
       return state
   }

@@ -2,6 +2,20 @@ const router = require('express').Router()
 const {Organization} = require('../db/models')
 
 //mounted on api/organization
+
+router.get('/', async (req, res, next) => {
+  try {
+    let selectedOrg = await Organization.findOne({
+      where: {
+        userId: req.user.id,
+      },
+    })
+    res.send(selectedOrg)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     let {name, description, location} = req.body
