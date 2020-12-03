@@ -18,14 +18,6 @@ const SignUpOrg = (props) => {
           </label>
           <input className="form-control" name="companyName" required />
         </div>
-
-        <div>
-          <label htmlFor="positionTitle">
-            <small>Location</small>
-          </label>
-          <input className="form-control" name="positionTitle" required />
-        </div>
-
         <div>
           <label htmlFor="email">
             <small>Email</small>
@@ -33,6 +25,13 @@ const SignUpOrg = (props) => {
           <input className="form-control" name="email" type="email" required />
         </div>
         <div>
+          <div>
+            <label htmlFor="location">
+              <small>Location</small>
+            </label>
+            <input className="form-control" name="location" required />
+          </div>
+
           <label htmlFor="password">
             <small>Password</small>
           </label>
@@ -78,11 +77,12 @@ const mapDispatch = (dispatch) => {
       evt.preventDefault()
 
       const companyName = evt.target.companyName.value
-      const positionTitle = evt.target.positionTitle.value
       const email = evt.target.email.value
+      const location = evt.target.location.value
       const password = evt.target.password.value
       const userType = 'ORGANIZATION'
-      dispatch(signup(companyName, positionTitle, email, password, userType))
+      console.log(companyName, email, location, password, userType)
+      dispatch(signup(companyName, email, location, userType, password))
     },
   }
 }
