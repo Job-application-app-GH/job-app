@@ -8,8 +8,16 @@ import userSkills from './userSkills'
 import user from './user'
 import job from './job'
 import candidate from './candidate'
+import organization from './organization'
 
-const reducer = combineReducers({skills, userSkills, user, job, candidate})
+const reducer = combineReducers({
+  skills,
+  userSkills,
+  user,
+  job,
+  candidate,
+  organization,
+})
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

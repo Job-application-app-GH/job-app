@@ -1,101 +1,90 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
-import {signup} from '../store'
+import {postNewOrganization} from '../store/organization'
 
-/**
- * COMPONENT
- */
-const SignUpOrg = (props) => {
-  const {name, displayName, handleSubmit, error} = props
+class SignUpOrgDetails extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      location: '',
+      description: '',
+      // isRemote: '',
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="companyName">
-            <small>Company Name</small>
-          </label>
-          <input className="form-control" name="companyName" required />
-        </div>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input className="form-control" name="email" type="email" required />
-        </div>
-        <div>
-          <div>
-            <label htmlFor="location">
-              <small>Location</small>
-            </label>
-            <input className="form-control" name="location" required />
-          </div>
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
 
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
+  handleSubmit(event) {
+    event.preventDefault()
+    this.props.newOrganization({...this.state})
+    this.setState({
+      name: '',
+      location: '',
+      description: '',
+    })
+  }
+
+  render() {
+    const {
+      name,
+      location,
+      description,
+      // isRemote,
+    } = this.state
+    return (
+      <div>
+        <form id="add-form">
+          <h5>Company Name</h5>
           <input
-            className="form-control"
-            name="password"
-            type="password"
-            required
+            type="text"
+            name="name"
+            onChange={this.handleChange}
+            value={name}
           />
-        </div>
-        <div>
-          <button>{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-        <br />
-        <a href="/auth/google" className="btn btn-success">
-          {displayName} with Google
-        </a>
-      </form>
-    </div>
-  )
-}
+          <h5>Location</h5>
+          <input
+            type="text"
+            name="location"
+            onChange={this.handleChange}
+            value={location}
+          />
+          <h5>Give a brief description of the company </h5>
+          <textarea
+            type="text"
+            name="description"
+            onChange={this.handleChange}
+            value={description}
+          />
+          {/* <h5>Are you willing to work remote?</h5> */}
+          {/* <input
+            type="radio"
+            name="isRemote"
+            checked={isRemote === true}
+            onChange={this.handleChange}
+            value={isRemote}
+          /> */}
 
-/**
- * CONTAINER
- *   Note that we have two different sets of 'mapStateToProps' functions -
- *   one for Login, and one for Signup. However, they share the same 'mapDispatchToProps'
- *   function, and share the same Component. This is a good example of how we
- *   can stay DRY with interfaces that are very similar to each other!
- */
-
-const mapSignup = (state) => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.user.error,
+          <button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </button>
+        </form>
+      </div>
+    )
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit(evt) {
-      evt.preventDefault()
-
-      const companyName = evt.target.companyName.value
-      const email = evt.target.email.value
-      const location = evt.target.location.value
-      const password = evt.target.password.value
-      const userType = 'ORGANIZATION'
-      console.log(companyName, email, location, password, userType)
-      dispatch(signup(companyName, email, location, userType, password))
-    },
+    newOrganization: (organization) =>
+      dispatch(postNewOrganization(organization)),
   }
 }
 
-const SignupOrg = connect(mapSignup, mapDispatch)(SignUpOrg)
-export default SignupOrg
-
-/**
- * PROP TYPES
- */
-SignUpOrg.propTypes = {
-  name: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  error: PropTypes.object,
-}
+export default connect(null, mapDispatch)(SignUpOrgDetails)
