@@ -38,7 +38,9 @@ const SignUp = (props) => {
           />
         </div>
         <div>
+          {/* <Link to="/signup/candidate/details"> */}
           <button>{displayName}</button>
+          {/* </Link> */}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />
@@ -81,8 +83,7 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-const SignupDetails = connect(mapSignup, mapDispatch)(SignUp)
-export default SignupDetails
+export default connect(mapSignup, mapDispatch)(SignUp)
 
 /**
  * PROP TYPES

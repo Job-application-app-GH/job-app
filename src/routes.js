@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import CreateJobPosting from './components/CreateJobPosting'
+import SignupDetails from './components/SignupDetails'
 import {me} from './store'
 
 /**
@@ -28,6 +29,11 @@ class Routes extends Component {
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={ProfileType} />
         <Route exact path="/signup/candidate" component={Signup} />
+        <Route
+          exact
+          path="/signup/candidate/details"
+          component={SignupDetails}
+        />
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route
           exact
