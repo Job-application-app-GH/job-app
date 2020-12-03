@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
-module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
@@ -16,7 +15,23 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// include current orderId
-// await order.findOne
+//updates user type as "CANDIDATE" OR "ORGANIZATION"
+router.put('/', async (req, res, next) => {
+  console.log('REQ BODY------>>>>>', req.body)
+  try {
+    let user = req.user.id
+    console.log('req user--->', req.user)
+    let updatedUser = await User.update(req.body, {
+      where: {
+        id: user,
+      },
+      returning: true,
+      plain: true,
+    })
+    res.send(updatedUser[1])
+  } catch (error) {
+    next(error)
+  }
+})
 
-// find or create
+module.exports = router

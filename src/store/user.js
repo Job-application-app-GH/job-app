@@ -6,6 +6,7 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const UPDATE_USER_TYPE = 'UPDATE_USER_TYPE'
 
 /**
  * INITIAL STATE
@@ -17,6 +18,7 @@ const defaultUser = {}
  */
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const updateUserType = (user) => ({type: UPDATE_USER_TYPE, user})
 
 /**
  * THUNK CREATORS
@@ -32,7 +34,6 @@ export const me = () => async (dispatch) => {
 
 export const auth = (email, password, method) => async (dispatch) => {
   let res
-  console.log('email', email, 'password', password, 'method', method)
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
@@ -47,6 +48,20 @@ export const auth = (email, password, method) => async (dispatch) => {
   }
 }
 
+//route is not being called properly
+export const putUserType = (user) => {
+  console.log('usertype in thunk', user)
+  return async (dispatch) => {
+    console.log('return async dispatch', user)
+    try {
+      let {data} = await axios.put('/api/users', user)
+      dispatch(updateUserType(data))
+    } catch (error) {
+      console.log(error, 'error in put user type thunk')
+    }
+  }
+}
+
 const ADD_USER = 'ADD_USER'
 const addUser = (user) => {
   return {
@@ -55,20 +70,16 @@ const addUser = (user) => {
   }
 }
 export const signup = (
-  fullName,
-
   email,
-  password,
-  userType
+  password
+  // userType
 ) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/signup`, {
-      fullName,
-
       email,
       password,
-      userType,
+      // userType,
     })
     dispatch(addUser(res))
   } catch (signupError) {
@@ -104,6 +115,8 @@ export default function user(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case UPDATE_USER_TYPE:
+      return action.user
     default:
       return state
   }

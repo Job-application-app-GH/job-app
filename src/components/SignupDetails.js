@@ -6,6 +6,8 @@ class SignUpDetails extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: '',
+      location: '',
       currentCompany: '',
       currentRole: '',
       description: '',
@@ -25,6 +27,8 @@ class SignUpDetails extends React.Component {
     event.preventDefault()
     this.props.newCandidate({...this.state})
     this.setState({
+      name: '',
+      location: '',
       currentCompany: '',
       currentRole: '',
       description: '',
@@ -33,10 +37,31 @@ class SignUpDetails extends React.Component {
   }
 
   render() {
-    const {currentCompany, currentRole, description, isRemote} = this.state
+    const {
+      name,
+      location,
+      currentCompany,
+      currentRole,
+      description,
+      isRemote,
+    } = this.state
     return (
       <div>
         <form id="add-form">
+          <h5>Full Name</h5>
+          <input
+            type="text"
+            name="name"
+            onChange={this.handleChange}
+            value={name}
+          />
+          <h5>Location</h5>
+          <input
+            type="text"
+            name="location"
+            onChange={this.handleChange}
+            value={location}
+          />
           <h5>Current Company</h5>
           <input
             type="text"

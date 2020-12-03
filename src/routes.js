@@ -27,13 +27,10 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Login} />
-        <Route exact path="/signup" component={ProfileType} />
-        <Route exact path="/signup/candidate" component={Signup} />
-        <Route
-          exact
-          path="/signup/candidate/details"
-          component={SignupDetails}
-        />
+
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/signup/type" component={ProfileType} />
+        <Route exact path="/signup/candidate" component={SignupDetails} />
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route
           exact

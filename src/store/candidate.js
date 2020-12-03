@@ -8,9 +8,10 @@ const createNewCandidate = (userId) => ({
 })
 
 export const postNewCandidate = (candidate) => {
+  console.log('candidate received in thunk->', candidate)
   return async (dispatch) => {
     try {
-      let {data} = await axios.post('/candidate', candidate)
+      let {data} = await axios.post('/api/candidate', candidate)
       dispatch(createNewCandidate(data))
     } catch (error) {
       console.log(error, 'error in post new candidate thunk :(')

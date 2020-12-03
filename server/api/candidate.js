@@ -5,9 +5,11 @@ const {Candidate} = require('../db/models')
 
 router.post('/', async (req, res, next) => {
   try {
-    console.log('REQ BODY--->', req.body)
-    let {currentCompany, currentRole, description} = req.body
+    console.log('REQ BODY in candidate--->', req.body)
+    let {name, location, currentCompany, currentRole, description} = req.body
     let newCandidate = await Candidate.create({
+      name: name,
+      location: location,
       currentCompany: currentCompany,
       currentRole: currentRole,
       description: description,

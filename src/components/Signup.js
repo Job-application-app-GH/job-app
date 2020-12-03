@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -13,13 +13,6 @@ const SignUp = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="fullName">
-            <small>Full Name</small>
-          </label>
-          <input className="form-control" name="fullName" required />
-        </div>
-
         <div>
           <label htmlFor="email">
             <small>Email</small>
@@ -37,6 +30,7 @@ const SignUp = (props) => {
             required
           />
         </div>
+
         <div>
           {/* <Link to="/signup/candidate/details"> */}
           <button>{displayName}</button>
@@ -73,12 +67,11 @@ const mapDispatch = (dispatch) => {
     handleSubmit(evt) {
       evt.preventDefault()
 
-      const fullName = evt.target.fullName.value
-
       const email = evt.target.email.value
       const password = evt.target.password.value
-      const userType = 'CANDIDATE'
-      dispatch(signup(fullName, email, password, userType))
+      // const userType = evt.target.userType.value
+      console.log(email, password)
+      dispatch(signup(email, password))
     },
   }
 }
