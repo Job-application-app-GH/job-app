@@ -18,12 +18,13 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    let {name, description, location} = req.body
+    let {name, description, location, isRemote} = req.body
     let newOrganization = await Organization.create({
       name: name,
       description: description,
       location: location,
       userId: req.user.id,
+      isRemote: isRemote,
     })
     res.status(201).send(newOrganization)
   } catch (error) {

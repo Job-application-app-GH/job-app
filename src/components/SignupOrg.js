@@ -9,7 +9,7 @@ class SignUpOrgDetails extends React.Component {
       name: '',
       location: '',
       description: '',
-      // isRemote: '',
+      isRemote: '',
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -28,16 +28,12 @@ class SignUpOrgDetails extends React.Component {
       name: '',
       location: '',
       description: '',
+      isRemote: '',
     })
   }
 
   render() {
-    const {
-      name,
-      location,
-      description,
-      // isRemote,
-    } = this.state
+    const {name, location, description, isRemote} = this.state
     return (
       <div>
         <form id="add-form">
@@ -62,15 +58,23 @@ class SignUpOrgDetails extends React.Component {
             onChange={this.handleChange}
             value={description}
           />
-          {/* <h5>Are you willing to work remote?</h5> */}
-          {/* <input
+          <h5>Are you willing to hire remote employees?</h5>
+          <input
             type="radio"
             name="isRemote"
             checked={isRemote === true}
             onChange={this.handleChange}
-            value={isRemote}
-          /> */}
-
+            value="true"
+          />
+          Yes
+          <input
+            type="radio"
+            name="isRemote"
+            checked={isRemote === false}
+            onChange={this.handleChange}
+            value="false"
+          />
+          No
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>

@@ -35,7 +35,7 @@ class Job extends React.Component {
       name: '',
       location: '',
       description: '',
-      // isRemote: '',
+      isRemote: '',
     })
   }
 
@@ -67,14 +67,22 @@ class Job extends React.Component {
             value={description}
           />
           <h5>Are you willing to hire remote candidates?</h5>
-          {/* <input
+          <input
             type="radio"
             name="isRemote"
             checked={isRemote === true}
             onChange={this.handleChange}
-            value={isRemote}
-          /> */}
-
+            value="true"
+          />
+          Yes
+          <input
+            type="radio"
+            name="isRemote"
+            checked={isRemote === false}
+            onChange={this.handleChange}
+            value="false"
+          />
+          No
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>

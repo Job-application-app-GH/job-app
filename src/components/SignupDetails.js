@@ -1,6 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postNewCandidate} from '../store/candidate'
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from '@material-ui/core'
 
 class SignUpDetails extends React.Component {
   constructor(props) {
@@ -11,7 +18,7 @@ class SignUpDetails extends React.Component {
       currentCompany: '',
       currentRole: '',
       description: '',
-      // isRemote: true,
+      isRemote: '',
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,7 +39,8 @@ class SignUpDetails extends React.Component {
       currentCompany: '',
       currentRole: '',
       description: '',
-      // isRemote: true,
+      // img: '',
+      isRemote: '',
     })
   }
 
@@ -44,6 +52,7 @@ class SignUpDetails extends React.Component {
       currentRole,
       description,
       isRemote,
+      photoUrl,
     } = this.state
     return (
       <div>
@@ -76,6 +85,42 @@ class SignUpDetails extends React.Component {
             onChange={this.handleChange}
             value={currentRole}
           />
+          <h5>Are you willing to work remote?</h5>
+          {/* <FormControl>
+            <FormLabel>
+              <RadioGroup
+                name="isRemote"
+                value="true"
+                onChange={this.handleChange}
+                checked={this.state.isRemote === true}
+              />
+              <FormControlLabel value="true" control={<Radio />} label="Yes" />
+              <RadioGroup
+                name="isRemote"
+                value="false"
+                onChange={this.handleChange}
+              />
+              <FormControlLabel value="false" control={<Radio />} label="No" />
+            </FormLabel>
+          </FormControl> */}
+          <label for="true">
+            <input
+              type="radio"
+              name="isRemote"
+              checked={isRemote === true}
+              onChange={this.handleChange}
+              value="true"
+            />
+          </label>
+          Yes
+          <input
+            type="radio"
+            name="isRemote"
+            checked={isRemote === false}
+            onChange={this.handleChange}
+            value="false"
+          />
+          No
           <h5>Tell us about yourself </h5>
           <textarea
             type="text"
@@ -83,15 +128,13 @@ class SignUpDetails extends React.Component {
             onChange={this.handleChange}
             value={description}
           />
-          {/* <h5>Are you willing to work remote?</h5> */}
-          {/* <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === true}
-            onChange={this.handleChange}
-            value={isRemote}
-          /> */}
-
+          <h5>Upload a profile photo</h5>
+          <input
+            type="file"
+            name="img"
+            value={photoUrl}
+            onChange={this.handleFile}
+          />
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>
