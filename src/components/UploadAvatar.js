@@ -32,20 +32,20 @@ export default class UploadAvatar extends React.Component {
     this.setState({position})
   }
 
+  setEditorRef = (editor) => (this.editor = editor)
+
   handleSubmit(e) {
     if (this.editor) {
       // This returns a HTMLCanvasElement, it can be made into a data URL or a blob,
       // drawn on another canvas, or added to the DOM.
-      const canvas = this.editor.getImage().toDataURL()
-      let imageURL
-      fetch(canvas)
-        .then((res) => res.blob())
-        .then((blob) => (imageURL = window.URL.createObjectURL(blob)))
-      console.log(imageURL)
+      const img = this.editor.getImageScaledToCanvas().toDataURL()
+      // let imageURL
+      // fetch(canvas)
+      //   .then((res) => res.blob())
+      //   .then((blob) => (imageURL = window.URL.createObjectURL(blob)))
+      console.log(img)
     }
   }
-
-  setEditorRef = (editor) => (this.editor = editor)
 
   render() {
     return (
