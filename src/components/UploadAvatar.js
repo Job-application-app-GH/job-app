@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ReactAvatarEditor from 'react-avatar-editor'
+import {uploadAvatarImage} from '../store/user'
 
-export default class UploadAvatar extends React.Component {
+class UploadAvatar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,7 +44,7 @@ export default class UploadAvatar extends React.Component {
       // fetch(canvas)
       //   .then((res) => res.blob())
       //   .then((blob) => (imageURL = window.URL.createObjectURL(blob)))
-      console.log(img)
+      this.props.addImg(img)
     }
   }
 
@@ -83,3 +84,11 @@ export default class UploadAvatar extends React.Component {
     )
   }
 }
+
+const mapDispatch = (dispatch) => {
+  return {
+    addImg: (img) => dispatch(uploadAvatarImage(img)),
+  }
+}
+
+export default connect(null, mapDispatch)(UploadAvatar)

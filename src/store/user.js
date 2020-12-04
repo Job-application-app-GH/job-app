@@ -7,6 +7,7 @@ import history from '../history'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const UPDATE_USER_TYPE = 'UPDATE_USER_TYPE'
+const UPLOAD_IMAGE = 'UPLOAD_IMAGE'
 
 /**
  * INITIAL STATE
@@ -19,6 +20,7 @@ const defaultUser = {}
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const updateUserType = (user) => ({type: UPDATE_USER_TYPE, user})
+const uploadImage = (user) => ({type: UPLOAD_IMAGE, user})
 
 /**
  * THUNK CREATORS
@@ -48,7 +50,6 @@ export const auth = (email, password, method) => async (dispatch) => {
   }
 }
 
-//route is not being called properly
 export const putUserType = (type) => {
   return async (dispatch) => {
     try {
@@ -56,6 +57,17 @@ export const putUserType = (type) => {
       dispatch(updateUserType(data))
     } catch (error) {
       console.log(error, 'error in put user type thunk')
+    }
+  }
+}
+
+export const uploadAvatarImage = (img) => {
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.put('/api/users/img', img)
+      dispatch(uploadImage(data))
+    } catch (error) {
+      console.log(error, 'error in img thunk')
     }
   }
 }
@@ -114,6 +126,8 @@ export default function user(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case UPDATE_USER_TYPE:
+      return action.user
+    case UPLOAD_IMAGE:
       return action.user
     default:
       return state
