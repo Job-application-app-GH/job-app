@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import SignupDetails from './components/SignupDetails'
+import UploadAvatar from './components/UploadAvatar'
 import Job from './components/Job'
 import {me} from './store'
 
@@ -33,6 +34,7 @@ class Routes extends Component {
         <Route exact path="/signup/candidate" component={SignupDetails} />
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/newJob" component={Job} />
+        <Route exact path="/profileImage" component={UploadAvatar} />
 
         {isLoggedIn && (
           <Switch>
