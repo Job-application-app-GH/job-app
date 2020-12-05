@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const CREATE_NEW_JOB = 'CREATE_NEW_JOB'
 const GET_SINGLE_JOB = 'GET_SINGLE_JOB'
+const UPDATE_JOB = 'UPDATE_JOB'
 
 const createNewJob = (organizationId) => ({
   type: CREATE_NEW_JOB,
@@ -10,6 +11,11 @@ const createNewJob = (organizationId) => ({
 
 const getSingleJob = (job) => ({
   type: GET_SINGLE_JOB,
+  job,
+})
+
+const updateJob = (job) => ({
+  type: UPDATE_JOB,
   job,
 })
 
@@ -36,6 +42,18 @@ export const fetchSingleJob = (id) => {
   }
 }
 
+export const fetchUpdatedJob = (job) => {
+  console.log('job in thunk', job)
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.put(`/api/job/${job.id}`, job)
+      dispatch(updateJob(data))
+    } catch (error) {
+      console.log(error, 'error in update job thunk')
+    }
+  }
+}
+
 const initalState = []
 
 export default function job(state = initalState, action) {
@@ -43,6 +61,8 @@ export default function job(state = initalState, action) {
     case CREATE_NEW_JOB:
       return action.organizationId
     case GET_SINGLE_JOB:
+      return action.job
+    case UPDATE_JOB:
       return action.job
     default:
       return state

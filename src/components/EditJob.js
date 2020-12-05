@@ -1,21 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchUpdatedProfile, fetchUserDetails} from '../store/profile'
+import {fetchUpdatedProfile} from '../store/profile'
+import {fetchUpdatedJob, fetchSingleJob} from '../store/job'
 
 class EditJob extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      location: this.props.profile.location,
-      description: this.props.profile.description,
-      isRemote: this.props.profile.isRemote,
+      title: this.props.job.title,
+      location: this.props.job.location,
+      description: this.props.job.description,
+      isRemote: this.props.job.isRemote,
+      id: this.props.job.id,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
-    this.props.loadUserDetails()
+    this.props.loadSingleJob(this.props.match.params.id)
   }
 
   handleChange(event) {
@@ -26,16 +29,23 @@ class EditJob extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.loadUpdatedProfile({...this.state})
+    this.props.loadUpdatedJob({...this.state})
     this.props.history.goBack()
   }
   render() {
     console.log(this.props, 'PROPS IN EDIT PROFILE')
-    const {location, description, isRemote} = this.state
+    const {title, location, description, isRemote} = this.state
     return (
       <div>
         <h3>Edit My Profile</h3>
-        <h4>{this.props.profile.name}</h4>
+        <h5>Title</h5>
+        <input
+          type="text"
+          name="title"
+          onChange={this.handleChange}
+          value={title}
+        />
+        <h5>Location</h5>
         <input
           type="text"
           name="location"
@@ -76,14 +86,14 @@ class EditJob extends React.Component {
 
 const mapState = (state) => {
   return {
-    profile: state.profile,
+    job: state.job,
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    loadUserDetails: () => dispatch(fetchUserDetails()),
-    loadUpdatedProfile: (profile) => dispatch(fetchUpdatedProfile(profile)),
+    loadUpdatedJob: (job) => dispatch(fetchUpdatedJob(job)),
+    loadSingleJob: (id) => dispatch(fetchSingleJob(id)),
   }
 }
 

@@ -28,4 +28,19 @@ router.post('/:id', async (req, res, next) => {
   }
 })
 
+router.put('/:id', async (req, res, next) => {
+  try {
+    let job = await Job.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+      returning: true,
+      plain: true,
+    })
+    res.send(job[0])
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
