@@ -19,12 +19,13 @@ export const postNewJob = (job, id) => {
   }
 }
 
-const initalState = {}
+const initalState = []
 
 export default function job(state = initalState, action) {
   switch (action.type) {
     case CREATE_NEW_JOB:
       return action.organizationId
+
     default:
       return state
   }

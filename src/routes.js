@@ -15,6 +15,7 @@ import Job from './components/Job'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
 import EditProfileOrg from './components/EditProfileOrg'
+import JobProfile from './components/JobProfile'
 import {me} from './store'
 
 /**
@@ -42,6 +43,7 @@ class Routes extends Component {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profile/edit" component={EditProfile} />
         <Route exact path="/profile/editOrg" component={EditProfileOrg} />
+        <Route exact path="/profile/jobs" component={JobProfile} />
 
         {isLoggedIn && (
           <Switch>
