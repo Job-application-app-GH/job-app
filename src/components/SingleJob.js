@@ -17,6 +17,10 @@ class SingleJob extends React.Component {
     return (
       <div>
         <h3>Job Details</h3>
+
+        <Link to="/profile/jobs">
+          <button>Back to job postings</button>
+        </Link>
         <Link to={`/profile/jobs/edit/${job.id}`}>
           <button>Edit</button>
         </Link>
@@ -28,9 +32,7 @@ class SingleJob extends React.Component {
         ) : (
           <h5>Hiring remote candidates: no </h5>
         )}
-        <Link to="/profile/jobs">
-          <button>Back to job postings</button>
-        </Link>
+        <button>View matches for this job</button>
       </div>
     )
   }
