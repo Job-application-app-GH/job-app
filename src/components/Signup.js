@@ -2,14 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
  */
 const SignUp = (props) => {
   const {name, displayName, handleSubmit, error} = props
-
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -32,7 +31,7 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          {/* <Link to="/signup/candidate/details"> */}
+          {/* <Link to="/name"> */}
           <button>{displayName}</button>
           {/* </Link> */}
         </div>
@@ -66,15 +65,19 @@ const mapDispatch = (dispatch) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-
+      console.log('inside handle submit')
       const email = evt.target.email.value
       const password = evt.target.password.value
-      // const userType = evt.target.userType.value
-      console.log(email, password)
       dispatch(signup(email, password))
     },
   }
 }
+
+// const mapDispatch = (dispatch) => {
+//   return {
+//     createAccount: (email, password) => dispatch(signup(email, password))
+//   }
+// }
 
 export default connect(mapSignup, mapDispatch)(SignUp)
 

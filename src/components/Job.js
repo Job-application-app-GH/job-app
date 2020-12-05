@@ -32,7 +32,7 @@ class Job extends React.Component {
     this.props.newCandidate({...this.state}, this.props.organization.id)
 
     this.setState({
-      name: '',
+      title: '',
       location: '',
       description: '',
       isRemote: '',

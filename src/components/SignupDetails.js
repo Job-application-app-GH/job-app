@@ -8,6 +8,7 @@ import {
   FormControl,
   FormLabel,
 } from '@material-ui/core'
+import {Link} from 'react-router-dom'
 
 class SignUpDetails extends React.Component {
   constructor(props) {
@@ -103,15 +104,13 @@ class SignUpDetails extends React.Component {
               <FormControlLabel value="false" control={<Radio />} label="No" />
             </FormLabel>
           </FormControl> */}
-          <label for="true">
-            <input
-              type="radio"
-              name="isRemote"
-              checked={isRemote === true}
-              onChange={this.handleChange}
-              value="true"
-            />
-          </label>
+          <input
+            type="radio"
+            name="isRemote"
+            checked={isRemote === true}
+            onChange={this.handleChange}
+            value="true"
+          />
           Yes
           <input
             type="radio"
@@ -135,9 +134,11 @@ class SignUpDetails extends React.Component {
             value={photoUrl}
             onChange={this.handleFile}
           />
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <Link to="/profileImage">
+            <button type="submit" onClick={this.handleSubmit}>
+              Submit
+            </button>
+          </Link>
         </form>
       </div>
     )

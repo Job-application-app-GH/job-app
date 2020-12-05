@@ -44,6 +44,7 @@ class UploadAvatar extends React.Component {
       // fetch(canvas)
       //   .then((res) => res.blob())
       //   .then((blob) => (imageURL = window.URL.createObjectURL(blob)))
+      // console.log(img)
       this.props.addImg(img)
     }
   }

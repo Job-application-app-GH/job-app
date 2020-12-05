@@ -45,6 +45,8 @@ export const auth = (email, password, method) => async (dispatch) => {
   try {
     dispatch(getUser(res.data))
     // history.push('/home')
+
+    history.push('/name')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -85,6 +87,8 @@ export const signup = (
   // userType
 ) => async (dispatch) => {
   let res
+  console.log('email', email, 'password', password)
+
   try {
     res = await axios.post(`/auth/signup`, {
       email,
@@ -99,6 +103,8 @@ export const signup = (
   try {
     dispatch(getUser(res.data))
     // history.push('/home')
+    console.log('history')
+    history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

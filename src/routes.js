@@ -10,7 +10,9 @@ import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import SignupDetails from './components/SignupDetails'
 import UploadAvatar from './components/UploadAvatar'
+import NameCards from './components/NameCards'
 import Job from './components/Job'
+import Profile from './components/Profile'
 import {me} from './store'
 
 /**
@@ -28,18 +30,19 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Login} />
-
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup/type" component={ProfileType} />
         <Route exact path="/signup/candidate" component={SignupDetails} />
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/newJob" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
+        <Route exact path="/name" component={NameCards} />
+        <Route exact path="/profile" component={Profile} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            {/* <Route path="/home" component={UserHome} /> */}
+            {/* <Route path="/signup/type" component={ProfileType} /> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

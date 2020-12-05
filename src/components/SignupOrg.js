@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postNewOrganization} from '../store/organization'
+import {Link} from 'react-router-dom'
 
 class SignUpOrgDetails extends React.Component {
   constructor(props) {
@@ -75,9 +76,11 @@ class SignUpOrgDetails extends React.Component {
             value="false"
           />
           No
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <Link to="/name">
+            <button type="submit" onClick={this.handleSubmit}>
+              Submit
+            </button>
+          </Link>
         </form>
       </div>
     )
