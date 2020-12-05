@@ -1,25 +1,56 @@
 import axios from 'axios'
 
 const SET_SKILLS = 'SET_SKILLS'
-// const DUMMY_SKILLS_LIST = ["C++", "JavaScript", "SQL", "HTML"];
-const DUMMY_SKILLS_LIST = [
-  {id: 1, name: 'C++'},
-  {id: 2, name: 'JavaScript'},
-  {id: 3, name: 'SQL'},
-  {id: 4, name: 'HTML'},
-]
+const MODIFY_SKILL = 'MODIFY_SKILL'
+const SAVE_SKILLS = 'SAVE_SKILLS'
 
-const setSkills = (skills) => ({type: SET_SKILLS, skills})
+/**
+ * ACTION CREATORS
+ */
+const setSkills = (selectedSkills) => ({type: SET_SKILLS, selectedSkills})
+export const modifySkill = (skill) => ({type: MODIFY_SKILL, skill})
+const saveSkills = () => ({type: SAVE_SKILLS})
 
-export const getAllSkills = () => async (dispatch) => {
+/**
+ * THUNK CREATORS
+ */
+export const getCandidateSkills = (candidateId) => async (dispatch) => {
   try {
-    console.log('Inside the thunk')
-    //Access API to get the skills list from DB table
-    const {data} = await axios.get(`/api/users`)
-    // dispatch(setSkills(skills));
-    console.log('Received data from db: ', data)
-    console.log('dispatching set skills')
-    dispatch(setSkills(DUMMY_SKILLS_LIST))
+    const {data: selectedSkills} = await axios.get(
+      `/api/candidateSkills/${candidateId}`
+    )
+
+    dispatch(setSkills(selectedSkills))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const getJobSkills = (jobId) => async (dispatch) => {
+  try {
+    const {data: selectedSkills} = await axios.get(`/api/jobSkills/${jobId}`)
+
+    dispatch(setSkills(selectedSkills))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const saveCandidateSkills = (candidateId, skills) => async (
+  dispatch
+) => {
+  try {
+    await axios.post(`/api/candidateSkills/${candidateId}`, {skills})
+    dispatch(saveSkills())
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const saveJobSkills = (jobId, skills) => async (dispatch) => {
+  try {
+    await axios.post(`/api/jobSkills/${jobId}`, {skills})
+    dispatch(saveSkills())
   } catch (err) {
     console.error(err)
   }
@@ -30,8 +61,17 @@ const initialState = []
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_SKILLS:
-      console.log(action.skills)
-      return action.skills
+      return action.selectedSkills
+    case MODIFY_SKILL:
+      const newState = state.map((skill) => {
+        if (skill.id === action.skill.id) {
+          skill.selected = action.skill.selected
+        }
+        return skill
+      })
+      return newState
+    case SAVE_SKILLS:
+      return initialState
     default:
       return state
   }

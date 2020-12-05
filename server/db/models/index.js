@@ -1,9 +1,13 @@
-const Candidate = require('./candidate')
-const Job = require('./job')
-const Match = require('./match')
-const Organization = require('./organization')
 const User = require('./user')
 const Skill = require('./skill')
+const Candidate = require('./candidate')
+const CandidateSkill = require('./candidateSkill')
+const JobSkill = require('./jobSkill')
+
+const Organization = require('./organization')
+const Job = require('./job')
+
+const Match = require('./match')
 const Message = require('./message')
 
 User.hasOne(Candidate)
@@ -15,11 +19,11 @@ Organization.belongsTo(User)
 Organization.hasMany(Job)
 Job.belongsTo(Organization)
 
-Job.belongsToMany(Skill, {through: 'job_skills'})
-Skill.belongsToMany(Job, {through: 'job_skills'})
+Job.belongsToMany(Skill, {through: JobSkill})
+Skill.belongsToMany(Job, {through: JobSkill})
 
-Candidate.belongsToMany(Skill, {through: 'candidate_skills'})
-Skill.belongsToMany(Candidate, {through: 'candidate_skills'})
+Candidate.belongsToMany(Skill, {through: CandidateSkill})
+Skill.belongsToMany(Candidate, {through: CandidateSkill})
 
 Job.belongsToMany(Candidate, {through: Match})
 Candidate.belongsToMany(Job, {through: Match})
@@ -35,4 +39,6 @@ module.exports = {
   User,
   Skill,
   Message,
+  CandidateSkill,
+  JobSkill,
 }
