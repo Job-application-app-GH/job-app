@@ -25,12 +25,17 @@ class Profile extends React.Component {
   render() {
     const profile = this.props.profile
     const user = this.props.user
-
+    let link
+    if (user.userType === 'CANDIDATE') {
+      link = '/profile/edit'
+    } else if (user.userType === 'ORGANIZATION') {
+      link = '/profile/editOrg'
+    }
     return (
       <div>
         <h4>User Profile</h4>
 
-        <Link to="profile/edit">
+        <Link to={link}>
           <button onClick={this.displayForm}>Edit my profile</button>
         </Link>
         <h6>{profile.name}</h6>
