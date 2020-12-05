@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postNewJob} from '../store/job'
+import {Link} from 'react-router-dom'
 import {fetchOrganization} from '../store/organization'
+import {fetchSingleJob} from '../store/job'
 
 class Job extends React.Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class Job extends React.Component {
     event.preventDefault()
     console.log('props in handle submit', this.props.organizationId)
     this.props.newCandidate({...this.state}, this.props.organization.id)
-
+    this.props.getJob(this.props.organization.id)
     this.setState({
       title: '',
       location: '',
@@ -40,8 +42,10 @@ class Job extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props.organization.id)
+    // console.log('PROPS', this.props.organization.id)
     const {title, location, description, isRemote} = this.state
+    const jobId = this.props.job.id
+    console.log('job id', jobId)
     return (
       <div>
         <form id="add-form">
@@ -83,9 +87,11 @@ class Job extends React.Component {
             value="false"
           />
           No
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <Link to={`/jobSkills/${jobId}`}>
+            <button type="submit" onClick={this.handleSubmit}>
+              Submit
+            </button>
+          </Link>
         </form>
       </div>
     )
@@ -95,6 +101,7 @@ class Job extends React.Component {
 const mapState = (state) => {
   return {
     organization: state.organization,
+    job: state.job,
   }
 }
 
@@ -102,6 +109,7 @@ const mapDispatch = (dispatch) => {
   return {
     newCandidate: (job, id) => dispatch(postNewJob(job, id)),
     loadOrganization: (id) => dispatch(fetchOrganization(id)),
+    getJob: (orgId) => dispatch(fetchSingleJob(orgId)),
   }
 }
 

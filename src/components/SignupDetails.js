@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {postNewCandidate} from '../store/candidate'
+import {postNewCandidate, fetchCandidate} from '../store/candidate'
+import {fetchUserDetails} from '../store/profile'
 import {
   Radio,
   RadioGroup,
@@ -31,9 +32,14 @@ class SignUpDetails extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  //ISSUE?!?!?!
+  async handleSubmit(event) {
     event.preventDefault()
-    this.props.newCandidate({...this.state})
+    await this.props.newCandidate({...this.state})
+    // await this.props.fetchCandidate()
+    console.log('id-->', this.props.candidate.id)
+    this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
+    console.log('State in handle submit', this.state)
     this.setState({
       name: '',
       location: '',
@@ -55,6 +61,8 @@ class SignUpDetails extends React.Component {
       isRemote,
       photoUrl,
     } = this.state
+    const candidateId = this.props.candidate.id
+    console.log(candidateId)
     return (
       <div>
         <form id="add-form">
@@ -127,28 +135,33 @@ class SignUpDetails extends React.Component {
             onChange={this.handleChange}
             value={description}
           />
-          <h5>Upload a profile photo</h5>
-          <input
-            type="file"
-            name="img"
-            value={photoUrl}
-            onChange={this.handleFile}
-          />
-          <Link to="/profileImage">
+          {/* <Link to="/profileImage">
             <button type="submit" onClick={this.handleSubmit}>
               Submit
             </button>
-          </Link>
+          </Link> */}
+          {/* <Link to={`/candidateSkills/${candidateId}`}> */}
+          <button type="submit" onClick={this.handleSubmit}>
+            Save
+          </button>
+          {/* </Link> */}
         </form>
       </div>
     )
   }
 }
 
-const mapDispatch = (dispatch) => {
+const mapState = (state) => {
   return {
-    newCandidate: (candidate) => dispatch(postNewCandidate(candidate)),
+    candidate: state.candidate,
   }
 }
 
-export default connect(null, mapDispatch)(SignUpDetails)
+const mapDispatch = (dispatch) => {
+  return {
+    newCandidate: (candidate) => dispatch(postNewCandidate(candidate)),
+    fetchCandidate: () => dispatch(fetchCandidate()),
+  }
+}
+
+export default connect(mapState, mapDispatch)(SignUpDetails)
