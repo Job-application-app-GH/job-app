@@ -119,7 +119,7 @@ const jobData = [
 
 const skillData = [
   {
-    name: 'JavaScirpt',
+    name: 'JavaScript',
   },
   {
     name: 'React',
@@ -132,6 +132,30 @@ const skillData = [
   },
   {
     name: 'Express',
+  },
+  {
+    name: 'Node.js',
+  },
+  {
+    name: 'PostgreSQL',
+  },
+  {
+    name: 'HTML',
+  },
+  {
+    name: 'CSS',
+  },
+  {
+    name: 'SQL',
+  },
+  {
+    name: 'Angular',
+  },
+  {
+    name: 'D3.js',
+  },
+  {
+    name: 'OAuth',
   },
 ]
 

@@ -1,14 +1,12 @@
 const router = require('express').Router()
-// const {User} = require('../db/models')
 const db = require('../db')
-// const adminOnly = require('./accessControl')
+const {Job, JobSkill} = require('../db/models')
+
 module.exports = router
 
 // GET '/api/jobSkills/:jobId'
 router.get('/:jobId', async (req, res, next) => {
   try {
-    console.log('Received the request for job skills!!')
-
     //ARCHANA:
     // Get the id either from req object or pass it in the req url, maybe?
     // Can be finalized after the login functionality is completed
@@ -23,9 +21,35 @@ router.get('/:jobId', async (req, res, next) => {
           `,
       {replacements: [req.params.jobId]}
     )
-    console.log('job skills are : ', job_skills)
+
     res.json(job_skills)
   } catch (err) {
     next(err)
+  }
+})
+
+// POST '/api/jobSkills/::jobId'
+router.post('/:jobId', async (req, res, next) => {
+  try {
+    const jobId = req.params.jobId
+    const {skills} = req.body
+
+    const job = await Job.findByPk(jobId)
+    await JobSkill.destroy({where: {jobId}})
+
+    //Now go through the passed skills list and create a list of "selected" skills.
+    //Use this selectedSkills list to insert new skillset for the given candidate
+    const selectedSkills = skills
+      .filter((skill) => skill.selected)
+      .map((skill) => skill.id)
+
+    // Insert new record only if user had selected atleast one skill
+    if (selectedSkills.length) {
+      await job.addSkills(selectedSkills)
+    }
+
+    res.status(201).send()
+  } catch (e) {
+    next(e)
   }
 })

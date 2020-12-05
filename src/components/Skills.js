@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
-// import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-// import FormHelperText from '@material-ui/core/FormHelperText'
 import Checkbox from '@material-ui/core/Checkbox'
 
 import {
@@ -14,53 +12,56 @@ import {
   saveCandidateSkills,
   saveJobSkills,
 } from '../store'
-// import UserSkills from './UserSkills'
 
 class Skills extends Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
+    this.handleSaveSkills = this.handleSaveSkills.bind(this)
   }
 
   handleClick(skillId, event) {
-    // console.log(
-    //   'selected skill: ' + skillId,
-    //   event.target.name + ' selected: ' + event.target.checked
-    // )
-    console.log(
-      'Inside handleClick, owner id: ',
-      this.props.match.params.ownerId
-    )
     this.props.modifySkill({id: skillId, selected: event.target.checked})
   }
 
+  handleSaveSkills() {
+    this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
+    this.props.history.push('/')
+  }
+
   componentDidMount() {
-    console.log(
-      'Inside componentDidMount, owner id: ',
-      this.props.match.params.ownerId
-    )
     this.props.loadSkills(this.props.match.params.ownerId)
   }
+
   render() {
-    console.log('Inside Skills render')
     return (
       <div className="skills_container">
         <FormControl component="fieldset">
           <FormLabel component="legend">Please select skills</FormLabel>
+          <div className="skills_list">
+            {this.props.skills.map((skill) => (
+              <FormControlLabel
+                key={skill.id}
+                control={
+                  <Checkbox
+                    checked={skill.selected}
+                    onChange={(event) => this.handleClick(skill.id, event)}
+                    name={skill.name}
+                    size="large"
+                  />
+                }
+                label={skill.name}
+              />
+            ))}
+          </div>
 
-          {this.props.skills.map((skill) => (
-            <FormControlLabel
-              key={skill.id}
-              control={
-                <Checkbox
-                  checked={skill.selected}
-                  onChange={(e) => this.handleClick(skill.id, e)}
-                  name={skill.name}
-                />
-              }
-              label={skill.name}
-            />
-          ))}
+          <button
+            type="button"
+            onClick={this.handleSaveSkills}
+            className="skills_button"
+          >
+            Save Skills
+          </button>
         </FormControl>
       </div>
     )

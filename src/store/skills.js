@@ -4,13 +4,6 @@ const SET_SKILLS = 'SET_SKILLS'
 const MODIFY_SKILL = 'MODIFY_SKILL'
 const SAVE_SKILLS = 'SAVE_SKILLS'
 
-// const DUMMY_SKILLS_LIST = [
-//   {id: 1, name: 'C++'},
-//   {id: 2, name: 'JavaScript'},
-//   {id: 3, name: 'SQL'},
-//   {id: 4, name: 'HTML'},
-// ]
-
 /**
  * ACTION CREATORS
  */
@@ -23,13 +16,10 @@ const saveSkills = () => ({type: SAVE_SKILLS})
  */
 export const getCandidateSkills = (candidateId) => async (dispatch) => {
   try {
-    // console.log('Inside the getCandidateSkills thunk')
-    //Access API to get the skills list from DB table candidate_skills
     const {data: selectedSkills} = await axios.get(
       `/api/candidateSkills/${candidateId}`
     )
-    // console.log('Received selectedSkills from db: ', selectedSkills)
-    // console.log('dispatching set skills')
+
     dispatch(setSkills(selectedSkills))
   } catch (err) {
     console.error(err)
@@ -38,31 +28,28 @@ export const getCandidateSkills = (candidateId) => async (dispatch) => {
 
 export const getJobSkills = (jobId) => async (dispatch) => {
   try {
-    // console.log('Inside the getJobSkills thunk')
-    //Access API to get the skills list from DB table candidate_skills
     const {data: selectedSkills} = await axios.get(`/api/jobSkills/${jobId}`)
-    // console.log('Received selectedSkills from db: ', selectedSkills)
-    // console.log('dispatching set skills')
+
     dispatch(setSkills(selectedSkills))
   } catch (err) {
     console.error(err)
   }
 }
 
-export const saveCandidateSkills = (candidateId, candidateSkills) => async (
+export const saveCandidateSkills = (candidateId, skills) => async (
   dispatch
 ) => {
   try {
-    await axios.post(`/api/candidateSkills/${candidateId}`, candidateSkills)
+    await axios.post(`/api/candidateSkills/${candidateId}`, {skills})
     dispatch(saveSkills())
   } catch (err) {
     console.error(err)
   }
 }
 
-export const saveJobSkills = (jobId, jobSkills) => async (dispatch) => {
+export const saveJobSkills = (jobId, skills) => async (dispatch) => {
   try {
-    await axios.post(`/api/jobSkills/${jobId}`, jobSkills)
+    await axios.post(`/api/jobSkills/${jobId}`, {skills})
     dispatch(saveSkills())
   } catch (err) {
     console.error(err)
@@ -74,7 +61,6 @@ const initialState = []
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_SKILLS:
-      // console.log(action.selectedSkills)
       return action.selectedSkills
     case MODIFY_SKILL:
       const newState = state.map((skill) => {
