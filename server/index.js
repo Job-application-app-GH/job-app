@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
 module.exports = app
-
 // // This is a global Mocha hook, used for resource cleanup.
 // // Otherwise, Mocha v4+ never quits after tests.
 // if (process.env.NODE_ENV === 'test') {
@@ -48,11 +47,9 @@ passport.deserializeUser(async (id, done) => {
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
-
   // body parsing middleware
   app.use(express.json())
   app.use(express.urlencoded({extended: true}))
-
   // compression middleware
   app.use(compression())
 
@@ -67,6 +64,7 @@ const createApp = () => {
   )
   app.use(passport.initialize())
   app.use(passport.session())
+
 
   // auth and api routes
   app.use('/auth', require('./auth'))
@@ -111,6 +109,7 @@ const startListening = () => {
   const io = socketio(server)
   require('./socket')(io)
 }
+
 
 const syncDb = () => db.sync()
 
