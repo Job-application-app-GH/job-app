@@ -1,12 +1,13 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
+import nameCard from './nameCard'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import skills from './skills'
 import userSkills from './userSkills'
 
-const reducer = combineReducers({skills, userSkills})
+const reducer = combineReducers({skills, nameCard,  userSkills})
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
