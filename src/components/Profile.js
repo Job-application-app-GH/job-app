@@ -24,17 +24,29 @@ class Profile extends React.Component {
 
   render() {
     const profile = this.props.profile
-    console.log('PROFILE-->', profile)
+    const user = this.props.user
+
     return (
       <div>
         <h4>User Profile</h4>
+
         <Link to="profile/edit">
           <button onClick={this.displayForm}>Edit my profile</button>
         </Link>
         <h6>{profile.name}</h6>
         <h6>Location: {profile.location}</h6>
+        {profile.currentCompany ? (
+          <h6>Current Company: {profile.currentCompany}</h6>
+        ) : null}
+        {profile.currentRole ? (
+          <h6>Current Role: {profile.currentRole}</h6>
+        ) : null}
         <p>Description: {profile.description}</p>
-        <h6>Remote status: {profile.isRemote}</h6>
+        {profile.isRemote ? (
+          <h6>Willing to hire remote candidates: True</h6>
+        ) : (
+          <h6>Willing to hire remote candidates: False</h6>
+        )}
 
         {profile.jobs ? (
           <Link to="/profile/jobs">
@@ -49,6 +61,7 @@ class Profile extends React.Component {
 const mapState = (state) => {
   return {
     profile: state.profile,
+    user: state.user,
   }
 }
 
