@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchAllJobs} from '../store/job'
 import {fetchUserDetails} from '../store/profile'
-import {destroyJob} from '../store/job'
 
 class JobProfile extends React.Component {
   constructor(props) {
@@ -25,16 +24,18 @@ class JobProfile extends React.Component {
         <Link to="/profile">
           <button>Back to profile</button>
         </Link>
-        <button>Add New Job</button>
-
+        <Link to="/addJob">
+          <button>Add New Job</button>
+        </Link>
         {jobs.map((job) => (
           <div key={job.id} className="job-listing">
+            <h5>---</h5>
             <Link to={`/profile/jobs/${job.id}`}>
               <h5> {job.title}</h5>
               <h5> {job.location}</h5>
               <h5> {job.description}</h5>
             </Link>
-            {/* <button onClick={() => this.props.deleteJob(job.id)}>Delete</button> */}
+            <h5>---</h5>
           </div>
         ))}
       </div>
@@ -53,7 +54,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadUserDetails: () => dispatch(fetchUserDetails()),
-    deleteJob: (id) => dispatch(destroyJob(id)),
+
     fetchJobs: (orgId) => dispatch(orgId),
   }
 }
