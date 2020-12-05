@@ -23,8 +23,35 @@ router.get('/', async (req, res, next) => {
         },
       })
     }
-    console.log('details:', details)
+    // console.log('details:', details)
     res.send(details)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/', async (req, res, next) => {
+  try {
+    let updatedProfile
+    if (req.user.userType === 'CANDIDATE') {
+      updatedProfile = await Candidate.update(req.body, {
+        where: {
+          userId: req.user.id,
+        },
+        returning: true,
+        plain: true,
+      })
+    } else {
+      updatedProfile = await Organization.update(req.body, {
+        where: {
+          userId: req.user.id,
+        },
+        returning: true,
+        plain: true,
+      })
+    }
+    console.log('update', updatedProfile[0])
+    res.send(updatedProfile[0])
   } catch (error) {
     next(error)
   }
