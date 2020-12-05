@@ -95,7 +95,8 @@ const initalState = []
 export default function job(state = initalState, action) {
   switch (action.type) {
     case CREATE_NEW_JOB:
-      return action.organizationId
+      // return action.organizationId
+      return [...state, action.organizationId]
     case GET_ALL_JOBS:
       return action.jobs
     case GET_SINGLE_JOB:

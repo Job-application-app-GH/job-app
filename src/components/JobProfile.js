@@ -25,8 +25,9 @@ class JobProfile extends React.Component {
         <Link to="/profile">
           <button>Back to profile</button>
         </Link>
-        <button>Add New Job</button>
-
+        <Link to="/addJob">
+          <button>Add New Job</button>
+        </Link>
         {jobs.map((job) => (
           <div key={job.id} className="job-listing">
             <Link to={`/profile/jobs/${job.id}`}>

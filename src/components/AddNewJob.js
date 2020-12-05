@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {postNewJob} from '../store/job'
 import {fetchOrganization} from '../store/organization'
+import {Link} from 'react-router-dom'
 
 class AddNewJob extends React.Component {
   constructor(props) {
@@ -28,16 +29,14 @@ class AddNewJob extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('props in handle submit', this.props.organizationId)
     this.props.newCandidate({...this.state}, this.props.organization.id)
-
+    this.props.history.goBack()
     this.setState({
       title: '',
       location: '',
       description: '',
-      isRemote: '',
+      isRemote: true,
     })
-    this.props.history.goBack()
   }
 
   render() {
@@ -84,9 +83,11 @@ class AddNewJob extends React.Component {
             value="false"
           />
           No
+          {/* <Link to="/profile/jobs"> */}
           <button type="submit" onClick={this.handleSubmit}>
             Submit
           </button>
+          {/* </Link> */}
         </form>
       </div>
     )
