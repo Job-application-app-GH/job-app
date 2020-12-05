@@ -29,6 +29,7 @@ export const fetchUpdatedProfile = (profile) => {
   return async (dispatch) => {
     try {
       let {data} = axios.put('/api/profile', profile)
+      console.log('data in thunk', data)
       dispatch(updateProfile(data))
     } catch (error) {
       console.log(error, 'error in update profile thunk')
