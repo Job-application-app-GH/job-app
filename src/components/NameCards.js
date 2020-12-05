@@ -3,6 +3,7 @@ import TinderCard from 'react-tinder-card'
 import {fetchUser} from '../store/nameCard'
 import {connect} from 'react-redux'
 
+
 class NameCards extends React.Component {
   constructor(props) {
     super(props)
@@ -11,6 +12,7 @@ class NameCards extends React.Component {
     }
     this.handleClick=this.handleClick.bind(this)
   }
+
 
 
   componentDidMount() {
@@ -35,7 +37,6 @@ class NameCards extends React.Component {
             <div style={flip ? {backgroundImage: `url(${user.flipUrl})`} : {backgroundImage: `url(${user.url})`}} 
             className={`card ${flip ? 'flip' : ''}`} 
             onClick={this.handleClick}>
-
               <h3>{flip ? 
               <div className='cardBack'>
               <h3>{user.name}</h3>
