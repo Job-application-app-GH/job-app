@@ -24,7 +24,7 @@ class JobProfile extends React.Component {
 
         {jobs.map((job) => (
           <div key={job.id} className="job-listing">
-            <Link>
+            <Link to={`/profile/jobs/${job.id}`}>
               <h5> {job.title}</h5>
               <h5> {job.location}</h5>
               <h5> {job.description}</h5>
