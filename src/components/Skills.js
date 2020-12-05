@@ -1,58 +1,98 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getAllSkills, addUserSkill } from "../store";
-import UserSkills from "./UserSkills";
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+
+import {
+  getCandidateSkills,
+  getJobSkills,
+  modifySkill,
+  saveCandidateSkills,
+  saveJobSkills,
+} from '../store'
 
 class Skills extends Component {
   constructor(props) {
-    super(props);
-    this.handleSelect = this.handleSelect.bind(this);
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleSaveSkills = this.handleSaveSkills.bind(this)
   }
 
-  handleSelect(skill) {
-    console.log("selected skill: ", skill);
-    this.props.addUserSkill(skill);
+  handleClick(skillId, event) {
+    this.props.modifySkill({id: skillId, selected: event.target.checked})
+  }
+
+  handleSaveSkills() {
+    this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
+    this.props.history.push('/')
   }
 
   componentDidMount() {
-    this.props.getAllSkills();
+    this.props.loadSkills(this.props.match.params.ownerId)
   }
+
   render() {
-    console.log("Inside Skills render");
     return (
       <div className="skills_container">
-        <h3> Please update your skills</h3>
-        <UserSkills />
-        <div className="skills_list">
-          {this.props.skills.map((skill, index) => {
-            return (
-              <button
-                className="skills_button"
-                type="button"
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Please select skills</FormLabel>
+          <div className="skills_list">
+            {this.props.skills.map((skill) => (
+              <FormControlLabel
                 key={skill.id}
-                onClick={() => this.handleSelect(skill)}
-              >
-                {skill.name}
-              </button>
-            );
-          })}
-        </div>
+                control={
+                  <Checkbox
+                    checked={skill.selected}
+                    onChange={(event) => this.handleClick(skill.id, event)}
+                    name={skill.name}
+                    size="large"
+                  />
+                }
+                label={skill.name}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={this.handleSaveSkills}
+            className="skills_button"
+          >
+            Save Skills
+          </button>
+        </FormControl>
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    skills: state.skills,
-  };
-};
+    skills: state.selectedSkills,
+  }
+}
 
-const mapDispatchToProps = (dispatch) => {
+const mapCandidateDispatchToProps = (dispatch) => {
   return {
-    getAllSkills: () => dispatch(getAllSkills()),
-    addUserSkill: (skill) => dispatch(addUserSkill(skill)),
-  };
-};
+    loadSkills: (candidateId) => dispatch(getCandidateSkills(candidateId)),
+    modifySkill: (skill) => dispatch(modifySkill(skill)),
+    saveSkills: (candidateId, candidateSkills) =>
+      dispatch(saveCandidateSkills(candidateId, candidateSkills)),
+  }
+}
+const mapJobDispatchToProps = (dispatch) => {
+  return {
+    loadSkills: (jobId) => dispatch(getJobSkills(jobId)),
+    modifySkill: (skill) => dispatch(modifySkill(skill)),
+    saveSkills: (jobId, jobSkills) => dispatch(saveJobSkills(jobId, jobSkills)),
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Skills);
+export const CandidateSkills = connect(
+  mapStateToProps,
+  mapCandidateDispatchToProps
+)(Skills)
+
+export const JobSkills = connect(mapStateToProps, mapJobDispatchToProps)(Skills)

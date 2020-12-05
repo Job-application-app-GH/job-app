@@ -1,11 +1,10 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
-import nameCard from './nameCard'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
-import skills from './skills'
-import userSkills from './userSkills'
+import nameCard from './nameCard'
+import selectedSkills from './skills'
 import user from './user'
 import job from './job'
 import candidate from './candidate'
@@ -14,9 +13,10 @@ import profile from './profile'
 
 
 const reducer = combineReducers({
-  skills,
-  userSkills,
+
+
   nameCard,
+  selectedSkills,
   user,
   job,
   candidate,
@@ -40,5 +40,5 @@ const store = createStore(reducer, middleware)
 export default store
 
 export * from './skills'
-export * from './userSkills'
 export * from './user'
+
