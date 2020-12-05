@@ -16,6 +16,7 @@ module.exports = app
 // if (process.env.NODE_ENV === 'test') {
 //   after('close the session store', () => sessionStore.stopExpiringSessions())
 // }
+
 /**
  * In your development environment, you can keep all of your
  * app's secret API keys in a file called `secrets.js`, in your project
@@ -25,6 +26,7 @@ module.exports = app
  * Node process on process.env
  */
 if (process.env.NODE_ENV !== 'production') require('../secrets')
+
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
 // //Promise-chaining (non async-await) way of passport.deserializeUser
@@ -41,6 +43,7 @@ passport.deserializeUser(async (id, done) => {
     done(err)
   }
 })
+
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
@@ -49,6 +52,7 @@ const createApp = () => {
   app.use(express.urlencoded({extended: true}))
   // compression middleware
   app.use(compression())
+
   // session middleware with passport
   app.use(
     session({
@@ -60,12 +64,16 @@ const createApp = () => {
   )
   app.use(passport.initialize())
   app.use(passport.session())
+
+
   // auth and api routes
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
+
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, 'build')))
   //   app.use(express.static(path.join(__dirname, '..', 'public')))
+
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
     if (path.extname(req.path).length) {
@@ -76,11 +84,13 @@ const createApp = () => {
       next()
     }
   })
+
   // sends index.html
   app.use('*', (req, res) => {
     // res.sendFile(path.join(__dirname, '..', 'public/index.html'))
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
   })
+
   // error handling endware
   app.use((err, req, res, next) => {
     console.error(err)
@@ -88,16 +98,21 @@ const createApp = () => {
     res.status(err.status || 500).send(err.message || 'Internal server error.')
   })
 }
+
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
   const server = app.listen(PORT, () =>
     console.log(`Mixing it up on port ${PORT}`)
   )
+
   // set up our socket control center
   const io = socketio(server)
   require('./socket')(io)
 }
+
+
 const syncDb = () => db.sync()
+
 async function bootApp() {
   await sessionStore.sync()
   await syncDb()
