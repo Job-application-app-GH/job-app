@@ -28,11 +28,12 @@ class Job extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  //ISSUE?!?!?!
+  async handleSubmit(event) {
     event.preventDefault()
-    console.log('props in handle submit', this.props.organizationId)
-    this.props.newCandidate({...this.state}, this.props.organization.id)
-    this.props.getJob(this.props.organization.id)
+    await this.props.newCandidate({...this.state}, this.props.organization.id)
+    // this.props.getJob(this.props.organization.id)
+    this.props.history.push(`/jobSkills/${this.props.job.id}`)
     this.setState({
       title: '',
       location: '',
@@ -87,11 +88,9 @@ class Job extends React.Component {
             value="false"
           />
           No
-          <Link to={`/jobSkills/${jobId}`}>
-            <button type="submit" onClick={this.handleSubmit}>
-              Submit
-            </button>
-          </Link>
+          <button type="submit" onClick={this.handleSubmit}>
+            Submit
+          </button>
         </form>
       </div>
     )
