@@ -1,12 +1,10 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
-// const adminOnly = require('./accessControl')
-module.exports = router
 
-// GET '/api/users' ADMIN ONLY
+//mounted on /api/users
+
 router.get('/', async (req, res, next) => {
   try {
-    console.log('Received the request for users!!')
     const users = await User.findAll({
       // explicitly select only the id and email fields - even though
       // users' passwords are encrypted, it won't help if we just
@@ -18,3 +16,44 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+//updates user type as "CANDIDATE" OR "ORGANIZATION"
+router.put('/', async (req, res, next) => {
+  console.log('REQ BODY------>>>>>', req.body)
+  try {
+    let user = req.user.id
+    console.log('req user--->', req.user)
+    let updatedUser = await User.update(req.body, {
+      where: {
+        id: user,
+      },
+      returning: true,
+      plain: true,
+    })
+    res.send(updatedUser[1])
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/img', async (req, res, next) => {
+  console.log('REQ BODY------>>>>>', req.body)
+  let img = {img: req.body}
+  try {
+    let user = req.user.id
+    console.log('req user--->', req.user)
+    let updatedUser = await User.update(img, {
+      where: {
+        id: user,
+      },
+      returning: true,
+      plain: true,
+    })
+    res.send(updatedUser[1])
+  } catch (error) {
+    next(error)
+  }
+})
+
+module.exports = router
+
