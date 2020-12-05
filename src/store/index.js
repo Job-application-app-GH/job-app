@@ -3,7 +3,7 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
-
+import nameCard from './nameCard'
 import selectedSkills from './skills'
 import user from './user'
 import job from './job'
@@ -11,7 +11,11 @@ import candidate from './candidate'
 import organization from './organization'
 import profile from './profile'
 
+
 const reducer = combineReducers({
+
+
+  nameCard,
   selectedSkills,
   user,
   job,
