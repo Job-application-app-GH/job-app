@@ -1,12 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postNewCandidate, fetchCandidate} from '../store/candidate'
-import {fetchUserDetails} from '../store/profile'
 
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
+
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 import {Link} from 'react-router-dom'
@@ -109,44 +108,15 @@ class SignUpDetails extends React.Component {
                   control={<Radio />}
                   label="Yes"
                 />
-                {/* name="isRemote" value="true" onChange={this.handleChange}
-                checked={this.state.isRemote === true} */}
-                {/* /> */}
                 <FormControlLabel
                   value="false"
                   control={<Radio />}
                   label="No"
-                  // checked={isRemote === false}
                 />
-                {/* <RadioGroup
-                  name="isRemote"
-                  value="false"
-                  onChange={this.handleChange}
-                /> */}
-                {/* <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                /> */}
               </RadioGroup>
             </FormLabel>
           </FormControl>
-          {/* <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === true}
-            onChange={this.handleChange}
-            value="true"
-          />
-          Yes
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === false}
-            onChange={this.handleChange}
-            value="false"
-          />
-          No */}
+
           <h5>Tell us about yourself </h5>
           <textarea
             type="text"
@@ -159,11 +129,10 @@ class SignUpDetails extends React.Component {
               Submit
             </button>
           </Link> */}
-          {/* <Link to={`/candidateSkills/${candidateId}`}> */}
+
           <button type="submit" onClick={this.handleSubmit}>
             Save
           </button>
-          {/* </Link> */}
         </FormControl>
       </div>
     )
