@@ -12,7 +12,6 @@ router.get('/', async (req, res, next) => {
         userId: req.user.id,
       },
     })
-
     let skills = await CandidateSkill.findAll({
       where: {
         candidateId: candidate.id,
@@ -20,8 +19,6 @@ router.get('/', async (req, res, next) => {
       attributes: ['skillId'],
       include: {model: Skill, attributes: ['name']},
     })
-
-    console.log('skill-->', skills)
     res.send(skills)
   } catch (error) {
     next(error)

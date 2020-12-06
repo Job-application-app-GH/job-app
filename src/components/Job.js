@@ -54,6 +54,7 @@ class Job extends React.Component {
     console.log('job id', jobId)
     return (
       <div>
+        <h2>Create a new job posting</h2>
         <form id="add-form">
           <h5>Job Title</h5>
           <input

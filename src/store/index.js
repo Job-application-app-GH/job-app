@@ -10,6 +10,7 @@ import job from './job'
 import candidate from './candidate'
 import organization from './organization'
 import profile from './profile'
+import skillsList from './skillsList'
 
 const reducer = combineReducers({
   nameCard,
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   candidate,
   organization,
   profile,
+  skillsList,
 })
 
 const middleware = composeWithDevTools(

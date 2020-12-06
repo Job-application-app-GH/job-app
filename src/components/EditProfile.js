@@ -12,6 +12,7 @@ class EditProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: this.props.profile.name,
       location: this.props.profile.location,
       description: this.props.profile.description,
       isRemote: this.props.profile.isRemote,

@@ -7,6 +7,7 @@ import Radio from '@material-ui/core/Radio'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import {Link} from 'react-router-dom'
 
 class EditJob extends React.Component {
   constructor(props) {
@@ -79,7 +80,9 @@ class EditJob extends React.Component {
             </RadioGroup>
           </FormLabel>
         </FormControl>
-        <button>Edit job skills</button>
+        <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+          <button>Edit job skills</button>
+        </Link>
         <button type="submit" onClick={this.handleSubmit}>
           Save Changes
         </button>

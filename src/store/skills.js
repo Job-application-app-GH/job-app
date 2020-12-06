@@ -3,8 +3,6 @@ import axios from 'axios'
 const SET_SKILLS = 'SET_SKILLS'
 const MODIFY_SKILL = 'MODIFY_SKILL'
 const SAVE_SKILLS = 'SAVE_SKILLS'
-const GET_CANDIDATE_SKILLS = 'GET_CANDIDATE_SKILLS'
-const GET_JOB_SKILLS = 'GET_JOB_SKILLS'
 
 /**
  * ACTION CREATORS
@@ -12,37 +10,10 @@ const GET_JOB_SKILLS = 'GET_JOB_SKILLS'
 const setSkills = (selectedSkills) => ({type: SET_SKILLS, selectedSkills})
 export const modifySkill = (skill) => ({type: MODIFY_SKILL, skill})
 const saveSkills = () => ({type: SAVE_SKILLS})
-const getCanSkills = (skills) => ({
-  type: GET_CANDIDATE_SKILLS,
-  skills,
-})
-const getJSkills = (skills) => ({type: GET_JOB_SKILLS, skills})
 
 /**
  * THUNK CREATORS
  */
-
-export const fetchCandidateSkills = () => {
-  return async (dispatch) => {
-    try {
-      let {data} = await axios.get(`/api/candidateSkills`)
-      dispatch(getCanSkills(data))
-    } catch (error) {
-      console.log(error, 'error in fetch can thunk')
-    }
-  }
-}
-
-export const fetchJobSkills = () => {
-  return async (dispatch) => {
-    try {
-      let {data} = await axios.get('/api/jobSkills')
-      dispatch(getJSkills(data))
-    } catch (error) {
-      console.log(error, 'error in fetch job skills')
-    }
-  }
-}
 
 export const getCandidateSkills = (candidateId) => async (dispatch) => {
   try {
@@ -58,6 +29,7 @@ export const getCandidateSkills = (candidateId) => async (dispatch) => {
 
 export const getJobSkills = (jobId) => async (dispatch) => {
   try {
+    console.log('JOB ID:', jobId)
     const {data: selectedSkills} = await axios.get(`/api/jobSkills/${jobId}`)
 
     dispatch(setSkills(selectedSkills))
@@ -102,10 +74,6 @@ export default function (state = initialState, action) {
       return newState
     case SAVE_SKILLS:
       return initialState
-    case GET_CANDIDATE_SKILLS:
-      return action.skills
-    case GET_JOB_SKILLS:
-      return action.skills
     default:
       return state
   }

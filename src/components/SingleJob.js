@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchSingleJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {destroyJob} from '../store/job'
-import {fetchJobSkills} from '../store/skills'
+import {fetchJobSkills} from '../store/skillsList'
 
 class SingleJob extends React.Component {
   constructor(props) {
@@ -60,7 +60,7 @@ class SingleJob extends React.Component {
 const mapState = (state) => {
   return {
     job: state.job,
-    skills: state.selectedSkills,
+    skills: state.skillsList,
   }
 }
 
