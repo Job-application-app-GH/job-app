@@ -8,7 +8,14 @@ const Match = db.define('match', {
     autoIncrement: true,
   },
   isMatch: {
-    type: Sequelize.ENUM('PENDING', 'TRUE', 'FALSE'),
+    type: Sequelize.ENUM(
+      'PENDING_JOB',
+      'PENDING_CANDIDATE',
+      'MATCHED',
+      'REJECTED_JOB',
+      'REJECTED_CANDIDATE',
+      'REJECTED_BOTH'
+    ),
     allowNull: false,
   },
 })
