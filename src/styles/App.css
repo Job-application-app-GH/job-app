@@ -1,10 +1,18 @@
-.content {
-  max-width: 500px;
-  margin: auto;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+body.content {
+  height: fit-content;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-family: "Open Sans", sans-serif; */
 }
+
 
 .header {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   border-bottom: 2px solid gray;
 }
@@ -24,10 +32,89 @@
   color: purple;
 }
 
+/* // LOGIN PAGE */
+.base-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+}
+.form {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  }
+  .login-img {
+    margin-top: 40px;
+    width: 40em;
+  }
+  .login-img-itself {
+    width: 70%;
+    height: 80%;
+  }
+  .form-group {
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  }
+  .form-group:after{
+    content: ''
+  }
+.login-words{
+  text-align: left;
+}
+  label {
+    font-size: 20px;
+  }
+  input{
+    margin-top: 6px;
+    min-width: 15em;
+    height: 37px;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #f3f3f3;
+    border: 0;
+    border-radius: 4px;
+    margin-bottom: 31px;
+    transition: all 250ms ease-in-out;
+  }
+.login-button {
+  font-size: 21px;
+  padding: 10px 100px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(to right, #FFCE00 50%, #FFCE00 50%, #FE4880);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.login-button:hover {
+background-position: 100% 0%;
+}
+.signup-link {
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+}
+
+
+
+
+
+/* CARDS */
+
 .card {
   position: relative;
   align-self: center;
-  width: 300px;
+  width: 260px;
   padding: 25px;
   height: 50vh;
   font-style: italic;

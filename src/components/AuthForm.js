@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import {Link} from 'react-router-dom'
+import loginImg from '../styles/logo3.svg'
 
 /**
  * COMPONENT
@@ -10,20 +11,27 @@ import {Link} from 'react-router-dom'
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
   return (
-    <div>
+    <div className='base-container'>
+    {/* <div className='header'>
+     POSSIBLE.HEADER.HERE
+    </div> */}
+    <div className='login-img'>
+     <img src={loginImg} className='login-img-itself' alt =''/>
+    </div>
+      <div className='form'>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="email">
-            <small>Email</small>
+            <small className='login-words'>Email</small>
           </label>
-          <input className="form-control" name="email" type="email" required />
+          <input className="form-group" name="email" type="email" required />
         </div>
         <div>
           <label htmlFor="password">
-            <small>Password</small>
+            <small className='login-words'>Password</small>
           </label>
           <input
-            className="form-control"
+            className="form-group"
             name="password"
             type="password"
             required
@@ -31,21 +39,27 @@ const AuthForm = (props) => {
         </div>
         <br />
         <div>
-          <button className="btn btn-primary" type="submit">
+          <button className="login-button" type="submit">
             {displayName}
           </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />
-        <a href="/auth/google" className="btn btn-success">
+        <a href="/auth/google" className='signup-link'>
           {displayName} with Google
         </a>
-      </form>
-      <div>
-        <Link to="/signup">
-          <button>Need to create an account?</button>
+        </form>
+        </div>
+        <div>
+        <Link to="/signup" className='signup-link' >
+          <h3>New to *appname*? Sign up here</h3>
         </Link>
       </div>
+       {/* <div>
+        <Link to="/signup" >
+          <button >New to *appname*? Sign up here</button>
+        </Link>
+      </div> */}
     </div>
   )
 }
