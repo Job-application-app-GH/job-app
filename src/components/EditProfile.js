@@ -1,6 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUpdatedProfile, fetchUserDetails} from '../store/profile'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Radio from '@material-ui/core/Radio'
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -34,6 +40,7 @@ class EditProfile extends React.Component {
   render() {
     console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {
+      name,
       location,
       description,
       isRemote,
@@ -43,7 +50,13 @@ class EditProfile extends React.Component {
     return (
       <div>
         <h3>Edit My Profile</h3>
-        <h4>{this.props.profile.name}</h4>
+        <h6>Name</h6>
+        <input
+          type="text"
+          name="name"
+          onChange={this.handleChange}
+          value={name}
+        />
         <h6>Current Company</h6>
         <input
           type="text"
@@ -72,23 +85,23 @@ class EditProfile extends React.Component {
           onChange={this.handleChange}
           value={description}
         />
-        <h6>Would you like to work remote?</h6>
-        <input
-          type="radio"
-          name="isRemote"
-          checked={isRemote === true}
-          onChange={this.handleChange}
-          value="true"
-        />
-        Yes
-        <input
-          type="radio"
-          name="isRemote"
-          checked={isRemote === false}
-          onChange={this.handleChange}
-          value="false"
-        />
-        No
+
+        <FormControl>
+          <FormLabel>
+            Would you like to work remote?
+            <FormLabel />
+            <RadioGroup
+              name="isRemote"
+              onChange={this.handleChange}
+              value={isRemote}
+            >
+              <FormControlLabel value="true" control={<Radio />} label="Yes" />
+              <FormControlLabel value="false" control={<Radio />} label="No" />
+            </RadioGroup>
+          </FormLabel>
+        </FormControl>
+
+        <button>Edit my skills</button>
         <button type="submit" onClick={this.handleSubmit}>
           Save Changes
         </button>

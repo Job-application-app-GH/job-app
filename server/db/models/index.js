@@ -22,8 +22,14 @@ Job.belongsTo(Organization)
 Job.belongsToMany(Skill, {through: JobSkill})
 Skill.belongsToMany(Job, {through: JobSkill})
 
+JobSkill.belongsTo(Job)
+JobSkill.belongsTo(Skill)
+
 Candidate.belongsToMany(Skill, {through: CandidateSkill})
 Skill.belongsToMany(Candidate, {through: CandidateSkill})
+
+CandidateSkill.belongsTo(Candidate)
+CandidateSkill.belongsTo(Skill)
 
 Job.belongsToMany(Candidate, {through: Match})
 Candidate.belongsToMany(Job, {through: Match})

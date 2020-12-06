@@ -1,14 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postNewCandidate, fetchCandidate} from '../store/candidate'
-import {fetchUserDetails} from '../store/profile'
-import {
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormControl,
-  FormLabel,
-} from '@material-ui/core'
+
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Radio from '@material-ui/core/Radio'
 import {Link} from 'react-router-dom'
 
 class SignUpDetails extends React.Component {
@@ -65,7 +64,7 @@ class SignUpDetails extends React.Component {
     console.log(candidateId)
     return (
       <div>
-        <form id="add-form">
+        <FormControl id="add-form">
           <h5>Full Name</h5>
           <input
             type="text"
@@ -94,40 +93,30 @@ class SignUpDetails extends React.Component {
             onChange={this.handleChange}
             value={currentRole}
           />
-          <h5>Are you willing to work remote?</h5>
-          {/* <FormControl>
+
+          <FormControl>
             <FormLabel>
+              Are you willing to work remote?
+              <FormLabel />
               <RadioGroup
                 name="isRemote"
-                value="true"
                 onChange={this.handleChange}
-                checked={this.state.isRemote === true}
-              />
-              <FormControlLabel value="true" control={<Radio />} label="Yes" />
-              <RadioGroup
-                name="isRemote"
-                value="false"
-                onChange={this.handleChange}
-              />
-              <FormControlLabel value="false" control={<Radio />} label="No" />
+                value={isRemote}
+              >
+                <FormControlLabel
+                  value="true"
+                  control={<Radio />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="false"
+                  control={<Radio />}
+                  label="No"
+                />
+              </RadioGroup>
             </FormLabel>
-          </FormControl> */}
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === true}
-            onChange={this.handleChange}
-            value="true"
-          />
-          Yes
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === false}
-            onChange={this.handleChange}
-            value="false"
-          />
-          No
+          </FormControl>
+
           <h5>Tell us about yourself </h5>
           <textarea
             type="text"
@@ -140,12 +129,11 @@ class SignUpDetails extends React.Component {
               Submit
             </button>
           </Link> */}
-          {/* <Link to={`/candidateSkills/${candidateId}`}> */}
+
           <button type="submit" onClick={this.handleSubmit}>
             Save
           </button>
-          {/* </Link> */}
-        </form>
+        </FormControl>
       </div>
     )
   }

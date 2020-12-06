@@ -18,6 +18,7 @@ import EditProfileOrg from './components/EditProfileOrg'
 import JobProfile from './components/JobProfile'
 import EditJob from './components/EditJob'
 import SingleJob from './components/SingleJob'
+import AddNewJob from './components/AddNewJob'
 import {CandidateSkills, JobSkills} from './components'
 import {me} from './store'
 
@@ -40,7 +41,7 @@ class Routes extends Component {
         <Route exact path="/signup/type" component={ProfileType} />
         <Route exact path="/signup/candidate" component={SignupDetails} />
         <Route exact path="/signup/organization" component={SignupOrg} />
-        <Route exact path="/newJob" component={Job} />
+        <Route exact path="/signup/organization/job" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
         <Route exact path="/name" component={NameCards} />
         <Route exact path="/profile" component={Profile} />
@@ -52,7 +53,7 @@ class Routes extends Component {
         <Route exact path="/namecard" component={NameCards} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
-
+        <Route path="/profile/addJob" component={AddNewJob} />
 
         {isLoggedIn && (
           <Switch>
