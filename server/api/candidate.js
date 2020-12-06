@@ -3,9 +3,24 @@ const {Candidate} = require('../db/models')
 
 // mounted on api/candidate
 
+router.get('/', async (req, res, next) => {
+  try {
+    console.log('USER ID', req.user.id)
+    let candidate = await Candidate.findOne({
+      where: {
+        userId: req.user.id,
+      },
+    })
+    console.log('candidate---->', candidate)
+    res.send(candidate)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
-    console.log('REQ BODY in candidate--->', req.body)
+    // console.log('REQ BODY in candidate--->', req.body)
     let {
       name,
       location,

@@ -22,7 +22,6 @@ router.put('/', async (req, res, next) => {
   console.log('REQ BODY------>>>>>', req.body)
   try {
     let user = req.user.id
-    console.log('req user--->', req.user)
     let updatedUser = await User.update(req.body, {
       where: {
         id: user,
@@ -37,11 +36,9 @@ router.put('/', async (req, res, next) => {
 })
 
 router.put('/img', async (req, res, next) => {
-  console.log('REQ BODY------>>>>>', req.body)
   let img = {img: req.body}
   try {
     let user = req.user.id
-    console.log('req user--->', req.user)
     let updatedUser = await User.update(img, {
       where: {
         id: user,
@@ -56,4 +53,3 @@ router.put('/img', async (req, res, next) => {
 })
 
 module.exports = router
-
