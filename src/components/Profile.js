@@ -27,7 +27,7 @@ class Profile extends React.Component {
   render() {
     const profile = this.props.profile
     const user = this.props.user
-    const skills = this.props.skills
+    const skills = this.props.skillsList
     console.log('skills->', this.props)
     let link
     if (user.userType === 'CANDIDATE') {
