@@ -58,7 +58,11 @@ class Profile extends React.Component {
         )}
         <h5>Skills:</h5>
         {skills
-          ? skills.map((skill) => <p key={skill.id}>{skill.skill.name}</p>)
+          ? skills.map((skill) => (
+              <div key={skill.id}>
+                <p>{skill.skill.name}</p>
+              </div>
+            ))
           : null}
 
         {profile.jobs ? (

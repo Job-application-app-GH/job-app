@@ -79,6 +79,7 @@ class EditJob extends React.Component {
             </RadioGroup>
           </FormLabel>
         </FormControl>
+        <button>Edit job skills</button>
         <button type="submit" onClick={this.handleSubmit}>
           Save Changes
         </button>

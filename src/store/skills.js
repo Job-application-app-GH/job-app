@@ -4,6 +4,7 @@ const SET_SKILLS = 'SET_SKILLS'
 const MODIFY_SKILL = 'MODIFY_SKILL'
 const SAVE_SKILLS = 'SAVE_SKILLS'
 const GET_CANDIDATE_SKILLS = 'GET_CANDIDATE_SKILLS'
+const GET_JOB_SKILLS = 'GET_JOB_SKILLS'
 
 /**
  * ACTION CREATORS
@@ -15,6 +16,7 @@ const getCanSkills = (skills) => ({
   type: GET_CANDIDATE_SKILLS,
   skills,
 })
+const getJSkills = (skills) => ({type: GET_JOB_SKILLS, skills})
 
 /**
  * THUNK CREATORS
@@ -27,6 +29,17 @@ export const fetchCandidateSkills = () => {
       dispatch(getCanSkills(data))
     } catch (error) {
       console.log(error, 'error in fetch can thunk')
+    }
+  }
+}
+
+export const fetchJobSkills = () => {
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.get('/api/jobSkills')
+      dispatch(getJSkills(data))
+    } catch (error) {
+      console.log(error, 'error in fetch job skills')
     }
   }
 }
@@ -90,6 +103,8 @@ export default function (state = initialState, action) {
     case SAVE_SKILLS:
       return initialState
     case GET_CANDIDATE_SKILLS:
+      return action.skills
+    case GET_JOB_SKILLS:
       return action.skills
     default:
       return state

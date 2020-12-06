@@ -1,8 +1,38 @@
 const router = require('express').Router()
 const db = require('../db')
-const {Job, JobSkill} = require('../db/models')
+const {Job, JobSkill, Skill} = require('../db/models')
+const Organization = require('../db/models/organization')
 
 module.exports = router
+
+router.get('/', async (req, res, next) => {
+  try {
+    let organization = await Organization.findOne({
+      where: {
+        userId: req.user.id,
+      },
+    })
+
+    let job = await Job.findOne({
+      where: {
+        organizationId: organization.id,
+      },
+    })
+
+    let skills = await JobSkill.findAll({
+      where: {
+        jobId: job.id,
+      },
+      attributes: ['skillId'],
+      include: {model: Skill, attributes: ['name']},
+    })
+
+    console.log('skill-->', skills)
+    res.send(skills)
+  } catch (error) {
+    next(error)
+  }
+})
 
 // GET '/api/jobSkills/:jobId'
 router.get('/:jobId', async (req, res, next) => {
@@ -14,7 +44,7 @@ router.get('/:jobId', async (req, res, next) => {
     const [job_skills] = await db.query(
       `
         SELECT a.id, a.name, (b."jobId" is not null) as selected
-        FROM skills a 
+        FROM skills a
         LEFT OUTER JOIN job_skills b
         ON a.id = b."skillId"
         AND b."jobId"= ?

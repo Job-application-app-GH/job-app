@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchSingleJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {destroyJob} from '../store/job'
+import {fetchJobSkills} from '../store/skills'
 
 class SingleJob extends React.Component {
   constructor(props) {
@@ -11,10 +12,12 @@ class SingleJob extends React.Component {
 
   componentDidMount() {
     this.props.loadSingleJob(this.props.match.params.id)
+    this.props.loadJobSkills()
   }
 
   render() {
     const job = this.props.job
+    const skills = this.props.skills
     return (
       <div>
         <h3>Job Details</h3>
@@ -39,6 +42,14 @@ class SingleJob extends React.Component {
         ) : (
           <h5>Hiring remote candidates: no </h5>
         )}
+        <h5>Skills</h5>
+        {skills
+          ? skills.map((skill) => (
+              <div key={skill.id}>
+                <p>{skill.skill.name}</p>
+              </div>
+            ))
+          : null}
 
         <button>View matches for this job</button>
       </div>
@@ -49,6 +60,7 @@ class SingleJob extends React.Component {
 const mapState = (state) => {
   return {
     job: state.job,
+    skills: state.selectedSkills,
   }
 }
 
@@ -56,6 +68,7 @@ const mapDispatch = (dispatch) => {
   return {
     deleteJob: (id) => dispatch(destroyJob(id)),
     loadSingleJob: (id) => dispatch(fetchSingleJob(id)),
+    loadJobSkills: () => dispatch(fetchJobSkills()),
   }
 }
 
