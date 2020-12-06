@@ -28,7 +28,7 @@ class Job extends React.Component {
     })
   }
 
-  //ISSUE?!?!?!
+  //ISSUE?!?!?!?
   async handleSubmit(event) {
     event.preventDefault()
     await this.props.newCandidate({...this.state}, this.props.organization.id)
