@@ -49,8 +49,10 @@ class Routes extends Component {
         <Route exact path="/profile/jobs" component={JobProfile} />
         <Route exact path="/profile/jobs/edit/:id" component={EditJob} />
         <Route exact path="/profile/jobs/:id" component={SingleJob} />
+        <Route exact path="/namecard" component={NameCards} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
+
 
         {isLoggedIn && (
           <Switch>

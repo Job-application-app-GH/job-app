@@ -1,54 +1,71 @@
-import React, {useState} from 'react'
+import React from 'react'
 import TinderCard from 'react-tinder-card'
 import {fetchUser} from '../store/nameCard'
 import {connect} from 'react-redux'
+import ReactCardFlip from 'react-card-flip'
 
 
 class NameCards extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      flip: false
+      isFlipped: false
     }
     this.handleClick=this.handleClick.bind(this)
   }
-
 
 
   componentDidMount() {
     this.props.getUser()
   }
 
-  handleClick() {
-    this.setState({flip: !this.state.flip})
+  handleClick(e) {
+    e.preventDefault();
+    this.setState(state => ({ isFlipped: !this.state.isFlipped }));
   }
-  render() {   const {flip} = this.state.flip
+  
+  render() {
   return (
- 
+    
     <div>
       <div className="cardsPile">
       {this.props.nameCard.map((user) => (
         <div>
+          
           <TinderCard
-            className="swipe"
             key={user.name}
+            className="swipe"
             preventSwipe={['up', 'down']}
           >
-            <div style={flip ? {backgroundImage: `url(${user.flipUrl})`} : {backgroundImage: `url(${user.url})`}} 
-            className={`card ${flip ? 'flip' : ''}`} 
-            onClick={this.handleClick}>
-              <h3>{flip ? 
-              <div className='cardBack'>
-              <h3>{user.name}</h3>
-              <h3>{user.title}</h3>
-              <h3>Works at: {user.currCompany}</h3>
-              <h3>{user.about}</h3>
+          <ReactCardFlip 
+          key={user.id} 
+          isFlipped={this.state.isFlipped} 
+          flipDirection="vertical" >
+
+        <div className='card' 
+        onClick={this.handleClick} 
+        style={{backgroundColor: '#FFB6C1'}} >
+
+        <h3>{user.name}</h3> 
+        <h3>Current role: {user.currentRole}</h3>
+        <h3>Works at: {user.currentCompany}</h3>
+        <h3>FRONT OF THE CARD</h3>
+
+        </div>
+ 
+       
+        <div className='card' 
+               onClick={this.handleClick} 
+                style={{backgroundColor: '#6495ED'}}>
+
+               <h3>{user.name}</h3>
+              <h3>About me: {user.description}</h3>
+              <h3>BACK OF THE CARD</h3>
 
               </div>
-               : 
-               <div className='cardFront'>{user.name}</div>}</h3>
-            </div>
+      </ReactCardFlip>
           </TinderCard>
+          
           </div>
         ))}
       </div>
