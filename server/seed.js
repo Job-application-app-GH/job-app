@@ -11,37 +11,31 @@ const {
 
 const userData = [
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'CANDIDATE',
     email: 'dog@gmail.com',
     password: '123',
   },
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'CANDIDATE',
     email: 'cat@gmail.com',
     password: '123',
   },
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'CANDIDATE',
     email: 'cheetah@gmail.com',
     password: '123',
   },
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'ORGANIZATION',
     email: 'bird@gmail.com',
     password: '123',
   },
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'ORGANIZATION',
     email: 'fish@gmail.com',
     password: '123',
   },
   {
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     userType: 'ORGANIZATION',
     email: 'bear@gmail.com',
     password: '123',
@@ -51,6 +45,7 @@ const userData = [
 const candidateData = [
   {
     name: 'Archana',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -59,6 +54,7 @@ const candidateData = [
   },
   {
     name: 'Mackenzie',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -67,6 +63,7 @@ const candidateData = [
   },
   {
     name: 'Maria',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -78,18 +75,21 @@ const candidateData = [
 const organizationData = [
   {
     name: 'Google',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: 'sfnoergqorwgowqingwoing',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Yahoo',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: 'sfnoergqorwgowqingwoing',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Facebook',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: 'sfnoergqorwgowqingwoing',
     location: 'Worldwide',
     isRemote: true,
