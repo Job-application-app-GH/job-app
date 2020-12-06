@@ -1,9 +1,55 @@
 const router = require('express').Router()
-const {Match} = require('../db/models')
+const {Candidate, Organization, Job, Match} = require('../db/models')
 
 module.exports = router
 const CANDIDATE = 'CANDIDATE'
 const JOB = 'JOB'
+
+// Find matching candidates for a Job
+//GET '/api/job/:jobId'
+router.get('/job/:jobId', async (req, res, next) => {
+  try {
+    const details = await Candidate.findAll({
+      attributes: [
+        'id',
+        'name',
+        'location',
+        'description',
+        'isRemote',
+        'currentRole',
+        'currentCompany',
+      ],
+    })
+
+    // } else {
+    //   details = await Organization.findAll({
+    //     attributes: ['id', 'name', 'description', 'isRemote', 'location'],
+    //     include: {
+    //       model: Job,
+    //     },
+    //   })
+    // }
+    res.send(details)
+  } catch (error) {
+    next(error)
+  }
+})
+
+// Find matching jobs for a Candidate
+//GET '/api/candidate/:candidateId'
+router.get('/candidate/:candidateId', async (req, res, next) => {
+  try {
+    const details = await Organization.findAll({
+      attributes: ['id', 'name', 'description', 'isRemote', 'location'],
+      include: {
+        model: Job,
+      },
+    })
+    res.send(details)
+  } catch (error) {
+    next(error)
+  }
+})
 
 // Implement swipe on a candidate by a job
 //POST '/api/matches/job'

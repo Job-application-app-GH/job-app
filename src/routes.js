@@ -10,7 +10,7 @@ import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import SignupDetails from './components/SignupDetails'
 import UploadAvatar from './components/UploadAvatar'
-import NameCards from './components/NameCards'
+import CandidateMatches from './components/CandidateMatches'
 import Job from './components/Job'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
@@ -42,17 +42,15 @@ class Routes extends Component {
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/newJob" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
-        <Route exact path="/name" component={NameCards} />
+        <Route exact path="/findCandidates" component={CandidateMatches} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/profile/edit" component={EditProfile} />
         <Route exact path="/profile/editOrg" component={EditProfileOrg} />
         <Route exact path="/profile/jobs" component={JobProfile} />
         <Route exact path="/profile/jobs/edit/:id" component={EditJob} />
         <Route exact path="/profile/jobs/:id" component={SingleJob} />
-        <Route exact path="/namecard" component={NameCards} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
-
 
         {isLoggedIn && (
           <Switch>
