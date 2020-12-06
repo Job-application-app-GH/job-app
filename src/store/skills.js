@@ -3,6 +3,7 @@ import axios from 'axios'
 const SET_SKILLS = 'SET_SKILLS'
 const MODIFY_SKILL = 'MODIFY_SKILL'
 const SAVE_SKILLS = 'SAVE_SKILLS'
+const GET_CANDIDATE_SKILLS = 'GET_CANDIDATE_SKILLS'
 
 /**
  * ACTION CREATORS
@@ -10,10 +11,26 @@ const SAVE_SKILLS = 'SAVE_SKILLS'
 const setSkills = (selectedSkills) => ({type: SET_SKILLS, selectedSkills})
 export const modifySkill = (skill) => ({type: MODIFY_SKILL, skill})
 const saveSkills = () => ({type: SAVE_SKILLS})
+const getCanSkills = (skills) => ({
+  type: GET_CANDIDATE_SKILLS,
+  skills,
+})
 
 /**
  * THUNK CREATORS
  */
+
+export const fetchCandidateSkills = () => {
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.get(`/api/candidateSkills`)
+      dispatch(getCanSkills(data))
+    } catch (error) {
+      console.log(error, 'error in fetch can thunk')
+    }
+  }
+}
+
 export const getCandidateSkills = (candidateId) => async (dispatch) => {
   try {
     const {data: selectedSkills} = await axios.get(
@@ -72,6 +89,8 @@ export default function (state = initialState, action) {
       return newState
     case SAVE_SKILLS:
       return initialState
+    case GET_CANDIDATE_SKILLS:
+      return action.skills
     default:
       return state
   }

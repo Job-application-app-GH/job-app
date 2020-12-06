@@ -46,33 +46,41 @@ class SignUpOrgDetails extends React.Component {
         <form id="add-form">
           <h5>Company Name</h5>
           <input
+            className="form-control"
             type="text"
             name="name"
             onChange={this.handleChange}
             value={name}
+            required
           />
           <h5>Location</h5>
           <input
+            className="form-control"
             type="text"
             name="location"
             onChange={this.handleChange}
             value={location}
+            required
           />
           <h5>Give a brief description of the company </h5>
           <textarea
+            className="form-control"
             type="text"
             name="description"
             onChange={this.handleChange}
             value={description}
+            required
           />
           <FormControl>
             <FormLabel>
               Are you willing to hire remote employees?
               <FormLabel />
               <RadioGroup
+                className="form-control"
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                required
               >
                 <FormControlLabel
                   value="true"

@@ -1,5 +1,6 @@
 import React from 'react'
 import {fetchUserDetails} from '../store/profile'
+import {fetchCandidateSkills} from '../store/skills'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -14,6 +15,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.loadUserDetails()
+    this.props.loadCandidateSkills()
   }
 
   displayForm() {
@@ -25,6 +27,8 @@ class Profile extends React.Component {
   render() {
     const profile = this.props.profile
     const user = this.props.user
+    const skills = this.props.skills
+    console.log('skills->', this.props)
     let link
     if (user.userType === 'CANDIDATE') {
       link = '/profile/edit'
@@ -52,6 +56,10 @@ class Profile extends React.Component {
         ) : (
           <h6>Willing to hire remote candidates: False</h6>
         )}
+        <h5>Skills:</h5>
+        {skills
+          ? skills.map((skill) => <p key={skill.id}>{skill.skill.name}</p>)
+          : null}
 
         {profile.jobs ? (
           <Link to="/profile/jobs">
@@ -67,12 +75,14 @@ const mapState = (state) => {
   return {
     profile: state.profile,
     user: state.user,
+    skills: state.selectedSkills,
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
     loadUserDetails: () => dispatch(fetchUserDetails()),
+    loadCandidateSkills: () => dispatch(fetchCandidateSkills()),
   }
 }
 
