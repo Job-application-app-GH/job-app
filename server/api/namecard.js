@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   try {
     if (req.user.userType === 'CANDIDATE') {
       details = await Candidate.findAll({
-        attributes: ['id', 'name', 'description', 'isRemote', 'currentRole', 'currentCompany'],
+        attributes: ['id', 'name', 'location', 'description', 'isRemote', 'currentRole', 'currentCompany'],
       })
     } else {
       details = await Organization.findAll({
