@@ -2,6 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {postNewJob} from '../store/job'
 import {fetchOrganization} from '../store/organization'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Radio from '@material-ui/core/Radio'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
 
 class AddNewJob extends React.Component {
@@ -66,23 +71,29 @@ class AddNewJob extends React.Component {
             onChange={this.handleChange}
             value={description}
           />
-          <h5>Are you willing to hire remote candidates?</h5>
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === true}
-            onChange={this.handleChange}
-            value="true"
-          />
-          Yes
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === false}
-            onChange={this.handleChange}
-            value="false"
-          />
-          No
+
+          <FormControl>
+            <FormLabel>
+              Are you willing to hire remote candidates?
+              <FormLabel />
+              <RadioGroup
+                name="isRemote"
+                onChange={this.handleChange}
+                value={isRemote}
+              >
+                <FormControlLabel
+                  value="true"
+                  control={<Radio />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="false"
+                  control={<Radio />}
+                  label="No"
+                />
+              </RadioGroup>
+            </FormLabel>
+          </FormControl>
           {/* <Link to="/profile/jobs"> */}
           <button type="submit" onClick={this.handleSubmit}>
             Submit
