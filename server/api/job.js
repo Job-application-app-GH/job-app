@@ -29,6 +29,7 @@ router.get('/:orgId', async (req, res, next) => {
 
 router.post('/:id', async (req, res, next) => {
   try {
+    console.log('ORG ID in post route: ', req.params.id)
     let {title, description, location, isRemote} = req.body
     let newJob = await Job.create({
       title: title,
@@ -37,6 +38,7 @@ router.post('/:id', async (req, res, next) => {
       isRemote: isRemote,
       organizationId: req.params.id,
     })
+
     res.status(201).send(newJob)
   } catch (error) {
     next(error)

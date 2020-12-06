@@ -36,6 +36,7 @@ export const postNewJob = (job, id) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.post(`/api/job/${id}`, job)
+      console.log('DATA from fetch jobs', data, 'data[0]', data[0])
       dispatch(createNewJob(data))
     } catch (error) {
       console.log(error, 'error in post new job thunk')
@@ -48,6 +49,7 @@ export const fetchAllJobs = (orgId) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/jobs/${orgId}`)
+
       dispatch(getAllJobs(data))
     } catch (error) {
       console.log(error, 'error in fetch all jobs thunk')
@@ -90,20 +92,21 @@ export const destroyJob = (id) => {
   }
 }
 
-const initalState = []
+const initalState = {}
 
 export default function job(state = initalState, action) {
   switch (action.type) {
     case CREATE_NEW_JOB:
       return action.organizationId
+    // return [...state, action.organizationId]
     case GET_ALL_JOBS:
       return action.jobs
     case GET_SINGLE_JOB:
       return action.job
     case UPDATE_JOB:
       return action.job
-    case DELETE_JOB:
-      return [...state.filter((job) => job.id !== action.id)]
+    // case DELETE_JOB:
+    //   return [...state.filter((job) => job.id !== action.id)]
     default:
       return state
   }

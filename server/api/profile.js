@@ -50,8 +50,8 @@ router.put('/', async (req, res, next) => {
         plain: true,
       })
     }
-    console.log('update', updatedProfile[0])
-    res.send(updatedProfile[0])
+    console.log('update', updatedProfile[1].dataValues)
+    res.send(updatedProfile[1].dataValues)
   } catch (error) {
     next(error)
   }

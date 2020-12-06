@@ -11,10 +11,7 @@ import candidate from './candidate'
 import organization from './organization'
 import profile from './profile'
 
-
 const reducer = combineReducers({
-
-
   nameCard,
   selectedSkills,
   user,
@@ -23,7 +20,6 @@ const reducer = combineReducers({
   organization,
   profile,
 })
-
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
@@ -41,4 +37,3 @@ export default store
 
 export * from './skills'
 export * from './user'
-
