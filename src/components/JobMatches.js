@@ -1,10 +1,10 @@
 import React from 'react'
 import TinderCard from 'react-tinder-card'
-import {fetchSuggestedCandidates} from '../store/candidateMatches'
+import {fetchSuggestedJobs} from '../store/jobMatches'//MARIA: revisit thunk with Archana
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 
-class CandidateMatches extends React.Component {
+class JobMatches extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ class CandidateMatches extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getSuggestedCandidates()
+    this.props.getSuggestedJobs()
   }
 
   handleClick(e) {
@@ -29,22 +29,24 @@ class CandidateMatches extends React.Component {
 
   render() {
     console.log(
-      'Inside render of CandidateMatches, total cards: ',
-      this.props.suggestedCandidates.length
+      'Inside render of JobMatches, total cards: ',
+      this.props.suggestedJobs.length
     )
+    
+    //MARIA: render changed to cater jobs
     return (
       <div>
         <div className="cardsPile">
-          {this.props.suggestedCandidates.map((candidate) => (
+        {this.props.suggestedJobs.map((job) => (
             <div>
               <TinderCard
-                key={candidate.name}
+                key={job.name}
                 className="swipe"
                 preventSwipe={['up', 'down']}
                 onSwipe={this.onSwipe}
               >
                 <ReactCardFlip
-                  key={candidate.id}
+                  key={job.id}
                   isFlipped={this.state.isFlipped}
                   flipDirection="vertical"
                 >
@@ -53,9 +55,9 @@ class CandidateMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#FFB6C1'}}
                   >
-                    <h3>{candidate.name}</h3>
-                    <h3>Current role: {candidate.currentRole}</h3>
-                    <h3>Works at: {candidate.currentCompany}</h3>
+                    <h3>{job.title}</h3>
+                    <h3>Current role: {job.description}</h3>
+                    <h3>Works at: {job.location}</h3>
                     <h3>FRONT OF THE CARD</h3>
                   </div>
 
@@ -64,8 +66,8 @@ class CandidateMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#6495ED'}}
                   >
-                    <h3>{candidate.name}</h3>
-                    <h3>About me: {candidate.description}</h3>
+                    <h3>{job.name}</h3>
+                    <h3>About me: {job.description}</h3>
                     <h3>BACK OF THE CARD</h3>
                   </div>
                 </ReactCardFlip>
@@ -78,11 +80,11 @@ class CandidateMatches extends React.Component {
   }
 }
 const mapState = (state) => ({
-  suggestedCandidates: state.suggestedCandidates,
+  suggestedJobs: state.suggestedJobs,
 })
 
 const mapDispatch = (dispatch) => ({
-  getSuggestedCandidates: () => dispatch(fetchSuggestedCandidates()),
+  getSuggestedJobs: () => dispatch(fetchSuggestedJobs()),
 })
 
-export default connect(mapState, mapDispatch)(CandidateMatches)
+export default connect(mapState, mapDispatch)(JobMatches)
