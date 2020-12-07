@@ -1,6 +1,9 @@
 import React from 'react'
 import TinderCard from 'react-tinder-card'
-import {fetchSuggestedCandidates} from '../store/candidateMatches'
+import {
+  fetchSuggestedCandidates,
+  sendCandidateMatch,
+} from '../store/candidateMatches'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 
@@ -15,7 +18,9 @@ class CandidateMatches extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getSuggestedCandidates()
+    //ARCHANA: WHERE ARE WE GETTING THE JOBID FROM ????
+    const jobId = 1
+    this.props.getSuggestedCandidates(jobId)
   }
 
   handleClick(e) {
@@ -23,8 +28,23 @@ class CandidateMatches extends React.Component {
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
 
-  onSwipe = (direction) => {
-    console.log('You swiped: ' + direction)
+  onSwipe = (jobId, candidateId, direction) => {
+    // console.log('jobId, candidateId===>', jobId, candidateId)
+    let isLiked
+    switch (direction) {
+      case 'left':
+        console.log('You swiped: ' + direction)
+        isLiked = false
+        this.props.sendCandidateMatch(jobId, candidateId, isLiked)
+        break
+      case 'right':
+        console.log('You swiped: ' + direction)
+        isLiked = true
+        this.props.sendCandidateMatch(jobId, candidateId, isLiked)
+        break
+      default:
+        break
+    }
   }
 
   render() {
@@ -32,6 +52,9 @@ class CandidateMatches extends React.Component {
       'Inside render of nameCards, total cards: ',
       this.props.suggestedCandidates.length
     )
+    //ARCHANA: WHERE ARE WE GETTING THE JOBID FROM ????
+    const jobId = 1
+
     return (
       <div>
         <div className="cardsPile">
@@ -41,7 +64,9 @@ class CandidateMatches extends React.Component {
                 key={candidate.name}
                 className="swipe"
                 preventSwipe={['up', 'down']}
-                onSwipe={this.onSwipe}
+                onSwipe={(direction) =>
+                  this.onSwipe(jobId, candidate.id, direction)
+                }
               >
                 <ReactCardFlip
                   key={candidate.id}
@@ -82,7 +107,9 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  getSuggestedCandidates: () => dispatch(fetchSuggestedCandidates()),
+  getSuggestedCandidates: (jobId) => dispatch(fetchSuggestedCandidates(jobId)),
+  sendCandidateMatch: (jobId, candidateId, isLiked) =>
+    dispatch(sendCandidateMatch(jobId, candidateId, isLiked)),
 })
 
 export default connect(mapState, mapDispatch)(CandidateMatches)
