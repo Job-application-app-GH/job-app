@@ -10,9 +10,6 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 import TextField from '@material-ui/core/TextField'
 
-import {Link} from 'react-router-dom'
-import PropTypes from 'prop-types'
-
 class SignUpDetails extends React.Component {
   constructor(props) {
     super(props)
