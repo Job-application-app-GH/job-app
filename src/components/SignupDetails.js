@@ -8,7 +8,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
+import TextField from '@material-ui/core/TextField'
+
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class SignUpDetails extends React.Component {
   constructor(props) {
@@ -39,15 +42,15 @@ class SignUpDetails extends React.Component {
     console.log('id-->', this.props.candidate.id)
     this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
     console.log('State in handle submit', this.state)
-    this.setState({
-      name: '',
-      location: '',
-      currentCompany: '',
-      currentRole: '',
-      description: '',
-      // img: '',
-      isRemote: '',
-    })
+    // this.setState({
+    //   name: '',
+    //   location: '',
+    //   currentCompany: '',
+    //   currentRole: '',
+    //   description: '',
+    //   // img: '',
+    //   isRemote: '',
+    // })
   }
 
   render() {
@@ -58,33 +61,40 @@ class SignUpDetails extends React.Component {
       currentRole,
       description,
       isRemote,
+
       photoUrl,
     } = this.state
     const candidateId = this.props.candidate.id
-    console.log(candidateId)
+
     return (
       <div>
-        <FormControl id="add-form">
+        <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
           <h5>Full Name</h5>
           <input
+            required
             type="text"
             name="name"
             onChange={this.handleChange}
             value={name}
           />
-          <h5>Location</h5>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-          />
+          <div>
+            <h5>Location</h5>
+            <input
+              className="form-control"
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required="required"
+            />
+          </div>
           <h5>Current Company</h5>
           <input
             type="text"
             name="currentCompany"
             onChange={this.handleChange}
             value={currentCompany}
+            required
           />
           <h5>Current Role</h5>
           <input
@@ -92,6 +102,7 @@ class SignUpDetails extends React.Component {
             name="currentRole"
             onChange={this.handleChange}
             value={currentRole}
+            required
           />
 
           <FormControl>
@@ -102,6 +113,8 @@ class SignUpDetails extends React.Component {
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                row
+                required
               >
                 <FormControlLabel
                   value="true"
@@ -123,6 +136,7 @@ class SignUpDetails extends React.Component {
             name="description"
             onChange={this.handleChange}
             value={description}
+            required
           />
           {/* <Link to="/profileImage">
             <button type="submit" onClick={this.handleSubmit}>
@@ -130,10 +144,8 @@ class SignUpDetails extends React.Component {
             </button>
           </Link> */}
 
-          <button type="submit" onClick={this.handleSubmit}>
-            Save
-          </button>
-        </FormControl>
+          <button type="submit">Save</button>
+        </form>
       </div>
     )
   }

@@ -43,7 +43,7 @@ class SignUpOrgDetails extends React.Component {
     const {name, location, description, isRemote} = this.state
     return (
       <div>
-        <form id="add-form">
+        <form onSubmit={this.handleSubmit} id="add-form">
           <h5>Company Name</h5>
           <input
             className="form-control"
@@ -97,9 +97,7 @@ class SignUpOrgDetails extends React.Component {
           </FormControl>
 
           {/* <Link to="/signup/organization/job"> */}
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <button type="submit">Submit</button>
           {/* </Link> */}
         </form>
       </div>
