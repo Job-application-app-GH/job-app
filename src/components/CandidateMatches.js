@@ -49,7 +49,7 @@ class CandidateMatches extends React.Component {
 
   render() {
     console.log(
-      'Inside render of nameCards, total cards: ',
+      'Inside render of CandidateMatches, total cards: ',
       this.props.suggestedCandidates.length
     )
     //ARCHANA: WHERE ARE WE GETTING THE JOBID FROM ????
