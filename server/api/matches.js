@@ -39,11 +39,8 @@ router.get('/job/:jobId', async (req, res, next) => {
 //GET '/api/candidate/:candidateId'
 router.get('/candidate/:candidateId', async (req, res, next) => {
   try {
-    const details = await Organization.findAll({
-      attributes: ['id', 'name', 'description', 'isRemote', 'location'],
-      include: {
-        model: Job,
-      },
+    const details = await Job.findAll({
+      attributes: ['id', 'title', 'description', 'isRemote', 'location'],
     })
     res.send(details)
   } catch (error) {

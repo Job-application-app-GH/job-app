@@ -1,6 +1,6 @@
 import React from 'react'
 import TinderCard from 'react-tinder-card'
-import {fetchSuggestedJobs} from '../store/jobMatches'//MARIA: revisit thunk with Archana
+import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches' //MARIA: revisit thunk with Archana
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 
@@ -15,7 +15,9 @@ class JobMatches extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getSuggestedJobs()
+    //ARCHANA: WHERE ARE WE GETTING THE CANDIDATE ID FROM ????
+    const candidateId = 1
+    this.props.getSuggestedJobs(candidateId)
   }
 
   handleClick(e) {
@@ -23,8 +25,23 @@ class JobMatches extends React.Component {
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
 
-  onSwipe = (direction) => {
-    console.log('You swiped: ' + direction)
+  onSwipe = (jobId, candidateId, direction) => {
+    // console.log('jobId, candidateId===>', jobId, candidateId)
+    let isLiked
+    switch (direction) {
+      case 'left':
+        console.log('You swiped: ' + direction)
+        isLiked = false
+        this.props.sendJobMatch(jobId, candidateId, isLiked)
+        break
+      case 'right':
+        console.log('You swiped: ' + direction)
+        isLiked = true
+        this.props.sendJobMatch(jobId, candidateId, isLiked)
+        break
+      default:
+        break
+    }
   }
 
   render() {
@@ -32,18 +49,23 @@ class JobMatches extends React.Component {
       'Inside render of JobMatches, total cards: ',
       this.props.suggestedJobs.length
     )
-    
+
+    //ARCHANA: WHERE ARE WE GETTING THE CANDIDATE ID FROM ????
+    const candidateId = 1
+
     //MARIA: render changed to cater jobs
     return (
       <div>
         <div className="cardsPile">
-        {this.props.suggestedJobs.map((job) => (
-            <div>
+          {this.props.suggestedJobs.map((job) => (
+            <div key={job.id}>
               <TinderCard
-                key={job.name}
+                key={job.id}
                 className="swipe"
                 preventSwipe={['up', 'down']}
-                onSwipe={this.onSwipe}
+                onSwipe={(direction) =>
+                  this.onSwipe(job.id, candidateId, direction)
+                }
               >
                 <ReactCardFlip
                   key={job.id}
@@ -66,7 +88,7 @@ class JobMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#6495ED'}}
                   >
-                    <h3>{job.name}</h3>
+                    <h3>{job.title}</h3>
                     <h3>About me: {job.description}</h3>
                     <h3>BACK OF THE CARD</h3>
                   </div>
@@ -84,7 +106,9 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  getSuggestedJobs: () => dispatch(fetchSuggestedJobs()),
+  getSuggestedJobs: (candidateId) => dispatch(fetchSuggestedJobs(candidateId)),
+  sendJobMatch: (jobId, candidateId, isLiked) =>
+    dispatch(sendJobMatch(jobId, candidateId, isLiked)),
 })
 
 export default connect(mapState, mapDispatch)(JobMatches)

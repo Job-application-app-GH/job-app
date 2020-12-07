@@ -21,7 +21,7 @@ export const fetchSuggestedCandidates = (jobId) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/matches/job/${jobId}`)
-      console.log('inside THUNK fetch candidates: ', data)
+      // console.log('inside THUNK fetch candidates: ', data)
       dispatch(setSuggestedCandidates(data))
     } catch (error) {
       console.error(error)
