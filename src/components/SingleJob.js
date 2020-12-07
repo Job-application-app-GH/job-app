@@ -50,8 +50,9 @@ class SingleJob extends React.Component {
               </div>
             ))
           : null}
-
-        <button>View matches for this job</button>
+        <Link to={`/profile/jobs/matches/${job.id}`}>
+          <button>View matches for this job</button>
+        </Link>
       </div>
     )
   }

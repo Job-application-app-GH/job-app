@@ -11,6 +11,7 @@ import candidate from './candidate'
 import organization from './organization'
 import profile from './profile'
 import skillsList from './skillsList'
+import profileMatches from './profileMatches'
 
 const reducer = combineReducers({
   suggestedCandidates,
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   organization,
   profile,
   skillsList,
+  profileMatches,
 })
 
 const middleware = composeWithDevTools(
