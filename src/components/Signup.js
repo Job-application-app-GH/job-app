@@ -65,7 +65,6 @@ const mapDispatch = (dispatch) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      console.log('inside handle submit')
       const email = evt.target.email.value
       const password = evt.target.password.value
       dispatch(signup(email, password))

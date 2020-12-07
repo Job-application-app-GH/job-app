@@ -21,7 +21,6 @@
     "passport-google-oauth": "^2.0.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "profile-picture": "git+https://github.com/dsalvagni/react-profile-picture.git",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-avatar-cropper": "^0.1.3",

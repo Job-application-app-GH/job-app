@@ -24,7 +24,7 @@ class JobProfile extends React.Component {
         <Link to="/profile">
           <button>Back to profile</button>
         </Link>
-        <Link to="/addJob">
+        <Link to="/profile/addJob">
           <button>Add New Job</button>
         </Link>
         {jobs.map((job) => (

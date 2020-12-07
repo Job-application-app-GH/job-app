@@ -2,6 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUpdatedProfile} from '../store/profile'
 import {fetchUpdatedJob, fetchSingleJob} from '../store/job'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Radio from '@material-ui/core/Radio'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import {Link} from 'react-router-dom'
 
 class EditJob extends React.Component {
   constructor(props) {
@@ -38,47 +44,59 @@ class EditJob extends React.Component {
     return (
       <div>
         <h3>Edit My Profile</h3>
-        <h5>Title</h5>
-        <input
-          type="text"
-          name="title"
-          onChange={this.handleChange}
-          value={title}
-        />
-        <h5>Location</h5>
-        <input
-          type="text"
-          name="location"
-          onChange={this.handleChange}
-          value={location}
-        />
-        <h6>Description</h6>
-        <input
-          type="text"
-          name="description"
-          onChange={this.handleChange}
-          value={description}
-        />
-        <h6>Do you hire remote employees?</h6>
-        <input
-          type="radio"
-          name="isRemote"
-          checked={isRemote === true}
-          onChange={this.handleChange}
-          value="true"
-        />
-        Yes
-        <input
-          type="radio"
-          name="isRemote"
-          checked={isRemote === false}
-          onChange={this.handleChange}
-          value="false"
-        />
-        No
-        <button type="submit" onClick={this.handleSubmit}>
-          Save Changes
-        </button>
+        <form onSubmit={this.handleSubmit}>
+          <h5>Title</h5>
+          <input
+            type="text"
+            name="title"
+            onChange={this.handleChange}
+            value={title}
+            required
+          />
+          <h5>Location</h5>
+          <input
+            type="text"
+            name="location"
+            onChange={this.handleChange}
+            value={location}
+            required
+          />
+          <h6>Description</h6>
+          <input
+            type="text"
+            name="description"
+            onChange={this.handleChange}
+            value={description}
+            required
+          />
+          <h6>Do you hire remote employees?</h6>
+          <FormControl>
+            <FormLabel>
+              Do you hire remote employees?
+              <FormLabel />
+              <RadioGroup
+                name="isRemote"
+                onChange={this.handleChange}
+                value={isRemote}
+              >
+                <FormControlLabel
+                  value="true"
+                  control={<Radio />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="false"
+                  control={<Radio />}
+                  label="No"
+                />
+              </RadioGroup>
+            </FormLabel>
+          </FormControl>
+          <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+            <button>Edit job skills</button>
+          </Link>
+          <button type="submit">Save Changes</button>
+        </form>
       </div>
     )
   }

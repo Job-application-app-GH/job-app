@@ -63,16 +63,16 @@ export const putUserType = (type) => {
   }
 }
 
-export const uploadAvatarImage = (img) => {
-  return async (dispatch) => {
-    try {
-      let {data} = await axios.put('/api/users/img', img)
-      dispatch(uploadImage(data))
-    } catch (error) {
-      console.log(error, 'error in img thunk')
-    }
-  }
-}
+// export const uploadAvatarImage = (img) => {
+//   return async (dispatch) => {
+//     try {
+//       let {data} = await axios.put('/api/users/img', img)
+//       dispatch(uploadImage(data))
+//     } catch (error) {
+//       console.log(error, 'error in img thunk')
+//     }
+//   }
+// }
 
 const ADD_USER = 'ADD_USER'
 const addUser = (user) => {
@@ -102,7 +102,7 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/home')
+    history.push('/signup/type')
     console.log('history')
     history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {

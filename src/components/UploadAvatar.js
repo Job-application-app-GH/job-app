@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ReactAvatarEditor from 'react-avatar-editor'
-import {uploadAvatarImage} from '../store/user'
+// import {uploadAvatarImage} from '../store/user'
 
 class UploadAvatar extends React.Component {
   constructor(props) {
@@ -88,7 +88,7 @@ class UploadAvatar extends React.Component {
 
 const mapDispatch = (dispatch) => {
   return {
-    addImg: (img) => dispatch(uploadAvatarImage(img)),
+    // addImg: (img) => dispatch(uploadAvatarImage(img)),
   }
 }
 

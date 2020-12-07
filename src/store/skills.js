@@ -14,6 +14,7 @@ const saveSkills = () => ({type: SAVE_SKILLS})
 /**
  * THUNK CREATORS
  */
+
 export const getCandidateSkills = (candidateId) => async (dispatch) => {
   try {
     const {data: selectedSkills} = await axios.get(
@@ -28,6 +29,7 @@ export const getCandidateSkills = (candidateId) => async (dispatch) => {
 
 export const getJobSkills = (jobId) => async (dispatch) => {
   try {
+    console.log('JOB ID:', jobId)
     const {data: selectedSkills} = await axios.get(`/api/jobSkills/${jobId}`)
 
     dispatch(setSkills(selectedSkills))

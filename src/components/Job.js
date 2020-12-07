@@ -4,6 +4,11 @@ import {postNewJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {fetchOrganization} from '../store/organization'
 import {fetchSingleJob} from '../store/job'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Radio from '@material-ui/core/Radio'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 class Job extends React.Component {
   constructor(props) {
@@ -33,6 +38,7 @@ class Job extends React.Component {
     event.preventDefault()
     await this.props.newCandidate({...this.state}, this.props.organization.id)
     // this.props.getJob(this.props.organization.id)
+    console.log('props in handle submit->', this.props.job)
     this.props.history.push(`/jobSkills/${this.props.job.id}`)
     this.setState({
       title: '',
@@ -43,19 +49,21 @@ class Job extends React.Component {
   }
 
   render() {
-    // console.log('PROPS', this.props.organization.id)
+    console.log('PROPS', this.props.job)
     const {title, location, description, isRemote} = this.state
     const jobId = this.props.job.id
     console.log('job id', jobId)
     return (
       <div>
-        <form id="add-form">
+        <h2>Create a new job posting</h2>
+        <form id="add-form" onSubmit={this.handleSubmit}>
           <h5>Job Title</h5>
           <input
             type="text"
             name="title"
             onChange={this.handleChange}
             value={title}
+            required
           />
           <h5>Location</h5>
           <input
@@ -63,6 +71,7 @@ class Job extends React.Component {
             name="location"
             onChange={this.handleChange}
             value={location}
+            required
           />
           <h5>Job Description</h5>
           <textarea
@@ -70,27 +79,31 @@ class Job extends React.Component {
             name="description"
             onChange={this.handleChange}
             value={description}
+            required
           />
-          <h5>Are you willing to hire remote candidates?</h5>
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === true}
-            onChange={this.handleChange}
-            value="true"
-          />
-          Yes
-          <input
-            type="radio"
-            name="isRemote"
-            checked={isRemote === false}
-            onChange={this.handleChange}
-            value="false"
-          />
-          No
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <FormControl>
+            <FormLabel>
+              Are you willing to hire remote employees?
+              <FormLabel />
+              <RadioGroup
+                name="isRemote"
+                onChange={this.handleChange}
+                value={isRemote}
+              >
+                <FormControlLabel
+                  value="true"
+                  control={<Radio />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="false"
+                  control={<Radio />}
+                  label="No"
+                />
+              </RadioGroup>
+            </FormLabel>
+          </FormControl>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )

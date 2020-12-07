@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GET_USER_DETAILS = 'GET_USER_DETAILS'
 const UPDATE_PROFILE = 'UPDATE_PROFILE'
+// const GET_CANDIDATE_SKILLS = 'GET_CANDIDATE_SKILLS'
 
 const getUserDetails = (details) => ({
   type: GET_USER_DETAILS,
@@ -13,10 +14,16 @@ const updateProfile = (details) => ({
   details,
 })
 
+// const getCandidateSkills = (skills) => ({
+//   type: GET_CANDIDATE_SKILLS,
+//   skills
+// })
+
 export const fetchUserDetails = () => {
   return async (dispatch) => {
     try {
       let {data} = await axios.get('/api/profile')
+      console.log('data from thunk->', data)
       dispatch(getUserDetails(data))
     } catch (error) {
       console.log('error in fetch user details', error)
