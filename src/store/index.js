@@ -4,6 +4,7 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import suggestedCandidates from './candidateMatches'
+import suggestedJobs from './jobMatches'
 import selectedSkills from './skills'
 import user from './user'
 import job from './job'
@@ -14,6 +15,7 @@ import skillsList from './skillsList'
 
 const reducer = combineReducers({
   suggestedCandidates,
+  suggestedJobs,
   selectedSkills,
   user,
   job,

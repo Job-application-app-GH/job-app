@@ -2,6 +2,7 @@ import axios from 'axios'
 
 //ACTION TYPES
 const SET_SUGGESTED_JOBS = 'SET_SUGGESTED_JOBS'
+const REMOVE_JOB = 'REMOVE_JOB'
 
 //ACTION CREATORS
 const setSuggestedJobs = (suggestedJobs) => ({
@@ -9,14 +10,17 @@ const setSuggestedJobs = (suggestedJobs) => ({
   suggestedJobs,
 })
 
+const removeJobFromList = (jobId) => ({
+  type: REMOVE_JOB,
+  jobId,
+})
+
 //THUNKS
-export const fetchSuggestedJobs = () => {
+//ARCHANA: FIGURE OUT WHEERE IS candidateId coming from and make changes in thunk call as appropriate
+export const fetchSuggestedJobs = (candidateId) => {
   return async (dispatch) => {
     try {
-      //ARCHANA: change the job id when you know how to get it
-      const jobId = 1
-      const {data} = await axios.get(`/api/matches/job/${jobId}`)
-      //MARIA: change thunk .get with Archana
+      const {data} = await axios.get(`/api/matches/candidate/${candidateId}`)
       console.log('inside THUNK fetch jobs: ', data)
       dispatch(setSuggestedJobs(data))
     } catch (error) {
@@ -24,6 +28,23 @@ export const fetchSuggestedJobs = () => {
     }
   }
 }
+
+export const sendJobMatch = (jobId, candidateId, isLiked) => {
+  return async (dispatch) => {
+    try {
+      const matchRecord = {
+        jobId: jobId,
+        candidateId: candidateId,
+        isLiked: isLiked,
+      }
+      await axios.post('/api/matches/candidate', matchRecord)
+      dispatch(removeJobFromList(jobId))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 //INIT STATE
 const initState = []
 
@@ -32,6 +53,8 @@ export default function jobMatches(state = initState, action) {
   switch (action.type) {
     case SET_SUGGESTED_JOBS:
       return action.suggestedJobs
+    case REMOVE_JOB:
+      return state.filter((job) => job.id !== action.jobId)
     default:
       return state
   }
