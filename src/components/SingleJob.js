@@ -12,12 +12,13 @@ class SingleJob extends React.Component {
 
   componentDidMount() {
     this.props.loadSingleJob(this.props.match.params.id)
-    this.props.loadJobSkills()
+    this.props.loadJobSkills(this.props.match.params.id)
   }
 
   render() {
     const job = this.props.job
     const skills = this.props.skills
+    console.log('PROPS-->', this.props.skills)
     return (
       <div>
         <h3>Job Details</h3>
@@ -46,7 +47,7 @@ class SingleJob extends React.Component {
         {skills
           ? skills.map((skill) => (
               <div key={skill.id}>
-                <p>{skill.skill.name}</p>
+                <p>{skill.name}</p>
               </div>
             ))
           : null}
@@ -69,7 +70,7 @@ const mapDispatch = (dispatch) => {
   return {
     deleteJob: (id) => dispatch(destroyJob(id)),
     loadSingleJob: (id) => dispatch(fetchSingleJob(id)),
-    loadJobSkills: () => dispatch(fetchJobSkills()),
+    loadJobSkills: (id) => dispatch(fetchJobSkills(id)),
   }
 }
 
