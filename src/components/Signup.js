@@ -31,7 +31,7 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          {/* <Link to="/name"> */}
+          {/* <Link to="/findCandidates"> */}
           <button>{displayName}</button>
           {/* </Link> */}
         </div>
