@@ -49,13 +49,14 @@ class AddNewJob extends React.Component {
     const {title, location, description, isRemote} = this.state
     return (
       <div>
-        <form id="add-form">
+        <form onSubmit={this.handleSubmit} id="add-form">
           <h5>Job Title</h5>
           <input
             type="text"
             name="title"
             onChange={this.handleChange}
             value={title}
+            required
           />
           <h5>Location</h5>
           <input
@@ -63,6 +64,7 @@ class AddNewJob extends React.Component {
             name="location"
             onChange={this.handleChange}
             value={location}
+            required
           />
           <h5>Job Description</h5>
           <textarea
@@ -70,6 +72,7 @@ class AddNewJob extends React.Component {
             name="description"
             onChange={this.handleChange}
             value={description}
+            required
           />
 
           <FormControl>
@@ -95,9 +98,7 @@ class AddNewJob extends React.Component {
             </FormLabel>
           </FormControl>
           {/* <Link to="/profile/jobs"> */}
-          <button type="submit" onClick={this.handleSubmit}>
-            Submit
-          </button>
+          <button type="submit">Submit</button>
           {/* </Link> */}
         </form>
       </div>

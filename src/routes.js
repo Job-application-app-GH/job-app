@@ -20,6 +20,8 @@ import EditJob from './components/EditJob'
 import SingleJob from './components/SingleJob'
 import AddNewJob from './components/AddNewJob'
 import {CandidateSkills, JobSkills} from './components'
+import {EditCandidateSkills} from './components/EditSkills'
+import {EditJobSkills} from './components/EditSkills'
 import {me} from './store'
 
 /**
@@ -52,10 +54,11 @@ class Routes extends Component {
         <Route exact path="/profile/jobs/:id" component={SingleJob} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
-<<<<<<< HEAD
+
         <Route path="/profile/addJob" component={AddNewJob} />
-=======
->>>>>>> 32fb5218a33fe9d9182305d60e0d658e28d99ccd
+
+        <Route path="/profile/editskills/:id" component={EditCandidateSkills} />
+        <Route path="/profile/jobs/editskills/:id" component={EditJobSkills} />
 
         {isLoggedIn && (
           <Switch>

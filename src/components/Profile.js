@@ -1,6 +1,6 @@
 import React from 'react'
 import {fetchUserDetails} from '../store/profile'
-import {fetchCandidateSkills} from '../store/skills'
+import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -27,7 +27,7 @@ class Profile extends React.Component {
   render() {
     const profile = this.props.profile
     const user = this.props.user
-    const skills = this.props.skills
+    const skills = this.props.skillsList
     console.log('skills->', this.props)
     let link
     if (user.userType === 'CANDIDATE') {
@@ -56,9 +56,10 @@ class Profile extends React.Component {
         ) : (
           <h6>Willing to hire remote candidates: False</h6>
         )}
-        <h5>Skills:</h5>
+
         {skills
-          ? skills.map((skill) => (
+          ? // <h5>Skills:</h5>
+            skills.map((skill) => (
               <div key={skill.id}>
                 <p>{skill.skill.name}</p>
               </div>
@@ -79,7 +80,7 @@ const mapState = (state) => {
   return {
     profile: state.profile,
     user: state.user,
-    skills: state.selectedSkills,
+    skillsList: state.skillsList,
   }
 }
 
