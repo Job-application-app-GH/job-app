@@ -26,7 +26,7 @@ class Skills extends Component {
 
   handleSaveSkills() {
     this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
-    this.props.history.push('/')
+    this.props.history.push('/home')
   }
 
   componentDidMount() {
