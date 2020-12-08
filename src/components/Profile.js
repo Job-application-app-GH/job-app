@@ -13,9 +13,10 @@ class Profile extends React.Component {
     this.displayForm = this.displayForm.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.props.loadUserDetails()
-    this.props.loadCandidateSkills()
+    console.log('CDM-L', this.props.profile.id)
+    await this.props.loadCandidateSkills(this.props.profile.id)
   }
 
   displayForm() {
@@ -28,7 +29,7 @@ class Profile extends React.Component {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    console.log('skills->', this.props)
+    console.log('profile info->', this.props.profile.id)
     let link
     let candidate
     if (user.userType === 'CANDIDATE') {
@@ -96,7 +97,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadUserDetails: () => dispatch(fetchUserDetails()),
-    loadCandidateSkills: () => dispatch(fetchCandidateSkills()),
+    loadCandidateSkills: (id) => dispatch(fetchCandidateSkills(id)),
   }
 }
 
