@@ -102,9 +102,9 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    history.push('/signup/type')
-    console.log('history')
-    history.push('/signup/type')
+    // history.push('/signup/type')
+    // console.log('history')
+    // history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -114,7 +114,7 @@ export const logout = () => async (dispatch) => {
   try {
     await axios.post('/auth/logout')
     dispatch(removeUser())
-    history.push('/login')
+    // history.push('/')
   } catch (err) {
     console.error(err)
   }

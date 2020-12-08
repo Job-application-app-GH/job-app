@@ -10,17 +10,17 @@ import {Link} from 'react-router-dom'
 const SignUp = (props) => {
   const {name, displayName, handleSubmit, error} = props
   return (
-    <div className='signin-container'>
+    <div className="signin-container">
       <form onSubmit={handleSubmit} name={name}>
-        <div className='login-words'>
+        <div className="login-words">
           <label htmlFor="email">
             <small>Email:</small>
           </label>
           <input className="form-control" name="email" type="email" required />
         </div>
-        <div className='login-words'>
+        <div className="login-words">
           <label htmlFor="password">
-            <small className='login-words'>Password:</small>
+            <small className="login-words">Password:</small>
           </label>
           <input
             className="form-control"
@@ -31,9 +31,9 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          {/* <Link to="/findCandidates"> */}
-          <button className="signup-button">{displayName}</button>
-          {/* </Link> */}
+          <Link to="/profile/type">
+            <button className="signup-button">{displayName}</button>
+          </Link>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />

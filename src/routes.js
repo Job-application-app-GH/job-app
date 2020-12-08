@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // import { Login, SignUp, UserHome } from "./components";
 import Login from './components/AuthForm'
 import Signup from './components/Signup'
+import Logout from './components/Logout'
 // import UserHome from './components/UserHome'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
@@ -24,10 +25,10 @@ import {CandidateSkills, JobSkills} from './components'
 import {EditCandidateSkills} from './components/EditSkills'
 import {EditJobSkills} from './components/EditSkills'
 import LandingPage from './components/LandingPage'
-import JobMatches from './components/JobMatches'
 import JobMatchCandidateProfile from './components/JobMatchCandidateProfile'
 import {AddNewJobSkills} from './components/AddNewSkills'
 import {me} from './store'
+import ProfileMatchesJob from './components/ProfileMatchesJob'
 
 /**
  * COMPONENT
@@ -44,6 +45,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Login} />
+        <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup/type" component={ProfileType} />
         <Route exact path="/signup/candidate" component={SignupDetails} />
@@ -58,10 +60,9 @@ class Routes extends Component {
         <Route exact path="/profile/jobs" component={JobProfile} />
         <Route exact path="/profile/jobs/edit/:id" component={EditJob} />
         <Route exact path="/profile/jobs/:id" component={SingleJob} />
-        <Route path="/profile/jobs/matches/:id" component={JobMatches} />
+        <Route path="/profile/jobs/matches/:id" component={ProfileMatchesJob} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
-
         <Route exact path="/profile/addJob" component={AddNewJob} />
         <Route exact path="/home" component={LandingPage} />
 
