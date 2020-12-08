@@ -6,11 +6,12 @@ import ChatIcon from '@material-ui/icons/Chat'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import Logout from './Logout'
 import {connect} from 'react-redux'
 import {logout} from '../store'
 import PropTypes from 'prop-types'
+import {fetchCandidateMatches} from '../store/profileMatches'
 import '../styles/App.css'
+import {fetchAllJobs} from '../store/job'
 
 const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -26,6 +27,12 @@ const Header = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
+  // let matchesLink
+  // if (props.user.userType === 'CANDIDATE') {
+  //   matchesLink = `/profile/candidate/matches/${profile.id}`
+  // } else {
+  //   matchesLink = `/profile/job/matches/${this.props.job.id}`
+  // }
 
   return (
     <div className="header">
@@ -47,7 +54,16 @@ const Header = (props) => {
           <Link to="/profile">
             <MenuItem onClick={handleClose}>Profile</MenuItem>
           </Link>
-          <MenuItem onClick={handleClose}>Matches</MenuItem>
+
+          {props.job ? (
+            <Link to={`/`}>
+              <MenuItem>Job Listings</MenuItem>
+            </Link>
+          ) : null}
+
+          {/* <Link to={matchesLink}>
+            <MenuItem>Matches</MenuItem>
+          </Link> */}
 
           <Link to="/">
             <MenuItem href="#" onClick={handleClick}>
@@ -73,14 +89,17 @@ const Header = (props) => {
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
+    profile: state.profile,
+    job: state.job,
+    user: state.user,
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    handleClick() {
-      dispatch(logout())
-    },
+    handleClick: () => dispatch(logout()),
+    loadCandidateSkills: (id) => dispatch(fetchCandidateMatches(id)),
+    loadJobs: (orgId) => dispatch(fetchAllJobs(orgId)),
   }
 }
 
@@ -89,7 +108,7 @@ export default connect(mapState, mapDispatch)(Header)
 /**
  * PROP TYPES
  */
-Logout.propTypes = {
+Header.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
 }

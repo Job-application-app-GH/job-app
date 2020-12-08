@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 // import { Login, SignUp, UserHome } from "./components";
 import Login from './components/AuthForm'
 import Signup from './components/Signup'
-import Logout from './components/Logout'
 // import UserHome from './components/UserHome'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
@@ -47,7 +46,6 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Login} />
-        <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup/type" component={ProfileType} />
         <Route exact path="/signup/candidate" component={SignupDetails} />

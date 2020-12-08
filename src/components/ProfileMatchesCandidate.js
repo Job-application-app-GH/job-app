@@ -37,7 +37,7 @@ class JobMatches extends React.Component {
         ) : (
           <h4>You do not have any matches yet!</h4>
         )}
-        <button onClick={this.goBack}>Return to profile</button>
+        {/* <button onClick={this.goBack}>Return to profile</button> */}
       </div>
     )
   }
