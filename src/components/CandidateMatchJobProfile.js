@@ -1,6 +1,6 @@
 import React from 'react'
 import {fetchJobProfile} from '../store/profile'
-import {fetchCandidateSkills} from '../store/skillsList'
+import {fetchJobSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -16,7 +16,7 @@ class CandidateMatchJobProfile extends React.Component {
 
   componentDidMount() {
     this.props.loadUserDetails(this.props.match.params.id)
-    this.props.loadCandidateSkills(this.props.match.params.id)
+    this.props.loadJobSkills(this.props.match.params.id)
   }
 
   displayForm() {
@@ -37,7 +37,7 @@ class CandidateMatchJobProfile extends React.Component {
 
     return (
       <div>
-        <h2>{profile.name}</h2>
+        <h2>{profile.title}</h2>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
           <h6>Current Company: {profile.currentCompany}</h6>
@@ -78,7 +78,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadUserDetails: (id) => dispatch(fetchJobProfile(id)),
-    loadCandidateSkills: (id) => dispatch(fetchCandidateSkills(id)),
+    loadJobSkills: (id) => dispatch(fetchJobSkills(id)),
   }
 }
 

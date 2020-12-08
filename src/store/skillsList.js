@@ -9,6 +9,7 @@ const getCanSkills = (skills) => ({
 })
 const getJSkills = (skills) => ({type: GET_JOB_SKILLS, skills})
 
+//
 export const fetchCandidateSkills = (candidateId) => {
   return async (dispatch) => {
     try {
@@ -24,6 +25,7 @@ export const fetchCandidateSkills = (candidateId) => {
 export const fetchJobSkills = (jobId) => {
   return async (dispatch) => {
     try {
+      console.log('received->', jobId)
       let {data} = await axios.get(`/api/jobSkills/${jobId}`)
       const currentJobSkills = data.filter((skill) => skill.selected)
       dispatch(getJSkills(currentJobSkills))

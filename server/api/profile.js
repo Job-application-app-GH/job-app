@@ -48,7 +48,7 @@ router.get('/:candidateId', async (req, res, next) => {
   }
 })
 
-router.get('/:jobId', async (req, res, next) => {
+router.get('/job/:jobId', async (req, res, next) => {
   try {
     console.log('JOB ID---------->', req.params.jobId)
     let jobProfile = await Job.findByPk(req.params.jobId)

@@ -50,6 +50,7 @@ export const fetchUpdatedProfile = (profile) => {
   }
 }
 
+//
 export const fetchCandidateProfile = (candidateId) => {
   return async (dispatch) => {
     try {
@@ -64,9 +65,10 @@ export const fetchCandidateProfile = (candidateId) => {
 }
 
 export const fetchJobProfile = (jobId) => {
+  console.log('JOB ID---->', jobId)
   return async (dispatch) => {
     try {
-      let {data} = await axios.get(`/api/profile/${jobId}`)
+      let {data} = await axios.get(`/api/profile/job/${jobId}`)
       dispatch(getJobDetails(data))
     } catch (error) {
       console.log(error)
