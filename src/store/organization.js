@@ -29,7 +29,7 @@ export const postNewOrganization = (organization) => {
 export const fetchOrganization = (id) => {
   return async (dispatch) => {
     try {
-      let {data} = await axios.get('/api/organization/')
+      let {data} = await axios.get('/api/organization')
       dispatch(getOrganization(data))
     } catch (error) {
       console.log(error, 'error in fetch org thunk')

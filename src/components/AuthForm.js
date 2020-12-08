@@ -11,51 +11,53 @@ import loginImg from '../styles/logo3.svg'
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
   return (
-    <div className='base-container'>
-    {/* <div className='header'>
+    <div className="base-container">
+      {/* <div className='header'>
      POSSIBLE.HEADER.HERE
     </div> */}
-    <div className='login-img'>
-     <img src={loginImg} className='login-img-itself' alt =''/>
-    </div>
-      <div className='form'>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small className='login-words'>Email</small>
-          </label>
-          <input className="form-group" name="email" type="email" required />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small className='login-words'>Password</small>
-          </label>
-          <input
-            className="form-group"
-            name="password"
-            type="password"
-            required
-          />
-        </div>
-        <br />
-        <div>
-          <button className="login-button" type="submit">
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-        <br />
-        <a href="/auth/google" className='signup-link'>
-          {displayName} with Google
-        </a>
+      <div className="login-img">
+        <img src={loginImg} className="login-img-itself" alt="" />
+      </div>
+      <div className="form">
+        <form onSubmit={handleSubmit} name={name}>
+          <div>
+            <label htmlFor="email">
+              <small className="login-words">Email</small>
+            </label>
+            <input className="form-group" name="email" type="email" required />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small className="login-words">Password</small>
+            </label>
+            <input
+              className="form-group"
+              name="password"
+              type="password"
+              required
+            />
+          </div>
+          <br />
+          <div>
+            {/* <Link to="/home"> */}
+            <button className="login-button" type="submit">
+              {displayName}
+            </button>
+            {/* </Link> */}
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+          <br />
+          <a href="/auth/google" className="signup-link">
+            {displayName} with Google
+          </a>
         </form>
-        </div>
-        <div>
-        <Link to="/signup" className='signup-link' >
+      </div>
+      <div>
+        <Link to="/signup" className="signup-link">
           <h3>New to *appname*? Sign up here</h3>
         </Link>
       </div>
-       {/* <div>
+      {/* <div>
         <Link to="/signup" >
           <button >New to *appname*? Sign up here</button>
         </Link>

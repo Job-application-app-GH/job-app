@@ -14,10 +14,20 @@ class JobProfile extends React.Component {
     // this.props.fetchJobs(this.props.profile.id)
   }
 
+  sort_by_key(array, key) {
+    return array.sort(function (a, b) {
+      var x = a[key]
+      var y = b[key]
+      return x < y ? -1 : x > y ? 1 : 0
+    })
+  }
+
   render() {
-    const jobs = this.props.profile.jobs || []
+    const allJobs = this.props.profile.jobs || []
+    const jobs = this.sort_by_key(allJobs, 'id')
     console.log('profile', this.props.profile.id)
-    console.log(jobs)
+    console.log('JOBS->', jobs)
+
     return (
       <div>
         <h3>Job Postings</h3>

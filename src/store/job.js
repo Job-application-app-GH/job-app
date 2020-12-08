@@ -32,11 +32,11 @@ const deleteJob = (id) => ({
 })
 
 export const postNewJob = (job, id) => {
-  console.log(job, id)
+  console.log('job->', job, 'orgId->', id)
   return async (dispatch) => {
     try {
       const {data} = await axios.post(`/api/job/${id}`, job)
-      console.log('DATA from fetch jobs', data, 'data[0]', data[0])
+      console.log('DATA from fetch jobs', data)
       dispatch(createNewJob(data))
     } catch (error) {
       console.log(error, 'error in post new job thunk')
@@ -48,7 +48,7 @@ export const fetchAllJobs = (orgId) => {
   console.log('orgId: ', orgId)
   return async (dispatch) => {
     try {
-      const {data} = await axios.get(`/api/jobs/${orgId}`)
+      const {data} = await axios.get(`/api/job/allJobs/${orgId}`)
 
       dispatch(getAllJobs(data))
     } catch (error) {

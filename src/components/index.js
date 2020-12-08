@@ -1,4 +1,4 @@
-export {default as Chats} from './Chats'
+// export {default as Chats} from './Chats'
 export {default as Header} from './Header'
 export {default as CandidateMatches} from './CandidateMatches'
 export {default as SingleChat} from './SingleChat'

@@ -5,26 +5,6 @@ const Skill = require('../db/models/skill')
 
 module.exports = router
 
-router.get('/', async (req, res, next) => {
-  try {
-    let candidate = await Candidate.findOne({
-      where: {
-        userId: req.user.id,
-      },
-    })
-    let skills = await CandidateSkill.findAll({
-      where: {
-        candidateId: candidate.id,
-      },
-      attributes: ['skillId'],
-      include: {model: Skill, attributes: ['name']},
-    })
-    res.send(skills)
-  } catch (error) {
-    next(error)
-  }
-})
-
 // GET '/api/candidateSkills/:candidateId'
 router.get('/:candidateId', async (req, res, next) => {
   try {

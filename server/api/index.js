@@ -10,6 +10,7 @@ router.use('/organization', require('./organization'))
 router.use('/job', require('./job'))
 router.use('/profile', require('./profile'))
 router.use('/matches', require('./matches'))
+router.use('/profileMatches', require('./profileMatches'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
