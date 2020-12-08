@@ -21,11 +21,12 @@ export const fetchCandidateSkills = () => {
   }
 }
 
-export const fetchJobSkills = () => {
+export const fetchJobSkills = (jobId) => {
   return async (dispatch) => {
     try {
-      let {data} = await axios.get('/api/jobSkills')
-      dispatch(getJSkills(data))
+      let {data} = await axios.get(`/api/jobSkills/${jobId}`)
+      const currentJobSkills = data.filter((skill) => skill.selected)
+      dispatch(getJSkills(currentJobSkills))
     } catch (error) {
       console.log(error, 'error in fetch job skills')
     }

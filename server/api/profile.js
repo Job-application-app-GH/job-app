@@ -29,6 +29,7 @@ router.get('/', async (req, res, next) => {
         },
       })
     }
+
     // console.log('details:', details)
     res.send(details)
   } catch (error) {

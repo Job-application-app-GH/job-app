@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {postNewJob} from '../store/job'
+import job, {postNewJob} from '../store/job'
+import {fetchSingleJob} from '../store/job'
+
 import {fetchOrganization} from '../store/organization'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
@@ -32,10 +34,12 @@ class AddNewJob extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    this.props.newCandidate({...this.state}, this.props.organization.id)
-    this.props.history.goBack()
+    await this.props.newCandidate({...this.state}, this.props.organization.id)
+    await this.props.history.push(
+      `/profile/addJob/addSkills/${this.props.job.id}`
+    )
     this.setState({
       title: '',
       location: '',
@@ -46,6 +50,7 @@ class AddNewJob extends React.Component {
 
   render() {
     console.log('PROPS', this.props.organization.id)
+    console.log('JOB:', this.props.job)
     const {title, location, description, isRemote} = this.state
     return (
       <div>
@@ -109,6 +114,7 @@ class AddNewJob extends React.Component {
 const mapState = (state) => {
   return {
     organization: state.organization,
+    job: state.job,
   }
 }
 
@@ -116,6 +122,7 @@ const mapDispatch = (dispatch) => {
   return {
     newCandidate: (job, id) => dispatch(postNewJob(job, id)),
     loadOrganization: (id) => dispatch(fetchOrganization(id)),
+    getJob: (orgId) => dispatch(fetchSingleJob(orgId)),
   }
 }
 
