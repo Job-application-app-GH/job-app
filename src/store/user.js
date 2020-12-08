@@ -104,7 +104,7 @@ export const signup = (
     dispatch(getUser(res.data))
     // history.push('/signup/type')
     // console.log('history')
-    // history.push('/signup/type')
+    history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

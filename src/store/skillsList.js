@@ -9,12 +9,12 @@ const getCanSkills = (skills) => ({
 })
 const getJSkills = (skills) => ({type: GET_JOB_SKILLS, skills})
 
-export const fetchCandidateSkills = () => {
+export const fetchCandidateSkills = (candidateId) => {
   return async (dispatch) => {
     try {
-      let {data} = await axios.get(`/api/candidateSkills`)
-      console.log('data from thunk-->jkf', data)
-      dispatch(getCanSkills(data))
+      let {data} = await axios.get(`/api/candidateSkills/${candidateId}`)
+      const currentCandidateSkills = data.filter((skill) => skill.selected)
+      dispatch(getCanSkills(currentCandidateSkills))
     } catch (error) {
       console.log(error, 'error in fetch can thunk')
     }

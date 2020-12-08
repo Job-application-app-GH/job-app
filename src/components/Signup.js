@@ -31,9 +31,9 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          <Link to="/profile/type">
-            <button className="signup-button">{displayName}</button>
-          </Link>
+          {/* <Link to="/profile/type"> */}
+          <button className="signup-button">{displayName}</button>
+          {/* </Link> */}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />

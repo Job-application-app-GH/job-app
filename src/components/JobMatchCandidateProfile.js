@@ -1,5 +1,5 @@
 import React from 'react'
-import {fetchUserDetails} from '../store/profile'
+import {fetchCandidateProfile} from '../store/profile'
 import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -11,11 +11,12 @@ class JobMatchCandidateProfile extends React.Component {
       renderForm: false,
     }
     this.displayForm = this.displayForm.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
   componentDidMount() {
-    this.props.loadUserDetails()
-    this.props.loadCandidateSkills()
+    this.props.loadUserDetails(this.props.match.params.id)
+    this.props.loadCandidateSkills(this.props.match.params.id)
   }
 
   displayForm() {
@@ -24,24 +25,19 @@ class JobMatchCandidateProfile extends React.Component {
     })
   }
 
+  goBack() {
+    this.props.history.goBack()
+  }
+
   render() {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
     console.log('skills->', this.props)
-    let link
-    if (user.userType === 'CANDIDATE') {
-      link = '/profile/edit'
-    } else if (user.userType === 'ORGANIZATION') {
-      link = '/profile/editOrg'
-    }
+
     return (
       <div>
-        <h4>User Profile</h4>
-
-        <button onClick={this.displayForm}>Edit my profile</button>
-
-        <h6>{profile.name}</h6>
+        <h2>{profile.name}</h2>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
           <h6>Current Company: {profile.currentCompany}</h6>
@@ -60,10 +56,12 @@ class JobMatchCandidateProfile extends React.Component {
           ? // <h5>Skills:</h5>
             skills.map((skill) => (
               <div key={skill.id}>
-                <p>{skill.skill.name}</p>
+                <p>{skill.name}</p>
               </div>
             ))
           : null}
+
+        <button onClick={this.goBack}>Return to all matches</button>
       </div>
     )
   }
@@ -79,8 +77,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadUserDetails: () => dispatch(fetchUserDetails()),
-    loadCandidateSkills: () => dispatch(fetchCandidateSkills()),
+    loadUserDetails: (id) => dispatch(fetchCandidateProfile(id)),
+    loadCandidateSkills: (id) => dispatch(fetchCandidateSkills(id)),
   }
 }
 
