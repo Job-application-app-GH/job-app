@@ -14,8 +14,8 @@ class Profile extends React.Component {
   }
 
   async componentDidMount() {
-    this.props.loadUserDetails()
-    console.log('CDM-L', this.props.profile.id)
+    await this.props.loadUserDetails()
+    console.log('id in component did mount: ', this.props.profile.id)
     await this.props.loadCandidateSkills(this.props.profile.id)
   }
 
@@ -29,7 +29,7 @@ class Profile extends React.Component {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    console.log('profile info->', this.props.profile.id)
+    console.log('this.props.profile.id->', this.props.profile.id)
     let link
     let candidate
     if (user.userType === 'CANDIDATE') {
@@ -66,7 +66,7 @@ class Profile extends React.Component {
           ? // <h5>Skills:</h5>
             skills.map((skill) => (
               <div key={skill.id}>
-                <p>{skill.skill.name}</p>
+                <p>{skill.name}</p>
               </div>
             ))
           : null}

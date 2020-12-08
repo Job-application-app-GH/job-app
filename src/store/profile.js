@@ -29,7 +29,6 @@ export const fetchUserDetails = () => {
   return async (dispatch) => {
     try {
       let {data} = await axios.get('/api/profile')
-      console.log('data from thunk->', data)
       dispatch(getUserDetails(data))
     } catch (error) {
       console.log('error in fetch user details', error)
