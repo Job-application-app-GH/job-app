@@ -1,5 +1,12 @@
 const router = require('express').Router()
-const {Candidate, Organization, Job, Match} = require('../db/models')
+const db = require('../db/db')
+const {
+  Candidate,
+  CandidateSkill,
+  Organization,
+  Job,
+  Match,
+} = require('../db/models')
 
 module.exports = router
 const CANDIDATE = 'CANDIDATE'
@@ -9,27 +16,56 @@ const JOB = 'JOB'
 //GET '/api/job/:jobId'
 router.get('/job/:jobId', async (req, res, next) => {
   try {
-    const details = await Candidate.findAll({
-      attributes: [
-        'id',
-        'name',
-        'location',
-        'description',
-        'isRemote',
-        'currentRole',
-        'currentCompany',
-      ],
-    })
+    // const details = await Candidate.findAll({
+    //   attributes: [
+    //     'id',
+    //     'name',
+    //     'location',
+    //     'description',
+    //     'isRemote',
+    //     'currentRole',
+    //     'currentCompany',
+    //   ],
+    // })
 
-    // } else {
-    //   details = await Organization.findAll({
-    //     attributes: ['id', 'name', 'description', 'isRemote', 'location'],
-    //     include: {
-    //       model: Job,
-    //     },
-    //   })
-    // }
-    res.send(details)
+    const jobId = req.params.jobId
+
+    const [matchingCandidates] = await db.query(
+      `select
+      cd.*,
+      count("skills".name) as total,
+      "m"."isMatch"as match
+      from 
+      candidates as cd
+      inner join 
+        (
+          "candidate_skills" as cs
+          inner join 
+            "skills" 
+          on 
+            "skills".id = "cs"."skillId"
+        )
+      on
+        "cd".id = "cs"."candidateId"
+        and "skills".id in (select "js"."skillId" from job_skills as js where "js"."jobId"=?)
+      left outer join 
+        "matches" as m	
+      on
+        "cd".id = m."candidateId"
+        and m."jobId"=?
+        
+      where
+       "cd".id not in 
+         (select "m"."candidateId" 
+         from matches as m 
+         where m."jobId"=?
+         and "m"."isMatch" in  ('REJECTED_JOB', 'REJECTED_BOTH', 'MATCHED', 'PENDING_JOB'))
+      group by
+      "cd".id, match
+      order by match desc, total asc`,
+      {replacements: [jobId, jobId, jobId]}
+    )
+    res.send(matchingCandidates)
   } catch (error) {
     next(error)
   }
