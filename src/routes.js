@@ -25,6 +25,7 @@ import {EditJobSkills} from './components/EditSkills'
 import LandingPage from './components/LandingPage'
 import JobMatches from './components/JobMatches'
 import JobMatchCandidateProfile from './components/JobMatchCandidateProfile'
+import {AddNewJobSkills} from './components/AddNewSkills'
 import {me} from './store'
 
 /**
@@ -59,12 +60,25 @@ class Routes extends Component {
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
 
-        <Route path="/profile/addJob" component={AddNewJob} />
-        <Route path="/home" component={LandingPage} />
+        <Route exact path="/profile/addJob" component={AddNewJob} />
+        <Route exact path="/home" component={LandingPage} />
 
-        <Route path="/profile/editskills/:id" component={EditCandidateSkills} />
-        <Route path="/profile/jobs/editskills/:id" component={EditJobSkills} />
-        <Route path="/matches/:id" component={JobMatchCandidateProfile} />
+        <Route
+          exact
+          path="/profile/editskills/:id"
+          component={EditCandidateSkills}
+        />
+        <Route
+          exact
+          path="/profile/jobs/editskills/:id"
+          component={EditJobSkills}
+        />
+        <Route exact path="/matches/:id" component={JobMatchCandidateProfile} />
+        <Route
+          exact
+          path="/profile/addJob/addSkills/:ownerId"
+          component={AddNewJobSkills}
+        />
 
         {isLoggedIn && (
           <Switch>
