@@ -39,10 +39,21 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:candidateId', async (req, res, next) => {
   try {
-    console.log('api ->', req.params.candidateId)
+    console.log('CANDIDATE ID ->', req.params.candidateId)
     let candidateProfile = await Candidate.findByPk(req.params.candidateId)
-    console.log('->', candidateProfile)
+    // console.log('->', candidateProfile)
     res.send(candidateProfile)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/:jobId', async (req, res, next) => {
+  try {
+    console.log('JOB ID---------->', req.params.jobId)
+    let jobProfile = await Job.findByPk(req.params.jobId)
+    // console.log('job profiles--', jobProfile)
+    res.send(jobProfile)
   } catch (error) {
     next(error)
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {fetchJobMatches} from '../store/profileMatches'
+import {fetchCandidateMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -27,8 +27,8 @@ class JobMatches extends React.Component {
         {matches.length ? (
           matches.map((match) => (
             <div>
-              <Link to={`/matches/${match.candidate.id}`}>
-                <h5>{match.candidate.name}</h5>
+              <Link to={`/matches/${match.job.id}`}>
+                <h5>{match.job.title}</h5>
               </Link>
             </div>
           ))
@@ -49,7 +49,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadMatches: (id) => dispatch(fetchJobMatches(id)),
+    loadMatches: (id) => dispatch(fetchCandidateMatches(id)),
   }
 }
 

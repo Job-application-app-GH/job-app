@@ -3,6 +3,7 @@ import axios from 'axios'
 const GET_USER_DETAILS = 'GET_USER_DETAILS'
 const UPDATE_PROFILE = 'UPDATE_PROFILE'
 const GET_CANDIDATE_DETAILS = 'GET_CANDIDATE_DETAILS'
+const GET_JOB_DETAILS = 'GET_JOB_DETAILS'
 
 const getUserDetails = (details) => ({
   type: GET_USER_DETAILS,
@@ -16,6 +17,11 @@ const updateProfile = (details) => ({
 
 const getCandidateDetails = (profile) => ({
   type: GET_CANDIDATE_DETAILS,
+  profile,
+})
+
+const getJobDetails = (profile) => ({
+  type: GET_JOB_DETAILS,
   profile,
 })
 
@@ -57,6 +63,17 @@ export const fetchCandidateProfile = (candidateId) => {
   }
 }
 
+export const fetchJobProfile = (jobId) => {
+  return async (dispatch) => {
+    try {
+      let {data} = await axios.get(`/api/profile/${jobId}`)
+      dispatch(getJobDetails(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 const initialState = {}
 
 export default function profile(state = initialState, action) {
@@ -66,6 +83,8 @@ export default function profile(state = initialState, action) {
     case UPDATE_PROFILE:
       return action.details
     case GET_CANDIDATE_DETAILS:
+      return action.profile
+    case GET_JOB_DETAILS:
       return action.profile
     default:
       return state

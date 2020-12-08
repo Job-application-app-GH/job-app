@@ -20,4 +20,23 @@ router.get('/:jobId', async (req, res, next) => {
   }
 })
 
+router.get('/user/:candidateId', async (req, res, next) => {
+  try {
+    console.log('Candidate ID->', req.params.candidateId)
+    let matches = await Match.findAll({
+      where: {
+        candidateId: req.params.candidateId,
+        isMatch: 'MATCHED',
+      },
+      include: {
+        model: Job,
+      },
+    })
+    console.log('MATCHES--->', matches)
+    res.send(matches)
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
