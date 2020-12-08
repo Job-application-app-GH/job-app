@@ -2,6 +2,7 @@ import React from 'react'
 import {fetchJobMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Header from './Header'
 
 class JobMatches extends React.Component {
   constructor(props) {
@@ -22,12 +23,13 @@ class JobMatches extends React.Component {
     console.log('matches-->', matches)
     return (
       <div>
+        <Header />
         <h3>Your Matches</h3>
 
         {matches.length ? (
           matches.map((match) => (
             <div>
-              <Link to={`/matches/${match.candidate.id}`}>
+              <Link to={`/candidatematches/${match.candidate.id}`}>
                 <h5>{match.candidate.name}</h5>
               </Link>
             </div>

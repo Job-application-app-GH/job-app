@@ -19,7 +19,10 @@ const AuthForm = (props) => {
         <img src={loginImg} className="login-img-itself" alt="" />
       </div>
       <div className="form">
-        <form onSubmit={handleSubmit} name={name}>
+        <form
+          onSubmit={(event) => handleSubmit(event, props.history)}
+          name={name}
+        >
           <div>
             <label htmlFor="email">
               <small className="login-words">Email</small>
@@ -83,12 +86,12 @@ const mapLogin = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit(evt) {
+    handleSubmit(evt, history) {
       evt.preventDefault()
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(auth(email, password, formName, history))
     },
   }
 }

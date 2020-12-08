@@ -3,6 +3,7 @@ import TinderCard from 'react-tinder-card'
 import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches' //MARIA: revisit thunk with Archana
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
+import Header from './Header'
 
 class JobMatches extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class JobMatches extends React.Component {
     //MARIA: render changed to cater jobs
     return (
       <div>
+        <Header />
         <div className="cardsPile">
           {this.props.suggestedJobs.map((job) => (
             <div key={job.id}>

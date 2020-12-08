@@ -1,9 +1,11 @@
 import React from 'react'
 import SingleChat from './SingleChat'
+import Header from './Header'
 
 function Chats() {
   return (
     <div>
+      <Header />
       <SingleChat
         name="Maria"
         message="Hi there!"

@@ -4,6 +4,7 @@ import {fetchSingleJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {destroyJob} from '../store/job'
 import {fetchJobSkills} from '../store/skillsList'
+import Header from './Header'
 
 class SingleJob extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class SingleJob extends React.Component {
     console.log('PROPS-->', this.props.skills)
     return (
       <div>
+        <Header />
         <h3>Job Details</h3>
 
         <Link to="/profile/jobs">

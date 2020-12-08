@@ -6,6 +6,7 @@ import {
   fetchJobProfile,
   fetchUserDetails,
 } from '../store/profile'
+import Header from './Header'
 import {fetchOrganization} from '../store/organization'
 import {fetchAllJobs} from '../store/job'
 
@@ -34,6 +35,7 @@ class LandingPage extends React.Component {
     const jobs = this.props.job
     return (
       <div>
+        <Header />
         <h2>This is the landing page!</h2>
         {jobs.length ? (
           <h3>Click on a job to start searching for candidates</h3>

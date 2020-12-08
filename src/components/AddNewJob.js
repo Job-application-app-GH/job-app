@@ -10,6 +10,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
+import Header from './Header'
 
 class AddNewJob extends React.Component {
   constructor(props) {
@@ -54,6 +55,7 @@ class AddNewJob extends React.Component {
     const {title, location, description, isRemote} = this.state
     return (
       <div>
+        <Header />
         <form onSubmit={this.handleSubmit} id="add-form">
           <h5>Job Title</h5>
           <input
