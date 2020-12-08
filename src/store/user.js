@@ -46,7 +46,7 @@ export const auth = (email, password, method) => async (dispatch) => {
     dispatch(getUser(res.data))
     // history.push('/home')
 
-    history.push('/findCandidates')
+    history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -83,7 +83,8 @@ const addUser = (user) => {
 }
 export const signup = (
   email,
-  password
+  password,
+  history
   // userType
 ) => async (dispatch) => {
   let res
@@ -102,8 +103,6 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/signup/type')
-    // console.log('history')
     history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)

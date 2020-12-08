@@ -102,7 +102,7 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            {/* <Route path="/signup/type" component={ProfileType} /> */}
+            <Route path="/signup/type" component={ProfileType} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
