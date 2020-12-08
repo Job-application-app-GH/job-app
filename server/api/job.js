@@ -14,8 +14,10 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.get('/:orgId', async (req, res, next) => {
+//making edit to this route
+router.get('/allJobs/:orgId', async (req, res, next) => {
   try {
+    console.log('Req params-->', req.params.id)
     let allJobs = await Job.findAll({
       where: {
         organizationId: req.params.orgId,
@@ -38,7 +40,7 @@ router.post('/:id', async (req, res, next) => {
       isRemote: isRemote,
       organizationId: req.params.id,
     })
-
+    console.log('NEW JOB--->', newJob)
     res.status(201).send(newJob)
   } catch (error) {
     next(error)

@@ -52,7 +52,7 @@ router.get('/job/:jobId', async (req, res, next) => {
   try {
     console.log('JOB ID---------->', req.params.jobId)
     let jobProfile = await Job.findByPk(req.params.jobId)
-    // console.log('job profiles--', jobProfile)
+    console.log('job profiles--', jobProfile)
     res.send(jobProfile)
   } catch (error) {
     next(error)

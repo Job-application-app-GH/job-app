@@ -68,6 +68,7 @@ export const fetchJobProfile = (jobId) => {
   return async (dispatch) => {
     try {
       let {data} = await axios.get(`/api/profile/job/${jobId}`)
+      console.log('job data--->', data)
       dispatch(getJobDetails(data))
     } catch (error) {
       console.log(error)
