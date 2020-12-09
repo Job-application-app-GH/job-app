@@ -16,7 +16,9 @@ class LandingPage extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.loadUserId()
+    // await this.props.loadUserId()
+    await this.props.loadOrganization()
+    await this.props.loadJobs(this.props.organization.id)
   }
 
   render() {
@@ -70,7 +72,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadUserId: (id) => dispatch(fetchUserDetails(id)),
+    // loadUserId: (id) => dispatch(fetchUserDetails(id)),
+    loadOrganization: () => dispatch(fetchOrganization()),
+    loadJobs: (orgId) => dispatch(fetchAllJobs(orgId)),
   }
 }
 
