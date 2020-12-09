@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchAllJobs} from '../store/job'
 import {fetchUserDetails} from '../store/profile'
-import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 class JobProfile extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class JobProfile extends React.Component {
 
     return (
       <div>
-        <Header />
+        <OrgHeader />
         <h3>Job Postings</h3>
         <Link to="/profile">
           <button>Back to profile</button>

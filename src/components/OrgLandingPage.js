@@ -6,11 +6,11 @@ import {
   fetchJobProfile,
   fetchUserDetails,
 } from '../store/profile'
-import Header from './Header'
+import OrgHeader from './OrgHeader'
 import {fetchOrganization} from '../store/organization'
 import {fetchAllJobs} from '../store/job'
 
-class LandingPage extends React.Component {
+class OrgLandingPage extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -24,26 +24,20 @@ class LandingPage extends React.Component {
   render() {
     // const id = this.props.profile.id
     // console.log('job--->', this.props.job)
-    let link
-    if (this.props.user.userType === 'CANDIDATE') {
-      link = '/findJobs'
-      // '/findJobs/${this.props.profile.id}'
-    } else {
-      link = '/findCandidates'
-      //'/findCandidates/${this.props.job.id}'
-    }
-    const jobs = this.props.job
+
+    const jobs = this.props.job || []
+    console.log('jobs--->', jobs)
     return (
       <div>
-        <Header />
+        <OrgHeader />
         <h2>This is the landing page!</h2>
-        {jobs.length ? (
-          <h3>Click on a job to start searching for candidates</h3>
-        ) : null}
+
+        <h3>Click on a job to start searching for candidates</h3>
+
         {jobs.length
           ? jobs.map((job) => (
-              <Link to={link}>
-                <div>
+              <Link to="/findCandidates">
+                <div key={job.id}>
                   <h5>{job.title}</h5>
                   <h5>{job.location}</h5>
                   <h5>temp spacing----</h5>
@@ -51,11 +45,6 @@ class LandingPage extends React.Component {
               </Link>
             ))
           : null}
-        {!jobs.length ? (
-          <Link to={link}>
-            <button>Get Started</button>
-          </Link>
-        ) : null}
       </div>
     )
   }
@@ -78,4 +67,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(LandingPage)
+export default connect(mapState, mapDispatch)(OrgLandingPage)

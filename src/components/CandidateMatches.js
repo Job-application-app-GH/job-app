@@ -6,7 +6,7 @@ import {
 } from '../store/candidateMatches'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
-import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 class CandidateMatches extends React.Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class CandidateMatches extends React.Component {
 
     return (
       <div>
-        <Header />
+        <OrgHeader />
         <div className="cardsPile">
           {this.props.suggestedCandidates.map((candidate) => (
             <div>

@@ -4,6 +4,7 @@ import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 class JobMatchCandidateProfile extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class JobMatchCandidateProfile extends React.Component {
 
     return (
       <div>
-        <Header />
+        <OrgHeader />
         <h2>{profile.name}</h2>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (

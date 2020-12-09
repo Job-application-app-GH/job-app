@@ -4,6 +4,8 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 import {
   getCandidateSkills,
@@ -35,8 +37,13 @@ class EditSkills extends Component {
   }
 
   render() {
+    let candidate
+    if (this.props.user.userType === 'CANDIDATE') {
+      candidate = 'CANDIDATE'
+    }
     return (
       <div className="skills_container">
+        {candidate ? <Header /> : <OrgHeader />}
         <FormControl component="fieldset">
           <FormLabel component="legend">Please select skills</FormLabel>
           <div className="skills_list">
@@ -72,6 +79,7 @@ class EditSkills extends Component {
 const mapStateToProps = (state) => {
   return {
     skills: state.selectedSkills,
+    user: state.user,
   }
 }
 

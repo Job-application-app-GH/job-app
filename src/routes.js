@@ -31,7 +31,7 @@ import {me} from './store'
 import ProfileMatchesJob from './components/ProfileMatchesJob'
 import ProfileMatchesCandidate from './components/ProfileMatchesCandidate'
 import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
-
+import OrgLandingPage from './components/OrgLandingPage'
 /**
  * COMPONENT
  */
@@ -72,6 +72,7 @@ class Routes extends Component {
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
         <Route exact path="/profile/addJob" component={AddNewJob} />
         <Route exact path="/home" component={LandingPage} />
+        <Route exact path="/organization" component={OrgLandingPage} />
 
         <Route
           exact

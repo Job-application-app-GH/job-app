@@ -27,7 +27,7 @@ const OrgHeader = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
-
+  console.log('props from header-->', props)
   return (
     <div className="header">
       <div>
@@ -49,12 +49,8 @@ const OrgHeader = (props) => {
             <MenuItem onClick={handleClose}>Profile</MenuItem>
           </Link>
 
-          <Link to={`/`}>
-            <MenuItem>Job Listings</MenuItem>
-          </Link>
-
-          <Link to={`/profile/job/matches/${this.props.job.id}`}>
-            <MenuItem>Matches</MenuItem>
+          <Link to="/profile/jobs">
+            <MenuItem>Job Listings!!</MenuItem>
           </Link>
 
           <Link to="/">
@@ -65,7 +61,7 @@ const OrgHeader = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to="/home">
+      <Link to="/organization">
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
       <Link to="/chat">

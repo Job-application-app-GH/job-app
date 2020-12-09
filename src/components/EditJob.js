@@ -8,6 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
+import OrgHeader from './OrgHeader'
 
 class EditJob extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class EditJob extends React.Component {
     const {title, location, description, isRemote} = this.state
     return (
       <div>
+        <OrgHeader />
         <h3>Edit My Profile</h3>
         <form onSubmit={this.handleSubmit}>
           <h5>Title</h5>

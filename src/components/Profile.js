@@ -4,6 +4,7 @@ import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -43,7 +44,8 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <Header />
+        {candidate ? <Header /> : <OrgHeader />}
+
         <h4>User Profile</h4>
 
         <Link to={link}>

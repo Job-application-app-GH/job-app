@@ -22,14 +22,7 @@ class LandingPage extends React.Component {
   render() {
     // const id = this.props.profile.id
     // console.log('job--->', this.props.job)
-    let link
-    if (this.props.user.userType === 'CANDIDATE') {
-      link = '/findJobs'
-      // '/findJobs/${this.props.profile.id}'
-    } else {
-      link = '/findCandidates'
-      //'/findCandidates/${this.props.job.id}'
-    }
+
     const jobs = this.props.job
     return (
       <div>
@@ -40,7 +33,7 @@ class LandingPage extends React.Component {
         ) : null}
         {jobs.length
           ? jobs.map((job) => (
-              <Link to={link}>
+              <Link to="/findJobs">
                 <div>
                   <h5>{job.title}</h5>
                   <h5>{job.location}</h5>
@@ -49,11 +42,8 @@ class LandingPage extends React.Component {
               </Link>
             ))
           : null}
-        {!jobs.length ? (
-          <Link to={link}>
-            <button>Get Started</button>
-          </Link>
-        ) : null}
+
+        <button>Get Started</button>
       </div>
     )
   }
