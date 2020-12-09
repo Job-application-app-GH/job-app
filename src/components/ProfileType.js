@@ -9,25 +9,27 @@ class ProfileType extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='signup-type-container'>
         <Link to="/signup/candidate">
           <button
+            className='signup-type-buttons'
             onClick={() =>
               this.props.updateUserType({
                 userType: 'CANDIDATE',
               })
             }
           >
-            I am looking for a job
+            LOOKING FOR A JOB
           </button>
         </Link>
         <Link to="/signup/organization">
           <button
+          className='signup-type-buttons'
             onClick={() =>
               this.props.updateUserType({userType: 'ORGANIZATION'})
             }
           >
-            I need to hire someone
+            LOOKING TO HIRE SOMEONE GREAT
           </button>
         </Link>
       </div>

@@ -76,7 +76,7 @@ class CandidateMatches extends React.Component {
                   <div
                     className="card"
                     onClick={this.handleClick}
-                    style={{backgroundColor: '#FFB6C1'}}
+                    style={{backgroundColor: '#FFC03F'}}
                   >
                     <h3>{candidate.name}</h3>
                     <h3>Current role: {candidate.currentRole}</h3>
@@ -87,7 +87,7 @@ class CandidateMatches extends React.Component {
                   <div
                     className="card"
                     onClick={this.handleClick}
-                    style={{backgroundColor: '#6495ED'}}
+                    style={{backgroundColor: '#FE4880'}}
                   >
                     <h3>{candidate.name}</h3>
                     <h3>About me: {candidate.description}</h3>

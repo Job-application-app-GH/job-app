@@ -11,6 +11,7 @@ import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import SignupDetails from './components/SignupDetails'
 import UploadAvatar from './components/UploadAvatar'
+import Onboarding from './components/Onboarding'
 import CandidateMatches from './components/CandidateMatches'
 import JobMatches from './components/JobMatches'
 import Job from './components/Job'
@@ -54,6 +55,7 @@ class Routes extends Component {
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/signup/organization/job" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
+        <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/findCandidates" component={CandidateMatches} />
         <Route exact path="/findJobs" component={JobMatches} />
         <Route exact path="/profile" component={Profile} />
