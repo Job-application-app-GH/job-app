@@ -4,7 +4,7 @@ import ReactAvatarEditor from 'react-avatar-editor'
 import {fetchCandidate} from '../store/candidate'
 import {Link} from 'react-router-dom'
 
-class UploadAvatar extends React.Component {
+class UploadLogo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -51,7 +51,7 @@ class UploadAvatar extends React.Component {
         headers: {'Content-type': 'application/json'},
       })
     }
-    this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
+    this.props.history.push('/signup/organization/job')
   }
 
   render() {
@@ -106,4 +106,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(UploadAvatar)
+export default connect(mapState, mapDispatch)(UploadLogo)

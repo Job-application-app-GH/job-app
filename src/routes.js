@@ -32,6 +32,7 @@ import ProfileMatchesJob from './components/ProfileMatchesJob'
 import ProfileMatchesCandidate from './components/ProfileMatchesCandidate'
 import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
 import OrgLandingPage from './components/OrgLandingPage'
+import UploadLogo from './components/UploadLogo'
 /**
  * COMPONENT
  */
@@ -54,6 +55,7 @@ class Routes extends Component {
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/signup/organization/job" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
+        <Route exact path="/uploadLogo" component={UploadLogo} />
         <Route exact path="/findCandidates" component={CandidateMatches} />
         <Route exact path="/findJobs" component={JobMatches} />
         <Route exact path="/profile" component={Profile} />

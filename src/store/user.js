@@ -66,17 +66,6 @@ export const putUserType = (type) => {
   }
 }
 
-// export const uploadAvatarImage = (img) => {
-//   return async (dispatch) => {
-//     try {
-//       let {data} = await axios.put('/api/users/img', img)
-//       dispatch(uploadImage(data))
-//     } catch (error) {
-//       console.log(error, 'error in img thunk')
-//     }
-//   }
-// }
-
 const ADD_USER = 'ADD_USER'
 const addUser = (user) => {
   return {

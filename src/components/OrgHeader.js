@@ -16,7 +16,7 @@ import {fetchAllJobs} from '../store/job'
 const OrgHeader = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleClick = (event) => {
+  const click = (event) => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -27,6 +27,7 @@ const OrgHeader = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
+  const {handleClick} = props
   console.log('props from header-->', props)
   return (
     <div className="header">
@@ -34,7 +35,7 @@ const OrgHeader = (props) => {
         <Button
           aria-controls="simple-menu"
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={click}
         >
           <AccountCircleIcon className="icons" fontSize="large" />
         </Button>
