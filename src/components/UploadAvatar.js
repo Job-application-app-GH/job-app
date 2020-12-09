@@ -35,17 +35,16 @@ class UploadAvatar extends React.Component {
 
   setEditorRef = (editor) => (this.editor = editor)
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     if (this.editor) {
       // This returns a HTMLCanvasElement, it can be made into a data URL or a blob,
       // drawn on another canvas, or added to the DOM.
       const img = this.editor.getImageScaledToCanvas().toDataURL()
-      // let imageURL
-      // fetch(canvas)
-      //   .then((res) => res.blob())
-      //   .then((blob) => (imageURL = window.URL.createObjectURL(blob)))
-      // console.log(img)
-      this.props.addImg(img)
+      await fetch(`/api/upload`, {
+        method: 'POST',
+        body: JSON.stringify({data: img}),
+        headers: {'Content-type': 'application/json'},
+      })
     }
   }
 
