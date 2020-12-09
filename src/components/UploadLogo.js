@@ -21,9 +21,9 @@ class UploadLogo extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    this.props.fetchCandidate()
-  }
+  // componentDidMount() {
+  //   this.props.loadOrganization(this.props.organization.id)
+  // }
 
   handleNewImage = (e) => {
     this.setState({image: e.target.files[0]})
@@ -86,7 +86,7 @@ class UploadLogo extends React.Component {
           defaultValue="1"
         />
         <button onClick={this.handleSubmit}>Confirm</button>
-        <Link to={`/candidateSkills/${this.props.candidate.id}`}>
+        <Link to="/signup/organization/job">
           <button>Skip</button>
         </Link>
       </div>
@@ -96,14 +96,14 @@ class UploadLogo extends React.Component {
 
 const mapState = (state) => {
   return {
-    candidate: state.candidate,
+    organization: state.organization,
   }
 }
 
-const mapDispatch = (dispatch) => {
-  return {
-    fetchCandidate: () => dispatch(fetchCandidate()),
-  }
-}
+// const mapDispatch = (dispatch) => {
+//   return {
+//     fetchCandidate: () => dispatch(fetchCandidate()),
+//   }
+// }
 
-export default connect(mapState, mapDispatch)(UploadLogo)
+export default connect(mapState)(UploadLogo)
