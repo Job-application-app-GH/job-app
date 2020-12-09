@@ -2,11 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-// import { Login, SignUp, UserHome } from "./components";
 import Login from './components/AuthForm'
 import Signup from './components/Signup'
 import Logout from './components/Logout'
-// import UserHome from './components/UserHome'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
 import SignupDetails from './components/SignupDetails'
@@ -33,6 +31,7 @@ import ProfileMatchesJob from './components/ProfileMatchesJob'
 import ProfileMatchesCandidate from './components/ProfileMatchesCandidate'
 import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
 import OrgLandingPage from './components/OrgLandingPage'
+import UploadLogo from './components/UploadLogo'
 /**
  * COMPONENT
  */
@@ -55,57 +54,70 @@ class Routes extends Component {
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/signup/organization/job" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />
-        <Route exact path="/onboarding" component={Onboarding} />
-        <Route exact path="/findCandidates" component={CandidateMatches} />
-        <Route exact path="/findJobs" component={JobMatches} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/profile/edit" component={EditProfile} />
-        <Route exact path="/profile/editOrg" component={EditProfileOrg} />
-        <Route exact path="/profile/jobs" component={JobProfile} />
-        <Route exact path="/profile/jobs/edit/:id" component={EditJob} />
-        <Route exact path="/profile/jobs/:id" component={SingleJob} />
-        <Route path="/profile/jobs/matches/:id" component={ProfileMatchesJob} />
-        <Route
-          exact
-          path="/profile/candidate/matches/:id"
-          component={ProfileMatchesCandidate}
-        />
+        <Route exact path="/uploadLogo" component={UploadLogo} />
         <Route path="/candidateSkills/:ownerId" component={CandidateSkills} />
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
-        <Route exact path="/profile/addJob" component={AddNewJob} />
-        <Route exact path="/home" component={LandingPage} />
-        <Route exact path="/organization" component={OrgLandingPage} />
-
-        <Route
-          exact
-          path="/profile/editskills/:id"
-          component={EditCandidateSkills}
-        />
-        <Route
-          exact
-          path="/profile/jobs/editskills/:id"
-          component={EditJobSkills}
-        />
-        <Route
-          exact
-          path="/candidatematches/:id"
-          component={JobMatchCandidateProfile}
-        />
-        <Route
-          exact
-          path="/jobmatches/:id"
-          component={CandidateMatchJobProfile}
-        />
-        <Route
-          exact
-          path="/profile/addJob/addSkills/:ownerId"
-          component={AddNewJobSkills}
-        />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/signup/type" component={ProfileType} />
+            <Route exact path="/onboarding" component={Onboarding} />
+            <Route exact path="/findCandidates" component={CandidateMatches} />
+            <Route exact path="/findJobs" component={JobMatches} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/edit" component={EditProfile} />
+            <Route exact path="/profile/editOrg" component={EditProfileOrg} />
+            <Route exact path="/profile/jobs" component={JobProfile} />
+            <Route exact path="/profile/jobs/edit/:id" component={EditJob} />
+            <Route exact path="/profile/jobs/:id" component={SingleJob} />
+            <Route
+              path="/profile/jobs/matches/:id"
+              component={ProfileMatchesJob}
+            />
+            <Route
+              exact
+              path="/profile/candidate/matches/:id"
+              component={ProfileMatchesCandidate}
+            />
+
+            <Route path="/profile/addJob" component={AddNewJob} />
+            <Route
+              path="/profile/editskills/:id"
+              component={EditCandidateSkills}
+            />
+            <Route
+              path="/profile/jobs/editskills/:id"
+              component={EditJobSkills}
+            />
+            <Route exact path="/profile/addJob" component={AddNewJob} />
+            <Route exact path="/home" component={LandingPage} />
+            <Route exact path="/organization" component={OrgLandingPage} />
+
+            <Route
+              exact
+              path="/profile/editskills/:id"
+              component={EditCandidateSkills}
+            />
+            <Route
+              exact
+              path="/profile/jobs/editskills/:id"
+              component={EditJobSkills}
+            />
+            <Route
+              exact
+              path="/candidatematches/:id"
+              component={JobMatchCandidateProfile}
+            />
+            <Route
+              exact
+              path="/jobmatches/:id"
+              component={CandidateMatchJobProfile}
+            />
+            <Route
+              exact
+              path="/profile/addJob/addSkills/:ownerId"
+              component={AddNewJobSkills}
+            />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
