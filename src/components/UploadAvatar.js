@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ReactAvatarEditor from 'react-avatar-editor'
-// import {uploadAvatarImage} from '../store/user'
+import {fetchCandidate} from '../store/candidate'
 
 class UploadAvatar extends React.Component {
   constructor(props) {
@@ -18,6 +18,10 @@ class UploadAvatar extends React.Component {
       height: 200,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.fetchCandidate()
   }
 
   handleNewImage = (e) => {
@@ -46,6 +50,7 @@ class UploadAvatar extends React.Component {
         headers: {'Content-type': 'application/json'},
       })
     }
+    this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
   }
 
   render() {
@@ -85,10 +90,16 @@ class UploadAvatar extends React.Component {
   }
 }
 
-const mapDispatch = (dispatch) => {
+const mapState = (state) => {
   return {
-    // addImg: (img) => dispatch(uploadAvatarImage(img)),
+    candidate: state.candidate,
   }
 }
 
-export default connect(null, mapDispatch)(UploadAvatar)
+const mapDispatch = (dispatch) => {
+  return {
+    fetchCandidate: () => dispatch(fetchCandidate()),
+  }
+}
+
+export default connect(mapState, mapDispatch)(UploadAvatar)
