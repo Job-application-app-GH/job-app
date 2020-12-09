@@ -2,6 +2,7 @@ import React from 'react'
 import {fetchCandidateMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Header from './Header'
 
 class JobMatches extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class JobMatches extends React.Component {
     console.log('matches-->', matches)
     return (
       <div>
+        <Header />
         <h3>Your Matches</h3>
 
         {matches.length ? (
@@ -35,7 +37,7 @@ class JobMatches extends React.Component {
         ) : (
           <h4>You do not have any matches yet!</h4>
         )}
-        <button onClick={this.goBack}>Return to job details</button>
+        {/* <button onClick={this.goBack}>Return to profile</button> */}
       </div>
     )
   }

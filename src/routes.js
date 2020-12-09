@@ -31,7 +31,7 @@ import {me} from './store'
 import ProfileMatchesJob from './components/ProfileMatchesJob'
 import ProfileMatchesCandidate from './components/ProfileMatchesCandidate'
 import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
-
+import OrgLandingPage from './components/OrgLandingPage'
 /**
  * COMPONENT
  */
@@ -72,6 +72,7 @@ class Routes extends Component {
         <Route path="/jobSkills/:ownerId" component={JobSkills} />
         <Route exact path="/profile/addJob" component={AddNewJob} />
         <Route exact path="/home" component={LandingPage} />
+        <Route exact path="/organization" component={OrgLandingPage} />
 
         <Route
           exact
@@ -102,7 +103,7 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            {/* <Route path="/signup/type" component={ProfileType} /> */}
+            <Route path="/signup/type" component={ProfileType} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

@@ -3,6 +3,7 @@ import {fetchJobProfile} from '../store/profile'
 import {fetchJobSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Header from './Header'
 
 class CandidateMatchJobProfile extends React.Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class CandidateMatchJobProfile extends React.Component {
 
     return (
       <div>
+        <Header />
         <h2>{profile.title}</h2>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
