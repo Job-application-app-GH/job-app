@@ -9,13 +9,26 @@ import signupImg from '../styles/blogging.svg'
  * COMPONENT
  */
 const SignUp = (props) => {
+  // const redirectToType = () => {
+  //   console.log('props->', props)
+  //   props.history.push('/signup/type')
+  // }
   const {name, displayName, handleSubmit, error} = props
+  // console.log('PROPS_>', this.props)
   return (
     <div className="signin-container">
+
     <div className="signup-img">
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
-      <form classname='signup-form' onSubmit={handleSubmit} name={name}>
+
+
+      <form
+    classname='signup-form'
+        onSubmit={(event) => handleSubmit(event, props.history)}
+        name={name}
+      >
+
         <div className="login-words">
           <label htmlFor="email">
             <small>Email:</small>
@@ -36,7 +49,13 @@ const SignUp = (props) => {
 
         <div>
           {/* <Link to="/profile/type"> */}
-          <button className="signup-button">{displayName}</button>
+          <button
+            type="submit"
+            // onClick={redirectToType}
+            className="signup-button"
+          >
+            {displayName}
+          </button>
           {/* </Link> */}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
@@ -67,20 +86,14 @@ const mapSignup = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit(evt) {
+    handleSubmit(evt, history) {
       evt.preventDefault()
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(signup(email, password))
+      dispatch(signup(email, password, history))
     },
   }
 }
-
-// const mapDispatch = (dispatch) => {
-//   return {
-//     createAccount: (email, password) => dispatch(signup(email, password))
-//   }
-// }
 
 export default connect(mapSignup, mapDispatch)(SignUp)
 

@@ -34,19 +34,22 @@ export const me = () => async (dispatch) => {
   }
 }
 
-export const auth = (email, password, method) => async (dispatch) => {
+export const auth = (email, password, method, history) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
+    console.log('DATA>>>>', res.data)
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/home')
-
-    history.push('/findCandidates')
+    if (res.data.userType === 'CANDIDATE') {
+      history.push('/home')
+    } else {
+      history.push('/organization')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -83,7 +86,8 @@ const addUser = (user) => {
 }
 export const signup = (
   email,
-  password
+  password,
+  history
   // userType
 ) => async (dispatch) => {
   let res
@@ -102,8 +106,6 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/signup/type')
-    // console.log('history')
     history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
