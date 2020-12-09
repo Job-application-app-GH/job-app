@@ -16,7 +16,7 @@ import {fetchAllJobs} from '../store/job'
 const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleClick = (event) => {
+  const click = (event) => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -34,13 +34,15 @@ const Header = (props) => {
     // matchesLink = `/profile/job/matches/${this.props.job.id}`
   }
   const candidate = props.profile
+  const {handleClick} = props
+  console.log('props-->', props)
   return (
     <div className="header">
       <div>
         <Button
           aria-controls="simple-menu"
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={click}
         >
           <AccountCircleIcon className="icons" fontSize="large" />
         </Button>
@@ -62,7 +64,6 @@ const Header = (props) => {
             <MenuItem href="#" onClick={handleClick}>
               Logout
             </MenuItem>
-            {/* Logout */}
           </Link>
         </Menu>
       </div>

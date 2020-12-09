@@ -1,4 +1,5 @@
 const router = require('express').Router()
+
 module.exports = router
 
 function isAuthenticated(req, res, next) {
@@ -29,6 +30,7 @@ router.use('/organization', require('./organization'))
 router.use('/job', require('./job'))
 router.use('/profile', require('./profile'))
 router.use('/matches', require('./matches'))
+router.use('/upload', require('./upload'))
 router.use('/profileMatches', require('./profileMatches'))
 
 router.use((req, res, next) => {
