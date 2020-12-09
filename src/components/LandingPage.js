@@ -23,27 +23,13 @@ class LandingPage extends React.Component {
     // const id = this.props.profile.id
     // console.log('job--->', this.props.job)
 
-    const jobs = this.props.job
     return (
       <div>
         <Header />
         <h2>This is the landing page!</h2>
-        {jobs.length ? (
-          <h3>Click on a job to start searching for candidates</h3>
-        ) : null}
-        {jobs.length
-          ? jobs.map((job) => (
-              <Link to="/findJobs">
-                <div>
-                  <h5>{job.title}</h5>
-                  <h5>{job.location}</h5>
-                  <h5>temp spacing----</h5>
-                </div>
-              </Link>
-            ))
-          : null}
-
-        <button>Get Started</button>
+        <Link to="/findJobs">
+          <button>Get Started</button>
+        </Link>
       </div>
     )
   }
