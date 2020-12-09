@@ -13,7 +13,7 @@ import {fetchCandidateMatches} from '../store/profileMatches'
 import '../styles/App.css'
 import {fetchAllJobs} from '../store/job'
 
-const Header = (props) => {
+const OrgHeader = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const handleClick = (event) => {
@@ -27,13 +27,7 @@ const Header = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
-  let matchesLink
-  if (props.user.userType === 'CANDIDATE') {
-    matchesLink = `/profile/candidate/matches/${profile.id}`
-  } else {
-    // matchesLink = `/profile/job/matches/${this.props.job.id}`
-  }
-  const candidate = props.profile
+  console.log('props from header-->', props)
   return (
     <div className="header">
       <div>
@@ -54,8 +48,9 @@ const Header = (props) => {
           <Link to="/profile">
             <MenuItem onClick={handleClose}>Profile</MenuItem>
           </Link>
-          <Link to={`/profile/candidate/matches/${candidate.id}`}>
-            <MenuItem>Matches</MenuItem>
+
+          <Link to="/profile/jobs">
+            <MenuItem>Job Listings!!</MenuItem>
           </Link>
 
           <Link to="/">
@@ -66,7 +61,7 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to="/home">
+      <Link to="/organization">
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
       <Link to="/chat">
@@ -83,6 +78,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
     profile: state.profile,
+    job: state.job,
     user: state.user,
   }
 }
@@ -95,12 +91,12 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Header)
+export default connect(mapState, mapDispatch)(OrgHeader)
 
 /**
  * PROP TYPES
  */
-Header.propTypes = {
+OrgHeader.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
 }

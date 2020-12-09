@@ -15,7 +15,7 @@ import {
   saveJobSkills,
 } from '../store'
 
-class EditSkills extends Component {
+class AddNewSkills extends Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
@@ -27,13 +27,12 @@ class EditSkills extends Component {
   }
 
   handleSaveSkills() {
-    this.props.saveSkills(this.props.match.params.id, this.props.skills)
-    // this.props.history.push('/')
-    this.props.history.goBack()
+    this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
+    this.props.history.push('/profile/jobs')
   }
 
   componentDidMount() {
-    this.props.loadSkills(this.props.match.params.id)
+    this.props.loadSkills(this.props.match.params.ownerId)
   }
 
   render() {
@@ -99,12 +98,12 @@ const mapJobDispatchToProps = (dispatch) => {
   }
 }
 
-export const EditCandidateSkills = connect(
+export const AddNewCandidateSkills = connect(
   mapStateToProps,
   mapCandidateDispatchToProps
-)(EditSkills)
+)(AddNewSkills)
 
-export const EditJobSkills = connect(
+export const AddNewJobSkills = connect(
   mapStateToProps,
   mapJobDispatchToProps
-)(EditSkills)
+)(AddNewSkills)

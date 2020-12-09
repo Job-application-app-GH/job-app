@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {postNewJob} from '../store/job'
+import job, {postNewJob} from '../store/job'
+import {fetchSingleJob} from '../store/job'
+
 import {fetchOrganization} from '../store/organization'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
@@ -8,6 +10,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
+import OrgHeader from './OrgHeader'
 
 class AddNewJob extends React.Component {
   constructor(props) {
@@ -32,10 +35,12 @@ class AddNewJob extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    this.props.newCandidate({...this.state}, this.props.organization.id)
-    this.props.history.goBack()
+    await this.props.newCandidate({...this.state}, this.props.organization.id)
+    await this.props.history.push(
+      `/profile/addJob/addSkills/${this.props.job.id}`
+    )
     this.setState({
       title: '',
       location: '',
@@ -46,9 +51,11 @@ class AddNewJob extends React.Component {
 
   render() {
     console.log('PROPS', this.props.organization.id)
+    console.log('JOB:', this.props.job)
     const {title, location, description, isRemote} = this.state
     return (
       <div>
+        <OrgHeader />
         <form onSubmit={this.handleSubmit} id="add-form">
           <h5>Job Title</h5>
           <input
@@ -109,6 +116,7 @@ class AddNewJob extends React.Component {
 const mapState = (state) => {
   return {
     organization: state.organization,
+    job: state.job,
   }
 }
 
@@ -116,6 +124,7 @@ const mapDispatch = (dispatch) => {
   return {
     newCandidate: (job, id) => dispatch(postNewJob(job, id)),
     loadOrganization: (id) => dispatch(fetchOrganization(id)),
+    getJob: (orgId) => dispatch(fetchSingleJob(orgId)),
   }
 }
 

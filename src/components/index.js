@@ -1,6 +1,6 @@
-export {default as Chats} from './Chats'
+// export {default as Chats} from './Chats'
 export {default as Header} from './Header'
-export {default as NameCards} from './NameCards'
+export {default as CandidateMatches} from './CandidateMatches'
 export {default as SingleChat} from './SingleChat'
 export {CandidateSkills, JobSkills} from './Skills'
 export {default as FooterButtons} from './FooterButtons'

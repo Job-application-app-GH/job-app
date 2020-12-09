@@ -4,6 +4,7 @@ import {fetchSingleJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {destroyJob} from '../store/job'
 import {fetchJobSkills} from '../store/skillsList'
+import OrgHeader from './OrgHeader'
 
 class SingleJob extends React.Component {
   constructor(props) {
@@ -12,14 +13,16 @@ class SingleJob extends React.Component {
 
   componentDidMount() {
     this.props.loadSingleJob(this.props.match.params.id)
-    this.props.loadJobSkills()
+    this.props.loadJobSkills(this.props.match.params.id)
   }
 
   render() {
     const job = this.props.job
     const skills = this.props.skills
+    console.log('PROPS-->', this.props.skills)
     return (
       <div>
+        <OrgHeader />
         <h3>Job Details</h3>
 
         <Link to="/profile/jobs">
@@ -46,12 +49,13 @@ class SingleJob extends React.Component {
         {skills
           ? skills.map((skill) => (
               <div key={skill.id}>
-                <p>{skill.skill.name}</p>
+                <p>{skill.name}</p>
               </div>
             ))
           : null}
-
-        <button>View matches for this job</button>
+        <Link to={`/profile/jobs/matches/${job.id}`}>
+          <button>View matches for this job</button>
+        </Link>
       </div>
     )
   }
@@ -68,7 +72,7 @@ const mapDispatch = (dispatch) => {
   return {
     deleteJob: (id) => dispatch(destroyJob(id)),
     loadSingleJob: (id) => dispatch(fetchSingleJob(id)),
-    loadJobSkills: () => dispatch(fetchJobSkills()),
+    loadJobSkills: (id) => dispatch(fetchJobSkills(id)),
   }
 }
 

@@ -5,35 +5,6 @@ const Organization = require('../db/models/organization')
 
 module.exports = router
 
-router.get('/', async (req, res, next) => {
-  try {
-    let organization = await Organization.findOne({
-      where: {
-        userId: req.user.id,
-      },
-    })
-
-    let job = await Job.findOne({
-      where: {
-        organizationId: organization.id,
-      },
-    })
-
-    let skills = await JobSkill.findAll({
-      where: {
-        jobId: job.id,
-      },
-      attributes: ['skillId'],
-      include: {model: Skill, attributes: ['name']},
-    })
-
-    console.log('skill-->', skills)
-    res.send(skills)
-  } catch (error) {
-    next(error)
-  }
-})
-
 // GET '/api/jobSkills/:jobId'
 router.get('/:jobId', async (req, res, next) => {
   try {

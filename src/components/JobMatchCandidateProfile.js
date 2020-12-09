@@ -1,24 +1,24 @@
 import React from 'react'
-import {fetchUserDetails} from '../store/profile'
+import {fetchCandidateProfile} from '../store/profile'
 import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
 import OrgHeader from './OrgHeader'
 
-class Profile extends React.Component {
+class JobMatchCandidateProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       renderForm: false,
     }
     this.displayForm = this.displayForm.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
-  async componentDidMount() {
-    await this.props.loadUserDetails()
-    console.log('id in component did mount: ', this.props.profile.id)
-    await this.props.loadCandidateSkills(this.props.profile.id)
+  componentDidMount() {
+    this.props.loadUserDetails(this.props.match.params.id)
+    this.props.loadCandidateSkills(this.props.match.params.id)
   }
 
   displayForm() {
@@ -27,31 +27,20 @@ class Profile extends React.Component {
     })
   }
 
+  goBack() {
+    this.props.history.goBack()
+  }
+
   render() {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    console.log('this.props.profile.id->', this.props.profile.id)
-    let link
-    let candidate
-    if (user.userType === 'CANDIDATE') {
-      candidate = 'CANDIDATE'
-    }
-    if (user.userType === 'CANDIDATE') {
-      link = '/profile/edit'
-    } else if (user.userType === 'ORGANIZATION') {
-      link = '/profile/editOrg'
-    }
+    console.log('skills->', this.props)
+
     return (
       <div>
-        {candidate ? <Header /> : <OrgHeader />}
-
-        <h4>User Profile</h4>
-
-        <Link to={link}>
-          <button onClick={this.displayForm}>Edit my profile</button>
-        </Link>
-        <h6>{profile.name}</h6>
+        <OrgHeader />
+        <h2>{profile.name}</h2>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
           <h6>Current Company: {profile.currentCompany}</h6>
@@ -67,26 +56,15 @@ class Profile extends React.Component {
         )}
 
         {skills
-          ? // <div>
-            // <h5>Skills:</h5>
-            // </div>
+          ? // <h5>Skills:</h5>
             skills.map((skill) => (
               <div key={skill.id}>
                 <p>{skill.name}</p>
               </div>
             ))
           : null}
-        {candidate ? (
-          <Link to={`/profile/candidate/matches/${profile.id}`}>
-            <button>View matches</button>
-          </Link>
-        ) : null}
 
-        {profile.jobs ? (
-          <Link to="/profile/jobs">
-            <button>View Job Postings</button>
-          </Link>
-        ) : null}
+        <button onClick={this.goBack}>Return to all matches</button>
       </div>
     )
   }
@@ -102,9 +80,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadUserDetails: () => dispatch(fetchUserDetails()),
+    loadUserDetails: (id) => dispatch(fetchCandidateProfile(id)),
     loadCandidateSkills: (id) => dispatch(fetchCandidateSkills(id)),
   }
 }
 
-export default connect(mapState, mapDispatch)(Profile)
+export default connect(mapState, mapDispatch)(JobMatchCandidateProfile)

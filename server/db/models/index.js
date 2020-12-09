@@ -37,6 +37,9 @@ Candidate.belongsToMany(Job, {through: Match})
 Match.hasMany(Message)
 Message.belongsTo(Match)
 
+Match.belongsTo(Job)
+Match.belongsTo(Candidate)
+
 module.exports = {
   Candidate,
   Job,
