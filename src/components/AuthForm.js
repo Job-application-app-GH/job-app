@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import {Link} from 'react-router-dom'
-import loginImg from '../styles/logo3.svg'
+import loginImg from '../styles/seekrsm.png'
 
 /**
  * COMPONENT
@@ -11,7 +11,7 @@ import loginImg from '../styles/logo3.svg'
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
   return (
-    <div className="base-container">
+    <div className="global-screen-box">
       {/* <div className='header'>
      POSSIBLE.HEADER.HERE
     </div> */}
@@ -49,17 +49,31 @@ const AuthForm = (props) => {
             {/* </Link> */}
           </div>
           {error && error.response && <div> {error.response.data} </div>}
-          <br />
+          <br /> <div className="signup-link">
+      
+        <Link to="/signup" className="signup-link">
+          <h3>SIGN UP HERE</h3>
+        </Link>
+      </div>
           <a href="/auth/google" className="signup-link">
-            {displayName} with Google
+               {displayName} with Google
           </a>
         </form>
       </div>
+
+     
+      {/* <div>
+        <Link to="/signup" >
+          <button >New to *appname*? Sign up here</button>
+        </Link>
+      </div> */}
+
       <div>
         <Link to="/signup" className="signup-link">
           <h3>New to seekr? Sign up here</h3>
         </Link>
       </div>
+
     </div>
   )
 }

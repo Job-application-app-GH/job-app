@@ -64,9 +64,9 @@ class SignUpDetails extends React.Component {
     const candidateId = this.props.candidate.id
 
     return (
-      <div>
+      <div className='signup-candidate-form'>
         <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
-          <h5>Full Name</h5>
+          <h3>Full Name</h3>
           <input
             required
             type="text"
@@ -75,7 +75,7 @@ class SignUpDetails extends React.Component {
             value={name}
           />
           <div>
-            <h5>Location</h5>
+            <h3>Location</h3>
             <input
               className="form-control"
               type="text"
@@ -85,7 +85,7 @@ class SignUpDetails extends React.Component {
               required="required"
             />
           </div>
-          <h5>Current Company</h5>
+          <h3>Current Company</h3>
           <input
             type="text"
             name="currentCompany"
@@ -93,7 +93,7 @@ class SignUpDetails extends React.Component {
             value={currentCompany}
             required
           />
-          <h5>Current Role</h5>
+          <h3>Current Role</h3>
           <input
             type="text"
             name="currentRole"
@@ -127,8 +127,8 @@ class SignUpDetails extends React.Component {
             </FormLabel>
           </FormControl>
 
-          <h5>Tell us about yourself </h5>
-          <textarea
+          <h3>Tell us about yourself </h3>
+          <textarea className='signup-textbox'
             type="text"
             name="description"
             onChange={this.handleChange}
@@ -141,7 +141,7 @@ class SignUpDetails extends React.Component {
             </button>
           </Link> */}
 
-          <button type="submit">Save</button>
+          <button className='signup-details-button' type="submit">Save</button>
         </form>
       </div>
     )
