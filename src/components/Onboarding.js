@@ -34,9 +34,9 @@ const Onboarding = (props) => {
           <img src={firstImg} className="onboarding-img" alt="" />
         </div>
         <div className="onboarding-text">
-          <h3>WELCOME TO SEEKR FAMILY </h3>
+          <h3>WELCOME TO THE SEEKR FAMILY </h3>
           <h4 style={{color: 'rgb(94, 89, 84)'}}>
-            We can not wait to show you around!
+            We cannot wait to show you around!
           </h4>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Onboarding = (props) => {
           />
         </div>
         <div className="onboarding-text">
-          <h3>Sounds like an oportunity is right for you?</h3>
+          <h3>Sounds like an opportunity is right for you?</h3>
           <h4 style={{color: 'rgb(94, 89, 84)'}}> Swipe right! </h4>
         </div>
       </div>
@@ -87,7 +87,9 @@ const Onboarding = (props) => {
         </div>
         <div className="onboarding-text-lastpage">
           <h3>Here we connect companies and talents all over the country.</h3>
-          <h4 style={{color: 'rgb(94, 89, 84)'}}>A perfect match waiting!</h4>
+          <h4 style={{color: 'rgb(94, 89, 84)'}}>
+            A perfect match is waiting!
+          </h4>
         </div>
         <Link to={link}>
           <button className="onboarding-button" type="submit">
