@@ -1,11 +1,18 @@
 import React from 'react'
 import SingleChat from './SingleChat'
 import Header from './Header'
+import OrgHeader from './OrgHeader'
+import {connect} from 'react-redux'
 
-function Chats() {
+const Chats = (props) => {
+  let candidate
+  if (props.user.userType === 'CANDIDATE') {
+    candidate = 'CANDIDATE'
+  }
   return (
     <div>
-      <Header />
+      {candidate ? <Header /> : <OrgHeader />}
+
       <SingleChat
         name="Maria"
         message="Hi there!"
@@ -28,4 +35,10 @@ function Chats() {
   )
 }
 
-export default Chats
+const mapState = (state) => {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(mapState)(Chats)

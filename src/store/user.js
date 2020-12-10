@@ -36,7 +36,6 @@ export const auth = (email, password, method, history) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
-    console.log('DATA>>>>', res.data)
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
@@ -44,7 +43,7 @@ export const auth = (email, password, method, history) => async (dispatch) => {
   try {
     dispatch(getUser(res.data))
     if (res.data.userType === 'CANDIDATE') {
-      history.push('/home')
+      history.push('/findJobs')
     } else {
       history.push('/organization')
     }
