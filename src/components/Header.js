@@ -12,6 +12,8 @@ import PropTypes from 'prop-types'
 import {fetchCandidateMatches} from '../store/profileMatches'
 import '../styles/App.css'
 import {fetchAllJobs} from '../store/job'
+import MenuIcon from '@material-ui/icons/Menu'
+import SmsIcon from '@material-ui/icons/Sms'
 
 const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -44,7 +46,7 @@ const Header = (props) => {
           aria-haspopup="true"
           onClick={click}
         >
-          <AccountCircleIcon className="icons" fontSize="large" />
+          <MenuIcon className="icons" fontSize="large" />
         </Button>
         <Menu
           id="simple-menu"
@@ -70,8 +72,8 @@ const Header = (props) => {
       <Link to="/findJobs">
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
-      <Link to="/chat">
-        <ChatIcon className="icons" fontSize="large" />
+      <Link to="/messages">
+        <SmsIcon className="icons" fontSize="large" />
       </Link>
     </div>
   )

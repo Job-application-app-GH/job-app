@@ -45,7 +45,10 @@ class EditJob extends React.Component {
     return (
       <div>
         <OrgHeader />
-        <h3>Edit My Profile</h3>
+        <h3>Edit Job Details</h3>
+        <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+          <button>Edit job skills</button>
+        </Link>
         <form onSubmit={this.handleSubmit}>
           <h5>Title</h5>
           <input
@@ -94,9 +97,7 @@ class EditJob extends React.Component {
               </RadioGroup>
             </FormLabel>
           </FormControl>
-          <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-            <button>Edit job skills</button>
-          </Link>
+
           <button type="submit">Save Changes</button>
         </form>
       </div>

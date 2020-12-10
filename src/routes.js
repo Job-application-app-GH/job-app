@@ -32,6 +32,7 @@ import ProfileMatchesCandidate from './components/ProfileMatchesCandidate'
 import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
 import OrgLandingPage from './components/OrgLandingPage'
 import UploadLogo from './components/UploadLogo'
+import Chats from './components/Chats'
 /**
  * COMPONENT
  */
@@ -118,6 +119,7 @@ class Routes extends Component {
               path="/profile/addSkills/:ownerId"
               component={AddNewJobSkills}
             />
+            <Route exact path="/messages" component={Chats} />
           </Switch>
         )}
       </Switch>

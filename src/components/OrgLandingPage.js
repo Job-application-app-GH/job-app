@@ -38,7 +38,7 @@ class OrgLandingPage extends React.Component {
           ? jobs.map((job) => (
               <Link to="/findCandidates">
                 <div key={job.id}>
-                  <button>
+                  <button className="job-listings">
                     <h5>{job.title}</h5>
                     <h5>{job.location}</h5>
                   </button>

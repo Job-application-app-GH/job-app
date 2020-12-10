@@ -384,3 +384,16 @@ input {
   /* text-transform: uppercase; */
   flex-basis: 80%;
 }
+
+.job-listings {
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  color: white;
+  width: 80%;
+  margin: 10px;
+  border-radius: 30px;
+}

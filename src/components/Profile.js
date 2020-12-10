@@ -45,8 +45,7 @@ class Profile extends React.Component {
     return (
       <div>
         {candidate ? <Header /> : <OrgHeader />}
-
-        <h4>User Profile</h4>
+        {candidate ? <h4>User Profile</h4> : <h4>Company Profile</h4>}
 
         <Link to={link}>
           <button onClick={this.displayForm}>Edit my profile</button>
