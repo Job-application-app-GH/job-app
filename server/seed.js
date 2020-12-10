@@ -8,7 +8,10 @@ const {
   Skill,
   User,
 } = require('../server/db/models')
-
+const man1 = 'https://unsplash.com/photos/_J2JFRHLijI'
+const woman1 = 'https://unsplash.com/photos/-zqoE7jnQgw'
+const woman2 = 'https://unsplash.com/photos/UUNoXZ8H56Q'
+const woman3 = 'https://unsplash.com/photos/BOHyxqepP9Y'
 const userData = [
   {
     userType: 'CANDIDATE',
@@ -220,12 +223,87 @@ const userData = [
     email: 'Golddex@gmail.com',
     password: '123',
   },
+  {
+    userType: 'CANDIDATE',
+    email: 'ben@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'robyn@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'shirley@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'kelly@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'Theresa@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'Phillip@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'lillian@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'john@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'jean@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'steve@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'lois@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'juan@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'estelle@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'dustin@gmail.com',
+    password: '123',
+  },
+  {
+    userType: 'CANDIDATE',
+    email: 'Guillermo@gmail.com',
+    password: '123',
+  },
 ]
 
 const candidateData = [
   {
     name: 'Archana',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AJHRCK2T-b11a13f36d63-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -251,8 +329,8 @@ const candidateData = [
     currentCompany: 'Grace Hopper',
   },
   {
-    name: 'Ashwin Lindsay',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    name: 'Ashley Lindsay',
+    img: woman1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -411,6 +489,141 @@ const candidateData = [
     isRemote: true,
     currentRole: 'Software Engineer',
     currentCompany: 'Goop',
+  },
+  {
+    name: 'Benjamin Ramsey',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'Los Angeles',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'REI',
+  },
+  {
+    name: 'Robyn Nunez',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'Los Angeles',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Chase',
+  },
+  {
+    name: 'Shirley Bates',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Barkbox',
+  },
+  {
+    name: 'Kelly Scott',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'New York Times',
+  },
+  {
+    name: 'Theresa Jenkins',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'New York Times',
+  },
+  {
+    name: 'Phillip Williams',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'New York Times',
+  },
+  {
+    name: 'Lillian Anderson',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'New York Times',
+  },
+  {
+    name: 'John Cook',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'New York Times',
+  },
+  {
+    name: 'Jean Adams',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Uber',
+  },
+  {
+    name: 'Steve Gonzales',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Uber',
+  },
+  {
+    name: 'Lois Gray',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Uber',
+  },
+  {
+    name: 'Juan Perry',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Uber',
+  },
+  {
+    name: 'Estelle Morton',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Fullstack Academy',
+  },
+  {
+    name: 'Dustin Fields',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Fullstack Academy',
+  },
+  {
+    name: 'Guillermo Alvarado',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    description: "I'm a current software engineer looking for a job!",
+    location: 'New York',
+    isRemote: true,
+    currentRole: 'Software Engineer',
+    currentCompany: 'Fullstack Academy',
   },
 ]
 
@@ -784,6 +997,19 @@ async function seed() {
   await users[39].setOrganization(organizations[18])
   await users[40].setOrganization(organizations[19])
   await users[41].setOrganization(organizations[20])
+  await users[42].setCandidate(candidates[21])
+  await users[43].setCandidate(candidates[22])
+  await users[44].setCandidate(candidates[23])
+  await users[45].setCandidate(candidates[24])
+  await users[46].setCandidate(candidates[25])
+  await users[47].setCandidate(candidates[26])
+  await users[48].setCandidate(candidates[27])
+  await users[49].setCandidate(candidates[28])
+  await users[50].setCandidate(candidates[29])
+  await users[51].setCandidate(candidates[30])
+  await users[52].setCandidate(candidates[31])
+  await users[53].setCandidate(candidates[32])
+
   await candidates[0].addSkills([skills[0], skills[1]])
   await candidates[1].addSkills([skills[1], skills[2], skills[4]])
   await candidates[2].addSkills([skills[0], skills[3], skills[4]])
@@ -804,10 +1030,18 @@ async function seed() {
   await candidates[14].addSkills([skills[4], skills[5], skills[6], skills[7]])
   await candidates[15].addSkills([skills[5], skills[3], skills[4]])
   await candidates[16].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[17].addSkills([skills[3], skills[4], skills[6]])
   await candidates[18].addSkills([skills[4], skills[5], skills[6], skills[7]])
   await candidates[19].addSkills([skills[5], skills[3], skills[4]])
   await candidates[20].addSkills([skills[3], skills[4], skills[6]])
   await candidates[21].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[22].addSkills([skills[4], skills[5], skills[6], skills[7]])
+  await candidates[23].addSkills([skills[5], skills[3], skills[4]])
+  await candidates[24].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[25].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[26].addSkills([skills[5], skills[3], skills[4]])
+  await candidates[27].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[28].addSkills([skills[3], skills[4], skills[6]])
   await organizations[0].addJobs(jobs[0])
   await organizations[1].addJobs(jobs[1])
   await organizations[2].addJobs(jobs[2])
