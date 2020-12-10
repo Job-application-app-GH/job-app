@@ -63,8 +63,12 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/onboarding" component={Onboarding} />
-            <Route exact path="/findCandidates" component={CandidateMatches} />
-            <Route exact path="/findJobs" component={JobMatches} />
+            <Route
+              exact
+              path="/findCandidates/:jobId"
+              component={CandidateMatches}
+            />
+            <Route exact path="/findJobs/:candidateId" component={JobMatches} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/profile/edit" component={EditProfile} />
             <Route exact path="/profile/editOrg" component={EditProfileOrg} />
