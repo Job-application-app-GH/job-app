@@ -56,6 +56,8 @@ class SignUpDetails extends React.Component {
     return (
       <div className='signup-candidate-form'>
         <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
+          
+          <div className='signup-input'>
           <h3>Full Name</h3>
           <input
             required
@@ -64,9 +66,10 @@ class SignUpDetails extends React.Component {
             onChange={this.handleChange}
             value={name}
           />
-          <div>
+          </div>
+          <div className='signup-input'>
             <h3>Location</h3>
-            <input
+            <input classname='signup-input'
               className="form-control"
               type="text"
               name="location"
@@ -75,22 +78,26 @@ class SignUpDetails extends React.Component {
               required="required"
             />
           </div>
+          <div className='signup-input'>
           <h3>Current Company</h3>
-          <input
+          <input classname='signup-input'
             type="text"
             name="currentCompany"
             onChange={this.handleChange}
             value={currentCompany}
             required
           />
+          </div>
+          <div className='signup-input'>
           <h3>Current Role</h3>
-          <input
+          <input classname='signup-input'
             type="text"
             name="currentRole"
             onChange={this.handleChange}
             value={currentRole}
             required
           />
+          </div>
 
           <FormControl>
             <FormLabel>

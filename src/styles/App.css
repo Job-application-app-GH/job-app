@@ -56,6 +56,7 @@ body.content {
 }
 .signup-form{
   align-content: center;
+  margin-left: 40px;
 }
 
 .signup-img-itself{
@@ -92,7 +93,7 @@ body.content {
   display: flex;
   align-items: flex-start;
   width: fit-content;
-margin-left: 30px;
+
   flex-direction: column;
 }
   label {
@@ -109,10 +110,11 @@ margin-left: 30px;
     background-color: white;
     border: 0;
     border-radius: 4px;
-    margin-bottom: 31px;
+    margin-bottom: 20px;
     transition: all 250ms ease-in-out;
   }
   .signup-button {
+    margin-right:30px;
     font-size: 21px;
     padding: 10px 80px;
     border: 0px;
@@ -218,23 +220,80 @@ margin-bottom: 10px;
   font-weight: 700;
   cursor: pointer;
 }
-input{
-  margin-top: 6px;
-  min-width: 15em;
-  height: 37px;
-  padding: 0px 10px;
-  font-size: 16px;
-  font-family: "Open Sans", sans-serif;
-  background: #fff;
-  background-color: white;
-  border: 0;
-  border-radius: 4px;
-  margin-bottom: 31px;
-  transition: all 250ms ease-in-out;
+.signup-input{
+height: 10%;
+ 
 }
 
+/* ONBOARDING SCREENS */
+.slick-slider.slider.slick-initialized  {
+  position: relative;
+  width: 360px;
+  padding: 25px;
+  margin-top: 2%;
+  background-color: 'seashell';
+  font-size: medium;
+  color: rgb(34, 33, 32);
+  border-radius: 20px;
+  background-size: cover;
+  box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
+  background-position: center;
+  cursor:'pointer'
+}
 
+ul.slick-dots{
+  margin-left: -28px;
+}
 
+.onboarding-button {
+  font-size: 21px;
+  padding: 10px 80px;
+  margin-top: 5px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.onboarding-screen {
+  height: 360px;
+  margin-bottom: 10px;
+}
+.onboarding-screen > h4 {
+margin-top: 20px;
+font-weight: lighter;
+}
+.onboarding-screen > h3 {
+  margin-top: 20px;
+  }
+.onboarding-img {
+  align-self: center;
+  margin-top: 70px;
+  margin-left: -30px;
+  width: 22.5em;
+  margin-bottom: 50px;
+
+}
+.onboarding-img-swipe {
+  align-self: center;
+  margin-top: 70px;
+  margin-left: 14%;
+  margin-right: 20%;
+  width: 16em;
+  margin-bottom: 70px;
+}
+.onboarding-text {
+margin-top: 70px;
+}
+.onboarding-text-lastpage {
+  margin-bottom: 5px;
+  margin-top: -10px;
+  }
 /* CARDS */
 
 .card {
@@ -244,35 +303,41 @@ input{
   padding: 25px;
   height: 50vh;
   font-style: italic;
-  color: white;
-
+  text-shadow: 0.5px 0.5px #696968;
+  color: rgb(104, 103, 102);
   border-radius: 20px;
   background-size: cover;
-  box-shadow: 0px 16px 52px 0px darkgrey;
+  box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
+  cursor:'pointer'
 }
 .cardFront {
+
  font-style: italic;
  color: white;
  text-shadow: 3px 3px rgb(36, 9, 24);
  position: absolute; 
  font-size: 30px;
  bottom: 10px;
+ cursor:'pointer'
 }
 
 .cardBack {
   font-style: italic;
- color: black;
+ color: white;
+ cursor:'pointer'
 }
 
 .cardsPile {
   display: flex;
   margin-right: 45vh;
   margin-top: 13vh;
+  cursor:'pointer'
 }
 
 .swipe {
   position: absolute;
+  cursor:'pointer'
 }
 .chat {
   display: flex;

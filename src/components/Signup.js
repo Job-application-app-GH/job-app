@@ -23,11 +23,13 @@ const SignUp = (props) => {
       </div>
 
 
+
       <form
     classname='signup-form'
         onSubmit={(event) => handleSubmit(event, props.history)}
         name={name}
       >
+
 
         <div className="login-words">
           <label htmlFor="email">

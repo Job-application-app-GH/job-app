@@ -14,6 +14,7 @@ class CandidateMatches extends React.Component {
     this.state = {
       isFlipped: false,
     }
+    this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.onSwipe = this.onSwipe.bind(this)
   }
@@ -24,11 +25,15 @@ class CandidateMatches extends React.Component {
     this.props.getSuggestedCandidates(jobId)
   }
 
-  handleClick(e) {
+  handleTouchStart(e) {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
 
+  handleClick(e) {
+    e.preventDefault()
+    this.setState((state) => ({isFlipped: !this.state.isFlipped}))
+  }
   onSwipe = (jobId, candidateId, direction) => {
     // console.log('jobId, candidateId===>', jobId, candidateId)
     let isLiked
@@ -76,9 +81,11 @@ class CandidateMatches extends React.Component {
                   flipDirection="vertical"
                 >
                   <div
+                  key={candidate.id}
                     className="card"
                     onClick={this.handleClick}
-                    style={{backgroundColor: '#FFC03F'}}
+                    onTouchStart={this.handleTouchStart}
+                    style={{backgroundColor: 'seashell'}}
                   >
                     <h3>{candidate.name}</h3>
                     <h3>Current role: {candidate.currentRole}</h3>
@@ -87,9 +94,11 @@ class CandidateMatches extends React.Component {
                   </div>
 
                   <div
+                  key={candidate.id}
                     className="card"
                     onClick={this.handleClick}
-                    style={{backgroundColor: '#FE4880'}}
+                    onTouchStart={this.handleTouchStart}
+                    style={{backgroundColor: 'seashell'}}
                   >
                     <h3>{candidate.name}</h3>
                     <h3>About me: {candidate.description}</h3>

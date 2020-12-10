@@ -13,42 +13,57 @@ export default function Onboarding() {
       infinite: true,
       speed: 1000,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      
     };
     return (
     
-      <Slider className='slider' {...settings}>
+      <Slider className='slider' {...settings} style={{backgroundColor: 'seashell'}}>
+        <div className='onboarding-screen'>
         <div>
-        <div className='onboarding-card'>
-          <img src={firstImg} className="onboarding-swipe-img" alt="" />
+          <img src={firstImg}   className='onboarding-img' alt="" />
         </div>
-          <h4>Welcome to seekr family.  </h4>
-          <h4>We can not wait to show you around!</h4>
+        <div className='onboarding-text'>
+          <h3>WELCOME TO SEEKR FAMILY </h3>
+          <h4 style = {{color: 'rgb(94, 89, 84)'}}>We can not wait to show you around!</h4>
         </div>
+        </div>
+        <div className='onboarding-screen'>
+        <div >
+          <img src='https://www.flaticon.com/svg/static/icons/svg/617/617822.svg' className='onboarding-img-swipe' alt="" />
+        </div>
+        <div className='onboarding-text'>
+          <h3>Sounds like an oportunity is right for you?</h3>
+          <h4 style = {{color: 'rgb(94, 89, 84)'}}> Swipe right! </h4>
+        </div>
+        </div>
+        <div className='onboarding-screen'>
         <div>
-        <div className='onboarding-card'>
-          <img src={secondImg} className="onboarding-swipe-img" alt="" />
+          <img src='https://www.flaticon.com/svg/static/icons/svg/617/617821.svg' className='onboarding-img-swipe' alt="" />
         </div>
-          <h4>We connect companies and talents all over the country.</h4>
+        <div className='onboarding-text'>
+          <h3>Isn't exactly what you are looking for? </h3>
+          <h4 style = {{color: 'rgb(94, 89, 84)'}}>Swipe left!</h4>
         </div>
+        </div>
+        <div className='onboarding-screen'>
         <div>
-        <div className='onboarding-card'>
-          <img src='https://www.flaticon.com/svg/static/icons/svg/617/617822.svg' className="onboarding-swipe-img" alt="" />
+          <img src='https://www.flaticon.com/svg/static/icons/svg/617/617798.svg' className='onboarding-img-swipe' alt="" />
         </div>
-          <h4>Sounds like an oportunity right for you? Swipe right! </h4>
+        <div className='onboarding-text'>
+          <h3>Want to know more? </h3>
+          <h4 style = {{color: 'rgb(94, 89, 84)'}}>Tap to flip the card and read away!</h4>
         </div>
-        <div>
-        <div className='onboarding-card'>
-          <img src='https://www.flaticon.com/svg/static/icons/svg/617/617821.svg' className="onboarding-swipe-img" alt="" />
         </div>
-          <h4>Isn't what you are lookig for? Swipe left and keep looking!</h4>
+        <div className='onboarding-screen-lastpage'>
+        <div >
+          <img src={secondImg} className="onboarding-img" alt="" />
         </div>
-        <div>
-        <div className="onboarding-card">
-          <img src={thirdImg} className="onboarding-swipe-img" alt="" />
-        </div>
-          <h4>Best of luck..!</h4>
-          <button className="login-button" type="submit">
+        <div className='onboarding-text-lastpage'>
+        <h3 >Here we connect companies and talents all over the country.</h3>
+          <h4 style = {{color: 'rgb(94, 89, 84)'}}>A perfect match waiting!</h4>
+          </div>
+          <button className="onboarding-button" type="submit">
               Get swiping
             </button>
         </div>
