@@ -29,13 +29,15 @@ const Header = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
-  let matchesLink
-  if (props.user.userType === 'CANDIDATE') {
-    matchesLink = `/profile/candidate/matches/${profile.id}`
-  } else {
-    // matchesLink = `/profile/job/matches/${this.props.job.id}`
-  }
+
   const candidate = props.profile
+  // let matchesLink
+  // if (props.user.userType === 'CANDIDATE') {
+  //   matchesLink = `/profile/candidate/matches/${candidate.id}`
+  // } else {
+  //   // matchesLink = `/profile/job/matches/${this.props.job.id}`
+  // }
+
   const {handleClick} = props
   return (
     <div className="header">
@@ -68,7 +70,7 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to="/findJobs">
+      <Link to={`/findJobs/${candidate.id}`}>
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
       <Link to="/messages">
