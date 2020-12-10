@@ -33,12 +33,10 @@ class Job extends React.Component {
     })
   }
 
-  //ISSUE?!?!?!?
   async handleSubmit(event) {
     event.preventDefault()
     await this.props.newCandidate({...this.state}, this.props.organization.id)
     // this.props.getJob(this.props.organization.id)
-    console.log('props in handle submit->', this.props.job)
     this.props.history.push(`/jobSkills/${this.props.job.id}`)
     this.setState({
       title: '',
@@ -49,10 +47,8 @@ class Job extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props.job)
     const {title, location, description, isRemote} = this.state
     const jobId = this.props.job.id
-    console.log('job id', jobId)
     return (
       <div>
         <h2>Create a new job posting</h2>

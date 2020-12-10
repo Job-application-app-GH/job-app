@@ -36,10 +36,8 @@ class SignUpDetails extends React.Component {
     event.preventDefault()
     await this.props.newCandidate({...this.state})
     // await this.props.fetchCandidate()
-    console.log('id-->', this.props.candidate.id)
     // this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
     this.props.history.push('/profileImage')
-    console.log('State in handle submit', this.state)
   }
 
   render() {
@@ -54,7 +52,7 @@ class SignUpDetails extends React.Component {
     const candidateId = this.props.candidate.id
 
     return (
-      <div className='signup-candidate-form'>
+      <div className="signup-candidate-form">
         <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
           
           <div className='signup-input'>
@@ -125,20 +123,18 @@ class SignUpDetails extends React.Component {
           </FormControl>
 
           <h3>Tell us about yourself </h3>
-          <textarea className='signup-textbox'
+          <textarea
+            className="signup-textbox"
             type="text"
             name="description"
             onChange={this.handleChange}
             value={description}
             required
           />
-          {/* <Link to="/profileImage">
-            <button type="submit" onClick={this.handleSubmit}>
-              Submit
-            </button>
-          </Link> */}
 
-          <button className='signup-details-button' type="submit">Save</button>
+          <button className="signup-details-button" type="submit">
+            Save
+          </button>
         </form>
       </div>
     )

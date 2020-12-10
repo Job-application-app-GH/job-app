@@ -26,8 +26,6 @@ class JobProfile extends React.Component {
   render() {
     const allJobs = this.props.profile.jobs || []
     const jobs = this.sort_by_key(allJobs, 'id')
-    console.log('profile', this.props.profile.id)
-    console.log('JOBS->', jobs)
 
     return (
       <div>

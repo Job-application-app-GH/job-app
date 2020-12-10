@@ -36,14 +36,14 @@ class EditProfileOrg extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {location, description, isRemote} = this.state
     return (
       <div>
         <OrgHeader />
-        <h3>Edit My Profile</h3>
+        <h3>Edit Profile</h3>
         <h4>{this.props.profile.name}</h4>
         <form onSubmit={this.handleSubmit}>
+          <h6>Location</h6>
           <input
             type="text"
             name="location"

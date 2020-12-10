@@ -32,27 +32,24 @@ const deleteJob = (id) => ({
 })
 
 export const postNewJob = (job, id) => {
-  console.log('job->', job, 'orgId->', id)
   return async (dispatch) => {
     try {
       const {data} = await axios.post(`/api/job/${id}`, job)
-      console.log('DATA from fetch jobs', data)
       dispatch(createNewJob(data))
     } catch (error) {
-      console.log(error, 'error in post new job thunk')
+      console.log(error)
     }
   }
 }
 
 export const fetchAllJobs = (orgId) => {
-  console.log('orgId: ', orgId)
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/job/allJobs/${orgId}`)
 
       dispatch(getAllJobs(data))
     } catch (error) {
-      console.log(error, 'error in fetch all jobs thunk')
+      console.log(error)
     }
   }
 }
@@ -61,22 +58,20 @@ export const fetchSingleJob = (id) => {
   return async (dispatch) => {
     try {
       let {data} = await axios.get(`/api/job/${id}`)
-      console.log('single job data', data)
       dispatch(getSingleJob(data))
     } catch (error) {
-      console.log(error, 'error in fetch job')
+      console.log(error)
     }
   }
 }
 
 export const fetchUpdatedJob = (job) => {
-  console.log('job in thunk', job)
   return async (dispatch) => {
     try {
       let {data} = await axios.put(`/api/job/${job.id}`, job)
       dispatch(updateJob(data))
     } catch (error) {
-      console.log(error, 'error in update job thunk')
+      console.log(error)
     }
   }
 }
@@ -87,7 +82,7 @@ export const destroyJob = (id) => {
       await axios.delete(`/api/job/${id}`)
       dispatch(deleteJob(id))
     } catch (error) {
-      console.log(error, 'error in destroy job thunk')
+      console.log(error)
     }
   }
 }
@@ -98,15 +93,12 @@ export default function job(state = initalState, action) {
   switch (action.type) {
     case CREATE_NEW_JOB:
       return action.organizationId
-    // return [...state, action.organizationId]
     case GET_ALL_JOBS:
       return action.jobs
     case GET_SINGLE_JOB:
       return action.job
     case UPDATE_JOB:
       return action.job
-    // case DELETE_JOB:
-    //   return [...state.filter((job) => job.id !== action.id)]
     default:
       return state
   }

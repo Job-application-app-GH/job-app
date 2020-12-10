@@ -7,7 +7,6 @@ import history from '../history'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const UPDATE_USER_TYPE = 'UPDATE_USER_TYPE'
-const UPLOAD_IMAGE = 'UPLOAD_IMAGE'
 
 /**
  * INITIAL STATE
@@ -20,7 +19,6 @@ const defaultUser = {}
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const updateUserType = (user) => ({type: UPDATE_USER_TYPE, user})
-const uploadImage = (user) => ({type: UPLOAD_IMAGE, user})
 
 /**
  * THUNK CREATORS
@@ -38,7 +36,6 @@ export const auth = (email, password, method, history) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
-    console.log('DATA>>>>', res.data)
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
@@ -46,7 +43,7 @@ export const auth = (email, password, method, history) => async (dispatch) => {
   try {
     dispatch(getUser(res.data))
     if (res.data.userType === 'CANDIDATE') {
-      history.push('/home')
+      history.push('/findJobs')
     } else {
       history.push('/organization')
     }
@@ -61,7 +58,7 @@ export const putUserType = (type) => {
       let {data} = await axios.put('/api/users', type)
       dispatch(updateUserType(data))
     } catch (error) {
-      console.log(error, 'error in put user type thunk')
+      console.log(error)
     }
   }
 }
@@ -73,20 +70,13 @@ const addUser = (user) => {
     user,
   }
 }
-export const signup = (
-  email,
-  password,
-  history
-  // userType
-) => async (dispatch) => {
+export const signup = (email, password, history) => async (dispatch) => {
   let res
-  console.log('email', email, 'password', password)
 
   try {
     res = await axios.post(`/auth/signup`, {
       email,
       password,
-      // userType,
     })
     dispatch(addUser(res))
   } catch (signupError) {
@@ -123,8 +113,6 @@ export default function user(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case UPDATE_USER_TYPE:
-      return action.user
-    case UPLOAD_IMAGE:
       return action.user
     default:
       return state

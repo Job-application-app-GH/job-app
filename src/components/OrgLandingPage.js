@@ -22,17 +22,13 @@ class OrgLandingPage extends React.Component {
   }
 
   render() {
-    // const id = this.props.profile.id
-    // console.log('job--->', this.props.job)
-
     const jobs = this.props.job || []
-    console.log('jobs--->', jobs)
     return (
       <div>
         <OrgHeader />
         <h2>This is the landing page!</h2>
 
-        <h3>Click on a job to start searching for candidates</h3>
+        <h3>Select a job to start searching for candidates</h3>
 
         {jobs.length
           ? jobs.map((job) => {
@@ -41,9 +37,10 @@ class OrgLandingPage extends React.Component {
               return (
                 <Link to={linkForCandidateSearch}>
                   <div key={job.id}>
+                    <button className="job-listings">
                     <h5>{job.title}</h5>
                     <h5>{job.location}</h5>
-                    <h5>temp spacing----</h5>
+                  </button>
                   </div>
                 </Link>
               )

@@ -38,9 +38,7 @@ class AddNewJob extends React.Component {
   async handleSubmit(event) {
     event.preventDefault()
     await this.props.newCandidate({...this.state}, this.props.organization.id)
-    await this.props.history.push(
-      `/profile/addJob/addSkills/${this.props.job.id}`
-    )
+    await this.props.history.push(`/profile/addSkills/${this.props.job.id}`)
     this.setState({
       title: '',
       location: '',
@@ -50,8 +48,6 @@ class AddNewJob extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props.organization.id)
-    console.log('JOB:', this.props.job)
     const {title, location, description, isRemote} = this.state
     return (
       <div>

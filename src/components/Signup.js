@@ -2,35 +2,23 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-import {Link} from 'react-router-dom'
 import signupImg from '../styles/blogging.svg'
 
 /**
  * COMPONENT
  */
 const SignUp = (props) => {
-  // const redirectToType = () => {
-  //   console.log('props->', props)
-  //   props.history.push('/signup/type')
-  // }
   const {name, displayName, handleSubmit, error} = props
-  // console.log('PROPS_>', this.props)
   return (
     <div className="signin-container">
-
-    <div className="signup-img">
+      <div className="signup-img">
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
-
-
-
       <form
-    classname='signup-form'
+        classname="signup-form"
         onSubmit={(event) => handleSubmit(event, props.history)}
         name={name}
       >
-
-
         <div className="login-words">
           <label htmlFor="email">
             <small>Email:</small>
@@ -50,15 +38,9 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          {/* <Link to="/profile/type"> */}
-          <button
-            type="submit"
-            // onClick={redirectToType}
-            className="signup-button"
-          >
+          <button type="submit" className="signup-button">
             {displayName}
           </button>
-          {/* </Link> */}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />

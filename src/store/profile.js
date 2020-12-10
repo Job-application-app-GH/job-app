@@ -31,20 +31,18 @@ export const fetchUserDetails = () => {
       let {data} = await axios.get('/api/profile')
       dispatch(getUserDetails(data))
     } catch (error) {
-      console.log('error in fetch user details', error)
+      console.log(error)
     }
   }
 }
 
 export const fetchUpdatedProfile = (profile) => {
-  console.log('profile in thunk', profile)
   return async (dispatch) => {
     try {
       let {data} = axios.put('/api/profile', profile)
-      console.log('data in thunk', data)
       dispatch(updateProfile(data))
     } catch (error) {
-      console.log(error, 'error in update profile thunk')
+      console.log(error)
     }
   }
 }
@@ -53,9 +51,7 @@ export const fetchUpdatedProfile = (profile) => {
 export const fetchCandidateProfile = (candidateId) => {
   return async (dispatch) => {
     try {
-      console.log('received->', candidateId)
       let {data} = await axios.get(`/api/profile/${candidateId}`)
-      console.log('data-->', data)
       dispatch(getCandidateDetails(data))
     } catch (error) {
       console.log(error)
@@ -64,11 +60,9 @@ export const fetchCandidateProfile = (candidateId) => {
 }
 
 export const fetchJobProfile = (jobId) => {
-  console.log('JOB ID---->', jobId)
   return async (dispatch) => {
     try {
       let {data} = await axios.get(`/api/profile/job/${jobId}`)
-      console.log('job data--->', data)
       dispatch(getJobDetails(data))
     } catch (error) {
       console.log(error)

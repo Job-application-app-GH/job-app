@@ -20,6 +20,7 @@ class LandingPage extends React.Component {
   }
 
   render() {
+
     // const id = this.props.profile.id
     // console.log('job--->', this.props.job)
 
@@ -30,7 +31,6 @@ class LandingPage extends React.Component {
       <div>
         <Header />
         <h2>This is the landing page!</h2>
-
         <Link to={linkForJobSearch}>
           <button>Get Started</button>
         </Link>
