@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
-
- /* EXTRA COPY */
-
-
+/* EXTRA COPY */
 body.content {
   background-image: linear-gradient(
     to right,
@@ -16,7 +12,6 @@ body.content {
   display: flex;
   justify-content: center;
   align-items: center;
-
   /* font-family: "Open Sans", sans-serif; */
 }
 .global-screen-box {
@@ -40,7 +35,6 @@ body.content {
   justify-content: center;
   align-items: center;
 }
-
 .header {
   display: flex;
   width: 100%;
@@ -57,12 +51,10 @@ body.content {
   display: flex;
   justify-content: space-between;
 }
-
 .footer_icons {
   padding: 20px;
   color: purple;
 }
-
 .signin-container {
   margin-top: 40px;
   width: 320px;
@@ -71,101 +63,91 @@ body.content {
   align-content: center;
   margin-left: 30px;
 }
-
 .signup-img-itself {
   width: 20em;
 }
-
-
-
 /* // LOGIN PAGE */
-
 .form {
   margin-top: 4em;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  
-  }
-  .form-group{
-    background-color: #fff;
-  }
-  .login-img {
-    margin-top: 120px;
-    width: 29em;
-  }
-  .login-img-itself {
-    width: 70%;
-    height: 90%;
-  }
-  .onboarding-swipe-img {
-    margin-top: 110px;
-    margin-left: 50px;
-    width: 18em;
-  }
- .profile-type-img{
+}
+.form-group {
+  background-color: #fff;
+}
+.login-img {
+  margin-top: 120px;
+  width: 29em;
+}
+.login-img-itself {
+  width: 70%;
+  height: 90%;
+}
+.onboarding-swipe-img {
+  margin-top: 110px;
+  margin-left: 50px;
+  width: 18em;
+}
+.profile-type-img {
   width: 22em;
-  margin-top:10%;
-   margin-bottom: 5%;
- }
- .upper-img-type {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.upper-img-type {
   width: 22em;
   margin-top: -10%;
-   margin-bottom: 5%;
- }
-
-
-
+  margin-bottom: 5%;
+}
 .login-words {
   display: flex;
   align-items: flex-start;
   width: fit-content;
-
   flex-direction: column;
 }
-
-  label {
-    font-size: 20px;
-  }
-  input{
-    margin-top: 6px;
-    min-width: 15em;
-    height: 37px;
-    padding: 0px 24px;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    background: #fff;
-    background-color: white;
-    border: 0;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    transition: all 250ms ease-in-out;
-  }
-  .signup-button {
-    margin-right:30px;
-    font-size: 21px;
-    padding: 10px 80px;
-    border: 0px;
-    box-shadow: 2px solid gray;
-    background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
-    background-size: 200%;
-    background-position: 0%;
-    transition: 0.5s;
-    color: #fff;
-    border-radius: 20px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .signup-button:hover {
-    background-position: 100% 0%;
-    }
-
-
+label {
+  font-size: 20px;
+}
+input {
+  margin-top: 6px;
+  min-width: 15em;
+  height: 37px;
+  padding: 0px 24px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+  background-color: white;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  transition: all 250ms ease-in-out;
+}
+.signup-button {
+  margin-right: 30px;
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.signup-button:hover {
+  background-position: 100% 0%;
+}
 .login-button {
   font-size: 21px;
   padding: 10px 80px;
-
   border: 0px;
   box-shadow: 2px solid gray;
   background-image: linear-gradient(
@@ -195,21 +177,14 @@ body.content {
   color: white;
   font-size: 20px;
 }
-
 .slider {
   height: 600px;
   width: 400px;
 }
-
 /* SIGNUP-TYPE */
 .signup-type-container {
   position: relative;
   align-content: center;
-
-  
-
-  margin-top: 60%;
-
 }
 a.btn.btn-success {
   margin-left: -30px;
@@ -219,14 +194,12 @@ a.btn.btn-success {
   padding: 10px 5px;
   width: 90%;
   border: 0px;
-
   box-shadow: 2px solid rgb(150, 133, 133);
   background: rgb(93, 108, 245);
-
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
-  color: #FFF;
+  color: #fff;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 15px;
@@ -242,16 +215,14 @@ a.btn.btn-success {
 .signup-candidate-form > h3 {
   text-align: left;
 }
-
-.signup-textbox{
-height: 100px;
-width: 320px;
-border-radius: 10px;
-margin-bottom: 10px;
-
+.signup-textbox {
+  height: 100px;
+  width: 320px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 #add-form {
-margin-top: 15%;
+  margin-top: 15%;
 }
 .signup-details-button {
   font-size: 21px;
@@ -276,11 +247,9 @@ margin-top: 15%;
   height: 10%;
 }
 .remote-yes-no-org {
-  
   flex-direction: row;
   align-content: flex-start;
 }
-
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
   position: relative;
@@ -296,11 +265,9 @@ margin-top: 15%;
   background-position: center;
   cursor: 'pointer';
 }
-
 ul.slick-dots {
   margin-left: -28px;
 }
-
 .onboarding-button {
   font-size: 21px;
   padding: 10px 80px;
@@ -355,7 +322,6 @@ ul.slick-dots {
   margin-top: -10px;
 }
 /* CARDS */
-
 .card {
   position: relative;
   align-self: center;
@@ -380,20 +346,17 @@ ul.slick-dots {
   bottom: 10px;
   cursor: 'pointer';
 }
-
 .cardBack {
   font-style: italic;
   color: white;
   cursor: 'pointer';
 }
-
 .cardsPile {
   display: flex;
   margin-right: 45vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
-
 .swipe {
   position: absolute;
   cursor: 'pointer';
@@ -415,14 +378,12 @@ ul.slick-dots {
 .chat_avatar {
   margin-right: 25px;
 }
-
 .skills_container {
   padding: 1em;
   align-items: center;
   align-content: center;
   height: 75%;
 }
-
 .skills_list {
   display: flex;
   flex-direction: column;
@@ -438,7 +399,6 @@ ul.slick-dots {
   font-size: 1.2em;
   /* line-height: 1.2em; */
 }
-
 .skills_button {
   display: flex;
   align-items: center;
@@ -456,7 +416,6 @@ ul.slick-dots {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   margin: 0 auto;
 }
-
 .selectedSkills {
   display: flex;
   /* flex-flow: row wrap; */
@@ -469,7 +428,6 @@ ul.slick-dots {
   padding: 5px;
   display: flex;
 }
-
 .selectedSkill-button {
   background: rgb(112 147 202);
   border: none;
@@ -481,23 +439,9 @@ ul.slick-dots {
   justify-content: space-between;
   min-width: 100%;
 }
-
 .selectedSkill-text {
   color: white;
   font-size: 1.2em;
   /* text-transform: uppercase; */
   flex-basis: 80%;
-}
-
-.job-listings {
-  background-image: linear-gradient(
-    to right,
-    rgb(101, 116, 250) 50%,
-    rgb(101, 116, 250) 50%,
-    rgb(32, 52, 228)
-  );
-  color: white;
-  width: 80%;
-  margin: 10px;
-  border-radius: 30px;
 }
