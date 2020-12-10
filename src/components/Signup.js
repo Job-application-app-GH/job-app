@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-import {Link} from 'react-router-dom'
 import signupImg from '../styles/blogging.svg'
 
 /**
@@ -15,7 +14,6 @@ const SignUp = (props) => {
       <div className="signup-img">
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
-
       <form
         classname="signup-form"
         onSubmit={(event) => handleSubmit(event, props.history)}
