@@ -42,41 +42,47 @@ class SignUpOrgDetails extends React.Component {
   render() {
     const {name, location, description, isRemote} = this.state
     return (
-      <div>
+      <div className='signup-candidate-form'>
         <form onSubmit={this.handleSubmit} id="add-form">
-          <h5>Company Name</h5>
+          <div>
+          <h3>Company Name</h3>
           <input
-            className="form-control"
+            classname='signup-input'
             type="text"
             name="name"
             onChange={this.handleChange}
             value={name}
             required
           />
-          <h5>Location</h5>
+          </div>
+          <div>
+          <h3>Location</h3>
           <input
-            className="form-control"
+            classname='signup-input'
             type="text"
             name="location"
             onChange={this.handleChange}
             value={location}
             required
           />
-          <h5>Give a brief description of the company </h5>
+          </div>
+          <div>
+          <h3>Company description</h3>
           <textarea
-            className="form-control"
+            className='signup-textbox'
             type="text"
             name="description"
             onChange={this.handleChange}
             value={description}
             required
           />
-          <FormControl>
+          </div>
+          <div className='remote-yes-no-org'>
+          <FormControl >
             <FormLabel>
               Are you willing to hire remote employees?
               <FormLabel />
-              <RadioGroup
-                className="form-control"
+              <RadioGroup 
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
@@ -95,9 +101,9 @@ class SignUpOrgDetails extends React.Component {
               </RadioGroup>
             </FormLabel>
           </FormControl>
-
+           </div>
           {/* <Link to="/signup/organization/job"> */}
-          <button type="submit">Submit</button>
+          <button className='signup-details-button' type="submit">Submit</button>
           {/* </Link> */}
         </form>
       </div>

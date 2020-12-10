@@ -2,6 +2,8 @@ import React from 'react'
 import {putUserType} from '../store/user'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import jobImg from '../styles/wd.svg'
+import empImg from '../styles/business.svg'
 
 class ProfileType extends React.Component {
   constructor(props) {
@@ -11,6 +13,9 @@ class ProfileType extends React.Component {
     return (
       <div className='signup-type-container'>
         <Link to="/signup/candidate">
+        <div className='upper-img-type'>
+          <img src={jobImg}   className='profile-type-img' alt="" />
+        </div>
           <button
             className='signup-type-buttons'
             onClick={() =>
@@ -23,13 +28,16 @@ class ProfileType extends React.Component {
           </button>
         </Link>
         <Link to="/signup/organization">
+        <div>
+          <img src={empImg}   className='profile-type-img' alt="" />
+        </div>
           <button
           className='signup-type-buttons'
             onClick={() =>
               this.props.updateUserType({userType: 'ORGANIZATION'})
             }
           >
-            LOOKING TO HIRE SOMEONE GREAT
+            LOOKING TO HIRE
           </button>
         </Link>
       </div>

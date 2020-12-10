@@ -65,7 +65,7 @@ class SignUpDetails extends React.Component {
 
     return (
       <div className='signup-candidate-form'>
-        <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
+        <form onSubmit={this.handleSubmit} id="add-form-candidate" autoComplete="off">
           
           <div className='signup-input'>
           <h3>Full Name</h3>
@@ -148,7 +148,7 @@ class SignUpDetails extends React.Component {
             </button>
           </Link> */}
 
-          <button className='signup-details-button' type="submit">Save</button>
+          <button className='signup-details-button' type="submit">Submit</button>
         </form>
       </div>
     )
