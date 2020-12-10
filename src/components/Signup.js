@@ -15,7 +15,7 @@ const SignUp = (props) => {
     <div className="signup-img">
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
-      <form classname='signup-form' onSubmit={handleSubmit} name={name}>
+      <form className='signup-form' onSubmit={handleSubmit} name={name}>
         <div className="login-words">
           <label htmlFor="email">
             <small>Email:</small>
