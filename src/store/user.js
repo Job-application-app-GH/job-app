@@ -43,7 +43,9 @@ export const auth = (email, password, method, history) => async (dispatch) => {
   try {
     dispatch(getUser(res.data))
     if (res.data.userType === 'CANDIDATE') {
-      history.push('/findJobs')
+      const {data: newCandidate} = await axios.get('/api/candidate')
+      // console.log('Candidate Id is: ', newCandidate.id)
+      history.push(`/findJobs/${newCandidate.id}`)
     } else {
       history.push('/organization')
     }

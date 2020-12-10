@@ -20,18 +20,13 @@ class LandingPage extends React.Component {
   }
 
   render() {
-
-    // const id = this.props.profile.id
-    // console.log('job--->', this.props.job)
-
     //ARCHANA: Check with Mackenzie for candidateId access
-    // const linkForJobSearch = `/findJobs/${ candidate Id}`
-    const linkForJobSearch = `/findJobs/1`
+    const candidateId = this.props.profile.id
     return (
       <div>
         <Header />
         <h2>This is the landing page!</h2>
-        <Link to={linkForJobSearch}>
+        <Link to={`/findJobs/${candidateId}`}>
           <button>Get Started</button>
         </Link>
       </div>

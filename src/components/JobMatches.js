@@ -4,6 +4,13 @@ import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 import Header from './Header'
+import Avatar from '@material-ui/core/Avatar'
+
+function getTop3Skills(skillSet) {
+  let top3Skills = skillSet.slice(0, 3).join(',')
+  // console.log('tope3Skills: ', top3Skills)
+  return top3Skills
+}
 
 class JobMatches extends React.Component {
   constructor(props) {
@@ -58,7 +65,6 @@ class JobMatches extends React.Component {
           {this.props.suggestedJobs.map((job) => (
             <div key={job.id}>
               <TinderCard
-                key={job.id}
                 className="swipe"
                 preventSwipe={['up', 'down']}
                 onSwipe={(direction) =>
@@ -75,10 +81,13 @@ class JobMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#FFB6C1'}}
                   >
+                    {/* THIS IS FRONT SIDE OF THE CARD */}
+                    <Avatar className="chat_avatar" src={job.orgImg} />
                     <h3>{job.title}</h3>
-                    <h3>Current role: {job.description}</h3>
-                    <h3>Works at: {job.location}</h3>
-                    <h3>FRONT OF THE CARD</h3>
+                    <h3>@ {job.orgName}</h3>
+                    <h3>Role: {job.description}</h3>
+                    <h3>Required Skills: </h3>
+                    <h3>{getTop3Skills(job.skills)}</h3>
                   </div>
 
                   <div
@@ -86,9 +95,15 @@ class JobMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#6495ED'}}
                   >
+                    {/* THIS IS BACK SIDE OF THE CARD */}
                     <h3>{job.title}</h3>
-                    <h3>About me: {job.description}</h3>
-                    <h3>BACK OF THE CARD</h3>
+                    <h3>Location: {job.location}</h3>
+                    <h3>About {job.orgName}:</h3>
+                    <h3>{job.orgDescription}</h3>
+                    <h3> Desired Skills: </h3>
+                    {job.skills.map((skill, index) => (
+                      <div key={index}>{skill}</div>
+                    ))}
                   </div>
                 </ReactCardFlip>
               </TinderCard>

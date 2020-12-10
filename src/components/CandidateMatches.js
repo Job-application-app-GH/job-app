@@ -11,7 +11,7 @@ import Avatar from '@material-ui/core/Avatar'
 
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(',')
-  console.log('tope3Skills: ', top3Skills)
+  // console.log('tope3Skills: ', top3Skills)
   return top3Skills
 }
 
@@ -84,7 +84,7 @@ class CandidateMatches extends React.Component {
                   flipDirection="vertical"
                 >
                   <div
-                  key={candidate.id}
+                    key={candidate.id}
                     className="card"
                     onClick={this.handleClick}
                     onTouchStart={this.handleTouchStart}
@@ -100,7 +100,7 @@ class CandidateMatches extends React.Component {
                   </div>
 
                   <div
-                  key={candidate.id}
+                    key={candidate.id}
                     className="card"
                     onClick={this.handleClick}
                     onTouchStart={this.handleTouchStart}
