@@ -4,7 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import firstImg from '../styles/wfh_1.svg'
 import secondImg from '../styles/wfh_9.svg'
-import thirdImg from '../styles/wfh_8.svg'
+
+
+// EXTRA COPY
 
 
 export default function Onboarding() {
