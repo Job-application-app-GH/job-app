@@ -16,7 +16,6 @@ const removeCandidateFromList = (candidateId) => ({
 })
 
 //THUNKS
-//ARCHANA: FIGURE OUT WHEERE IS jobID coming from and make changes in thunk call as appropriate
 export const fetchSuggestedCandidates = (jobId) => {
   return async (dispatch) => {
     try {

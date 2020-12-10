@@ -36,18 +36,8 @@ class SignUpDetails extends React.Component {
     event.preventDefault()
     await this.props.newCandidate({...this.state})
     // await this.props.fetchCandidate()
-    console.log('id-->', this.props.candidate.id)
-    this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
-    console.log('State in handle submit', this.state)
-    // this.setState({
-    //   name: '',
-    //   location: '',
-    //   currentCompany: '',
-    //   currentRole: '',
-    //   description: '',
-    //   // img: '',
-    //   isRemote: '',
-    // })
+    // this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
+    this.props.history.push('/profileImage')
   }
 
   render() {
@@ -58,15 +48,14 @@ class SignUpDetails extends React.Component {
       currentRole,
       description,
       isRemote,
-
-      photoUrl,
     } = this.state
     const candidateId = this.props.candidate.id
 
     return (
+
       <div className='signup-candidate-form'>
         <form onSubmit={this.handleSubmit} id="add-form-candidate" autoComplete="off">
-          
+
           <div className='signup-input'>
           <h3>Full Name</h3>
           <input
@@ -135,20 +124,18 @@ class SignUpDetails extends React.Component {
           </FormControl>
 
           <h3>Tell us about yourself </h3>
-          <textarea className='signup-textbox'
+          <textarea
+            className="signup-textbox"
             type="text"
             name="description"
             onChange={this.handleChange}
             value={description}
             required
           />
-          {/* <Link to="/profileImage">
-            <button type="submit" onClick={this.handleSubmit}>
-              Submit
-            </button>
-          </Link> */}
+
 
           <button className='signup-details-button' type="submit">Submit</button>
+
         </form>
       </div>
     )

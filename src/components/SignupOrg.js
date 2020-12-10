@@ -30,7 +30,7 @@ class SignUpOrgDetails extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.newOrganization({...this.state})
-    this.props.history.push('/signup/organization/job')
+    this.props.history.push('/uploadLogo')
     this.setState({
       name: '',
       location: '',
@@ -105,6 +105,7 @@ class SignUpOrgDetails extends React.Component {
           {/* <Link to="/signup/organization/job"> */}
           <button className='signup-details-button' type="submit">Submit</button>
           {/* </Link> */}
+
         </form>
       </div>
     )

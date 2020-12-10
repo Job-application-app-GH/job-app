@@ -4,6 +4,7 @@ import {fetchSingleJob} from '../store/job'
 import {Link} from 'react-router-dom'
 import {destroyJob} from '../store/job'
 import {fetchJobSkills} from '../store/skillsList'
+import OrgHeader from './OrgHeader'
 
 class SingleJob extends React.Component {
   constructor(props) {
@@ -18,19 +19,14 @@ class SingleJob extends React.Component {
   render() {
     const job = this.props.job
     const skills = this.props.skills
-    console.log('PROPS-->', this.props.skills)
     return (
       <div>
+        <OrgHeader />
         <h3>Job Details</h3>
 
         <Link to="/profile/jobs">
           <button>Back to job postings</button>
         </Link>
-        {/* <Link to="/profile/jobs">
-          <button onClick={() => this.props.deleteJob(job.id)}>
-            Remove this job
-          </button>
-        </Link> */}
         <Link to={`/profile/jobs/edit/${job.id}`}>
           <button>Edit</button>
         </Link>

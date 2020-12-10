@@ -10,6 +10,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
+import OrgHeader from './OrgHeader'
 
 class AddNewJob extends React.Component {
   constructor(props) {
@@ -37,9 +38,7 @@ class AddNewJob extends React.Component {
   async handleSubmit(event) {
     event.preventDefault()
     await this.props.newCandidate({...this.state}, this.props.organization.id)
-    await this.props.history.push(
-      `/profile/addJob/addSkills/${this.props.job.id}`
-    )
+    await this.props.history.push(`/profile/addSkills/${this.props.job.id}`)
     this.setState({
       title: '',
       location: '',
@@ -49,11 +48,10 @@ class AddNewJob extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props.organization.id)
-    console.log('JOB:', this.props.job)
     const {title, location, description, isRemote} = this.state
     return (
       <div>
+        <OrgHeader />
         <form onSubmit={this.handleSubmit} id="add-form">
           <h5>Job Title</h5>
           <input

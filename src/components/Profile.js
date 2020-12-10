@@ -3,6 +3,8 @@ import {fetchUserDetails} from '../store/profile'
 import {fetchCandidateSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -15,7 +17,6 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     await this.props.loadUserDetails()
-    console.log('id in component did mount: ', this.props.profile.id)
     await this.props.loadCandidateSkills(this.props.profile.id)
   }
 
@@ -29,7 +30,6 @@ class Profile extends React.Component {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    console.log('this.props.profile.id->', this.props.profile.id)
     let link
     let candidate
     if (user.userType === 'CANDIDATE') {
@@ -42,7 +42,8 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <h4>User Profile</h4>
+        {candidate ? <Header /> : <OrgHeader />}
+        {candidate ? <h4>User Profile</h4> : <h4>Company Profile</h4>}
 
         <Link to={link}>
           <button onClick={this.displayForm}>Edit my profile</button>
@@ -74,7 +75,7 @@ class Profile extends React.Component {
           : null}
         {candidate ? (
           <Link to={`/profile/candidate/matches/${profile.id}`}>
-            <button>View matches for this job</button>
+            <button>View matches</button>
           </Link>
         ) : null}
 

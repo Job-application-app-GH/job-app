@@ -15,7 +15,7 @@ import {fetchAllJobs} from '../store/job'
 import MenuIcon from '@material-ui/icons/Menu'
 import SmsIcon from '@material-ui/icons/Sms'
 
-const Header = (props) => {
+const OrgHeader = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const click = (event) => {
@@ -29,13 +29,6 @@ const Header = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
-  let matchesLink
-  if (props.user.userType === 'CANDIDATE') {
-    matchesLink = `/profile/candidate/matches/${profile.id}`
-  } else {
-    // matchesLink = `/profile/job/matches/${this.props.job.id}`
-  }
-  const candidate = props.profile
   const {handleClick} = props
   return (
     <div className="header">
@@ -57,18 +50,20 @@ const Header = (props) => {
           <Link to="/profile">
             <MenuItem onClick={handleClose}>Profile</MenuItem>
           </Link>
-          <Link to={`/profile/candidate/matches/${candidate.id}`}>
-            <MenuItem>Matches</MenuItem>
+
+          <Link to="/profile/jobs">
+            <MenuItem>Job Listings!!</MenuItem>
           </Link>
 
           <Link to="/">
             <MenuItem href="#" onClick={handleClick}>
               Logout
             </MenuItem>
+            {/* Logout */}
           </Link>
         </Menu>
       </div>
-      <Link to="/findJobs">
+      <Link to="/organization">
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
       <Link to="/messages">
@@ -85,6 +80,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
     profile: state.profile,
+    job: state.job,
     user: state.user,
   }
 }
@@ -97,12 +93,12 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Header)
+export default connect(mapState, mapDispatch)(OrgHeader)
 
 /**
  * PROP TYPES
  */
-Header.propTypes = {
+OrgHeader.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
 }

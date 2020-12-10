@@ -8,6 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Link} from 'react-router-dom'
+import OrgHeader from './OrgHeader'
 
 class EditJob extends React.Component {
   constructor(props) {
@@ -39,11 +40,14 @@ class EditJob extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {title, location, description, isRemote} = this.state
     return (
       <div>
-        <h3>Edit My Profile</h3>
+        <OrgHeader />
+        <h3>Edit Job Details</h3>
+        <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+          <button>Edit job skills</button>
+        </Link>
         <form onSubmit={this.handleSubmit}>
           <h5>Title</h5>
           <input
@@ -92,9 +96,7 @@ class EditJob extends React.Component {
               </RadioGroup>
             </FormLabel>
           </FormControl>
-          <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-            <button>Edit job skills</button>
-          </Link>
+
           <button type="submit">Save Changes</button>
         </form>
       </div>

@@ -19,7 +19,7 @@ export const fetchJobMatches = (jobId) => {
       let {data} = await axios.get(`/api/profileMatches/${jobId}`)
       dispatch(getJobMatches(data))
     } catch (error) {
-      console.log(error, 'error in fetch job matches')
+      console.log(error)
     }
   }
 }
@@ -27,9 +27,7 @@ export const fetchJobMatches = (jobId) => {
 export const fetchCandidateMatches = (candidateId) => {
   return async (dispatch) => {
     try {
-      console.log('can ID-->', candidateId)
       let {data} = await axios.get(`/api/profileMatches/user/${candidateId}`)
-      console.log('data from fetch can match', data)
       dispatch(getCandidateMatches(data))
     } catch (error) {
       console.log(error)

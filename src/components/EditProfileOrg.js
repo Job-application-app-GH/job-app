@@ -6,6 +6,7 @@ import Radio from '@material-ui/core/Radio'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import OrgHeader from './OrgHeader'
 
 class EditProfileOrg extends React.Component {
   constructor(props) {
@@ -35,13 +36,14 @@ class EditProfileOrg extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {location, description, isRemote} = this.state
     return (
       <div>
-        <h3>Edit My Profile</h3>
+        <OrgHeader />
+        <h3>Edit Profile</h3>
         <h4>{this.props.profile.name}</h4>
         <form onSubmit={this.handleSubmit}>
+          <h6>Location</h6>
           <input
             type="text"
             name="location"
