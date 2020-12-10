@@ -6,6 +6,7 @@ import {
   fetchJobProfile,
   fetchUserDetails,
 } from '../store/profile'
+import Header from './Header'
 import {fetchOrganization} from '../store/organization'
 import {fetchAllJobs} from '../store/job'
 
@@ -15,45 +16,24 @@ class LandingPage extends React.Component {
   }
 
   async componentDidMount() {
-    // await this.props.loadUserId()
-    await this.props.loadOrganization()
-    await this.props.loadJobs(this.props.organization.id)
+    await this.props.loadUserId()
   }
 
   render() {
+
     // const id = this.props.profile.id
     // console.log('job--->', this.props.job)
-    let link
-    if (this.props.user.userType === 'CANDIDATE') {
-      link = '/findJobs'
-      // '/findJobs/${this.props.profile.id}'
-    } else {
-      link = '/findCandidates'
-      //'/findCandidates/${this.props.job.id}'
-    }
-    const jobs = this.props.job
+
+    //ARCHANA: Check with Mackenzie for candidateId access
+    // const linkForJobSearch = `/findJobs/${ candidate Id}`
+    const linkForJobSearch = `/findJobs/1`
     return (
       <div>
+        <Header />
         <h2>This is the landing page!</h2>
-        {jobs.length ? (
-          <h3>Click on a job to start searching for candidates</h3>
-        ) : null}
-        {jobs.length
-          ? jobs.map((job) => (
-              <Link to={link}>
-                <div>
-                  <h5>{job.title}</h5>
-                  <h5>{job.location}</h5>
-                  <h5>temp spacing----</h5>
-                </div>
-              </Link>
-            ))
-          : null}
-        {!jobs.length ? (
-          <Link to={link}>
-            <button>Get Started</button>
-          </Link>
-        ) : null}
+        <Link to={linkForJobSearch}>
+          <button>Get Started</button>
+        </Link>
       </div>
     )
   }
@@ -70,9 +50,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    // loadUserId: (id) => dispatch(fetchUserDetails(id)),
-    loadOrganization: () => dispatch(fetchOrganization()),
-    loadJobs: (orgId) => dispatch(fetchAllJobs(orgId)),
+    loadUserId: (id) => dispatch(fetchUserDetails(id)),
   }
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import TinderCard from 'react-tinder-card'
-import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches' //MARIA: revisit thunk with Archana
+import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
+import Header from './Header'
 
 class JobMatches extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ class JobMatches extends React.Component {
   }
 
   componentDidMount() {
-    //ARCHANA: WHERE ARE WE GETTING THE CANDIDATE ID FROM ????
-    const candidateId = 1
+    const candidateId = this.props.match.params.candidateId
     this.props.getSuggestedJobs(candidateId)
   }
 
@@ -45,17 +45,15 @@ class JobMatches extends React.Component {
   }
 
   render() {
-    console.log(
-      'Inside render of JobMatches, total cards: ',
-      this.props.suggestedJobs.length
-    )
+    // console.log(
+    //   'Inside render of JobMatches, total cards: ',
+    //   this.props.suggestedJobs.length
+    // )
 
-    //ARCHANA: WHERE ARE WE GETTING THE CANDIDATE ID FROM ????
-    const candidateId = 1
-
-    //MARIA: render changed to cater jobs
+    const candidateId = this.props.match.params.candidateId
     return (
       <div>
+        <Header />
         <div className="cardsPile">
           {this.props.suggestedJobs.map((job) => (
             <div key={job.id}>

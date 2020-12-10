@@ -7,7 +7,6 @@ import history from '../history'
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const UPDATE_USER_TYPE = 'UPDATE_USER_TYPE'
-const UPLOAD_IMAGE = 'UPLOAD_IMAGE'
 
 /**
  * INITIAL STATE
@@ -20,7 +19,6 @@ const defaultUser = {}
 const getUser = (user) => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const updateUserType = (user) => ({type: UPDATE_USER_TYPE, user})
-const uploadImage = (user) => ({type: UPLOAD_IMAGE, user})
 
 /**
  * THUNK CREATORS
@@ -34,7 +32,7 @@ export const me = () => async (dispatch) => {
   }
 }
 
-export const auth = (email, password, method) => async (dispatch) => {
+export const auth = (email, password, method, history) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
@@ -44,9 +42,11 @@ export const auth = (email, password, method) => async (dispatch) => {
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/home')
-
-    history.push('/findCandidates')
+    if (res.data.userType === 'CANDIDATE') {
+      history.push('/findJobs')
+    } else {
+      history.push('/organization')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -58,21 +58,10 @@ export const putUserType = (type) => {
       let {data} = await axios.put('/api/users', type)
       dispatch(updateUserType(data))
     } catch (error) {
-      console.log(error, 'error in put user type thunk')
+      console.log(error)
     }
   }
 }
-
-// export const uploadAvatarImage = (img) => {
-//   return async (dispatch) => {
-//     try {
-//       let {data} = await axios.put('/api/users/img', img)
-//       dispatch(uploadImage(data))
-//     } catch (error) {
-//       console.log(error, 'error in img thunk')
-//     }
-//   }
-// }
 
 const ADD_USER = 'ADD_USER'
 const addUser = (user) => {
@@ -81,19 +70,13 @@ const addUser = (user) => {
     user,
   }
 }
-export const signup = (
-  email,
-  password
-  // userType
-) => async (dispatch) => {
+export const signup = (email, password, history) => async (dispatch) => {
   let res
-  console.log('email', email, 'password', password)
 
   try {
     res = await axios.post(`/auth/signup`, {
       email,
       password,
-      // userType,
     })
     dispatch(addUser(res))
   } catch (signupError) {
@@ -102,8 +85,6 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/signup/type')
-    // console.log('history')
     history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
@@ -132,8 +113,6 @@ export default function user(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case UPDATE_USER_TYPE:
-      return action.user
-    case UPLOAD_IMAGE:
       return action.user
     default:
       return state

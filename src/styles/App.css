@@ -1,11 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 
  /* EXTRA COPY */
 
 
 body.content {
-   background-image: linear-gradient(to right, #FFC654 50%, #FFC95B 50%, #FECB63); 
+  background-image: linear-gradient(
+    to right,
+    #ffc654 50%,
+    #ffc95b 50%,
+    #fecb63
+  );
   height: fit-content;
   text-align: center;
   display: flex;
@@ -15,22 +20,26 @@ body.content {
   /* font-family: "Open Sans", sans-serif; */
 }
 .global-screen-box {
-  background-image: linear-gradient(to right, #FFC654 50%, #FFC95B 50%, #FECB63); 
+  background-image: linear-gradient(
+    to right,
+    #ffc654 50%,
+    #ffc95b 50%,
+    #fecb63
+  );
   height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-.form{
+.form {
   height: fit-content;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .header {
   display: flex;
@@ -54,17 +63,16 @@ body.content {
   color: purple;
 }
 
-.signin-container{
+.signin-container {
   margin-top: 40px;
   width: 320px;
-
 }
-.signup-form{
+.signup-form {
   align-content: center;
   margin-left: 30px;
 }
 
-.signup-img-itself{
+.signup-img-itself {
   width: 20em;
 }
 
@@ -77,6 +85,7 @@ body.content {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   
   }
   .form-group{
@@ -106,13 +115,16 @@ body.content {
    margin-bottom: 5%;
  }
 
-.login-words{
+
+
+.login-words {
   display: flex;
   align-items: flex-start;
   width: fit-content;
 
   flex-direction: column;
 }
+
   label {
     font-size: 20px;
   }
@@ -148,13 +160,20 @@ body.content {
   .signup-button:hover {
     background-position: 100% 0%;
     }
+
+
 .login-button {
   font-size: 21px;
   padding: 10px 80px;
-  
+
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -164,7 +183,7 @@ body.content {
   cursor: pointer;
 }
 .login-button:hover {
-background-position: 100% 0%;
+  background-position: 100% 0%;
 }
 .signup-link {
   display: flex;
@@ -173,10 +192,9 @@ background-position: 100% 0%;
   font-size: 15px;
 }
 .signup-link > h3 {
-color: white;
-font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
-
 
 .slider {
   height: 600px;
@@ -184,10 +202,14 @@ font-size: 20px;
 }
 
 /* SIGNUP-TYPE */
-.signup-type-container{
+.signup-type-container {
   position: relative;
   align-content: center;
+
   
+
+  margin-top: 60%;
+
 }
 a.btn.btn-success {
   margin-left: -30px;
@@ -197,8 +219,10 @@ a.btn.btn-success {
   padding: 10px 5px;
   width: 90%;
   border: 0px;
+
   box-shadow: 2px solid rgb(150, 133, 133);
   background: rgb(93, 108, 245);
+
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -208,11 +232,9 @@ a.btn.btn-success {
   border-radius: 15px;
   font-weight: 600;
   cursor: pointer;
-
 }
 /* SIGNUP CANDIDATE FORM */
 .signup-candidate-form {
- 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,11 +242,13 @@ a.btn.btn-success {
 .signup-candidate-form > h3 {
   text-align: left;
 }
+
 .signup-textbox{
 height: 100px;
 width: 320px;
 border-radius: 10px;
 margin-bottom: 10px;
+
 }
 #add-form {
 margin-top: 15%;
@@ -234,7 +258,12 @@ margin-top: 15%;
   padding: 10px 80px;
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -243,9 +272,8 @@ margin-top: 15%;
   font-weight: 700;
   cursor: pointer;
 }
-.signup-input{
-height: 10%;
- 
+.signup-input {
+  height: 10%;
 }
 .remote-yes-no-org {
   
@@ -254,7 +282,7 @@ height: 10%;
 }
 
 /* ONBOARDING SCREENS */
-.slick-slider.slider.slick-initialized  {
+.slick-slider.slider.slick-initialized {
   position: relative;
   width: 360px;
   padding: 25px;
@@ -266,10 +294,10 @@ height: 10%;
   background-size: cover;
   box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
-  cursor:'pointer'
+  cursor: 'pointer';
 }
 
-ul.slick-dots{
+ul.slick-dots {
   margin-left: -28px;
 }
 
@@ -279,7 +307,12 @@ ul.slick-dots{
   margin-top: 5px;
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -293,19 +326,18 @@ ul.slick-dots{
   margin-bottom: 10px;
 }
 .onboarding-screen > h4 {
-margin-top: 20px;
-font-weight: lighter;
+  margin-top: 20px;
+  font-weight: lighter;
 }
 .onboarding-screen > h3 {
   margin-top: 20px;
-  }
+}
 .onboarding-img {
   align-self: center;
   margin-top: 70px;
   margin-left: -30px;
   width: 22.5em;
   margin-bottom: 50px;
-
 }
 .onboarding-img-swipe {
   align-self: center;
@@ -316,12 +348,12 @@ font-weight: lighter;
   margin-bottom: 70px;
 }
 .onboarding-text {
-margin-top: 70px;
+  margin-top: 70px;
 }
 .onboarding-text-lastpage {
   margin-bottom: 5px;
   margin-top: -10px;
-  }
+}
 /* CARDS */
 
 .card {
@@ -337,35 +369,34 @@ margin-top: 70px;
   background-size: cover;
   box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
-  cursor:'pointer'
+  cursor: 'pointer';
 }
 .cardFront {
-
- font-style: italic;
- color: white;
- text-shadow: 3px 3px rgb(36, 9, 24);
- position: absolute; 
- font-size: 30px;
- bottom: 10px;
- cursor:'pointer'
+  font-style: italic;
+  color: white;
+  text-shadow: 3px 3px rgb(36, 9, 24);
+  position: absolute;
+  font-size: 30px;
+  bottom: 10px;
+  cursor: 'pointer';
 }
 
 .cardBack {
   font-style: italic;
- color: white;
- cursor:'pointer'
+  color: white;
+  cursor: 'pointer';
 }
 
 .cardsPile {
   display: flex;
   margin-right: 45vh;
   margin-top: 13vh;
-  cursor:'pointer'
+  cursor: 'pointer';
 }
 
 .swipe {
   position: absolute;
-  cursor:'pointer'
+  cursor: 'pointer';
 }
 .chat {
   display: flex;
@@ -456,4 +487,17 @@ margin-top: 70px;
   font-size: 1.2em;
   /* text-transform: uppercase; */
   flex-basis: 80%;
+}
+
+.job-listings {
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  color: white;
+  width: 80%;
+  margin: 10px;
+  border-radius: 30px;
 }

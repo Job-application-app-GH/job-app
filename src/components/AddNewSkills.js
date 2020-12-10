@@ -4,6 +4,8 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+import Header from './Header'
+import OrgHeader from './OrgHeader'
 
 import {
   getCandidateSkills,
@@ -34,8 +36,13 @@ class AddNewSkills extends Component {
   }
 
   render() {
+    let candidate
+    if (this.props.user.userType === 'CANDIDATE') {
+      candidate = 'CANDIDATE'
+    }
     return (
       <div className="skills_container">
+        {candidate ? <Header /> : <OrgHeader />}
         <FormControl component="fieldset">
           <FormLabel component="legend">Please select skills</FormLabel>
           <div className="skills_list">
@@ -71,17 +78,18 @@ class AddNewSkills extends Component {
 const mapStateToProps = (state) => {
   return {
     skills: state.selectedSkills,
+    user: state.user,
   }
 }
 
-const mapCandidateDispatchToProps = (dispatch) => {
-  return {
-    loadSkills: (candidateId) => dispatch(getCandidateSkills(candidateId)),
-    modifySkill: (skill) => dispatch(modifySkill(skill)),
-    saveSkills: (candidateId, candidateSkills) =>
-      dispatch(saveCandidateSkills(candidateId, candidateSkills)),
-  }
-}
+// const mapCandidateDispatchToProps = (dispatch) => {
+//   return {
+//     loadSkills: (candidateId) => dispatch(getCandidateSkills(candidateId)),
+//     modifySkill: (skill) => dispatch(modifySkill(skill)),
+//     saveSkills: (candidateId, candidateSkills) =>
+//       dispatch(saveCandidateSkills(candidateId, candidateSkills)),
+//   }
+// }
 const mapJobDispatchToProps = (dispatch) => {
   return {
     loadSkills: (jobId) => dispatch(getJobSkills(jobId)),
@@ -90,10 +98,10 @@ const mapJobDispatchToProps = (dispatch) => {
   }
 }
 
-export const AddNewCandidateSkills = connect(
-  mapStateToProps,
-  mapCandidateDispatchToProps
-)(AddNewSkills)
+// export const AddNewCandidateSkills = connect(
+//   mapStateToProps,
+//   mapCandidateDispatchToProps
+// )(AddNewSkills)
 
 export const AddNewJobSkills = connect(
   mapStateToProps,

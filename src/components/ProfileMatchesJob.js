@@ -3,6 +3,8 @@ import {fetchJobMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
+import OrgHeader from './OrgHeader'
+
 class JobMatches extends React.Component {
   constructor(props) {
     super(props)
@@ -19,15 +21,15 @@ class JobMatches extends React.Component {
 
   render() {
     const matches = this.props.profileMatches
-    console.log('matches-->', matches)
     return (
       <div>
+        <OrgHeader />
         <h3>Your Matches</h3>
 
         {matches.length ? (
           matches.map((match) => (
             <div>
-              <Link to={`/matches/${match.candidate.id}`}>
+              <Link to={`/candidatematches/${match.candidate.id}`}>
                 <h5>{match.candidate.name}</h5>
               </Link>
             </div>

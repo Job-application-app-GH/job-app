@@ -14,14 +14,12 @@ const getCandidate = (candidate) => ({
 })
 
 export const postNewCandidate = (candidate) => {
-  console.log('candidate received in thunk->', candidate)
   return async (dispatch) => {
     try {
       let {data: newCandidate} = await axios.post('/api/candidate', candidate)
-      console.log('data from axios inside post new candidate', newCandidate)
       dispatch(createNewCandidate(newCandidate))
     } catch (error) {
-      console.log(error, 'error in post new candidate thunk :(')
+      console.log(error)
     }
   }
 }
@@ -30,10 +28,9 @@ export const fetchCandidate = () => {
   return async (dispatch) => {
     try {
       let {data} = await axios.get('/api/candidate')
-      console.log('DATA FROM THUNK-->', data)
       dispatch(getCandidate(data))
     } catch (error) {
-      console.log(error, 'error in fetch candidate thunk')
+      console.log(error)
     }
   }
 }

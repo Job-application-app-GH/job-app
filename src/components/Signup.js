@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signup} from '../store'
-import {Link} from 'react-router-dom'
 import signupImg from '../styles/blogging.svg'
 
 /**
@@ -12,10 +11,14 @@ const SignUp = (props) => {
   const {name, displayName, handleSubmit, error} = props
   return (
     <div className="signin-container">
-    <div className="signup-img">
+      <div className="signup-img">
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
-      <form className='signup-form' onSubmit={handleSubmit} name={name}>
+      <form
+        classname="signup-form"
+        onSubmit={(event) => handleSubmit(event, props.history)}
+        name={name}
+      >
         <div className="login-words">
           <label htmlFor="email">
             <small>Email:</small>
@@ -35,9 +38,9 @@ const SignUp = (props) => {
         </div>
 
         <div>
-          {/* <Link to="/profile/type"> */}
-          <button className="signup-button">{displayName}</button>
-          {/* </Link> */}
+          <button type="submit" className="signup-button">
+            {displayName}
+          </button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
         <br />
@@ -67,20 +70,14 @@ const mapSignup = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit(evt) {
+    handleSubmit(evt, history) {
       evt.preventDefault()
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(signup(email, password))
+      dispatch(signup(email, password, history))
     },
   }
 }
-
-// const mapDispatch = (dispatch) => {
-//   return {
-//     createAccount: (email, password) => dispatch(signup(email, password))
-//   }
-// }
 
 export default connect(mapSignup, mapDispatch)(SignUp)
 

@@ -40,7 +40,6 @@ class EditProfile extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {
       name,
       location,

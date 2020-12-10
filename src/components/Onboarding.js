@@ -4,11 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import firstImg from '../styles/wfh_1.svg'
 import secondImg from '../styles/wfh_9.svg'
-
-
 // EXTRA COPY
-
-
 export default function Onboarding() {
     var settings = {
       dots: true,
@@ -16,10 +12,8 @@ export default function Onboarding() {
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      
     };
     return (
-    
       <Slider className='slider' {...settings} style={{backgroundColor: 'seashell'}}>
         <div className='onboarding-screen'>
         <div>
@@ -53,7 +47,7 @@ export default function Onboarding() {
           <img src='https://www.flaticon.com/svg/static/icons/svg/617/617821.svg' className='onboarding-img-swipe' alt="" />
         </div>
         <div className='onboarding-text'>
-          <h3>Isn't exactly what you are looking for? </h3>
+          <h3> Isn't exactly what you are looking for? </h3>
           <h4 style = {{color: 'rgb(94, 89, 84)'}}>Swipe left!</h4>
         </div>
         </div>
@@ -79,9 +73,5 @@ export default function Onboarding() {
             </button>
         </div>
       </Slider>
-    
-  
-      
-           
     );
   }
