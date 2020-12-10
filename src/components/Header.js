@@ -67,7 +67,7 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to="/home">
+      <Link to="/findJobs">
         <LinkedInIcon className="icons" fontSize="large" />
       </Link>
       <Link to="/chat">

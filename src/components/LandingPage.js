@@ -28,7 +28,7 @@ class LandingPage extends React.Component {
         <Header />
         <h2>This is the landing page!</h2>
         <Link to="/findJobs">
-          <button>Get Started</button>
+          <button>Start Swiping</button>
         </Link>
       </div>
     )

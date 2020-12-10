@@ -18,9 +18,9 @@ const Onboarding = (props) => {
   }
   let link
   if (props.user.userType === 'CANDIDATE') {
-    link = '/home'
+    link = '/findJobs'
   } else {
-    link = '/organization'
+    link = '/findCandidates'
   }
   console.log('props-->', props)
   return (

@@ -32,15 +32,16 @@ class OrgLandingPage extends React.Component {
         <OrgHeader />
         <h2>This is the landing page!</h2>
 
-        <h3>Click on a job to start searching for candidates</h3>
+        <h3>Select a job to start searching for candidates</h3>
 
         {jobs.length
           ? jobs.map((job) => (
               <Link to="/findCandidates">
                 <div key={job.id}>
-                  <h5>{job.title}</h5>
-                  <h5>{job.location}</h5>
-                  <h5>temp spacing----</h5>
+                  <button>
+                    <h5>{job.title}</h5>
+                    <h5>{job.location}</h5>
+                  </button>
                 </div>
               </Link>
             ))

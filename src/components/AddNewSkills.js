@@ -82,14 +82,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapCandidateDispatchToProps = (dispatch) => {
-  return {
-    loadSkills: (candidateId) => dispatch(getCandidateSkills(candidateId)),
-    modifySkill: (skill) => dispatch(modifySkill(skill)),
-    saveSkills: (candidateId, candidateSkills) =>
-      dispatch(saveCandidateSkills(candidateId, candidateSkills)),
-  }
-}
+// const mapCandidateDispatchToProps = (dispatch) => {
+//   return {
+//     loadSkills: (candidateId) => dispatch(getCandidateSkills(candidateId)),
+//     modifySkill: (skill) => dispatch(modifySkill(skill)),
+//     saveSkills: (candidateId, candidateSkills) =>
+//       dispatch(saveCandidateSkills(candidateId, candidateSkills)),
+//   }
+// }
 const mapJobDispatchToProps = (dispatch) => {
   return {
     loadSkills: (jobId) => dispatch(getJobSkills(jobId)),
@@ -98,10 +98,10 @@ const mapJobDispatchToProps = (dispatch) => {
   }
 }
 
-export const AddNewCandidateSkills = connect(
-  mapStateToProps,
-  mapCandidateDispatchToProps
-)(AddNewSkills)
+// export const AddNewCandidateSkills = connect(
+//   mapStateToProps,
+//   mapCandidateDispatchToProps
+// )(AddNewSkills)
 
 export const AddNewJobSkills = connect(
   mapStateToProps,

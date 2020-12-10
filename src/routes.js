@@ -115,13 +115,11 @@ class Routes extends Component {
             />
             <Route
               exact
-              path="/profile/addJob/addSkills/:ownerId"
+              path="/profile/addSkills/:ownerId"
               component={AddNewJobSkills}
             />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
-        {/* <Route component={Login} /> */}
       </Switch>
     )
   }
