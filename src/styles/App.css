@@ -1,7 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 body.content {
-   background-image: linear-gradient(to right, #FFC654 50%, #FFC95B 50%, #FECB63); 
+  background-image: linear-gradient(
+    to right,
+    #ffc654 50%,
+    #ffc95b 50%,
+    #fecb63
+  );
   height: fit-content;
   text-align: center;
   display: flex;
@@ -11,22 +16,26 @@ body.content {
   /* font-family: "Open Sans", sans-serif; */
 }
 .global-screen-box {
-  background-image: linear-gradient(to right, #FFC654 50%, #FFC95B 50%, #FECB63); 
+  background-image: linear-gradient(
+    to right,
+    #ffc654 50%,
+    #ffc95b 50%,
+    #fecb63
+  );
   height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-.form{
+.form {
   height: fit-content;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .header {
   display: flex;
@@ -50,15 +59,14 @@ body.content {
   color: purple;
 }
 
-.signin-container{
+.signin-container {
   margin-top: 40px;
-
 }
-.signup-form{
+.signup-form {
   align-content: center;
 }
 
-.signup-img-itself{
+.signup-img-itself {
   width: 20em;
 }
 /* // LOGIN PAGE */
@@ -68,74 +76,82 @@ body.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  }
-  .form-group{
-    background-color: #fff;
-  }
-  .login-img {
-    margin-top: 180px;
-    width: 29em;
-  }
-  .login-img-itself {
-    width: 70%;
-    height: 90%;
-  }
-  .onboarding-swipe-img {
-    margin-top: 110px;
-    margin-left: 50px;
-    width: 18em;
-  }
- 
+}
+.form-group {
+  background-color: #fff;
+}
+.login-img {
+  margin-top: 180px;
+  width: 29em;
+}
+.login-img-itself {
+  width: 70%;
+  height: 90%;
+}
+.onboarding-swipe-img {
+  margin-top: 110px;
+  margin-left: 50px;
+  width: 18em;
+}
 
-.login-words{
+.login-words {
   display: flex;
   align-items: flex-start;
   width: fit-content;
-margin-left: 30px;
+  margin-left: 30px;
   flex-direction: column;
 }
-  label {
-    font-size: 20px;
-  }
-  input{
-    margin-top: 6px;
-    min-width: 15em;
-    height: 37px;
-    padding: 0px 10px;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    background: #fff;
-    background-color: white;
-    border: 0;
-    border-radius: 4px;
-    margin-bottom: 31px;
-    transition: all 250ms ease-in-out;
-  }
-  .signup-button {
-    font-size: 21px;
-    padding: 10px 80px;
-    border: 0px;
-    box-shadow: 2px solid gray;
-    background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
-    background-size: 200%;
-    background-position: 0%;
-    transition: 0.5s;
-    color: #fff;
-    border-radius: 20px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .signup-button:hover {
-    background-position: 100% 0%;
-    }
+label {
+  font-size: 20px;
+}
+input {
+  margin-top: 6px;
+  min-width: 15em;
+  height: 37px;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+  background-color: white;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 31px;
+  transition: all 250ms ease-in-out;
+}
+.signup-button {
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.signup-button:hover {
+  background-position: 100% 0%;
+}
 .login-button {
   font-size: 21px;
   padding: 10px 80px;
-  
+
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -145,7 +161,7 @@ margin-left: 30px;
   cursor: pointer;
 }
 .login-button:hover {
-background-position: 100% 0%;
+  background-position: 100% 0%;
 }
 .signup-link {
   display: flex;
@@ -154,10 +170,9 @@ background-position: 100% 0%;
   font-size: 15px;
 }
 .signup-link > h3 {
-color: white;
-font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
-
 
 .slider {
   height: 600px;
@@ -165,11 +180,10 @@ font-size: 20px;
 }
 
 /* SIGNUP-TYPE */
-.signup-type-container{
+.signup-type-container {
   position: relative;
   align-content: center;
-  margin-top:60%;
-  
+  margin-top: 60%;
 }
 .signup-type-buttons {
   font-size: 21px;
@@ -178,7 +192,12 @@ font-size: 20px;
   width: 90%;
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -186,11 +205,9 @@ font-size: 20px;
   border-radius: 10px;
   font-weight: 900;
   cursor: pointer;
-
 }
 /* SIGNUP CANDIDATE FORM */
 .signup-candidate-form {
- 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,18 +215,23 @@ font-size: 20px;
 .signup-candidate-form > h3 {
   text-align: left;
 }
-.signup-textbox{
-height: 100px;
-width: 320px;
-margin-bottom: 10px;
+.signup-textbox {
+  height: 100px;
+  width: 320px;
+  margin-bottom: 10px;
 }
 .signup-details-button {
   font-size: 21px;
   padding: 10px 80px;
-  
+
   border: 0px;
   box-shadow: 2px solid gray;
-  background-image: linear-gradient(to right, rgb(101, 116, 250) 50%, rgb(101, 116, 250) 50%, rgb(32, 52, 228));
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
   background-size: 200%;
   background-position: 0%;
   transition: 0.5s;
@@ -218,13 +240,13 @@ margin-bottom: 10px;
   font-weight: 700;
   cursor: pointer;
 }
-input{
+input {
   margin-top: 6px;
   min-width: 15em;
   height: 37px;
   padding: 0px 10px;
   font-size: 16px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background: #fff;
   background-color: white;
   border: 0;
@@ -232,8 +254,6 @@ input{
   margin-bottom: 31px;
   transition: all 250ms ease-in-out;
 }
-
-
 
 /* CARDS */
 
@@ -252,17 +272,17 @@ input{
   background-position: center;
 }
 .cardFront {
- font-style: italic;
- color: white;
- text-shadow: 3px 3px rgb(36, 9, 24);
- position: absolute; 
- font-size: 30px;
- bottom: 10px;
+  font-style: italic;
+  color: white;
+  text-shadow: 3px 3px rgb(36, 9, 24);
+  position: absolute;
+  font-size: 30px;
+  bottom: 10px;
 }
 
 .cardBack {
   font-style: italic;
- color: black;
+  color: black;
 }
 
 .cardsPile {

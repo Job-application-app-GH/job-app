@@ -26,11 +26,7 @@ class Skills extends Component {
 
   handleSaveSkills() {
     this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
-    if (this.props.user.userType === 'CANDIDATE') {
-      this.props.history.push('/home')
-    } else {
-      this.props.history.push('/organization')
-    }
+    this.props.history.push('/onboarding')
   }
 
   componentDidMount() {
