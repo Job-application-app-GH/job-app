@@ -52,9 +52,10 @@ class SignUpDetails extends React.Component {
     const candidateId = this.props.candidate.id
 
     return (
-      <div className="signup-candidate-form">
-        <form onSubmit={this.handleSubmit} id="add-form" autoComplete="off">
-          
+
+      <div className='signup-candidate-form'>
+        <form onSubmit={this.handleSubmit} id="add-form-candidate" autoComplete="off">
+
           <div className='signup-input'>
           <h3>Full Name</h3>
           <input
@@ -132,9 +133,9 @@ class SignUpDetails extends React.Component {
             required
           />
 
-          <button className="signup-details-button" type="submit">
-            Save
-          </button>
+
+          <button className='signup-details-button' type="submit">Submit</button>
+
         </form>
       </div>
     )
