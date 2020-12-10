@@ -10,14 +10,9 @@ router.get('/:jobId', async (req, res, next) => {
       },
       include: {
         model: Candidate,
-        include: [
-          {
-            model: Organization,
-          },
-        ],
       },
     })
-    res.send([matches])
+    res.send(matches)
   } catch (error) {
     next(error)
   }
@@ -30,10 +25,14 @@ router.get('/user/:candidateId', async (req, res, next) => {
         candidateId: req.params.candidateId,
         isMatch: 'MATCHED',
       },
-      include: {
-        model: Job,
-      },
+      include: [
+        {
+          model: Job,
+          include: {model: Organization},
+        },
+      ],
     })
+    console.log('matches-->', matches)
     res.send(matches)
   } catch (error) {
     next(error)

@@ -45,7 +45,15 @@ router.get('/:candidateId', async (req, res, next) => {
 
 router.get('/job/:jobId', async (req, res, next) => {
   try {
-    let jobProfile = await Job.findByPk(req.params.jobId)
+    // let jobProfile = await Job.findByPk(req.params.jobId)
+    let jobProfile = await Job.findOne({
+      where: {
+        id: req.params.jobId,
+      },
+      include: {
+        model: Organization,
+      },
+    })
     res.send(jobProfile)
   } catch (error) {
     next(error)

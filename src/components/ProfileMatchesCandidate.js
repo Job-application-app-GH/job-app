@@ -29,7 +29,10 @@ class JobMatches extends React.Component {
           matches.map((match) => (
             <div>
               <Link to={`/jobmatches/${match.job.id}`}>
-                <h5>{match.job.title}</h5>
+                <button>
+                  <h5>{match.job.organization.name}</h5>
+                  <h5>{match.job.title}</h5>
+                </button>
               </Link>
             </div>
           ))
