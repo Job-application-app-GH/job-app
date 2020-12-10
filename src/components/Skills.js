@@ -26,7 +26,11 @@ class Skills extends Component {
 
   handleSaveSkills() {
     this.props.saveSkills(this.props.match.params.ownerId, this.props.skills)
-    this.props.history.push('/home')
+    if (this.props.user.userType === 'CANDIDATE') {
+      this.props.history.push('/home')
+    } else {
+      this.props.history.push('/organization')
+    }
   }
 
   componentDidMount() {
@@ -71,6 +75,7 @@ class Skills extends Component {
 const mapStateToProps = (state) => {
   return {
     skills: state.selectedSkills,
+    user: state.user,
   }
 }
 

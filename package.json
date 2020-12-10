@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
     "axios": "^0.21.0",
+    "cloudinary": "^1.23.0",
     "compression": "^1.7.4",
     "concurrently": "^5.3.0",
     "connect-session-sequelize": "^7.0.4",
@@ -54,8 +55,7 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
-    "start-dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

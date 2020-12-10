@@ -37,17 +37,9 @@ class SignUpDetails extends React.Component {
     await this.props.newCandidate({...this.state})
     // await this.props.fetchCandidate()
     console.log('id-->', this.props.candidate.id)
-    this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
+    // this.props.history.push(`/candidateSkills/${this.props.candidate.id}`)
+    this.props.history.push('/profileImage')
     console.log('State in handle submit', this.state)
-    // this.setState({
-    //   name: '',
-    //   location: '',
-    //   currentCompany: '',
-    //   currentRole: '',
-    //   description: '',
-    //   // img: '',
-    //   isRemote: '',
-    // })
   }
 
   render() {
@@ -58,8 +50,6 @@ class SignUpDetails extends React.Component {
       currentRole,
       description,
       isRemote,
-
-      photoUrl,
     } = this.state
     const candidateId = this.props.candidate.id
 

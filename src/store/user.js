@@ -34,19 +34,22 @@ export const me = () => async (dispatch) => {
   }
 }
 
-export const auth = (email, password, method) => async (dispatch) => {
+export const auth = (email, password, method, history) => async (dispatch) => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
+    console.log('DATA>>>>', res.data)
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/home')
-
-    history.push('/findCandidates')
+    if (res.data.userType === 'CANDIDATE') {
+      history.push('/home')
+    } else {
+      history.push('/organization')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -63,17 +66,6 @@ export const putUserType = (type) => {
   }
 }
 
-// export const uploadAvatarImage = (img) => {
-//   return async (dispatch) => {
-//     try {
-//       let {data} = await axios.put('/api/users/img', img)
-//       dispatch(uploadImage(data))
-//     } catch (error) {
-//       console.log(error, 'error in img thunk')
-//     }
-//   }
-// }
-
 const ADD_USER = 'ADD_USER'
 const addUser = (user) => {
   return {
@@ -83,7 +75,8 @@ const addUser = (user) => {
 }
 export const signup = (
   email,
-  password
+  password,
+  history
   // userType
 ) => async (dispatch) => {
   let res
@@ -102,8 +95,6 @@ export const signup = (
 
   try {
     dispatch(getUser(res.data))
-    // history.push('/signup/type')
-    // console.log('history')
     history.push('/signup/type')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)

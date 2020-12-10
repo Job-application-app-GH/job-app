@@ -1,9 +1,10 @@
 const router = require('express').Router()
-const {Match, Candidate, Job} = require('../db/models')
+const {Match, Candidate, Job, Organization} = require('../db/models')
 
 router.get('/:jobId', async (req, res, next) => {
   try {
     console.log('JOB ID->', req.params.jobId)
+
     let matches = await Match.findAll({
       where: {
         jobId: req.params.jobId,
@@ -11,10 +12,15 @@ router.get('/:jobId', async (req, res, next) => {
       },
       include: {
         model: Candidate,
+        include: [
+          {
+            model: Organization,
+          },
+        ],
       },
     })
     console.log('MATCHES--->', matches)
-    res.send(matches)
+    res.send([matches])
   } catch (error) {
     next(error)
   }
