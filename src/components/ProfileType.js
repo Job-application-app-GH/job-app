@@ -4,6 +4,10 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import jobImg from '../styles/wd.svg'
 import empImg from '../styles/business.svg'
+  
+
+// EXTRA COPY
+
 
 class ProfileType extends React.Component {
   constructor(props) {
