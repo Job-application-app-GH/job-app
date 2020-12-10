@@ -8,10 +8,6 @@ module.exports = router
 // GET '/api/jobSkills/:jobId'
 router.get('/:jobId', async (req, res, next) => {
   try {
-    //ARCHANA:
-    // Get the id either from req object or pass it in the req url, maybe?
-    // Can be finalized after the login functionality is completed
-    // const jobId = parseInt(2)
     const [job_skills] = await db.query(
       `
         SELECT a.id, a.name, (b."jobId" is not null) as selected

@@ -35,15 +35,19 @@ class OrgLandingPage extends React.Component {
         <h3>Click on a job to start searching for candidates</h3>
 
         {jobs.length
-          ? jobs.map((job) => (
-              <Link to="/findCandidates">
-                <div key={job.id}>
-                  <h5>{job.title}</h5>
-                  <h5>{job.location}</h5>
-                  <h5>temp spacing----</h5>
-                </div>
-              </Link>
-            ))
+          ? jobs.map((job) => {
+              //ARCHANA: Check with Mackenzie for jobId access
+              const linkForCandidateSearch = `/findCandidates/${job.id}`
+              return (
+                <Link to={linkForCandidateSearch}>
+                  <div key={job.id}>
+                    <h5>{job.title}</h5>
+                    <h5>{job.location}</h5>
+                    <h5>temp spacing----</h5>
+                  </div>
+                </Link>
+              )
+            })
           : null}
       </div>
     )

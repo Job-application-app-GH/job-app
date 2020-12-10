@@ -7,6 +7,13 @@ import {
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 import OrgHeader from './OrgHeader'
+import Avatar from '@material-ui/core/Avatar'
+
+function getTop3Skills(skillSet) {
+  let top3Skills = skillSet.slice(0, 3).join(',')
+  console.log('tope3Skills: ', top3Skills)
+  return top3Skills
+}
 
 class CandidateMatches extends React.Component {
   constructor(props) {
@@ -19,8 +26,7 @@ class CandidateMatches extends React.Component {
   }
 
   componentDidMount() {
-    //ARCHANA: WHERE ARE WE GETTING THE JOBID FROM ????
-    const jobId = 1
+    const jobId = this.props.match.params.jobId
     this.props.getSuggestedCandidates(jobId)
   }
 
@@ -30,7 +36,6 @@ class CandidateMatches extends React.Component {
   }
 
   onSwipe = (jobId, candidateId, direction) => {
-    // console.log('jobId, candidateId===>', jobId, candidateId)
     let isLiked
     switch (direction) {
       case 'left':
@@ -49,21 +54,19 @@ class CandidateMatches extends React.Component {
   }
 
   render() {
-    console.log(
-      'Inside render of CandidateMatches, total cards: ',
-      this.props.suggestedCandidates.length
-    )
-    //ARCHANA: WHERE ARE WE GETTING THE JOBID FROM ????
-    const jobId = 1
+    // console.log(
+    //   'Inside render of CandidateMatches, total cards: ',
+    //   this.props.suggestedCandidates.length
+    // )
 
+    const jobId = this.props.match.params.jobId
     return (
       <div>
         <OrgHeader />
         <div className="cardsPile">
           {this.props.suggestedCandidates.map((candidate) => (
-            <div>
+            <div key={candidate.name}>
               <TinderCard
-                key={candidate.name}
                 className="swipe"
                 preventSwipe={['up', 'down']}
                 onSwipe={(direction) =>
@@ -80,10 +83,13 @@ class CandidateMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#FFC03F'}}
                   >
+                    {/* THIS IS FRONT SIDE OF THE CARD */}
+                    <Avatar className="chat_avatar" src={candidate.img} />
                     <h3>{candidate.name}</h3>
                     <h3>Current role: {candidate.currentRole}</h3>
                     <h3>Works at: {candidate.currentCompany}</h3>
-                    <h3>FRONT OF THE CARD</h3>
+                    <h3> Skills:</h3>
+                    <h3>{getTop3Skills(candidate.skills)}</h3>
                   </div>
 
                   <div
@@ -91,9 +97,14 @@ class CandidateMatches extends React.Component {
                     onClick={this.handleClick}
                     style={{backgroundColor: '#FE4880'}}
                   >
+                    {/* THIS IS BACK SIDE OF THE CARD */}
                     <h3>{candidate.name}</h3>
+                    <h3>Location: {candidate.location}</h3>
                     <h3>About me: {candidate.description}</h3>
-                    <h3>BACK OF THE CARD</h3>
+                    <h3> Skills: </h3>
+                    {candidate.skills.map((skill, index) => (
+                      <div key={index}>{skill}</div>
+                    ))}
                   </div>
                 </ReactCardFlip>
               </TinderCard>
