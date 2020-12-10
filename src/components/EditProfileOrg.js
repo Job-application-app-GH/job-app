@@ -36,7 +36,6 @@ class EditProfileOrg extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {location, description, isRemote} = this.state
     return (
       <div>

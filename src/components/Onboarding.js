@@ -22,7 +22,6 @@ const Onboarding = (props) => {
   } else {
     link = '/findCandidates'
   }
-  console.log('props-->', props)
   return (
     <Slider className="slider" {...settings}>
       <div>

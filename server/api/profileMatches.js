@@ -3,8 +3,6 @@ const {Match, Candidate, Job, Organization} = require('../db/models')
 
 router.get('/:jobId', async (req, res, next) => {
   try {
-    console.log('JOB ID->', req.params.jobId)
-
     let matches = await Match.findAll({
       where: {
         jobId: req.params.jobId,
@@ -19,7 +17,6 @@ router.get('/:jobId', async (req, res, next) => {
         ],
       },
     })
-    console.log('MATCHES--->', matches)
     res.send([matches])
   } catch (error) {
     next(error)
@@ -28,7 +25,6 @@ router.get('/:jobId', async (req, res, next) => {
 
 router.get('/user/:candidateId', async (req, res, next) => {
   try {
-    console.log('Candidate ID->', req.params.candidateId)
     let matches = await Match.findAll({
       where: {
         candidateId: req.params.candidateId,
@@ -38,7 +34,6 @@ router.get('/user/:candidateId', async (req, res, next) => {
         model: Job,
       },
     })
-    console.log('MATCHES--->', matches)
     res.send(matches)
   } catch (error) {
     next(error)

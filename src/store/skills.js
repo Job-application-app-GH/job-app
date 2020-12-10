@@ -29,7 +29,6 @@ export const getCandidateSkills = (candidateId) => async (dispatch) => {
 
 export const getJobSkills = (jobId) => async (dispatch) => {
   try {
-    console.log('JOB ID:', jobId)
     const {data: selectedSkills} = await axios.get(`/api/jobSkills/${jobId}`)
 
     dispatch(setSkills(selectedSkills))

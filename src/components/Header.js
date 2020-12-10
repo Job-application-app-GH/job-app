@@ -37,7 +37,6 @@ const Header = (props) => {
   }
   const candidate = props.profile
   const {handleClick} = props
-  console.log('props-->', props)
   return (
     <div className="header">
       <div>

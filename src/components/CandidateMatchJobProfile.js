@@ -34,8 +34,6 @@ class CandidateMatchJobProfile extends React.Component {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    console.log('skills->', this.props)
-
     return (
       <div>
         <Header />

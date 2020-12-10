@@ -22,11 +22,7 @@ class OrgLandingPage extends React.Component {
   }
 
   render() {
-    // const id = this.props.profile.id
-    // console.log('job--->', this.props.job)
-
     const jobs = this.props.job || []
-    console.log('jobs--->', jobs)
     return (
       <div>
         <OrgHeader />

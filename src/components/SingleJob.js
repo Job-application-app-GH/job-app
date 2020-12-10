@@ -19,7 +19,6 @@ class SingleJob extends React.Component {
   render() {
     const job = this.props.job
     const skills = this.props.skills
-    console.log('PROPS-->', this.props.skills)
     return (
       <div>
         <OrgHeader />
@@ -28,11 +27,6 @@ class SingleJob extends React.Component {
         <Link to="/profile/jobs">
           <button>Back to job postings</button>
         </Link>
-        {/* <Link to="/profile/jobs">
-          <button onClick={() => this.props.deleteJob(job.id)}>
-            Remove this job
-          </button>
-        </Link> */}
         <Link to={`/profile/jobs/edit/${job.id}`}>
           <button>Edit</button>
         </Link>

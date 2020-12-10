@@ -19,7 +19,6 @@ router.get('/', async (req, res, next) => {
 
 //updates user type as "CANDIDATE" OR "ORGANIZATION"
 router.put('/', async (req, res, next) => {
-  console.log('REQ BODY------>>>>>', req.body)
   try {
     let user = req.user.id
     let updatedUser = await User.update(req.body, {

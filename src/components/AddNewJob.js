@@ -48,8 +48,6 @@ class AddNewJob extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props.organization.id)
-    console.log('JOB:', this.props.job)
     const {title, location, description, isRemote} = this.state
     return (
       <div>

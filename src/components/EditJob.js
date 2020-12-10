@@ -40,7 +40,6 @@ class EditJob extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    console.log(this.props, 'PROPS IN EDIT PROFILE')
     const {title, location, description, isRemote} = this.state
     return (
       <div>

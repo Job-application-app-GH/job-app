@@ -20,9 +20,6 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    // const id = this.props.profile.id
-    // console.log('job--->', this.props.job)
-
     return (
       <div>
         <Header />

@@ -30,7 +30,6 @@ const OrgHeader = (props) => {
     props.history.push('/profile')
   }
   const {handleClick} = props
-  console.log('props from header-->', props)
   return (
     <div className="header">
       <div>

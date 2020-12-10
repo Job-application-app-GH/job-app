@@ -12,7 +12,6 @@ const {
 router.get('/', async (req, res, next) => {
   let details
   try {
-    console.log('REQ USER IN USER DETAILS', req.user)
     if (req.user.userType === 'CANDIDATE') {
       details = await Candidate.findOne({
         where: {
@@ -29,8 +28,6 @@ router.get('/', async (req, res, next) => {
         },
       })
     }
-
-    // console.log('details:', details)
     res.send(details)
   } catch (error) {
     next(error)
@@ -39,9 +36,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:candidateId', async (req, res, next) => {
   try {
-    console.log('CANDIDATE ID ->', req.params.candidateId)
     let candidateProfile = await Candidate.findByPk(req.params.candidateId)
-    // console.log('->', candidateProfile)
     res.send(candidateProfile)
   } catch (error) {
     next(error)
@@ -50,9 +45,7 @@ router.get('/:candidateId', async (req, res, next) => {
 
 router.get('/job/:jobId', async (req, res, next) => {
   try {
-    console.log('JOB ID---------->', req.params.jobId)
     let jobProfile = await Job.findByPk(req.params.jobId)
-    console.log('job profiles--', jobProfile)
     res.send(jobProfile)
   } catch (error) {
     next(error)
@@ -97,7 +90,6 @@ router.put('/', async (req, res, next) => {
         plain: true,
       })
     }
-    console.log('update', updatedProfile[1].dataValues)
     res.send(updatedProfile[1].dataValues)
   } catch (error) {
     next(error)

@@ -58,7 +58,7 @@ export const putUserType = (type) => {
       let {data} = await axios.put('/api/users', type)
       dispatch(updateUserType(data))
     } catch (error) {
-      console.log(error, 'error in put user type thunk')
+      console.log(error)
     }
   }
 }
@@ -70,20 +70,13 @@ const addUser = (user) => {
     user,
   }
 }
-export const signup = (
-  email,
-  password,
-  history
-  // userType
-) => async (dispatch) => {
+export const signup = (email, password, history) => async (dispatch) => {
   let res
-  console.log('email', email, 'password', password)
 
   try {
     res = await axios.post(`/auth/signup`, {
       email,
       password,
-      // userType,
     })
     dispatch(addUser(res))
   } catch (signupError) {
