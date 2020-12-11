@@ -73,9 +73,8 @@ body.content {
   flex-direction: column;
   align-self: center;
   margin-top: 70%;
- margin-left: 5%;
+  margin-left: 5%;
   align-content: center;
-
 }
 .signup-img-itself {
   position: fixed;
@@ -205,7 +204,7 @@ input {
   display: flex;
   align-content: center;
 }
-.profile-type-img { 
+.profile-type-img {
   width: 22em;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -236,7 +235,6 @@ a.btn.btn-success {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .signup-candidate-form > h3 {
   text-align: left;
@@ -249,7 +247,6 @@ a.btn.btn-success {
 }
 #add-form-candidate {
   margin-left: -5%;
-
 }
 .MuiFormLabel-root {
   margin-top: 20px;
@@ -283,11 +280,11 @@ a.btn.btn-success {
 }
 
 /* UPLOAD IMAGE */
-.upload-img-input{
+.upload-img-input {
   background-color: #fecb63;
   color: #fecb63;
 }
-.upload-img-button{
+.upload-img-button {
   font-size: 21px;
   padding: 10px 80px;
   border: 0px;
@@ -501,15 +498,15 @@ ul.slick-dots {
   align-items: center;
   padding: 20px;
 }
-.chatscreen-timestamp  {
- text-align: center;
- padding: 20px;
- color:grey;
+.chatscreen-timestamp {
+  text-align: center;
+  padding: 20px;
+  color: grey;
 }
 .chatscreen-text-user {
   margin-left: auto;
   background-color: rgb(101, 116, 250);
-  color:white;
+  color: white;
   padding: 13px;
   border-radius: 20px;
 }
@@ -522,20 +519,20 @@ ul.slick-dots {
   border-top: 1px solid lightgray;
 }
 .chatscreen-input-field {
-flex: 1;
-padding: 10px;
-border: none;
+  flex: 1;
+  padding: 10px;
+  border: none;
 }
 
 .chatscreen-input-button {
-padding: 9px;
-margin-top: 6px;
-height: 58px;
-width: 60px;
-border: none;
-background-color: white;
-font-weight: bolder;
-color: rgb(61, 76, 209);
+  padding: 9px;
+  margin-top: 6px;
+  height: 58px;
+  width: 60px;
+  border: none;
+  background-color: white;
+  font-weight: bolder;
+  color: rgb(61, 76, 209);
 }
 .chat {
   display: flex;
@@ -559,25 +556,24 @@ a {
 .chat_avatar {
   margin-right: 25px;
 }
- /* EDIT JOB PROFILE INFO */
+/* EDIT JOB PROFILE INFO */
 
- .profile-edit-org{
-   display: flex;
-   flex-flow: column wrap;
-   margin-top: 90px;
-   height: inherit;
-   color: rgb(82, 81, 81);
-   font-size: 17px;
- }
- .profile-edit-org > h3{
+.profile-edit-org {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 90px;
+  height: inherit;
   color: rgb(82, 81, 81);
-  
+  font-size: 17px;
 }
-.profile-edit-org > h2{
+.profile-edit-org > h3 {
+  color: rgb(82, 81, 81);
+}
+.profile-edit-org > h2 {
   color: White;
   font-weight: bolder;
 }
- .profile-edit-org-button {
+.profile-edit-org-button {
   font-size: 21px;
   font-weight: bolder;
   padding: 10px 80px;
@@ -599,4 +595,17 @@ a {
 }
 .profile-edit-org-button:hover {
   background-position: 100% 0%;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: white;
+  border: 1px solid #ccc;
+  display: inline-block;
+  width: 100px;
+  padding: 6px 12px;
+  cursor: pointer;
 }
