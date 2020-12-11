@@ -1,6 +1,7 @@
 import React from 'react'
 import TinderCard from 'react-tinder-card'
 import {fetchSuggestedJobs, sendJobMatch} from '../store/jobMatches'
+import {fetchCandidate} from '../store/candidate'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 import Header from './Header'
@@ -25,6 +26,7 @@ class JobMatches extends React.Component {
 
   componentDidMount() {
     const candidateId = this.props.match.params.candidateId
+    this.props.loadCandidate()
     this.props.getSuggestedJobs(candidateId)
   }
 
@@ -37,7 +39,6 @@ class JobMatches extends React.Component {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
-
 
   onSwipe = (jobId, candidateId, direction) => {
     // console.log('jobId, candidateId===>', jobId, candidateId)
@@ -124,10 +125,12 @@ class JobMatches extends React.Component {
   }
 }
 const mapState = (state) => ({
+  candidate: state.candidate,
   suggestedJobs: state.suggestedJobs,
 })
 
 const mapDispatch = (dispatch) => ({
+  loadCandidate: () => dispatch(fetchCandidate()),
   getSuggestedJobs: (candidateId) => dispatch(fetchSuggestedJobs(candidateId)),
   sendJobMatch: (jobId, candidateId, isLiked) =>
     dispatch(sendJobMatch(jobId, candidateId, isLiked)),

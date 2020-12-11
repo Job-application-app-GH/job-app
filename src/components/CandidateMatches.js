@@ -27,6 +27,7 @@ class CandidateMatches extends React.Component {
     this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.onSwipe = this.onSwipe.bind(this)
+    this.resetLastMatch = this.resetLastMatch.bind(this)
   }
 
   componentDidMount() {
@@ -43,22 +44,25 @@ class CandidateMatches extends React.Component {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
-  onSwipe = (jobId, candidateId, direction) => {
+
+  onSwipe(jobId, candidateId, direction) {
     let isLiked
     switch (direction) {
       case 'left':
-        console.log('You swiped: ' + direction)
         isLiked = false
         this.props.sendCandidateMatch(jobId, candidateId, isLiked)
         break
       case 'right':
-        console.log('You swiped: ' + direction)
         isLiked = true
         this.props.sendCandidateMatch(jobId, candidateId, isLiked)
         break
       default:
         break
     }
+  }
+
+  resetLastMatch() {
+    this.props.resetLastCandidateMatch()
   }
 
   render() {
@@ -84,9 +88,14 @@ class CandidateMatches extends React.Component {
     //   )
     // }
 
-    if (this.props.lastMatch.isPerfectMatch) {
-      if (window.confirm('We found a Match!')) {
-        this.props.resetLastCandidateMatch()
+    const lastMatch = this.props.lastMatch
+    if (lastMatch.isPerfectMatch) {
+      if (
+        window.confirm(
+          `Candidate ${lastMatch.matchedCandidate.name} Matched with ${this.props.organization.name}`
+        )
+      ) {
+        this.resetLastMatch()
       }
     }
     const jobId = this.props.match.params.jobId
@@ -150,6 +159,7 @@ class CandidateMatches extends React.Component {
   }
 }
 const mapState = (state) => ({
+  organization: state.organization,
   suggestedCandidates: state.suggestedCandidates.list,
   lastMatch: state.suggestedCandidates.lastMatch,
 })
