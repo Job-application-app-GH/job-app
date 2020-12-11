@@ -42,9 +42,7 @@ class EditProfileOrg extends React.Component {
       <div>
         <OrgHeader />
         <h3>Edit Profile</h3>
-        <Link to="/profile/editAvatar">
-          <button>Edit Logo</button>
-        </Link>
+
         <h4>{this.props.profile.name}</h4>
         <form onSubmit={this.handleSubmit}>
           <h6>Location</h6>
