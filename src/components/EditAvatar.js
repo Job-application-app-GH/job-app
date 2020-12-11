@@ -73,12 +73,14 @@ class UploadAvatar extends React.Component {
             rotate={parseFloat(this.state.rotate)}
             borderRadius={this.state.width / (100 / this.state.borderRadius)}
             image={this.state.image}
+            color={[255, 255, 255, 0.6]}
             className="editor-canvas"
           />
         </div>
         <br />
-        New File:
-        <input name="newImage" type="file" onChange={this.handleNewImage} />
+        <label className="custom-file-upload">
+          <input name="newImage" type="file" onChange={this.handleNewImage} />
+        </label>
         <br />
         Zoom:
         <input

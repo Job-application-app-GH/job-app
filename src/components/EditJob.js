@@ -76,12 +76,12 @@ class EditJob extends React.Component {
           <h6>Do you hire remote employees?</h6>
           <FormControl>
             <FormLabel>
-              Do you hire remote employees?
               <FormLabel />
               <RadioGroup
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                row
               >
                 <FormControlLabel
                   value="true"

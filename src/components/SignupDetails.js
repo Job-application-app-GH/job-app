@@ -10,8 +10,6 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 import TextField from '@material-ui/core/TextField'
 
-
-
 // EXTRA COPY
 
 class SignUpDetails extends React.Component {
@@ -56,23 +54,26 @@ class SignUpDetails extends React.Component {
     const candidateId = this.props.candidate.id
 
     return (
-
-      <div className='global-screen-box'>
-        <form onSubmit={this.handleSubmit} id="add-form-candidate" autoComplete="off">
-
-          <div className='signup-input'>
-          <h3>Full Name</h3>
-          <input
-            required
-            type="text"
-            name="name"
-            onChange={this.handleChange}
-            value={name}
-          />
+      <div className="global-screen-box">
+        <form
+          onSubmit={this.handleSubmit}
+          id="add-form-candidate"
+          autoComplete="off"
+        >
+          <div className="signup-input">
+            <h3>Full Name</h3>
+            <input
+              required
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={name}
+            />
           </div>
-          <div className='signup-input'>
+          <div className="signup-input">
             <h3>Location</h3>
-            <input classname='signup-input'
+            <input
+              classname="signup-input"
               className="form-control"
               type="text"
               name="location"
@@ -81,30 +82,32 @@ class SignUpDetails extends React.Component {
               required="required"
             />
           </div>
-          <div className='signup-input'>
-          <h3>Current Company</h3>
-          <input classname='signup-input'
-            type="text"
-            name="currentCompany"
-            onChange={this.handleChange}
-            value={currentCompany}
-            required
-          />
+          <div className="signup-input">
+            <h3>Current Company</h3>
+            <input
+              classname="signup-input"
+              type="text"
+              name="currentCompany"
+              onChange={this.handleChange}
+              value={currentCompany}
+              required
+            />
           </div>
-          <div className='signup-input'>
-          <h3>Current Role</h3>
-          <input classname='signup-input'
-            type="text"
-            name="currentRole"
-            onChange={this.handleChange}
-            value={currentRole}
-            required
-          />
+          <div className="signup-input">
+            <h3>Current Role</h3>
+            <input
+              classname="signup-input"
+              type="text"
+              name="currentRole"
+              onChange={this.handleChange}
+              value={currentRole}
+              required
+            />
           </div>
 
+          <h3>Are you willing to work remote?</h3>
           <FormControl>
             <FormLabel>
-              Are you willing to work remote?
               <FormLabel />
               <RadioGroup
                 name="isRemote"
@@ -137,9 +140,9 @@ class SignUpDetails extends React.Component {
             required
           />
 
-
-          <button className='signup-details-button' type="submit">Submit</button>
-
+          <button className="signup-details-button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     )
