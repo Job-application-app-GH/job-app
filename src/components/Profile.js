@@ -67,11 +67,17 @@ class Profile extends React.Component {
           ) : null}
           <h3>Description: {profile.description}</h3>
           {candidate ? (
-            <h3>Are you willing to work remote: </h3>
+            <h3>
+              Are you willing to work remote:
+              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
+            </h3>
           ) : (
-            <h3>Are you willing to hire remote candidates: </h3>
+            <h3>
+              Are you willing to hire remote candidates:
+              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
+            </h3>
           )}
-          {profile.isRemote ? (
+          {/* {profile.isRemote ? (
             <div className="profile-edit-org">
               <h3>True</h3>
             </div>
@@ -79,7 +85,7 @@ class Profile extends React.Component {
             <div>
               <h3>False</h3>
             </div>
-          )}
+          )} */}
 
           <Link to={link}>
             <button
@@ -101,9 +107,9 @@ class Profile extends React.Component {
               ))
             : null}
 
-          <Link to={link}>
+          {/* <Link to={link}>
             <button onClick={this.displayForm}>Edit my profile</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     )
