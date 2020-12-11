@@ -34,7 +34,8 @@ class CandidateMatchJobProfile extends React.Component {
     const profile = this.props.profile
     const user = this.props.user
     const skills = this.props.skillsList
-    const organizationName = profile.organization.name || ''
+    const organizationName = ((profile || {}).organization || {}).name
+
     return (
       <div>
         <Header />

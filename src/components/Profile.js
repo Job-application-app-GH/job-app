@@ -42,42 +42,75 @@ class Profile extends React.Component {
       link = '/profile/editOrg'
     }
     return (
-      <div>
+      <div className="global-screen-box">
         {candidate ? <Header /> : <OrgHeader />}
-        {candidate ? <h4>User Profile</h4> : <h4>Company Profile</h4>}
-        <Link to="/profile/editAvatar">
-          <button>Edit Logo</button>
-        </Link>
+        <div className="profile-edit-org">
+          {candidate ? <h2>User Profile</h2> : <h2>Company Profile</h2>}
+          {candidate ? (
+            <Link to="/profile/editAvatar">
+              <button>Edit Profile Photo</button>
+            </Link>
+          ) : (
+            <Link to="/profile/editAvatar">
+              <button>Edit Logo</button>
+            </Link>
+          )}
 
-        <Avatar className="chat_avatar" src={profile.img} />
-        <h6>{profile.name}</h6>
-        <h6>Location: {profile.location}</h6>
-        {profile.currentCompany ? (
-          <h6>Current Company: {profile.currentCompany}</h6>
-        ) : null}
-        {profile.currentRole ? (
-          <h6>Current Role: {profile.currentRole}</h6>
-        ) : null}
-        <p>Description: {profile.description}</p>
-        {profile.isRemote ? (
-          <h6>Willing to hire remote candidates: True</h6>
-        ) : (
-          <h6>Willing to hire remote candidates: False</h6>
-        )}
+          <Avatar className="chat_avatar" src={profile.img} />
+          <h3>{profile.name}</h3>
+          <h3>Location: {profile.location}</h3>
+          {profile.currentCompany ? (
+            <h3>Current Company: {profile.currentCompany}</h3>
+          ) : null}
+          {profile.currentRole ? (
+            <h3>Current Role: {profile.currentRole}</h3>
+          ) : null}
+          <h3>Description: {profile.description}</h3>
+          {candidate ? (
+            <h3>
+              Are you willing to work remote:
+              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
+            </h3>
+          ) : (
+            <h3>
+              Are you willing to hire remote candidates:
+              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
+            </h3>
+          )}
+          {/* {profile.isRemote ? (
+            <div className="profile-edit-org">
+              <h3>True</h3>
+            </div>
+          ) : (
+            <div>
+              <h3>False</h3>
+            </div>
+          )} */}
 
-        {skills
-          ? // <div>
-            // <h5>Skills:</h5>
-            // </div>
-            skills.map((skill) => (
-              <div key={skill.id}>
-                <p>{skill.name}</p>
-              </div>
-            ))
-          : null}
-        <Link to={link}>
-          <button onClick={this.displayForm}>Edit my profile</button>
-        </Link>
+          <Link to={link}>
+            <button
+              className="profile-edit-org-button"
+              onClick={this.displayForm}
+            >
+              EDIT
+            </button>
+          </Link>
+
+          {skills
+            ? // <div>
+              // <h5>Skills:</h5>
+              // </div>
+              skills.map((skill) => (
+                <div key={skill.id}>
+                  <p>{skill.name}</p>
+                </div>
+              ))
+            : null}
+
+          {/* <Link to={link}>
+            <button onClick={this.displayForm}>Edit my profile</button>
+          </Link> */}
+        </div>
       </div>
     )
   }

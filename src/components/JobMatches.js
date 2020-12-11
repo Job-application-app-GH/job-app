@@ -8,7 +8,7 @@ import Header from './Header'
 import Avatar from '@material-ui/core/Avatar'
 
 function getTop3Skills(skillSet) {
-  let top3Skills = skillSet.slice(0, 3).join(',')
+  let top3Skills = skillSet.slice(0, 3).join(' • ')
   // console.log('tope3Skills: ', top3Skills)
   return top3Skills
 }
@@ -19,7 +19,7 @@ class JobMatches extends React.Component {
     this.state = {
       isFlipped: false,
     }
-    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.onSwipe = this.onSwipe.bind(this)
   }
@@ -30,7 +30,7 @@ class JobMatches extends React.Component {
     this.props.getSuggestedJobs(candidateId)
   }
 
-  handleTouchStart(e) {
+  handleTouchEnd(e) {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
@@ -67,8 +67,8 @@ class JobMatches extends React.Component {
 
     const candidateId = this.props.match.params.candidateId
     return (
-      <div>
-        <Header />
+      <div className="global-screen-box">
+        <Header stile={{color: 'white'}}/>
         <div className="cardsPile">
           {this.props.suggestedJobs.map((job) => (
             <div key={job.id}>
@@ -83,37 +83,41 @@ class JobMatches extends React.Component {
                   key={job.id}
                   isFlipped={this.state.isFlipped}
                   flipDirection="vertical"
+                  
                 >
                   <div
                     className="card"
-                    onTouchStart={this.handleTouchStart}
+                    onTouchEnd={this.handleTouchEnd}
                     onClick={this.handleClick}
-                    style={{backgroundColor: '#FFB6C1'}}
+                    style={{backgroundColor: 'seashell'}}
                   >
                     {/* THIS IS FRONT SIDE OF THE CARD */}
                     <Avatar className="chat_avatar" src={job.orgImg} />
-                    <h3>{job.title}</h3>
+                    <h2>{job.title}</h2>
                     <h3>@ {job.orgName}</h3>
-                    <h3>Role: {job.description}</h3>
-                    <h3>Required Skills: </h3>
-                    <h3>{getTop3Skills(job.skills)}</h3>
+                    <h3>Role posted: <h4>{job.description}</h4> </h3>
+                    <h2>Required Skills: </h2>
+                    <h4>{getTop3Skills(job.skills)}</h4>
                   </div>
 
                   <div
                     className="card"
                     onClick={this.handleClick}
-                    onTouchStart={this.handleTouchStart}
-                    style={{backgroundColor: '#6495ED'}}
+                    onTouchEnd={this.handleTouchEnd}
+                    style={{backgroundColor: 'seashell'}}
                   >
                     {/* THIS IS BACK SIDE OF THE CARD */}
-                    <h3>{job.title}</h3>
-                    <h3>Location: {job.location}</h3>
+                    <h2>{job.title}</h2>
+                    <h3>Where: {job.location}</h3>
                     <h3>About {job.orgName}:</h3>
                     <h3>{job.orgDescription}</h3>
-                    <h3> Desired Skills: </h3>
-                    {job.skills.map((skill, index) => (
+                    <h2> Preferred Skills: </h2>
+                    <div className='card-skill-box'>
+                    
+                      {job.skills.map((skill, index) => (
                       <div key={index}>{skill}</div>
                     ))}
+                    </div>
                   </div>
                 </ReactCardFlip>
               </TinderCard>

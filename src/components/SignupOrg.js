@@ -8,11 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-
-
 // EXTRA COPY
-
-
 
 class SignUpOrgDetails extends React.Component {
   constructor(props) {
@@ -48,70 +44,72 @@ class SignUpOrgDetails extends React.Component {
   render() {
     const {name, location, description, isRemote} = this.state
     return (
-      <div className='signup-candidate-form'>
+      <div className="signup-candidate-form">
         <form onSubmit={this.handleSubmit} id="add-form">
           <div>
-          <h3>Company Name</h3>
-          <input
-            classname='signup-input'
-            type="text"
-            name="name"
-            onChange={this.handleChange}
-            value={name}
-            required
-          />
+            <h3>Company Name</h3>
+            <input
+              classname="signup-input"
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={name}
+              required
+            />
           </div>
           <div>
-          <h3>Location</h3>
-          <input
-            classname='signup-input'
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
+            <h3>Location</h3>
+            <input
+              classname="signup-input"
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
           </div>
           <div>
-          <h3>Company description</h3>
-          <textarea
-            className='signup-textbox'
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-            required
-          />
+            <h3>Company description</h3>
+            <textarea
+              className="signup-textbox"
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+              required
+            />
           </div>
-          <div className='remote-yes-no-org'>
-          <FormControl >
-            <FormLabel>
-              Are you willing to hire remote employees?
-              <FormLabel />
-              <RadioGroup 
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                required
-              >
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
-           </div>
+          <div className="remote-yes-no-org">
+            <h3>Are you willing to hire remote employees?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  required
+                  row
+                >
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="No"
+                  />
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+          </div>
           {/* <Link to="/signup/organization/job"> */}
-          <button className='signup-details-button' type="submit">Submit</button>
+          <button className="signup-details-button" type="submit">
+            Submit
+          </button>
           {/* </Link> */}
-
         </form>
       </div>
     )

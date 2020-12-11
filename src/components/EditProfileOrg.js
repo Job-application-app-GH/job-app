@@ -45,7 +45,7 @@ class EditProfileOrg extends React.Component {
 
         <h4>{this.props.profile.name}</h4>
         <form onSubmit={this.handleSubmit}>
-          <h6>Location</h6>
+          <h6>Location:</h6>
           <input
             type="text"
             name="location"
@@ -53,7 +53,7 @@ class EditProfileOrg extends React.Component {
             value={location}
             required
           />
-          <h6>Description</h6>
+          <h6>Description:</h6>
           <input
             type="text"
             name="description"
@@ -61,15 +61,15 @@ class EditProfileOrg extends React.Component {
             value={description}
             required
           />
-
+          <h6> Do you hire remote employees?</h6>
           <FormControl>
             <FormLabel>
-              Do you hire remote employees?
               <FormLabel />
               <RadioGroup
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                row
               >
                 <FormControlLabel
                   value="true"

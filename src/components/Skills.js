@@ -35,15 +35,16 @@ class Skills extends Component {
 
   render() {
     return (
-      <div className="skills_container">
+      <div className="global-screen-box">
         <FormControl component="fieldset">
-          <FormLabel component="legend">Please select skills</FormLabel>
+          <FormLabel className='skills-box-container' component="legend">Please select skills</FormLabel>
           <div className="skills_list">
             {this.props.skills.map((skill) => (
               <FormControlLabel
                 key={skill.id}
                 control={
                   <Checkbox
+                  style={{color: 'white'}}
                     checked={skill.selected}
                     onChange={(event) => this.handleClick(skill.id, event)}
                     name={skill.name}
@@ -58,9 +59,9 @@ class Skills extends Component {
           <button
             type="button"
             onClick={this.handleSaveSkills}
-            className="skills_button"
+            className='upload-img-button'
           >
-            Save Skills
+            SAVE SKILLS
           </button>
         </FormControl>
       </div>

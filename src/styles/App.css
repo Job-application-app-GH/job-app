@@ -37,8 +37,17 @@ body.content {
 }
 .header {
   display: flex;
+  position: fixed;
+  top: 0;
   width: 100%;
+  color: white;
   justify-content: space-between;
+  background-image: linear-gradient(
+    to right,
+    #ffc654 50%,
+    #ffc95b 50%,
+    #fecb63
+  );
   border-bottom: 2px solid white;
 }
 .icons {
@@ -60,15 +69,24 @@ body.content {
   width: 320px;
 }
 .signup-form {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 70%;
+  margin-left: 5%;
   align-content: center;
-  margin-left: 30px;
 }
 .signup-img-itself {
+  position: fixed;
+  display: flex;
+  align-self: center;
   width: 20em;
 }
-/* // LOGIN PAGE */
+/*  LOGIN PAGE */
 .form {
-  margin-top: 4em;
+  margin-top: 70%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,8 +95,12 @@ body.content {
   background-color: #fff;
 }
 .login-img {
+  position: fixed;
   margin-top: 120px;
   width: 29em;
+}
+a.signup-link {
+  color: rgb(32, 52, 228);
 }
 .login-img-itself {
   width: 70%;
@@ -89,11 +111,7 @@ body.content {
   margin-left: 50px;
   width: 18em;
 }
-.profile-type-img {
-  width: 22em;
-  margin-top: 10%;
-  margin-bottom: 5%;
-}
+
 .upper-img-type {
   width: 22em;
   margin-top: -10%;
@@ -181,10 +199,16 @@ input {
   height: 600px;
   width: 400px;
 }
-/* SIGNUP-TYPE */
+/* PROFILE-TYPE */
 .signup-type-container {
-  position: relative;
+  position: fixed;
+  display: flex;
   align-content: center;
+}
+.profile-type-img {
+  width: 22em;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 a.btn.btn-success {
   margin-left: -30px;
@@ -200,6 +224,7 @@ a.btn.btn-success {
   background-position: 0%;
   transition: 0.5s;
   color: #fff;
+  margin-bottom: 5%;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 15px;
@@ -216,13 +241,16 @@ a.btn.btn-success {
   text-align: left;
 }
 .signup-textbox {
-  height: 100px;
-  width: 320px;
+  height: 90px;
+  width: 310px;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-#add-form {
-  margin-top: 15%;
+#add-form-candidate {
+  margin-left: -5%;
+}
+.MuiFormLabel-root {
+  margin-top: 20px;
 }
 .signup-details-button {
   font-size: 21px;
@@ -243,6 +271,7 @@ a.btn.btn-success {
   font-weight: 700;
   cursor: pointer;
 }
+
 .signup-input {
   height: 10%;
 }
@@ -250,6 +279,38 @@ a.btn.btn-success {
   flex-direction: row;
   align-content: flex-start;
 }
+
+/* UPLOAD IMAGE */
+.upload-img-input {
+  background-color: #fecb63;
+  color: #fecb63;
+}
+.upload-img-button {
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* PUT IN SILLS - CANDIDATE */
+
+legend.MuiFormLabel-root.skills-box-container {
+ padding:25px;
+}
+
+
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
   position: relative;
@@ -324,18 +385,19 @@ ul.slick-dots {
 /* CARDS */
 .card {
   position: relative;
-  align-self: center;
-  width: 260px;
+  width: 280px;
   padding: 25px;
-  height: 50vh;
-  font-style: italic;
-  text-shadow: 0.5px 0.5px #696968;
-  color: rgb(104, 103, 102);
+  height: 60vh;
+  color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
-  box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
+  box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
   cursor: 'pointer';
+}
+.card > h2{
+  color: #e09808;
+  text-shadow: 0.5px 0px #643c07;
 }
 .cardFront {
   font-style: italic;
@@ -352,8 +414,9 @@ ul.slick-dots {
   cursor: 'pointer';
 }
 .cardsPile {
+  position: fixed;
   display: flex;
-  margin-right: 45vh;
+  margin-right: 40vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
@@ -361,7 +424,20 @@ ul.slick-dots {
   position: absolute;
   cursor: 'pointer';
 }
-
+.react-card-flipper{
+  display: flex;
+  align-self: center;
+}
+.card-skill-box {
+  margin:4px, 4px; 
+ padding:4px; 
+ width: 270px; 
+ height: 150px; 
+ overflow-x: hidden; 
+ overflow-y: auto; 
+ text-align:center; 
+ 
+}
 .skills_container {
   padding: 1em;
   align-items: center;
@@ -377,11 +453,11 @@ ul.slick-dots {
   margin-bottom: 50px;
   padding: 0 20px;
   overflow-y: auto;
-  border: 1px solid black;
+  border: 2px solid white;
   height: 390px;
   width: 300px;
   font-size: 1.2em;
-  /* line-height: 1.2em; */
+ 
 }
 .skills_button {
   display: flex;
@@ -444,15 +520,15 @@ ul.slick-dots {
   align-items: center;
   padding: 20px;
 }
-.chatscreen-timestamp  {
- text-align: center;
- padding: 20px;
- color:grey;
+.chatscreen-timestamp {
+  text-align: center;
+  padding: 20px;
+  color: grey;
 }
 .chatscreen-text-user {
   margin-left: auto;
   background-color: rgb(101, 116, 250);
-  color:white;
+  color: white;
   padding: 13px;
   border-radius: 20px;
 }
@@ -465,20 +541,20 @@ ul.slick-dots {
   border-top: 1px solid lightgray;
 }
 .chatscreen-input-field {
-flex: 1;
-padding: 10px;
-border: none;
+  flex: 1;
+  padding: 10px;
+  border: none;
 }
 
 .chatscreen-input-button {
-padding: 9px;
-margin-top: 6px;
-height: 58px;
-width: 60px;
-border: none;
-background-color: white;
-font-weight: bolder;
-color: rgb(61, 76, 209);
+  padding: 9px;
+  margin-top: 6px;
+  height: 58px;
+  width: 60px;
+  border: none;
+  background-color: white;
+  font-weight: bolder;
+  color: rgb(61, 76, 209);
 }
 .chat {
   display: flex;
@@ -500,6 +576,61 @@ a {
   color: gray;
 }
 .chat_avatar {
-  margin-right: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* EDIT JOB PROFILE INFO */
+
+.profile-edit-org {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 90px;
+  height: inherit;
+  color: rgb(82, 81, 81);
+  font-size: 17px;
+}
+.profile-edit-org > h3 {
+  color: rgb(82, 81, 81);
+}
+.profile-edit-org > h2 {
+  color: White;
+  font-weight: bolder;
+}
+.profile-edit-org-button {
+  font-size: 21px;
+  font-weight: bolder;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 20%;
+  cursor: pointer;
+}
+.profile-edit-org-button:hover {
+  background-position: 100% 0%;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: white;
+  border: 1px solid #ccc;
+  display: inline-block;
+  width: 100px;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
