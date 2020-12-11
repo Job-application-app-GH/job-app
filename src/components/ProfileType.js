@@ -15,7 +15,7 @@ class ProfileType extends React.Component {
   }
   render() {
     return (
-      <div className='signup-type-container'>
+      <div className='global-screen-box'>
         <Link to="/signup/candidate">
         <div className='upper-img-type'>
           <img src={jobImg}   className='profile-type-img' alt="" />

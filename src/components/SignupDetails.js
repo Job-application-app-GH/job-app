@@ -57,7 +57,7 @@ class SignUpDetails extends React.Component {
 
     return (
 
-      <div className='signup-candidate-form'>
+      <div className='global-screen-box'>
         <form onSubmit={this.handleSubmit} id="add-form-candidate" autoComplete="off">
 
           <div className='signup-input'>

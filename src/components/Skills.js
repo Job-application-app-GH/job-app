@@ -35,7 +35,7 @@ class Skills extends Component {
 
   render() {
     return (
-      <div className="skills_container">
+      <div className="global-screen-box">
         <FormControl component="fieldset">
           <FormLabel component="legend">Please select skills</FormLabel>
           <div className="skills_list">
@@ -58,9 +58,9 @@ class Skills extends Component {
           <button
             type="button"
             onClick={this.handleSaveSkills}
-            className="skills_button"
+            className='upload-img-button'
           >
-            Save Skills
+            SAVE SKILLS
           </button>
         </FormControl>
       </div>

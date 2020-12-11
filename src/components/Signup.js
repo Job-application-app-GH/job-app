@@ -15,7 +15,7 @@ const SignUp = (props) => {
         <img src={signupImg} className="signup-img-itself" alt="" />
       </div>
       <form
-        classname="signup-form"
+        className="signup-form"
         onSubmit={(event) => handleSubmit(event, props.history)}
         name={name}
       >
