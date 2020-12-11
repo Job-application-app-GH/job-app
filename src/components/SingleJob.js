@@ -24,13 +24,6 @@ class SingleJob extends React.Component {
         <OrgHeader />
         <h3>Job Details</h3>
 
-        <Link to="/profile/jobs">
-          <button>Back to job postings</button>
-        </Link>
-        <Link to={`/profile/jobs/edit/${job.id}`}>
-          <button>Edit</button>
-        </Link>
-
         <h5>Title: {job.title}</h5>
         <h5>Location: {job.location}</h5>
         <h5>Description: {job.description}</h5>
@@ -47,6 +40,12 @@ class SingleJob extends React.Component {
               </div>
             ))
           : null}
+          <Link to="/profile/jobs">
+          <button>Back to job postings</button>
+        </Link>
+        <Link to={`/profile/jobs/edit/${job.id}`}>
+          <button>Edit</button>
+        </Link>
         <Link to={`/profile/jobs/matches/${job.id}`}>
           <button>View matches for this job</button>
         </Link>

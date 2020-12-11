@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
 import OrgHeader from './OrgHeader'
+import Avatar from '@material-ui/core/Avatar'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -43,12 +44,14 @@ class Profile extends React.Component {
     return (
       <div className='global-screen-box'>
         {candidate ? <Header /> : <OrgHeader />}
-        <div className='profile-edit-org'>
-        {candidate ? <h2>YOUR CURRENT PROFILE</h2> : <h2>YOUR CURRENT PROFILE</h2>}
+        {candidate ? <h4>User Profile</h4> : <h4>Company Profile</h4>}
+        <Link to="/profile/editAvatar">
+          <button>Edit Logo</button>
+        </Link>
 
-        
-        <h3>{profile.name}</h3>
-        <h3>Location: {profile.location}</h3>
+        <Avatar className="chat_avatar" src={profile.img} />
+        <h6>{profile.name}</h6>
+        <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
           <h3>Current Company: {profile.currentCompany}</h3>
         ) : null}
@@ -82,18 +85,9 @@ class Profile extends React.Component {
               </div>
             ))
           : null}
-        {candidate ? (
-          <Link to={`/profile/candidate/matches/${profile.id}`}>
-            <button>View matches</button>
-          </Link>
-        ) : null}
-            
-        {profile.jobs ? (
-          <Link to="/profile/jobs">
-            <button>View Job Postings</button>
-          </Link>
-        ) : null}
-       </div>
+        <Link to={link}>
+          <button onClick={this.displayForm}>Edit my profile</button>
+        </Link>
       </div>
       
     )

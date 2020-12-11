@@ -43,11 +43,12 @@ const Header = (props) => {
     <div className="header">
       <div>
         <Button
+          color= 'white'
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={click}
         >
-          <MenuIcon className="icons" fontSize="large" />
+          <MenuIcon className="icons"  fontSize="large" />
         </Button>
         <Menu
           id="simple-menu"
