@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
 import OrgHeader from './OrgHeader'
+import Avatar from '@material-ui/core/Avatar'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class Profile extends React.Component {
         <Link to={link}>
           <button onClick={this.displayForm}>Edit my profile</button>
         </Link>
+        <Avatar className="chat_avatar" src={profile.img} />
         <h6>{profile.name}</h6>
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
