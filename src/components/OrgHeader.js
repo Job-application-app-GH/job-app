@@ -38,7 +38,7 @@ const OrgHeader = (props) => {
           aria-haspopup="true"
           onClick={click}
         >
-          <MenuIcon className="icons" fontSize="large" />
+          <MenuIcon className="icons" style={{color: 'white'}} fontSize="large" />
         </Button>
         <Menu
           id="simple-menu"
@@ -64,10 +64,10 @@ const OrgHeader = (props) => {
         </Menu>
       </div>
       <Link to="/organization">
-        <LinkedInIcon className="icons" fontSize="large" />
+        <LinkedInIcon className="icons" style={{color: 'white'}} fontSize="large" />
       </Link>
       <Link to="/messages">
-        <SmsIcon className="icons" fontSize="large" />
+        <SmsIcon className="icons" style={{color: 'white'}} fontSize="large" />
       </Link>
     </div>
   )

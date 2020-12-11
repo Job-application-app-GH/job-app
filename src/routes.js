@@ -33,6 +33,7 @@ import CandidateMatchJobProfile from './components/CandidateMatchJobProfile'
 import OrgLandingPage from './components/OrgLandingPage'
 import UploadLogo from './components/UploadLogo'
 import Chats from './components/Chats'
+import ChatScreen from './components/ChatScreen'
 /**
  * COMPONENT
  */
@@ -124,6 +125,7 @@ class Routes extends Component {
               component={AddNewJobSkills}
             />
             <Route exact path="/messages" component={Chats} />
+            <Route exact path="/messages/chat/:name" component={ChatScreen} />
           </Switch>
         )}
       </Switch>
