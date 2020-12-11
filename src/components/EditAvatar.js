@@ -61,8 +61,9 @@ class UploadAvatar extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+
+      <div className='global-screen-box'>
+        <div className='upload-img-avatar-container'>
           <ReactAvatarEditor
             ref={this.setEditorRef}
             scale={parseFloat(this.state.scale)}
@@ -78,11 +79,13 @@ class UploadAvatar extends React.Component {
           />
         </div>
         <br />
-        <label className="custom-file-upload">
+
+       <h3>New File:</h3>
+          <label className="custom-file-upload">
           <input name="newImage" type="file" onChange={this.handleNewImage} />
         </label>
         <br />
-        Zoom:
+         <h3>Zoom:</h3>
         <input
           name="scale"
           type="range"
@@ -92,8 +95,9 @@ class UploadAvatar extends React.Component {
           step="0.01"
           defaultValue="1"
         />
-        <button onClick={this.handleSubmit}>Confirm</button>
-        <button onClick={this.goBack}>Go Back</button>
+        <button className='upload-img-button' onClick={this.handleSubmit}>CONFIRM</button>
+        <h3 onClick={this.goBack}>Go Back</h3>
+
       </div>
     )
   }

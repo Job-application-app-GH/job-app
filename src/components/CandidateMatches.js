@@ -66,7 +66,7 @@ class CandidateMatches extends React.Component {
 
     const jobId = this.props.match.params.jobId
     return (
-      <div>
+      <div >
         <OrgHeader />
         <div className="cardsPile">
           {this.props.suggestedCandidates.map((candidate) => (

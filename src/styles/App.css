@@ -40,6 +40,7 @@ body.content {
   position: fixed;
   top: 0;
   width: 100%;
+  color: white;
   justify-content: space-between;
   background-image: linear-gradient(
     to right,
@@ -303,6 +304,12 @@ a.btn.btn-success {
   font-weight: 700;
   cursor: pointer;
 }
+/* PUT IN SILLS - CANDIDATE */
+
+legend.MuiFormLabel-root.skills-box-container {
+ padding:25px;
+}
+
 
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
@@ -378,18 +385,19 @@ ul.slick-dots {
 /* CARDS */
 .card {
   position: relative;
-  align-self: center;
-  width: 260px;
+  width: 280px;
   padding: 25px;
-  height: 50vh;
-  font-style: italic;
-  text-shadow: 0.5px 0.5px #696968;
-  color: rgb(104, 103, 102);
+  height: 60vh;
+  color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
-  box-shadow: 0px 16px 22px 5px rgba(248, 154, 30, 0.726);
+  box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
   cursor: 'pointer';
+}
+.card > h2{
+  color: #e09808;
+  text-shadow: 0.5px 0px #643c07;
 }
 .cardFront {
   font-style: italic;
@@ -406,8 +414,9 @@ ul.slick-dots {
   cursor: 'pointer';
 }
 .cardsPile {
+  position: fixed;
   display: flex;
-  margin-right: 45vh;
+  margin-right: 40vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
@@ -415,7 +424,20 @@ ul.slick-dots {
   position: absolute;
   cursor: 'pointer';
 }
-
+.react-card-flipper{
+  display: flex;
+  align-self: center;
+}
+.card-skill-box {
+  margin:4px, 4px; 
+ padding:4px; 
+ width: 270px; 
+ height: 150px; 
+ overflow-x: hidden; 
+ overflow-y: auto; 
+ text-align:center; 
+ 
+}
 .skills_container {
   padding: 1em;
   align-items: center;
@@ -431,11 +453,11 @@ ul.slick-dots {
   margin-bottom: 50px;
   padding: 0 20px;
   overflow-y: auto;
-  border: 1px solid black;
+  border: 2px solid white;
   height: 390px;
   width: 300px;
   font-size: 1.2em;
-  /* line-height: 1.2em; */
+ 
 }
 .skills_button {
   display: flex;
@@ -554,7 +576,9 @@ a {
   color: gray;
 }
 .chat_avatar {
-  margin-right: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* EDIT JOB PROFILE INFO */
 
@@ -609,3 +633,4 @@ input[type='file'] {
   padding: 6px 12px;
   cursor: pointer;
 }
+
