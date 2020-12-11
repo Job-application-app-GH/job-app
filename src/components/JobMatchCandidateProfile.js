@@ -39,7 +39,12 @@ class JobMatchCandidateProfile extends React.Component {
     return (
       <div>
         <OrgHeader />
+        <h3>Want to reach out? </h3>
+        <button>
+          <a href={'mailto:' + user.email}>Send {profile.name} an email</a>
+        </button>
         <h2>{profile.name}</h2>
+
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
           <h6>Current Company: {profile.currentCompany}</h6>
@@ -53,7 +58,7 @@ class JobMatchCandidateProfile extends React.Component {
         ) : (
           <h6>Willing to hire remote candidates: False</h6>
         )}
-
+        <h5>Skills</h5>
         {skills
           ? // <h5>Skills:</h5>
             skills.map((skill) => (

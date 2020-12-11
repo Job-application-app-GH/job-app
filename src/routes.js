@@ -34,6 +34,7 @@ import OrgLandingPage from './components/OrgLandingPage'
 import UploadLogo from './components/UploadLogo'
 import Chats from './components/Chats'
 import ChatScreen from './components/ChatScreen'
+import EditAvatar from './components/EditAvatar'
 /**
  * COMPONENT
  */
@@ -109,6 +110,7 @@ class Routes extends Component {
               path="/profile/jobs/editskills/:id"
               component={EditJobSkills}
             />
+            <Route exact path="/profile/editAvatar" component={EditAvatar} />
             <Route
               exact
               path="/candidatematches/:id"
