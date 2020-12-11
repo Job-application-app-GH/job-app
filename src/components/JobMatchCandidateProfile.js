@@ -39,8 +39,11 @@ class JobMatchCandidateProfile extends React.Component {
     return (
       <div>
         <OrgHeader />
+        <h3>Want to reach out? </h3>
+        <button>
+          <a href={'mailto:' + user.email}>Send {profile.name} an email</a>
+        </button>
         <h2>{profile.name}</h2>
-        {/* <h6>{user.email}</h6> */}
 
         <h6>Location: {profile.location}</h6>
         {profile.currentCompany ? (
@@ -66,10 +69,6 @@ class JobMatchCandidateProfile extends React.Component {
           : null}
 
         <button onClick={this.goBack}>Return to all matches</button>
-        <h3>Want to reach out? </h3>
-        <button>
-          <a href={'mailto:' + user.email}>Send {profile.name} an email</a>
-        </button>
       </div>
     )
   }
