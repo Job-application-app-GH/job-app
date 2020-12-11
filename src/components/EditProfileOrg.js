@@ -7,6 +7,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import OrgHeader from './OrgHeader'
+import {Link} from 'react-router-dom'
 
 class EditProfileOrg extends React.Component {
   constructor(props) {
@@ -41,6 +42,9 @@ class EditProfileOrg extends React.Component {
       <div>
         <OrgHeader />
         <h3>Edit Profile</h3>
+        <Link to="/profile/editAvatar">
+          <button>Edit Logo</button>
+        </Link>
         <h4>{this.props.profile.name}</h4>
         <form onSubmit={this.handleSubmit}>
           <h6>Location</h6>
