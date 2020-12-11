@@ -28,9 +28,9 @@ class JobProfile extends React.Component {
     const jobs = this.sort_by_key(allJobs, 'id')
 
     return (
-      <div>
+      <div >
         <OrgHeader />
-        <h3>Job Postings</h3>
+        <h3>Job Postings :</h3>
         <Link to="/profile">
           <button>Back to profile</button>
         </Link>

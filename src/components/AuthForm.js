@@ -52,7 +52,7 @@ const AuthForm = (props) => {
           <br /> <div className="signup-link">
       
         <Link to="/signup" className="signup-link">
-          <h3>SIGN UP HERE</h3>
+          <h3>New to seekr? Sign up here</h3>
         </Link>
       </div>
           <a href="/auth/google" className="signup-link">
@@ -60,20 +60,6 @@ const AuthForm = (props) => {
           </a>
         </form>
       </div>
-
-     
-      {/* <div>
-        <Link to="/signup" >
-          <button >New to *appname*? Sign up here</button>
-        </Link>
-      </div> */}
-
-      <div>
-        <Link to="/signup" className="signup-link">
-          <h3>New to seekr? Sign up here</h3>
-        </Link>
-      </div>
-
     </div>
   )
 }

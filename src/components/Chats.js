@@ -12,24 +12,24 @@ const Chats = (props) => {
   return (
     <div>
       {candidate ? <Header /> : <OrgHeader />}
-
+       
       <SingleChat
-        name="Maria"
-        message="Hi there!"
-        pic="https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512"
-        when="5 min ago"
+        name ="Google"
+        message ="Hello Archana! Your resume looks.."
+        image ="https://blog.hubspot.com/hubfs/image8-2.jpg"
+        timestamp ="5 min ago"
       />
       <SingleChat
-        name="Archana"
-        message="Time to get hired!"
-        pic="https://ca.slack-edge.com/T024FPYBQ-U01AJHRCK2T-b11a13f36d63-512"
-        when="30 min ago"
+        name ="Amazon"
+        message ="Wonderful! Your interview is scheduled.."
+        image ="https://image.shutterstock.com/image-photo/montreal-canada-february-28-2017-260nw-590095607.jpg"
+        timestamp ="30 min ago"
       />
       <SingleChat
-        name="Mackenzie"
-        message="I have seen you applied for.."
-        pic="https://ca.slack-edge.com/T024FPYBQ-U017W20F9D4-dd652129cf3c-512"
-        when="5 min ago"
+        name ="Bloomberg"
+        message ="We have noticed you applied for.."
+        image ="https://media.glassdoor.com/sqll/3096/bloomberg-l-p-squarelogo-1485356219895.png"
+        timestamp ="2 days ago"
       />
     </div>
   )
