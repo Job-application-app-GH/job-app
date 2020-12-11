@@ -56,8 +56,8 @@ class UploadAvatar extends React.Component {
 
   render() {
     return (
-      <div className='global-screen-box'>
-        <div className='upload-img-avatar-container'>
+      <div className="global-screen-box">
+        <div className="upload-img-avatar-container">
           <ReactAvatarEditor
             ref={this.setEditorRef}
             scale={parseFloat(this.state.scale)}
@@ -68,12 +68,17 @@ class UploadAvatar extends React.Component {
             rotate={parseFloat(this.state.rotate)}
             borderRadius={this.state.width / (100 / this.state.borderRadius)}
             image={this.state.image}
+            // color={[23, 21, 21]}
             className="editor-canvas"
           />
         </div>
         <br />
         <h3>New File:</h3>
-        <input name="upload-img-input"  type="file" onChange={this.handleNewImage} />
+        <input
+          name="upload-img-input"
+          type="file"
+          onChange={this.handleNewImage}
+        />
         <br />
         <h3>Zoom:</h3>
         <input
@@ -85,7 +90,9 @@ class UploadAvatar extends React.Component {
           step="0.01"
           defaultValue="1"
         />
-        <button className='upload-img-button' onClick={this.handleSubmit}>SUBMIT</button>
+        <button className="upload-img-button" onClick={this.handleSubmit}>
+          SUBMIT
+        </button>
         <Link to={`/candidateSkills/${this.props.candidate.id}`}>
           <h3>SKIP</h3>
         </Link>

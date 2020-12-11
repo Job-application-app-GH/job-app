@@ -46,9 +46,15 @@ class Profile extends React.Component {
         {candidate ? <Header /> : <OrgHeader />}
         <div className="profile-edit-org">
           {candidate ? <h2>User Profile</h2> : <h2>Company Profile</h2>}
-          <Link to="/profile/editAvatar">
-            <button>Edit Logo</button>
-          </Link>
+          {candidate ? (
+            <Link to="/profile/editAvatar">
+              <button>Edit Profile Photo</button>
+            </Link>
+          ) : (
+            <Link to="/profile/editAvatar">
+              <button>Edit Logo</button>
+            </Link>
+          )}
 
           <Avatar className="chat_avatar" src={profile.img} />
           <h3>{profile.name}</h3>
@@ -60,14 +66,17 @@ class Profile extends React.Component {
             <h3>Current Role: {profile.currentRole}</h3>
           ) : null}
           <h3>Description: {profile.description}</h3>
+          {candidate ? (
+            <h3>Are you willing to work remote: </h3>
+          ) : (
+            <h3>Are you willing to hire remote candidates: </h3>
+          )}
           {profile.isRemote ? (
             <div className="profile-edit-org">
-              <h3>Willing to hire remote candidates:</h3>
               <h3>True</h3>
             </div>
           ) : (
             <div>
-              <h3>Willing to hire remote candidates:</h3>
               <h3>False</h3>
             </div>
           )}
