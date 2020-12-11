@@ -165,6 +165,7 @@ router.post('/job', async (req, res, next) => {
     const reqJobId = req.body.jobId
     const reqCandidateId = req.body.candidateId
     const isLiked = req.body.isLiked
+    let isPerfectMatch = false
 
     const matchFromDB = await Match.findOne({
       where: {
@@ -199,6 +200,7 @@ router.post('/job', async (req, res, next) => {
         if (isLiked) {
           //change the Pending status to matched, indicating that both parties swiped right on each other
           matchFromDB.isMatch = 'MATCHED'
+          isPerfectMatch = true
         } else {
           matchFromDB.isMatch = 'REJECTED_BOTH'
         }
@@ -211,7 +213,9 @@ router.post('/job', async (req, res, next) => {
         await matchFromDB.save()
       }
     }
-    res.sendStatus(201)
+    const matchType = {isPerfectMatch}
+    // res.sendStatus(201)
+    res.json(matchType)
   } catch (e) {
     next(e)
   }

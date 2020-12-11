@@ -3,11 +3,14 @@ import TinderCard from 'react-tinder-card'
 import {
   fetchSuggestedCandidates,
   sendCandidateMatch,
+  resetLastCandidateMatch,
 } from '../store/candidateMatches'
 import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 import OrgHeader from './OrgHeader'
 import Avatar from '@material-ui/core/Avatar'
+
+import Popup from 'reactjs-popup'
 
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(',')
@@ -63,7 +66,29 @@ class CandidateMatches extends React.Component {
     //   'Inside render of CandidateMatches, total cards: ',
     //   this.props.suggestedCandidates.length
     // )
+    //
+    // if (true) {
+    //   console.log('Inside render return')
+    //   return (
+    //     <Popup
+    //       trigger={(open) => (
+    //         <button className="button">
+    //           Trigger - {open ? 'Opened' : 'Closed'}
+    //         </button>
+    //       )}
+    //       position="right center"
+    //       closeOnDocumentClick
+    //     >
+    //       <span> Popup content </span>
+    //     </Popup>
+    //   )
+    // }
 
+    if (this.props.lastMatch.isPerfectMatch) {
+      if (window.confirm('We found a Match!')) {
+        this.props.resetLastCandidateMatch()
+      }
+    }
     const jobId = this.props.match.params.jobId
     return (
       <div>
@@ -125,13 +150,15 @@ class CandidateMatches extends React.Component {
   }
 }
 const mapState = (state) => ({
-  suggestedCandidates: state.suggestedCandidates,
+  suggestedCandidates: state.suggestedCandidates.list,
+  lastMatch: state.suggestedCandidates.lastMatch,
 })
 
 const mapDispatch = (dispatch) => ({
   getSuggestedCandidates: (jobId) => dispatch(fetchSuggestedCandidates(jobId)),
   sendCandidateMatch: (jobId, candidateId, isLiked) =>
     dispatch(sendCandidateMatch(jobId, candidateId, isLiked)),
+  resetLastCandidateMatch: () => dispatch(resetLastCandidateMatch()),
 })
 
 export default connect(mapState, mapDispatch)(CandidateMatches)
