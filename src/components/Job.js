@@ -77,14 +77,15 @@ class Job extends React.Component {
             value={description}
             required
           />
+          <h5> Are you willing to hire remote employees</h5>
           <FormControl>
             <FormLabel>
-              Are you willing to hire remote employees?
               <FormLabel />
               <RadioGroup
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                row
               >
                 <FormControlLabel
                   value="true"

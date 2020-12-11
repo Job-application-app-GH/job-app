@@ -92,15 +92,15 @@ class EditProfile extends React.Component {
             value={description}
             required
           />
-
+          <h6> Would you like to work remote?</h6>
           <FormControl>
             <FormLabel>
-              Would you like to work remote?
               <FormLabel />
               <RadioGroup
                 name="isRemote"
                 onChange={this.handleChange}
                 value={isRemote}
+                row
               >
                 <FormControlLabel
                   value="true"
