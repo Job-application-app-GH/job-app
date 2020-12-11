@@ -18,6 +18,7 @@ class JobMatches extends React.Component {
     this.state = {
       isFlipped: false,
     }
+    this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.onSwipe = this.onSwipe.bind(this)
   }
@@ -27,10 +28,16 @@ class JobMatches extends React.Component {
     this.props.getSuggestedJobs(candidateId)
   }
 
+  handleTouchStart(e) {
+    e.preventDefault()
+    this.setState((state) => ({isFlipped: !this.state.isFlipped}))
+  }
+
   handleClick(e) {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
+
 
   onSwipe = (jobId, candidateId, direction) => {
     // console.log('jobId, candidateId===>', jobId, candidateId)
@@ -78,6 +85,7 @@ class JobMatches extends React.Component {
                 >
                   <div
                     className="card"
+                    onTouchStart={this.handleTouchStart}
                     onClick={this.handleClick}
                     style={{backgroundColor: '#FFB6C1'}}
                   >
@@ -93,6 +101,7 @@ class JobMatches extends React.Component {
                   <div
                     className="card"
                     onClick={this.handleClick}
+                    onTouchStart={this.handleTouchStart}
                     style={{backgroundColor: '#6495ED'}}
                   >
                     {/* THIS IS BACK SIDE OF THE CARD */}
