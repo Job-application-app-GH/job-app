@@ -44,8 +44,8 @@ class SignUpOrgDetails extends React.Component {
   render() {
     const {name, location, description, isRemote} = this.state
     return (
-      <div className="signup-candidate-form">
-        <form onSubmit={this.handleSubmit} id="add-form">
+      <div className="global-screen-box">
+        <form onSubmit={this.handleSubmit} id="add-form-organization">
           <div>
             <h3>Company Name</h3>
             <input
@@ -69,7 +69,7 @@ class SignUpOrgDetails extends React.Component {
             />
           </div>
           <div>
-            <h3>Company description</h3>
+            <h3>Brief Company description</h3>
             <textarea
               className="signup-textbox"
               type="text"
@@ -80,7 +80,7 @@ class SignUpOrgDetails extends React.Component {
             />
           </div>
           <div className="remote-yes-no-org">
-            <h3>Are you willing to hire remote employees?</h3>
+            <h3> Are you willing to hire remote employees? </h3>
             <FormControl>
               <FormLabel>
                 <FormLabel />
@@ -105,11 +105,11 @@ class SignUpOrgDetails extends React.Component {
               </FormLabel>
             </FormControl>
           </div>
-          {/* <Link to="/signup/organization/job"> */}
-          <button className="signup-details-button" type="submit">
-            Submit
-          </button>
-          {/* </Link> */}
+          <div>
+            <button className="signup-details-button-org" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     )

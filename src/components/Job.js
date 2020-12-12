@@ -50,57 +50,67 @@ class Job extends React.Component {
     const {title, location, description, isRemote} = this.state
     const jobId = this.props.job.id
     return (
-      <div>
-        <h2>Create a new job posting</h2>
-        <form id="add-form" onSubmit={this.handleSubmit}>
-          <h5>Job Title</h5>
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
-            required
-          />
-          <h5>Location</h5>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
-          <h5>Job Description</h5>
+      <div className="global-screen-box">
+        <form id="add-job" onSubmit={this.handleSubmit}>
+          <h2>Create a new job posting</h2>
+          <div>
+            <h3>Job Title</h3>
+            <input
+              type="text"
+              name="title"
+              onChange={this.handleChange}
+              value={title}
+              required
+            />
+          </div>
+          <div>
+            <h3>Location</h3>
+            <input
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
+          </div>
+
+          <h3>Job Description</h3>
           <textarea
+            className="signup-textbox"
             type="text"
             name="description"
             onChange={this.handleChange}
             value={description}
             required
           />
-          <h5> Are you willing to hire remote employees</h5>
-          <FormControl>
-            <FormLabel>
-              <FormLabel />
-              <RadioGroup
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                row
-              >
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
-          <button type="submit">Submit</button>
+          <div>
+            <h3> Are you willing to hire remote employees?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  row
+                >
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="No"
+                  />
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+          </div>
+          <button className="signup-details-button-org" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     )

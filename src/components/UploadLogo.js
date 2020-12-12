@@ -15,8 +15,8 @@ class UploadLogo extends React.Component {
       rotate: 0,
       borderRadius: 50,
       preview: null,
-      width: 200,
-      height: 200,
+      width: 330,
+      height: 330,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -56,8 +56,8 @@ class UploadLogo extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="global-screen-box">
+        <div className="upload-img-avatar-container">
           <ReactAvatarEditor
             ref={this.setEditorRef}
             scale={parseFloat(this.state.scale)}
@@ -68,14 +68,18 @@ class UploadLogo extends React.Component {
             rotate={parseFloat(this.state.rotate)}
             borderRadius={this.state.width / (100 / this.state.borderRadius)}
             image={this.state.image}
+            // color={[255, 198, 84, 1]}
+            color={[255, 255, 255, 0.6]}
             className="editor-canvas"
           />
         </div>
         <br />
-        New File:
-        <input name="newImage" type="file" onChange={this.handleNewImage} />
+        <label className="custom-file-upload">
+          <input name="newImage" type="file" onChange={this.handleNewImage} />
+          <h3>Upload Photo</h3>
+        </label>
         <br />
-        Zoom:
+        <h3 style={{fontWeight: 'lighter'}}>Zoom</h3>
         <input
           name="scale"
           type="range"
@@ -85,9 +89,11 @@ class UploadLogo extends React.Component {
           step="0.01"
           defaultValue="1"
         />
-        <button onClick={this.handleSubmit}>Confirm</button>
+        <button className="upload-img-button" onClick={this.handleSubmit}>
+          SUBMIT
+        </button>
         <Link to="/signup/organization/job">
-          <button>Skip</button>
+          <h3>SKIP</h3>
         </Link>
       </div>
     )
