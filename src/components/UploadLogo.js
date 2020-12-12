@@ -21,10 +21,6 @@ class UploadLogo extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // componentDidMount() {
-  //   this.props.loadOrganization(this.props.organization.id)
-  // }
-
   handleNewImage = (e) => {
     this.setState({image: e.target.files[0]})
   }
