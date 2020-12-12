@@ -42,14 +42,11 @@ class EditJob extends React.Component {
   render() {
     const {title, location, description, isRemote} = this.state
     return (
-      <div>
-        <OrgHeader />
-        <h3>Edit Job Details</h3>
-        <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-          <button>Edit job skills</button>
-        </Link>
-        <form onSubmit={this.handleSubmit}>
-          <h5>Title</h5>
+      <div className='global-screen-box'>
+        <OrgHeader/>
+        <div className='edit-job-form-container'>
+        <form  className="edit-job-form" ondidatnSubmit={this.handleSubmit}>
+          <h3>Title</h3>
           <input
             type="text"
             name="title"
@@ -57,7 +54,7 @@ class EditJob extends React.Component {
             value={title}
             required
           />
-          <h5>Location</h5>
+          <h3>Location</h3>
           <input
             type="text"
             name="location"
@@ -65,7 +62,7 @@ class EditJob extends React.Component {
             value={location}
             required
           />
-          <h6>Description</h6>
+          <h3>Description</h3>
           <input
             type="text"
             name="description"
@@ -73,7 +70,7 @@ class EditJob extends React.Component {
             value={description}
             required
           />
-          <h6>Do you hire remote employees?</h6>
+          <h3>Do you hire remote employees?</h3>
           <FormControl>
             <FormLabel>
               <FormLabel />
@@ -83,6 +80,7 @@ class EditJob extends React.Component {
                 value={isRemote}
                 row
               >
+              <div className='profile-edit-org-yes-no'>
                 <FormControlLabel
                   value="true"
                   control={<Radio />}
@@ -93,12 +91,17 @@ class EditJob extends React.Component {
                   control={<Radio />}
                   label="No"
                 />
+                </div>
               </RadioGroup>
             </FormLabel>
           </FormControl>
-
-          <button type="submit">Save Changes</button>
+        <Link 
+        to={`/profile/jobs/editskills/${this.props.job.id}`}>
+          <button className='profile-edit-org-button'>Edit job skills</button>
+        </Link>
+          <button className='profile-edit-org-button' type="submit">Save Changes</button>
         </form>
+        </div>
       </div>
     )
   }
