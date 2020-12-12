@@ -307,9 +307,8 @@ a.btn.btn-success {
 /* PUT IN SILLS - CANDIDATE */
 
 legend.MuiFormLabel-root.skills-box-container {
- padding:25px;
+  padding: 25px;
 }
-
 
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
@@ -395,7 +394,7 @@ ul.slick-dots {
   background-position: center;
   cursor: 'pointer';
 }
-.card > h2{
+.card > h2 {
   color: #e09808;
   text-shadow: 0.5px 0px #643c07;
 }
@@ -424,19 +423,18 @@ ul.slick-dots {
   position: absolute;
   cursor: 'pointer';
 }
-.react-card-flipper{
+.react-card-flipper {
   display: flex;
   align-self: center;
 }
 .card-skill-box {
-  margin:4px, 4px; 
- padding:4px; 
- width: 270px; 
- height: 150px; 
- overflow-x: hidden; 
- overflow-y: auto; 
- text-align:center; 
- 
+  margin: 4px, 4px;
+  padding: 4px;
+  width: 270px;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
 }
 .skills_container {
   padding: 1em;
@@ -457,7 +455,6 @@ ul.slick-dots {
   height: 390px;
   width: 300px;
   font-size: 1.2em;
- 
 }
 .skills_button {
   display: flex;
@@ -634,3 +631,30 @@ input[type='file'] {
   cursor: pointer;
 }
 
+.match-img {
+  align-self: center;
+  margin-left: -30px;
+  max-width: 100px;
+}
+
+.match-button {
+  margin-right: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}

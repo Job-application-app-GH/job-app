@@ -3,6 +3,7 @@ import axios from 'axios'
 //ACTION TYPES
 const SET_SUGGESTED_JOBS = 'SET_SUGGESTED_JOBS'
 const REMOVE_JOB = 'REMOVE_JOB'
+const RESET_LAST_MATCH = 'RESET_LAST_MATCH'
 
 //ACTION CREATORS
 const setSuggestedJobs = (suggestedJobs) => ({
@@ -10,9 +11,15 @@ const setSuggestedJobs = (suggestedJobs) => ({
   suggestedJobs,
 })
 
-const removeJobFromList = (jobId) => ({
+const removeJobFromList = (jobId, latestMatch) => ({
   type: REMOVE_JOB,
   jobId,
+  latestMatch,
+})
+
+const resetLastMatch = (latestMatch) => ({
+  type: RESET_LAST_MATCH,
+  latestMatch,
 })
 
 //THUNKS
@@ -20,7 +27,6 @@ export const fetchSuggestedJobs = (candidateId) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/matches/candidate/${candidateId}`)
-      console.log('inside THUNK fetch jobs: ', data)
       dispatch(setSuggestedJobs(data))
     } catch (error) {
       console.error(error)
@@ -36,24 +42,42 @@ export const sendJobMatch = (jobId, candidateId, isLiked) => {
         candidateId: candidateId,
         isLiked: isLiked,
       }
-      await axios.post('/api/matches/candidate', matchRecord)
-      dispatch(removeJobFromList(jobId))
+      const {data: latestMatch} = await axios.post(
+        '/api/matches/candidate',
+        matchRecord
+      )
+      dispatch(removeJobFromList(jobId, latestMatch))
     } catch (error) {
       console.error(error)
     }
   }
 }
 
+export const resetLastJobMatch = () => {
+  return async (dispatch) => {
+    try {
+      const resetMatch = {isPerfectMatch: false, matchedJob: {}}
+      dispatch(resetLastMatch(resetMatch))
+    } catch (error) {}
+  }
+}
+
 //INIT STATE
-const initState = []
+const initState = {
+  list: [],
+  lastMatch: {isPerfectMatch: false, matchedJob: {}},
+}
 
 //REDUCER
 export default function jobMatches(state = initState, action) {
   switch (action.type) {
     case SET_SUGGESTED_JOBS:
-      return action.suggestedJobs
+      return {...state, list: action.suggestedJobs}
     case REMOVE_JOB:
-      return state.filter((job) => job.id !== action.jobId)
+      const modifiedList = state.list.filter((job) => job.id !== action.jobId)
+      return {...state, list: modifiedList, lastMatch: action.latestMatch}
+    case RESET_LAST_MATCH:
+      return {...state, lastMatch: action.latestMatch}
     default:
       return state
   }
