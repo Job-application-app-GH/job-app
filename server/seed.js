@@ -8,10 +8,27 @@ const {
   Skill,
   User,
 } = require('../server/db/models')
-const man1 = 'https://unsplash.com/photos/_J2JFRHLijI'
-const woman1 = 'https://unsplash.com/photos/-zqoE7jnQgw'
-const woman2 = 'https://unsplash.com/photos/UUNoXZ8H56Q'
-const woman3 = 'https://unsplash.com/photos/BOHyxqepP9Y'
+const man1 =
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=668&q=80'
+const man2 =
+  'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=668&q=80'
+const man3 =
+  'https://images.unsplash.com/photo-1528763380143-65b3ac89a3ff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=670&q=80 '
+const man4 =
+  'https://images.unsplash.com/photo-1597346908500-28cda8acfe4e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'
+const man5 =
+  'https://images.unsplash.com/photo-1523477800337-966dbabe060b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'
+const woman1 =
+  'https://images.unsplash.com/photo-1589525231707-f2de2428f59c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
+
+const woman2 =
+  'https://images.unsplash.com/photo-1607569708758-0270aa4651bd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzI2fHxoZWFkc2hvdHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+const woman3 =
+  'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'
+const woman4 =
+  'https://images.unsplash.com/photo-1589729482945-ca6f3a235f7a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
+const woman5 =
+  'https://images.unsplash.com/photo-1593579491833-457b2c451e38?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2853&q=80'
 const userData = [
   {
     userType: 'CANDIDATE',
@@ -303,7 +320,7 @@ const userData = [
 const candidateData = [
   {
     name: 'Archana',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AJHRCK2T-b11a13f36d63-512',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -312,7 +329,7 @@ const candidateData = [
   },
   {
     name: 'Mackenzie',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U017W20F9D4-dd652129cf3c-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -321,7 +338,7 @@ const candidateData = [
   },
   {
     name: 'Maria',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AJHRCK2T-b11a13f36d63-512',
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -339,7 +356,7 @@ const candidateData = [
   },
   {
     name: 'Montague Reeves',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -348,7 +365,7 @@ const candidateData = [
   },
   {
     name: 'Aniyah Lozano',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman2,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -357,7 +374,7 @@ const candidateData = [
   },
   {
     name: 'Lillie Christensen',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman2,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -366,7 +383,7 @@ const candidateData = [
   },
   {
     name: 'Vivian Welch',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -375,7 +392,7 @@ const candidateData = [
   },
   {
     name: 'Shawna Barton',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -384,7 +401,7 @@ const candidateData = [
   },
   {
     name: 'Christy Mason',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman2,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -393,7 +410,7 @@ const candidateData = [
   },
   {
     name: 'Caleb Osborne',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -402,7 +419,7 @@ const candidateData = [
   },
   {
     name: 'Andy Leonard',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man1,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -411,7 +428,7 @@ const candidateData = [
   },
   {
     name: 'Jess Leonard',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman2,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -420,7 +437,7 @@ const candidateData = [
   },
   {
     name: 'Annie King',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman3,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -429,7 +446,7 @@ const candidateData = [
   },
   {
     name: 'Liz Lemon',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman3,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -438,7 +455,7 @@ const candidateData = [
   },
   {
     name: 'Iris Shelton',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman3,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -447,7 +464,7 @@ const candidateData = [
   },
   {
     name: 'Larry Mckenzie',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man3,
     description: "I'm a current software engineer looking for a job!",
     location: 'Chicago',
     isRemote: true,
@@ -456,7 +473,7 @@ const candidateData = [
   },
   {
     name: 'Geraldine Barrett',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman3,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -465,7 +482,7 @@ const candidateData = [
   },
   {
     name: 'Marian Ross',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman4,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -474,7 +491,7 @@ const candidateData = [
   },
   {
     name: 'Andres Arnold',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman4,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -483,7 +500,7 @@ const candidateData = [
   },
   {
     name: 'Cindy Freeman',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman4,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -492,7 +509,7 @@ const candidateData = [
   },
   {
     name: 'Benjamin Ramsey',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man4,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -501,7 +518,7 @@ const candidateData = [
   },
   {
     name: 'Robyn Nunez',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman4,
     description: "I'm a current software engineer looking for a job!",
     location: 'Los Angeles',
     isRemote: true,
@@ -510,7 +527,7 @@ const candidateData = [
   },
   {
     name: 'Shirley Bates',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman5,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -519,7 +536,7 @@ const candidateData = [
   },
   {
     name: 'Kelly Scott',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man5,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -528,7 +545,7 @@ const candidateData = [
   },
   {
     name: 'Theresa Jenkins',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: woman5,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -537,7 +554,7 @@ const candidateData = [
   },
   {
     name: 'Phillip Williams',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
+    img: man5,
     description: "I'm a current software engineer looking for a job!",
     location: 'New York',
     isRemote: true,
@@ -546,8 +563,9 @@ const candidateData = [
   },
   {
     name: 'Lillian Anderson',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: woman2,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -555,8 +573,9 @@ const candidateData = [
   },
   {
     name: 'John Cook',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: man5,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -564,8 +583,9 @@ const candidateData = [
   },
   {
     name: 'Jean Adams',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: woman4,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -573,8 +593,9 @@ const candidateData = [
   },
   {
     name: 'Steve Gonzales',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: man2,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -582,8 +603,9 @@ const candidateData = [
   },
   {
     name: 'Lois Gray',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: woman1,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -591,8 +613,9 @@ const candidateData = [
   },
   {
     name: 'Juan Perry',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: man3,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -600,8 +623,9 @@ const candidateData = [
   },
   {
     name: 'Estelle Morton',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: woman4,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -609,8 +633,9 @@ const candidateData = [
   },
   {
     name: 'Dustin Fields',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: man3,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -618,8 +643,9 @@ const candidateData = [
   },
   {
     name: 'Guillermo Alvarado',
-    img: 'https://ca.slack-edge.com/T024FPYBQ-U01AZA318E6-46c74a95e013-512',
-    description: "I'm a current software engineer looking for a job!",
+    img: man1,
+    description:
+      'I just attended a bootcamp and I am excited to start my career as a Software Engineer!',
     location: 'New York',
     isRemote: true,
     currentRole: 'Software Engineer',
@@ -629,38 +655,44 @@ const candidateData = [
 
 const organizationData = [
   {
-    name: 'Google',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Macmillan Toys',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
-    name: 'Yahoo',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Pide Piper',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
-    name: 'Facebook',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Prestige Worldwide',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
-    name: 'Etsy',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Rent a Swag',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
-    name: 'Pinterest',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Tyrell Corp.',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
-    name: 'Lyft',
-    description: 'sfnoergqorwgowqingwoing',
+    name: 'Sterling Cooper',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -704,55 +736,64 @@ const organizationData = [
   },
   {
     name: 'Hooli',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Vehement Capital Partners',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Massive Dynamic',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Openlane',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Chicago',
     isRemote: true,
   },
   {
     name: 'Yearin',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Austin',
     isRemote: true,
   },
   {
     name: 'Goodsilron',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'New York',
     isRemote: true,
   },
   {
     name: 'Condax',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Chicago',
     isRemote: true,
   },
   {
     name: 'Opentech',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'Austin',
     isRemote: true,
   },
   {
     name: 'Golddex',
-    description: 'A startup looking for someone to design their website',
+    description:
+      'A startup looking for someone to design and scale their website',
     location: 'New York',
     isRemote: true,
   },
@@ -761,50 +802,57 @@ const organizationData = [
 const jobData = [
   {
     title: 'Software Engineer',
-    description: 'fnownrgiebrg',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
-    description: 'fnownrgiebrg',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Backend Engineer',
-    description: 'fnownrgiebrg',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Backend Engineer',
-    description: 'fnownrgiebrg',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Software Engineer',
-    description: 'fnownrgiebrg',
-    location: 'New York',
-    isRemote: false,
-  },
-  {
-    title: 'Frontend Engineer',
-    description: 'fnownrgiebrg',
-    location: 'New York',
-    isRemote: false,
-  },
-  {
-    title: 'Frontend Engineer',
-    description: 'fnownrgiebrg',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'New York',
     isRemote: false,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+    location: 'New York',
+    isRemote: false,
+  },
+  {
+    title: 'Frontend Engineer',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+    location: 'New York',
+    isRemote: false,
+  },
+  {
+    title: 'Frontend Engineer',
+    description:
+      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
     location: 'Chicago',
     isRemote: false,
   },
@@ -839,63 +887,64 @@ const jobData = [
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
     location: 'Miami',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
     location: 'Chicago',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
     location: 'Los Angeles',
     isRemote: true,
   },
@@ -1010,38 +1059,38 @@ async function seed() {
   await users[52].setCandidate(candidates[31])
   await users[53].setCandidate(candidates[32])
 
-  await candidates[0].addSkills([skills[0], skills[1]])
-  await candidates[1].addSkills([skills[1], skills[2], skills[4]])
-  await candidates[2].addSkills([skills[0], skills[3], skills[4]])
-  await candidates[2].addSkills([skills[0], skills[3], skills[4]])
-  await candidates[2].addSkills([skills[0], skills[3], skills[4]])
-  await candidates[2].addSkills([skills[0], skills[3], skills[4]])
-  await candidates[3].addSkills([skills[1], skills[3], skills[4]])
-  await candidates[4].addSkills([skills[0], skills[4], skills[6]])
-  await candidates[5].addSkills([skills[0], skills[5], skills[6]])
-  await candidates[6].addSkills([skills[1], skills[3], skills[4]])
-  await candidates[7].addSkills([skills[0], skills[4], skills[6]])
+  await candidates[0].addSkills([skills[0], skills[1], skills[2], skills[3]])
+  await candidates[1].addSkills([skills[1], skills[2], skills[4], skills[5]])
+  await candidates[2].addSkills([skills[0], skills[3], skills[4], skills[9]])
+  await candidates[2].addSkills([skills[0], skills[3], skills[4], skills[11]])
+  await candidates[2].addSkills([skills[0], skills[3], skills[4], skills[12]])
+  await candidates[2].addSkills([skills[0], skills[3], skills[4], skills[10]])
+  await candidates[3].addSkills([skills[1], skills[3], skills[4], skills[9]])
+  await candidates[4].addSkills([skills[0], skills[4], skills[6], skills[9]])
+  await candidates[5].addSkills([skills[0], skills[5], skills[6], skills[8]])
+  await candidates[6].addSkills([skills[1], skills[3], skills[4], skills[7]])
+  await candidates[7].addSkills([skills[0], skills[4], skills[6], skills[1]])
   await candidates[8].addSkills([skills[0], skills[5], skills[6], skills[7]])
-  await candidates[9].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[10].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[9].addSkills([skills[5], skills[3], skills[4], skills[6]])
+  await candidates[10].addSkills([skills[3], skills[4], skills[6], skills[10]])
   await candidates[11].addSkills([skills[4], skills[5], skills[6], skills[7]])
-  await candidates[12].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[13].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[12].addSkills([skills[5], skills[3], skills[4], skills[11]])
+  await candidates[13].addSkills([skills[3], skills[4], skills[6], skills[1]])
   await candidates[14].addSkills([skills[4], skills[5], skills[6], skills[7]])
-  await candidates[15].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[16].addSkills([skills[3], skills[4], skills[6]])
-  await candidates[17].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[15].addSkills([skills[5], skills[3], skills[4], skills[2]])
+  await candidates[16].addSkills([skills[3], skills[4], skills[6], skills[8]])
+  await candidates[17].addSkills([skills[3], skills[4], skills[6], skills[9]])
   await candidates[18].addSkills([skills[4], skills[5], skills[6], skills[7]])
-  await candidates[19].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[20].addSkills([skills[3], skills[4], skills[6]])
-  await candidates[21].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[19].addSkills([skills[5], skills[3], skills[4], skills[7]])
+  await candidates[20].addSkills([skills[3], skills[4], skills[6], skills[5]])
+  await candidates[21].addSkills([skills[3], skills[4], skills[6], skills[9]])
   await candidates[22].addSkills([skills[4], skills[5], skills[6], skills[7]])
-  await candidates[23].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[24].addSkills([skills[3], skills[4], skills[6]])
-  await candidates[25].addSkills([skills[3], skills[4], skills[6]])
-  await candidates[26].addSkills([skills[5], skills[3], skills[4]])
-  await candidates[27].addSkills([skills[3], skills[4], skills[6]])
-  await candidates[28].addSkills([skills[3], skills[4], skills[6]])
+  await candidates[23].addSkills([skills[5], skills[3], skills[4], skills[8]])
+  await candidates[24].addSkills([skills[3], skills[4], skills[6], skills[2]])
+  await candidates[25].addSkills([skills[3], skills[4], skills[6], skills[9]])
+  await candidates[26].addSkills([skills[5], skills[3], skills[4], skills[7]])
+  await candidates[27].addSkills([skills[3], skills[4], skills[6], skills[1]])
+  await candidates[28].addSkills([skills[3], skills[4], skills[6], skills[1]])
   await organizations[0].addJobs(jobs[0])
   await organizations[1].addJobs(jobs[1])
   await organizations[2].addJobs(jobs[2])
@@ -1063,18 +1112,18 @@ async function seed() {
   await organizations[18].addJobs(jobs[18])
   await organizations[19].addJobs(jobs[19])
   await organizations[20].addJobs(jobs[20])
-  await jobs[0].addSkills([skills[0], skills[1]])
+  await jobs[0].addSkills([skills[0], skills[1], skills[2], skills[3]])
   await jobs[1].addSkills([skills[1], skills[2], skills[4], skills[8]])
   await jobs[2].addSkills([skills[0], skills[3], skills[4], skills[8]])
   await jobs[3].addSkills([skills[0], skills[3], skills[4], skills[8]])
   await jobs[4].addSkills([skills[0], skills[3], skills[4], skills[8]])
-  await jobs[5].addSkills([skills[0], skills[3], skills[5]])
-  await jobs[6].addSkills([skills[0], skills[3], skills[4]])
-  await jobs[7].addSkills([skills[0], skills[3], skills[5]])
-  await jobs[8].addSkills([skills[0], skills[3], skills[5]])
-  await jobs[9].addSkills([skills[7], skills[8], skills[9]])
-  await jobs[10].addSkills([skills[6], skills[7], skills[8]])
-  await jobs[11].addSkills([skills[1], skills[3], skills[5]])
+  await jobs[5].addSkills([skills[0], skills[3], skills[5], skills[1]])
+  await jobs[6].addSkills([skills[0], skills[3], skills[4], skills[1]])
+  await jobs[7].addSkills([skills[0], skills[3], skills[5], skills[2]])
+  await jobs[8].addSkills([skills[0], skills[3], skills[5], skills[1]])
+  await jobs[9].addSkills([skills[7], skills[8], skills[9], skills[10]])
+  await jobs[10].addSkills([skills[6], skills[7], skills[8], skills[2]])
+  await jobs[11].addSkills([skills[1], skills[3], skills[5], skills[4]])
   await jobs[12].addSkills([skills[0], skills[1], skills[2], skills[5]])
   await jobs[13].addSkills([skills[0], skills[1], skills[7], skills[9]])
   await jobs[14].addSkills([skills[0], skills[1], skills[6], skills[8]])
