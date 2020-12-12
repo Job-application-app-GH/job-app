@@ -15,8 +15,8 @@ class UploadLogo extends React.Component {
       rotate: 0,
       borderRadius: 50,
       preview: null,
-      width: 200,
-      height: 200,
+      width: 330,
+      height: 330,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -68,14 +68,17 @@ class UploadLogo extends React.Component {
             rotate={parseFloat(this.state.rotate)}
             borderRadius={this.state.width / (100 / this.state.borderRadius)}
             image={this.state.image}
+            color={[255, 255, 255, 0.6]}
             className="editor-canvas"
           />
         </div>
         <br />
-        New File:
-        <input name="newImage" type="file" onChange={this.handleNewImage} />
+        <label className="custom-file-upload">
+          <input name="newImage" type="file" onChange={this.handleNewImage} />
+          Choose Photo
+        </label>
         <br />
-        Zoom:
+        <h3>Zoom:</h3>
         <input
           name="scale"
           type="range"
@@ -85,9 +88,11 @@ class UploadLogo extends React.Component {
           step="0.01"
           defaultValue="1"
         />
-        <button onClick={this.handleSubmit}>Confirm</button>
+        <button className="upload-img-button" onClick={this.handleSubmit}>
+          SUBMIT
+        </button>
         <Link to="/signup/organization/job">
-          <button>Skip</button>
+          <h3>SKIP</h3>
         </Link>
       </div>
     )
