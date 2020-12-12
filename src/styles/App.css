@@ -317,6 +317,45 @@ a.btn.btn-success {
   overflow-wrap: break-word;
 }
 
+.job-profile-listing {
+  margin-top: 20%;
+}
+
+.job-listing-button {
+  background-color: white;
+  width: 300px;
+  border: none;
+  margin-top: 20%;
+  margin: 15px;
+}
+
+.add-new-job {
+  margin-top: 100px;
+  /* margin-left: 5%; */
+}
+
+.add-new-job-button {
+  margin-top: 15%;
+  margin-bottom: 10%;
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* UPLOAD IMAGE */
 .upload-img-input {
   background-color: #fecb63;
