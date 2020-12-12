@@ -68,7 +68,7 @@ class EditProfileOrg extends React.Component {
               value={description}
               required
             />
-            <h3> Are you willing to hire remote employees?</h3>
+            <h3>Are you willing to hire remote employees?</h3>
             <FormControl>
               <FormLabel>
                 <FormLabel />
