@@ -52,15 +52,15 @@ body.content {
   border-bottom: 2px solid white;
 }
 
-.header-img-icon{ 
+.header-img-icon {
   height: 35px;
   width: 120px;
   padding: 20px;
-  }
-  /* Dropdown icon */
-  .MuiButtonBase-root.MuiButton-root.MuiButton-text {
-    padding: 0px;
-  }
+}
+/* Dropdown icon */
+.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+  padding: 0px;
+}
 .icons {
   padding: 20px;
 }
@@ -366,6 +366,37 @@ a.btn.btn-success {
   cursor: pointer;
 }
 
+/* SINGLE JOB */
+.single-job-profile {
+  margin-top: 25%;
+}
+
+.edit-job-screen {
+  margin-top: 25%;
+}
+
+.edit-single-job-button {
+  margin-top: 5%;
+  /* margin-bottom: 10%; */
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* UPLOAD IMAGE */
 .upload-img-input {
   background-color: #fecb63;
@@ -539,9 +570,8 @@ ul.slick-dots {
   box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
   background-position: center;
   cursor: 'pointer';
-
 }
-.out-of-cards > h2{
+.out-of-cards > h2 {
   color: #e09808;
   text-shadow: 0.5px 0px #643c07;
 }
@@ -697,7 +727,7 @@ a {
 .profile-edit-org {
   display: flex;
   flex-flow: column wrap;
-  margin-top: 90px;
+  margin-top: 20%;
   height: inherit;
   color: rgb(82, 81, 81);
   font-size: 17px;
@@ -757,6 +787,16 @@ a {
   border-radius: 20px;
   margin-top: 30px;
   cursor: pointer;
+}
+
+/*EDIT CANDIDATE PROFILE*/
+.profile-edit-candidate {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 40%;
+  height: inherit;
+  color: rgb(82, 81, 81);
+  font-size: 17px;
 }
 
 input[type='file'] {

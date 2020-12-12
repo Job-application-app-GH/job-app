@@ -42,63 +42,70 @@ class EditJob extends React.Component {
   render() {
     const {title, location, description, isRemote} = this.state
     return (
-      <div>
-        <OrgHeader />
-        <h3>Edit Job Details</h3>
-        <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-          <button>Edit job skills</button>
-        </Link>
-        <form onSubmit={this.handleSubmit}>
-          <h5>Title</h5>
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
-            required
-          />
-          <h5>Location</h5>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
-          <h6>Description</h6>
-          <input
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-            required
-          />
-          <h6>Do you hire remote employees?</h6>
-          <FormControl>
-            <FormLabel>
-              <FormLabel />
-              <RadioGroup
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                row
-              >
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
+      <div className="global-screen-box">
+        <div className="edit-job-screen">
+          <OrgHeader />
+          {/* <h3>Edit Job Details</h3> */}
 
-          <button type="submit">Save Changes</button>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <h3>Title</h3>
+            <input
+              type="text"
+              name="title"
+              onChange={this.handleChange}
+              value={title}
+              required
+            />
+            <h3>Location</h3>
+            <input
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
+            <h3>Description</h3>
+            <textarea
+              className="signup-textbox"
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+              required
+            />
+            <h3>Do you hire remote employees?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  row
+                >
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="No"
+                  />
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+            <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+              <button className="edit-single-job-button">
+                Edit job skills
+              </button>
+            </Link>
+            <button className="edit-single-job-button" type="submit">
+              Save Changes
+            </button>
+          </form>
+        </div>
       </div>
     )
   }
