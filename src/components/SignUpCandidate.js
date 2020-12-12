@@ -8,11 +8,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
-import TextField from '@material-ui/core/TextField'
 
-// EXTRA COPY
-
-class SignUpDetails extends React.Component {
+class SignUpCandidate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -105,7 +102,7 @@ class SignUpDetails extends React.Component {
             />
           </div>
 
-          <h3>Are you willing to work remote?</h3>
+          <h3>Interested in Remote Roles?</h3>
           <FormControl>
             <FormLabel>
               <FormLabel />
@@ -139,10 +136,11 @@ class SignUpDetails extends React.Component {
             value={description}
             required
           />
-
-          <button className="signup-details-button" type="submit">
-            Submit
-          </button>
+          <div>
+            <button className="signup-details-button" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     )
@@ -162,4 +160,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(SignUpDetails)
+export default connect(mapState, mapDispatch)(SignUpCandidate)

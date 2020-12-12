@@ -37,21 +37,23 @@ class Skills extends Component {
     return (
       <div className="global-screen-box">
         <FormControl component="fieldset">
-          <FormLabel className='skills-box-container' component="legend">Please select skills</FormLabel>
+          <FormLabel className="skills-box-container" component="legend">
+            <div style={{fontSize: '1.35rem'}}>{this.props.displayName}</div>
+          </FormLabel>
           <div className="skills_list">
             {this.props.skills.map((skill) => (
               <FormControlLabel
                 key={skill.id}
                 control={
                   <Checkbox
-                  style={{color: 'white'}}
+                    style={{color: 'white', transform: 'scale(1.3'}}
                     checked={skill.selected}
                     onChange={(event) => this.handleClick(skill.id, event)}
                     name={skill.name}
                     size="large"
                   />
                 }
-                label={skill.name}
+                label={<span style={{fontSize: '1.3rem'}}>{skill.name}</span>}
               />
             ))}
           </div>
@@ -59,9 +61,10 @@ class Skills extends Component {
           <button
             type="button"
             onClick={this.handleSaveSkills}
-            className='upload-img-button'
+            className="upload-img-button"
+            style={{padding: '15px 80px'}}
           >
-            SAVE SKILLS
+            SUBMIT
           </button>
         </FormControl>
       </div>
@@ -69,8 +72,16 @@ class Skills extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapCandidateStateToProps = (state) => {
   return {
+    displayName: 'Select your skills',
+    skills: state.selectedSkills,
+    user: state.user,
+  }
+}
+const mapJobStateToProps = (state) => {
+  return {
+    displayName: 'Select required skills',
     skills: state.selectedSkills,
     user: state.user,
   }
@@ -93,8 +104,11 @@ const mapJobDispatchToProps = (dispatch) => {
 }
 
 export const CandidateSkills = connect(
-  mapStateToProps,
+  mapCandidateStateToProps,
   mapCandidateDispatchToProps
 )(Skills)
 
-export const JobSkills = connect(mapStateToProps, mapJobDispatchToProps)(Skills)
+export const JobSkills = connect(
+  mapJobStateToProps,
+  mapJobDispatchToProps
+)(Skills)
