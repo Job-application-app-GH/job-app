@@ -37,39 +37,49 @@ class AddNewSkills extends Component {
 
   render() {
     let candidate
+    let formDisplayName = ''
     if (this.props.user.userType === 'CANDIDATE') {
       candidate = 'CANDIDATE'
+      formDisplayName = 'Select your skills'
+    } else {
+      formDisplayName = 'Select required skills'
     }
     return (
-      <div className="skills_container">
+      <div className="global-screen-box">
         {candidate ? <Header /> : <OrgHeader />}
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Please select skills</FormLabel>
-          <div className="skills_list">
-            {this.props.skills.map((skill) => (
-              <FormControlLabel
-                key={skill.id}
-                control={
-                  <Checkbox
-                    checked={skill.selected}
-                    onChange={(event) => this.handleClick(skill.id, event)}
-                    name={skill.name}
-                    size="large"
-                  />
-                }
-                label={skill.name}
-              />
-            ))}
-          </div>
+        <div className="skills_container">
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              <div style={{fontSize: '1.35rem'}}>{formDisplayName}</div>
+            </FormLabel>
+            <div className="skills_list">
+              {this.props.skills.map((skill) => (
+                <FormControlLabel
+                  key={skill.id}
+                  control={
+                    <Checkbox
+                      style={{color: 'white', transform: 'scale(1.3'}}
+                      checked={skill.selected}
+                      onChange={(event) => this.handleClick(skill.id, event)}
+                      name={skill.name}
+                      size="large"
+                    />
+                  }
+                  label={<span style={{fontSize: '1.3rem'}}>{skill.name}</span>}
+                />
+              ))}
+            </div>
 
-          <button
-            type="button"
-            onClick={this.handleSaveSkills}
-            className="skills_button"
-          >
-            Save Skills
-          </button>
-        </FormControl>
+            <button
+              type="button"
+              onClick={this.handleSaveSkills}
+              className="upload-img-button"
+              style={{padding: '15px 80px'}}
+            >
+              SUBMIT
+            </button>
+          </FormControl>
+        </div>
       </div>
     )
   }

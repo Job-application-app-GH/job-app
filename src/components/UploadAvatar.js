@@ -92,9 +92,11 @@ class UploadAvatar extends React.Component {
           step="0.01"
           defaultValue="1"
         />
+        <div />
         <button className="upload-img-button" onClick={this.handleSubmit}>
           SUBMIT
         </button>
+        <div />
         <Link to={`/candidateSkills/${this.props.candidate.id}`}>
           <h3>SKIP</h3>
         </Link>
