@@ -7,7 +7,7 @@ import Signup from './components/Signup'
 import Logout from './components/Logout'
 import ProfileType from './components/ProfileType'
 import SignupOrg from './components/SignupOrg'
-import SignupDetails from './components/SignupDetails'
+import SignUpCandidate from './components/SignUpCandidate'
 import UploadAvatar from './components/UploadAvatar'
 import Onboarding from './components/Onboarding'
 import CandidateMatches from './components/CandidateMatches'
@@ -53,7 +53,7 @@ class Routes extends Component {
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup/type" component={ProfileType} />
-        <Route exact path="/signup/candidate" component={SignupDetails} />
+        <Route exact path="/signup/candidate" component={SignUpCandidate} />
         <Route exact path="/signup/organization" component={SignupOrg} />
         <Route exact path="/signup/organization/job" component={Job} />
         <Route exact path="/profileImage" component={UploadAvatar} />

@@ -465,7 +465,6 @@ ul.slick-dots {
 .cardsPile {
   position: fixed;
   display: flex;
-  margin-right: 40vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
@@ -508,6 +507,7 @@ ul.slick-dots {
   text-shadow: 0.5px 0px #643c07;
 }
 .skills_container {
+  margin-top: 25%;
   padding: 1em;
   align-items: center;
   align-content: center;
