@@ -52,6 +52,16 @@ body.content {
   );
   border-bottom: 2px solid white;
 }
+
+.header-img-icon{ 
+  height: 35px;
+  width: 120px;
+  padding: 20px;
+  }
+  /* Dropdown icon */
+  .MuiButtonBase-root.MuiButton-root.MuiButton-text {
+    padding: 0px;
+  }
 .icons {
   padding: 20px;
 }
@@ -357,9 +367,10 @@ legend.MuiFormLabel-root.skills-box-container {
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
   position: relative;
-  width: 360px;
+  width: 365px;
   padding: 25px;
   margin-top: 2%;
+  height: 80vh;
   background-color: 'seashell';
   font-size: medium;
   color: rgb(34, 33, 32);
@@ -483,6 +494,27 @@ ul.slick-dots {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
+}
+.out-of-cards {
+  position: fixed;
+  display: flex;
+  align-content: center;
+  margin-top: 40%;
+  width: 280px;
+  padding: 25px;
+  height: 30vh;
+  color: rgb(82, 82, 81);
+  background-color: 'seashell';
+  border-radius: 20px;
+  background-size: cover;
+  box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
+  background-position: center;
+  cursor: 'pointer';
+
+}
+.out-of-cards > h2{
+  color: #e09808;
+  text-shadow: 0.5px 0px #643c07;
 }
 .skills_container {
   padding: 1em;
