@@ -438,8 +438,24 @@ ul.slick-dots {
 }
 
 
-
-
+/* LANDING PAGE */
+.landing-page{
+  margin-top: 35%;
+}
+.landing-page-card {
+  display: flex;
+  flex-direction: column;
+  width: 26 0px;
+  padding: 20px;
+  color: rgb(241, 166, 54);
+  border-radius: 20px;
+  background-size: cover;
+  background-color: seashell;
+  box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
+  background-position: center;
+  margin-left: 10%;
+  margin-top: 10%;
+}
 /* CARDS */
 .card {
   position: relative;

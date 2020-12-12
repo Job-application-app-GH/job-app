@@ -23,12 +23,14 @@ class LandingPage extends React.Component {
     //ARCHANA: Check with Mackenzie for candidateId access
     const candidateId = this.props.profile.id
     return (
-      <div>
+      <div className='global-screen-box'>
         <Header />
+        <div className='landing-page'>
         <h2>This is the landing page!</h2>
         <Link to={`/findJobs/${candidateId}`}>
           <button>Get Started</button>
         </Link>
+        </div>
       </div>
     )
   }
