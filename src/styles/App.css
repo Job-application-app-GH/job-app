@@ -245,6 +245,7 @@ a.btn.btn-success {
   width: 310px;
   border-radius: 10px;
   margin-bottom: 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 #add-form-candidate {
   margin-left: -5%;
@@ -278,6 +279,33 @@ a.btn.btn-success {
 .remote-yes-no-org {
   flex-direction: row;
   align-content: flex-start;
+  overflow-wrap: break-word;
+}
+
+/* SIGN UP ORG FORM*/
+#add-form-organization {
+  margin-top: 30px;
+}
+
+.signup-details-button-org {
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
 /* UPLOAD IMAGE */
