@@ -48,7 +48,7 @@ const Header = (props) => {
           aria-haspopup="true"
           onClick={click}
         >
-          <MenuIcon className="icons"  fontSize="large" />
+          <MenuIcon className="icons"  style={{color: 'white'}} fontSize="large" />
         </Button>
         <Menu
           id="simple-menu"
