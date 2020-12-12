@@ -14,6 +14,8 @@ import '../styles/App.css'
 import {fetchAllJobs} from '../store/job'
 import MenuIcon from '@material-ui/icons/Menu'
 import SmsIcon from '@material-ui/icons/Sms'
+import logo from '../styles/header-logo.png'
+import logoFull from '../styles/seekrsm.png'
 
 const OrgHeader = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -68,10 +70,12 @@ const OrgHeader = (props) => {
         </Menu>
       </div>
       <Link to="/organization">
-        <LinkedInIcon
-          className="icons"
+        <img
+          className="header-img-icon"
           style={{color: 'white'}}
           fontSize="large"
+          src ={logoFull}
+          alt=''
         />
       </Link>
       <Link to="/messages">
