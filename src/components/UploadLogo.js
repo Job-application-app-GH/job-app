@@ -56,8 +56,8 @@ class UploadLogo extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="global-screen-box">
+        <div className="upload-img-avatar-container">
           <ReactAvatarEditor
             ref={this.setEditorRef}
             scale={parseFloat(this.state.scale)}
@@ -68,6 +68,7 @@ class UploadLogo extends React.Component {
             rotate={parseFloat(this.state.rotate)}
             borderRadius={this.state.width / (100 / this.state.borderRadius)}
             image={this.state.image}
+            // color={[255, 198, 84, 1]}
             color={[255, 255, 255, 0.6]}
             className="editor-canvas"
           />
@@ -75,10 +76,10 @@ class UploadLogo extends React.Component {
         <br />
         <label className="custom-file-upload">
           <input name="newImage" type="file" onChange={this.handleNewImage} />
-          Choose Photo
+          <h3>Upload Photo</h3>
         </label>
         <br />
-        <h3>Zoom:</h3>
+        <h3 style={{fontWeight: 'lighter'}}>Zoom</h3>
         <input
           name="scale"
           type="range"

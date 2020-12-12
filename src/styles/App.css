@@ -658,10 +658,10 @@ input[type='file'] {
 }
 
 .custom-file-upload {
-  background-color: white;
-  border: 1px solid #ccc;
+  /* background-color: white; */
+  /* border: 1px solid #ccc; */
   display: inline-block;
-  width: 100px;
+  width: 200px;
   padding: 6px 12px;
   cursor: pointer;
 }
