@@ -3,6 +3,7 @@ import axios from 'axios'
 //ACTION TYPES
 const SET_SUGGESTED_CANDIDATES = 'SET_SUGGESTED_CANDIDATES'
 const REMOVE_CANDIDATE = 'REMOVE_CANDIDATE'
+const RESET_LAST_MATCH = 'RESET_LAST_MATCH'
 
 //ACTION CREATORS
 const setSuggestedCandidates = (suggestedCandidates) => ({
@@ -10,9 +11,15 @@ const setSuggestedCandidates = (suggestedCandidates) => ({
   suggestedCandidates,
 })
 
-const removeCandidateFromList = (candidateId) => ({
+const removeCandidateFromList = (candidateId, latestMatch) => ({
   type: REMOVE_CANDIDATE,
   candidateId,
+  latestMatch,
+})
+
+const resetLastMatch = (latestMatch) => ({
+  type: RESET_LAST_MATCH,
+  latestMatch,
 })
 
 //THUNKS
@@ -20,7 +27,6 @@ export const fetchSuggestedCandidates = (jobId) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/matches/job/${jobId}`)
-      // console.log('inside THUNK fetch candidates: ', data)
       dispatch(setSuggestedCandidates(data))
     } catch (error) {
       console.error(error)
@@ -36,24 +42,44 @@ export const sendCandidateMatch = (jobId, candidateId, isLiked) => {
         candidateId: candidateId,
         isLiked: isLiked,
       }
-      await axios.post('/api/matches/job', matchRecord)
-      dispatch(removeCandidateFromList(candidateId))
+      const {data: latestMatch} = await axios.post(
+        '/api/matches/job',
+        matchRecord
+      )
+      dispatch(removeCandidateFromList(candidateId, latestMatch))
     } catch (error) {
       console.error(error)
     }
   }
 }
 
+export const resetLastCandidateMatch = () => {
+  return async (dispatch) => {
+    try {
+      const resetMatch = {isPerfectMatch: false, matchedCandidate: {}}
+      dispatch(resetLastMatch(resetMatch))
+    } catch (error) {}
+  }
+}
+
 //INIT STATE
-const initState = []
+const initState = {
+  list: [],
+  lastMatch: {isPerfectMatch: false, matchedCandidate: {}},
+}
 
 //REDUCER
 export default function candidateMatches(state = initState, action) {
   switch (action.type) {
     case SET_SUGGESTED_CANDIDATES:
-      return action.suggestedCandidates
+      return {...state, list: action.suggestedCandidates}
     case REMOVE_CANDIDATE:
-      return state.filter((candidate) => candidate.id !== action.candidateId)
+      const modifiedList = state.list.filter(
+        (candidate) => candidate.id !== action.candidateId
+      )
+      return {...state, list: modifiedList, lastMatch: action.latestMatch}
+    case RESET_LAST_MATCH:
+      return {...state, lastMatch: action.latestMatch}
     default:
       return state
   }
