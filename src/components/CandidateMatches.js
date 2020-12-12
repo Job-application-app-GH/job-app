@@ -13,7 +13,6 @@ import MatchNotification from './MatchNotification'
 
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(',')
-  // console.log('tope3Skills: ', top3Skills)
   return top3Skills
 }
 
@@ -65,7 +64,6 @@ class CandidateMatches extends React.Component {
   }
 
   render() {
-    console.log('Total matches: ', this.props.suggestedCandidates.length)
     const jobId = this.props.match.params.jobId
     const lastMatch = this.props.lastMatch
     const linkToSearches = `/findCandidates/${jobId}`

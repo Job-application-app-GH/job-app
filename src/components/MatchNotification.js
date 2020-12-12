@@ -9,8 +9,7 @@ function MatchNotification(props) {
     linkToSearches,
     linkToAllMatches,
   } = props
-  console.log('Inside MatchNotification')
-  console.log('linkToMatches: ', linkToSearches)
+
   return (
     <div className="card" style={{backgroundColor: 'seashell'}}>
       <h2>It's a Match! </h2>

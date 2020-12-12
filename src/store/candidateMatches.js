@@ -27,7 +27,6 @@ export const fetchSuggestedCandidates = (jobId) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(`/api/matches/job/${jobId}`)
-      // console.log('inside THUNK fetch candidates: ', data)
       dispatch(setSuggestedCandidates(data))
     } catch (error) {
       console.error(error)
@@ -47,7 +46,6 @@ export const sendCandidateMatch = (jobId, candidateId, isLiked) => {
         '/api/matches/job',
         matchRecord
       )
-      console.log('latestMatch is: ', latestMatch)
       dispatch(removeCandidateFromList(candidateId, latestMatch))
     } catch (error) {
       console.error(error)
@@ -79,7 +77,6 @@ export default function candidateMatches(state = initState, action) {
       const modifiedList = state.list.filter(
         (candidate) => candidate.id !== action.candidateId
       )
-      console.log('last match type inside reducer is: ', action.latestMatch)
       return {...state, list: modifiedList, lastMatch: action.latestMatch}
     case RESET_LAST_MATCH:
       return {...state, lastMatch: action.latestMatch}

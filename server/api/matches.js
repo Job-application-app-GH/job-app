@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const db = require('../db/db')
-const {Match, Candidate} = require('../db/models')
+const {Match, Candidate, Job, Organization} = require('../db/models')
 
 module.exports = router
 
@@ -230,6 +230,8 @@ router.post('/candidate', async (req, res, next) => {
     const reqJobId = req.body.jobId
     const reqCandidateId = req.body.candidateId
     const isLiked = req.body.isLiked
+    let isPerfectMatch = false
+    let matchedJob = {}
 
     const matchFromDB = await Match.findOne({
       where: {
@@ -264,6 +266,15 @@ router.post('/candidate', async (req, res, next) => {
         if (isLiked) {
           //change the Pending status to matched, indicating that both parties swiped right on each other
           matchFromDB.isMatch = 'MATCHED'
+          isPerfectMatch = true
+          matchedJob = await Job.findOne({
+            where: {
+              id: reqJobId,
+            },
+            include: {
+              model: Organization,
+            },
+          })
         } else {
           matchFromDB.isMatch = 'REJECTED_BOTH'
         }
@@ -276,7 +287,9 @@ router.post('/candidate', async (req, res, next) => {
         await matchFromDB.save()
       }
     }
-    res.sendStatus(201)
+    const latestMatch = {isPerfectMatch, matchedJob}
+    // res.sendStatus(201)
+    res.json(latestMatch)
   } catch (e) {
     next(e)
   }
