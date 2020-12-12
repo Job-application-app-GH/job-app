@@ -20,35 +20,40 @@ class SingleJob extends React.Component {
     const job = this.props.job
     const skills = this.props.skills
     return (
-      <div>
-        <OrgHeader />
-        <h3>Job Details</h3>
+      <div className="global-screen-box">
+        <div className="single-job-profile">
+          <OrgHeader />
+          {/* <h3>Job Details</h3> */}
+          <Link to={`/profile/jobs/matches/${job.id}`}>
+            <h2 style={{color: 'white'}}>View matches for this job</h2>
+          </Link>
 
-        <h5>Title: {job.title}</h5>
-        <h5>Location: {job.location}</h5>
-        <h5>Description: {job.description}</h5>
-        {job.isRemote ? (
-          <h5>Hiring remote candidates: yes </h5>
-        ) : (
-          <h5>Hiring remote candidates: no </h5>
-        )}
-        <h5>Skills</h5>
-        {skills
-          ? skills.map((skill) => (
-              <div key={skill.id}>
-                <p>{skill.name}</p>
-              </div>
-            ))
-          : null}
+          <h3>Title: {job.title}</h3>
+          <h3>Location: {job.location}</h3>
+          <h3>Description:</h3>
+          <p> {job.description}</p>
+          {job.isRemote ? (
+            <h3>Hiring remote candidates: yes </h3>
+          ) : (
+            <h3>Hiring remote candidates: no </h3>
+          )}
+          <h3>Skills</h3>
+          {skills
+            ? skills.map((skill) => (
+                <div key={skill.id}>
+                  <h4>{skill.name}</h4>
+                </div>
+              ))
+            : null}
+          <div>
+            <Link to={`/profile/jobs/edit/${job.id}`}>
+              <button className="profile-edit-org-button">Edit</button>
+            </Link>
+          </div>
           <Link to="/profile/jobs">
-          <button>Back to job postings</button>
-        </Link>
-        <Link to={`/profile/jobs/edit/${job.id}`}>
-          <button>Edit</button>
-        </Link>
-        <Link to={`/profile/jobs/matches/${job.id}`}>
-          <button>View matches for this job</button>
-        </Link>
+            <h4 style={{color: 'white'}}>Back to job postings</h4>
+          </Link>
+        </div>
       </div>
     )
   }

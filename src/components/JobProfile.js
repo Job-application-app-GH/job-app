@@ -12,7 +12,6 @@ class JobProfile extends React.Component {
 
   componentDidMount() {
     this.props.loadUserDetails()
-    // this.props.fetchJobs(this.props.profile.id)
   }
 
   sort_by_key(array, key) {
@@ -28,26 +27,28 @@ class JobProfile extends React.Component {
     const jobs = this.sort_by_key(allJobs, 'id')
 
     return (
-      <div >
-        <OrgHeader />
-        <h3>Job Postings :</h3>
-        <Link to="/profile">
-          <button>Back to profile</button>
-        </Link>
-        <Link to="/profile/addJob">
-          <button>Add New Job</button>
-        </Link>
-        {jobs.map((job) => (
-          <div key={job.id} className="job-listing">
-            <h5>---</h5>
-            <Link to={`/profile/jobs/${job.id}`}>
-              <h5> {job.title}</h5>
-              <h5> {job.location}</h5>
-              <h5> {job.description}</h5>
-            </Link>
-            <h5>---</h5>
-          </div>
-        ))}
+      <div className="global-screen-box">
+        <div className="job-profile-listing">
+          <OrgHeader />
+
+          <Link to="/profile/addJob">
+            <button className="add-new-job-button">Add New Job</button>
+          </Link>
+          {jobs.map((job) => (
+            <div key={job.id} className="job-listing">
+              <Link to={`/profile/jobs/${job.id}`}>
+                <button className="job-listing-button">
+                  <h4> {job.title}</h4>
+                  <h4> {job.location}</h4>
+                  {/* <h5> {job.description}</h5> */}
+                </button>
+              </Link>
+            </div>
+          ))}
+          <Link to="/profile">
+            <h3>Back to profile</h3>
+          </Link>
+        </div>
       </div>
     )
   }

@@ -50,60 +50,65 @@ class AddNewJob extends React.Component {
   render() {
     const {title, location, description, isRemote} = this.state
     return (
-      <div>
-        <OrgHeader />
-        <form onSubmit={this.handleSubmit} id="add-form">
-          <h5>Job Title</h5>
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
-            required
-          />
-          <h5>Location</h5>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
-          <h5>Job Description</h5>
-          <textarea
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-            required
-          />
-          <h5> Are you willing to hire remote candidates?</h5>
-          <FormControl>
-            <FormLabel>
-              <FormLabel />
-              <RadioGroup
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                row
-              >
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
-          {/* <Link to="/profile/jobs"> */}
-          <button type="submit">Submit</button>
-          {/* </Link> */}
-        </form>
+      <div className="global-screen-box">
+        <div className="add-new-job">
+          <OrgHeader />
+          <form onSubmit={this.handleSubmit} id="add-form">
+            <h3>Job Title</h3>
+            <input
+              type="text"
+              name="title"
+              onChange={this.handleChange}
+              value={title}
+              required
+            />
+            <h3>Location</h3>
+            <input
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
+            <h3>Job Description</h3>
+            <textarea
+              className="signup-textbox"
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+              required
+            />
+            <h3> Are you willing to hire remote candidates?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  row
+                >
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="No"
+                  />
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+            <div>
+              <button className="signup-details-button" type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

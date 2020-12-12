@@ -49,11 +49,11 @@ class Profile extends React.Component {
         {candidate ? <Header /> : <OrgHeader />}
         <div className="profile-edit-org">
           {candidate ? <h2>User Profile</h2> : <h2>Company Profile</h2>}
-          {candidate ? (
+          {/* {candidate ? (
             <Link to="/profile/editAvatar">
               <button>Edit Profile Photo</button>
             </Link>
-          ) : null}
+          ) : null} */}
 
           <Avatar className="chat_avatar" src={profile.img} />
           <h3>{profile.name}</h3>
@@ -82,7 +82,7 @@ class Profile extends React.Component {
               </h3>
             )}
           </div>
-          {skills
+          {skills && candidate
             ? skills.map((skill) => (
                 <div key={skill.id}>
                   <p>{skill.name}</p>

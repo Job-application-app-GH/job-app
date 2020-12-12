@@ -42,65 +42,68 @@ class EditJob extends React.Component {
   render() {
     const {title, location, description, isRemote} = this.state
     return (
-      <div className='global-screen-box'>
-        <OrgHeader/>
-        <div className='edit-job-form-container'>
-        <form  className="edit-job-form" ondidatnSubmit={this.handleSubmit}>
-          <h3>Title</h3>
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
-            required
-          />
-          <h3>Location</h3>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
-          <h3>Description</h3>
-          <input
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-            required
-          />
-          <h3>Do you hire remote employees?</h3>
-          <FormControl>
-            <FormLabel>
-              <FormLabel />
-              <RadioGroup
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                row
-              >
-              <div className='profile-edit-org-yes-no'>
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-                </div>
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
-        <Link 
-        to={`/profile/jobs/editskills/${this.props.job.id}`}>
-          <button className='profile-edit-org-button'>Edit job skills</button>
-        </Link>
-          <button className='profile-edit-org-button' type="submit">Save Changes</button>
-        </form>
+      <div className="global-screen-box">
+        <OrgHeader />
+        <div className="edit-job-form-container">
+          <form className="edit-job-form" ondidatnSubmit={this.handleSubmit}>
+            <h3>Title</h3>
+            <input
+              type="text"
+              name="title"
+              onChange={this.handleChange}
+              value={title}
+              required
+            />
+            <h3>Location</h3>
+            <input
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
+            <h3>Description</h3>
+            <input
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+              required
+            />
+            <h3>Do you hire remote employees?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  row
+                >
+                  <div className="profile-edit-org-yes-no">
+                    <FormControlLabel
+                      value="true"
+                      control={<Radio />}
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={<Radio />}
+                      label="No"
+                    />
+                  </div>
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+            <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
+              <button className="profile-edit-org-button">
+                Edit job skills
+              </button>
+            </Link>
+            <button className="profile-edit-org-button" type="submit">
+              Save Changes
+            </button>
+          </form>
         </div>
       </div>
     )
