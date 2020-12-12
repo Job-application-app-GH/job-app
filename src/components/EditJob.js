@@ -43,11 +43,9 @@ class EditJob extends React.Component {
     const {title, location, description, isRemote} = this.state
     return (
       <div className="global-screen-box">
-        <div className="edit-job-screen">
-          <OrgHeader />
-          {/* <h3>Edit Job Details</h3> */}
-
-          <form onSubmit={this.handleSubmit}>
+        <OrgHeader />
+        <div className="edit-job-form-container">
+          <form className="edit-job-form" ondidatnSubmit={this.handleSubmit}>
             <h3>Title</h3>
             <input
               type="text"
@@ -65,8 +63,7 @@ class EditJob extends React.Component {
               required
             />
             <h3>Description</h3>
-            <textarea
-              className="signup-textbox"
+            <input
               type="text"
               name="description"
               onChange={this.handleChange}
@@ -83,25 +80,27 @@ class EditJob extends React.Component {
                   value={isRemote}
                   row
                 >
-                  <FormControlLabel
-                    value="true"
-                    control={<Radio />}
-                    label="Yes"
-                  />
-                  <FormControlLabel
-                    value="false"
-                    control={<Radio />}
-                    label="No"
-                  />
+                  <div className="profile-edit-org-yes-no">
+                    <FormControlLabel
+                      value="true"
+                      control={<Radio />}
+                      label="Yes"
+                    />
+                    <FormControlLabel
+                      value="false"
+                      control={<Radio />}
+                      label="No"
+                    />
+                  </div>
                 </RadioGroup>
               </FormLabel>
             </FormControl>
             <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-              <button className="edit-single-job-button">
+              <button className="profile-edit-org-button">
                 Edit job skills
               </button>
             </Link>
-            <button className="edit-single-job-button" type="submit">
+            <button className="profile-edit-org-button" type="submit">
               Save Changes
             </button>
           </form>

@@ -46,7 +46,7 @@ class Skills extends Component {
                 key={skill.id}
                 control={
                   <Checkbox
-                    style={{color: 'white', transform: 'scale(1.3'}}
+                    style={{color: 'white', transform: 'scale(1.3)'}}
                     checked={skill.selected}
                     onChange={(event) => this.handleClick(skill.id, event)}
                     name={skill.name}
