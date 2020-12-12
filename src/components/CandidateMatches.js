@@ -9,8 +9,7 @@ import {connect} from 'react-redux'
 import ReactCardFlip from 'react-card-flip'
 import OrgHeader from './OrgHeader'
 import Avatar from '@material-ui/core/Avatar'
-
-import Popup from 'reactjs-popup'
+import MatchNotification from './MatchNotification'
 
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(',')
@@ -66,93 +65,82 @@ class CandidateMatches extends React.Component {
   }
 
   render() {
-    // console.log(
-    //   'Inside render of CandidateMatches, total cards: ',
-    //   this.props.suggestedCandidates.length
-    // )
-    //
-    // if (true) {
-    //   console.log('Inside render return')
-    //   return (
-    //     <Popup
-    //       trigger={(open) => (
-    //         <button className="button">
-    //           Trigger - {open ? 'Opened' : 'Closed'}
-    //         </button>
-    //       )}
-    //       position="right center"
-    //       closeOnDocumentClick
-    //     >
-    //       <span> Popup content </span>
-    //     </Popup>
-    //   )
-    // }
-
-    const lastMatch = this.props.lastMatch
-    if (lastMatch.isPerfectMatch) {
-      if (
-        window.confirm(
-          `Candidate ${lastMatch.matchedCandidate.name} Matched with ${this.props.organization.name}`
-        )
-      ) {
-        this.resetLastMatch()
-      }
-    }
+    console.log('Total matches: ', this.props.suggestedCandidates.length)
     const jobId = this.props.match.params.jobId
+    const lastMatch = this.props.lastMatch
+    const linkToSearches = `/findCandidates/${jobId}`
+    const linkToAllMatches = `/profile/jobs/matches/${jobId}`
+    const totalMatches = this.props.suggestedCandidates.length
     return (
-      <div >
+      <div>
         <OrgHeader />
         <div className="cardsPile">
-          {this.props.suggestedCandidates.map((candidate) => (
-            <div key={candidate.name}>
-              <TinderCard
-                className="swipe"
-                preventSwipe={['up', 'down']}
-                onSwipe={(direction) =>
-                  this.onSwipe(jobId, candidate.id, direction)
-                }
-              >
-                <ReactCardFlip
-                  key={candidate.id}
-                  isFlipped={this.state.isFlipped}
-                  flipDirection="vertical"
+          {lastMatch.isPerfectMatch && (
+            <MatchNotification
+              candidate={lastMatch.matchedCandidate}
+              organization={this.props.organization}
+              handleClose={this.resetLastMatch}
+              linkToSearches={linkToSearches}
+              linkToAllMatches={linkToAllMatches}
+            />
+          )}
+          {!lastMatch.isPerfectMatch &&
+            totalMatches &&
+            this.props.suggestedCandidates.map((candidate) => (
+              <div key={candidate.name}>
+                <TinderCard
+                  className="swipe"
+                  preventSwipe={['up', 'down']}
+                  onSwipe={(direction) =>
+                    this.onSwipe(jobId, candidate.id, direction)
+                  }
                 >
-                  <div
+                  <ReactCardFlip
                     key={candidate.id}
-                    className="card"
-                    onClick={this.handleClick}
-                    onTouchStart={this.handleTouchStart}
-                    style={{backgroundColor: 'seashell'}}
+                    isFlipped={this.state.isFlipped}
+                    flipDirection="vertical"
                   >
-                    {/* THIS IS FRONT SIDE OF THE CARD */}
-                    <Avatar className="chat_avatar" src={candidate.img} />
-                    <h3>{candidate.name}</h3>
-                    <h3>Current role: {candidate.currentRole}</h3>
-                    <h3>Works at: {candidate.currentCompany}</h3>
-                    <h3> Skills:</h3>
-                    <h3>{getTop3Skills(candidate.skills)}</h3>
-                  </div>
+                    <div
+                      key={candidate.id}
+                      className="card"
+                      onClick={this.handleClick}
+                      onTouchStart={this.handleTouchStart}
+                      style={{backgroundColor: 'seashell'}}
+                    >
+                      {/* THIS IS FRONT SIDE OF THE CARD */}
+                      <Avatar className="chat_avatar" src={candidate.img} />
+                      <h3>{candidate.name}</h3>
+                      <h3>Current role: {candidate.currentRole}</h3>
+                      <h3>Works at: {candidate.currentCompany}</h3>
+                      <h3> Skills:</h3>
+                      <h3>{getTop3Skills(candidate.skills)}</h3>
+                    </div>
 
-                  <div
-                    key={candidate.id}
-                    className="card"
-                    onClick={this.handleClick}
-                    onTouchStart={this.handleTouchStart}
-                    style={{backgroundColor: 'seashell'}}
-                  >
-                    {/* THIS IS BACK SIDE OF THE CARD */}
-                    <h3>{candidate.name}</h3>
-                    <h3>Location: {candidate.location}</h3>
-                    <h3>About me: {candidate.description}</h3>
-                    <h3> Skills: </h3>
-                    {candidate.skills.map((skill, index) => (
-                      <div key={index}>{skill}</div>
-                    ))}
-                  </div>
-                </ReactCardFlip>
-              </TinderCard>
+                    <div
+                      key={candidate.id}
+                      className="card"
+                      onClick={this.handleClick}
+                      onTouchStart={this.handleTouchStart}
+                      style={{backgroundColor: 'seashell'}}
+                    >
+                      {/* THIS IS BACK SIDE OF THE CARD */}
+                      <h3>{candidate.name}</h3>
+                      <h3>Location: {candidate.location}</h3>
+                      <h3>About me: {candidate.description}</h3>
+                      <h3> Skills: </h3>
+                      {candidate.skills.map((skill, index) => (
+                        <div key={index}>{skill}</div>
+                      ))}
+                    </div>
+                  </ReactCardFlip>
+                </TinderCard>
+              </div>
+            ))}
+          {!lastMatch.isPerfectMatch && !totalMatches && (
+            <div>
+              <h2>Come back later for more Matches </h2>
             </div>
-          ))}
+          )}
         </div>
       </div>
     )
