@@ -74,7 +74,7 @@ class JobMatches extends React.Component {
 
     return (
       <div className="global-screen-box">
-        <Header stile={{color: 'white'}} />
+        <Header style={{color: 'white'}} />
         <div className="cardsPile">
           {lastMatch.isPerfectMatch && (
             <MatchNotification
