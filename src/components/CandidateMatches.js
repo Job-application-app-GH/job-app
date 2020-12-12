@@ -12,7 +12,7 @@ import Avatar from '@material-ui/core/Avatar'
 import MatchNotification from './MatchNotification'
 
 function getTop3Skills(skillSet) {
-  let top3Skills = skillSet.slice(0, 3).join(',')
+  let top3Skills = skillSet.slice(0, 3).join(' • ')
   return top3Skills
 }
 
@@ -70,7 +70,7 @@ class CandidateMatches extends React.Component {
     const linkToAllMatches = `/profile/jobs/matches/${jobId}`
     const totalMatches = this.props.suggestedCandidates.length
     return (
-      <div>
+      <div className="global-screen-box">
         <OrgHeader />
         <div className="cardsPile">
           {lastMatch.isPerfectMatch && (
@@ -107,11 +107,11 @@ class CandidateMatches extends React.Component {
                     >
                       {/* THIS IS FRONT SIDE OF THE CARD */}
                       <Avatar className="chat_avatar" src={candidate.img} />
-                      <h3>{candidate.name}</h3>
+                      <h2>{candidate.name}</h2>
                       <h3>Current role: {candidate.currentRole}</h3>
                       <h3>Works at: {candidate.currentCompany}</h3>
-                      <h3> Skills:</h3>
-                      <h3>{getTop3Skills(candidate.skills)}</h3>
+                      <h2> Skills:</h2>
+                      <h4>{getTop3Skills(candidate.skills)}</h4>
                     </div>
 
                     <div
@@ -122,10 +122,10 @@ class CandidateMatches extends React.Component {
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
-                      <h3>{candidate.name}</h3>
+                      <h2>{candidate.name}</h2>
                       <h3>Location: {candidate.location}</h3>
                       <h3>About me: {candidate.description}</h3>
-                      <h3> Skills: </h3>
+                      <h2> Skills: </h2>
                       {candidate.skills.map((skill, index) => (
                         <div key={index}>{skill}</div>
                       ))}
@@ -135,7 +135,8 @@ class CandidateMatches extends React.Component {
               </div>
             ))}
           {!lastMatch.isPerfectMatch && !totalMatches && (
-            <div>
+            <div className='out-of-cards'
+            style={{backgroundColor: 'seashell'}}>
               <h2>Come back later for more Matches </h2>
             </div>
           )}

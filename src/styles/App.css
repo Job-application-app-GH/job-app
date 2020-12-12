@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 /* EXTRA COPY */
 body.content {
   background-image: linear-gradient(
@@ -50,6 +51,16 @@ body.content {
   );
   border-bottom: 2px solid white;
 }
+
+.header-img-icon{ 
+  height: 35px;
+  width: 120px;
+  padding: 20px;
+  }
+  /* Dropdown icon */
+  .MuiButtonBase-root.MuiButton-root.MuiButton-text {
+    padding: 0px;
+  }
 .icons {
   padding: 20px;
 }
@@ -83,6 +94,7 @@ body.content {
   align-self: center;
   width: 20em;
 }
+
 /*  LOGIN PAGE */
 .form {
   margin-top: 70%;
@@ -245,10 +257,12 @@ a.btn.btn-success {
   width: 310px;
   border-radius: 10px;
   margin-bottom: 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 #add-form-candidate {
   margin-left: -5%;
 }
+
 .MuiFormLabel-root {
   margin-top: 20px;
 }
@@ -278,6 +292,39 @@ a.btn.btn-success {
 .remote-yes-no-org {
   flex-direction: row;
   align-content: flex-start;
+  overflow-wrap: break-word;
+}
+
+/* SIGN UP ORG FORM*/
+#add-form-organization {
+  margin-top: 30px;
+}
+
+.signup-details-button-org {
+  font-size: 21px;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* ADD JOB FORM*/
+#add-job {
+  margin-top: 25px;
+  overflow-wrap: break-word;
 }
 
 /* UPLOAD IMAGE */
@@ -304,6 +351,7 @@ a.btn.btn-success {
   font-weight: 700;
   cursor: pointer;
 }
+
 /* PUT IN SILLS - CANDIDATE */
 
 legend.MuiFormLabel-root.skills-box-container {
@@ -313,9 +361,10 @@ legend.MuiFormLabel-root.skills-box-container {
 /* ONBOARDING SCREENS */
 .slick-slider.slider.slick-initialized {
   position: relative;
-  width: 360px;
+  width: 365px;
   padding: 25px;
   margin-top: 2%;
+  height: 80vh;
   background-color: 'seashell';
   font-size: medium;
   color: rgb(34, 33, 32);
@@ -381,6 +430,7 @@ ul.slick-dots {
   margin-bottom: 5px;
   margin-top: -10px;
 }
+
 /* CARDS */
 .card {
   position: relative;
@@ -435,6 +485,27 @@ ul.slick-dots {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
+}
+.out-of-cards {
+  position: fixed;
+  display: flex;
+  align-content: center;
+  margin-top: 40%;
+  width: 280px;
+  padding: 25px;
+  height: 30vh;
+  color: rgb(82, 82, 81);
+  background-color: 'seashell';
+  border-radius: 20px;
+  background-size: cover;
+  box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
+  background-position: center;
+  cursor: 'pointer';
+
+}
+.out-of-cards > h2{
+  color: #e09808;
+  text-shadow: 0.5px 0px #643c07;
 }
 .skills_container {
   margin-top: 25%;
@@ -573,8 +644,13 @@ a {
 .chat_time {
   color: gray;
 }
+.MuiAvatar-root.MuiAvatar-circle.chat_avatar {
+  width: 80px;
+  height: 80px;
+}
 .chat_avatar {
   display: block;
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -612,11 +688,37 @@ a {
   transition: 0.5s;
   color: #fff;
   border-radius: 20px;
-  margin-top: 20%;
+  /* margin-top: 20%; */
   cursor: pointer;
 }
 .profile-edit-org-button:hover {
   background-position: 100% 0%;
+}
+
+/* EDIT ORG PROFILE*/
+.edit-org-profile {
+  margin-top: 100px;
+}
+
+.edit-org-button-save-changes {
+  font-size: 21px;
+  font-weight: bolder;
+  padding: 10px 80px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 input[type='file'] {
@@ -624,25 +726,42 @@ input[type='file'] {
 }
 
 .custom-file-upload {
-  background-color: white;
-  border: 1px solid #ccc;
+  /* background-color: white; */
+  /* border: 1px solid #ccc; */
   display: inline-block;
-  width: 100px;
+  width: 200px;
   padding: 6px 12px;
   cursor: pointer;
 }
-
+.match-card {
+  position: fixed;
+  width: 280px;
+  padding: 25px;
+  height: 60vh;
+  color: rgb(82, 82, 81);
+  border-radius: 20px;
+  margin-bottom: 90px;
+  background-size: cover;
+  box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
+  background-position: center;
+  cursor: 'pointer';
+  align-content: center;
+}
 .match-img {
   align-self: center;
-  margin-left: -30px;
-  max-width: 100px;
+  margin-top: 40px;
+  margin-left: -90px;
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  border-color: rgb(101, 116, 250);
 }
 
 .match-button {
   margin-right: 5px;
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px 10px;
+  margin-bottom: 5px;
+  padding: 15px 40px;
   border: 0px;
   box-shadow: 2px solid gray;
   background-image: linear-gradient(
@@ -658,4 +777,20 @@ input[type='file'] {
   border-radius: 20px;
   font-weight: 700;
   cursor: pointer;
+}
+.match-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.match-imgs {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  margin-right: 30px;
+}
+.match-imgs > h3 {
+  margin-left: 50px;
+  margin-top: 0px;
 }

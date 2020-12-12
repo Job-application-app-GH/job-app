@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import OrgHeader from './OrgHeader'
 import {Link} from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar'
 
 class EditProfileOrg extends React.Component {
   constructor(props) {
@@ -37,55 +38,64 @@ class EditProfileOrg extends React.Component {
     this.props.history.goBack()
   }
   render() {
+    const profile = this.props.profile
     const {location, description, isRemote} = this.state
     return (
-      <div>
+      <div className="global-screen-box">
         <OrgHeader />
-        <h3>Edit Profile</h3>
-
-        <h4>{this.props.profile.name}</h4>
-        <form onSubmit={this.handleSubmit}>
-          <h6>Location:</h6>
-          <input
-            type="text"
-            name="location"
-            onChange={this.handleChange}
-            value={location}
-            required
-          />
-          <h6>Description:</h6>
-          <input
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-            required
-          />
-          <h6> Do you hire remote employees?</h6>
-          <FormControl>
-            <FormLabel>
-              <FormLabel />
-              <RadioGroup
-                name="isRemote"
-                onChange={this.handleChange}
-                value={isRemote}
-                row
-              >
-                <FormControlLabel
-                  value="true"
-                  control={<Radio />}
-                  label="Yes"
-                />
-                <FormControlLabel
-                  value="false"
-                  control={<Radio />}
-                  label="No"
-                />
-              </RadioGroup>
-            </FormLabel>
-          </FormControl>
-          <button type="submit">Save Changes</button>
-        </form>
+        <div className="edit-org-profile">
+          {/* <h2>Edit Profile</h2> */}
+          <Avatar className="chat_avatar" src={profile.img} />
+          <Link to="/profile/editAvatar">
+            <h3>Edit Logo</h3>
+          </Link>
+          {/* <h3>{this.props.profile.name}</h3> */}
+          <form onSubmit={this.handleSubmit}>
+            <h3>Location:</h3>
+            <input
+              type="text"
+              name="location"
+              onChange={this.handleChange}
+              value={location}
+              required
+            />
+            <h3>Description:</h3>
+            <textarea
+              className="signup-textbox"
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+              required
+            />
+            <h3> Are you willing to hire remote employees?</h3>
+            <FormControl>
+              <FormLabel>
+                <FormLabel />
+                <RadioGroup
+                  name="isRemote"
+                  onChange={this.handleChange}
+                  value={isRemote}
+                  row
+                >
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="No"
+                  />
+                </RadioGroup>
+              </FormLabel>
+            </FormControl>
+            <button className="edit-org-button-save-changes" type="submit">
+              Save Changes
+            </button>
+          </form>
+        </div>
       </div>
     )
   }

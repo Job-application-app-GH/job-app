@@ -14,6 +14,8 @@ import '../styles/App.css'
 import {fetchAllJobs} from '../store/job'
 import MenuIcon from '@material-ui/icons/Menu'
 import SmsIcon from '@material-ui/icons/Sms'
+import logo from '../styles/header-logo.png'
+import logoFull from '../styles/seekrsm.png'
 
 const Header = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -48,7 +50,7 @@ const Header = (props) => {
           aria-haspopup="true"
           onClick={click}
         >
-          <MenuIcon className="icons"  fontSize="large" />
+          <MenuIcon className="icons"  style={{color: 'white'}} fontSize="large" />
         </Button>
         <Menu
           id="simple-menu"
@@ -71,8 +73,14 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to={`/findJobs/${candidate.id}`}>
-        <LinkedInIcon className="icons" fontSize="large" />
+      <Link to="/organization">
+        <img
+          className="header-img-icon"
+          style={{color: 'white'}}
+          fontSize="large"
+          src ={logoFull}
+          alt=''
+        />
       </Link>
       <Link to="/messages">
         <SmsIcon className="icons" fontSize="large" />

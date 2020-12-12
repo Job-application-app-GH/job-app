@@ -74,7 +74,7 @@ class JobMatches extends React.Component {
 
     return (
       <div className="global-screen-box">
-        <Header stile={{color: 'white'}} />
+        <Header style={{color: 'white'}} />
         <div className="cardsPile">
           {lastMatch.isPerfectMatch && (
             <MatchNotification
@@ -138,13 +138,17 @@ class JobMatches extends React.Component {
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
+                
               </div>
             ))}
+            
           {!lastMatch.isPerfectMatch && !totalMatches && (
-            <div>
+            <div className='out-of-cards'
+            style={{backgroundColor: 'seashell'}}>
               <h2>Come back later for more Matches </h2>
-            </div>
+              </div>
           )}
+          
         </div>
       </div>
     )

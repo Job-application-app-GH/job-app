@@ -18,7 +18,9 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     await this.props.loadUserDetails()
-    await this.props.loadCandidateSkills(this.props.profile.id)
+    if (this.props.user.userType === 'CANDIDATE') {
+      await this.props.loadCandidateSkills(this.props.profile.id)
+    }
   }
 
   displayForm() {
@@ -41,6 +43,7 @@ class Profile extends React.Component {
     } else if (user.userType === 'ORGANIZATION') {
       link = '/profile/editOrg'
     }
+    console.log('skills->', skills)
     return (
       <div className="global-screen-box">
         {candidate ? <Header /> : <OrgHeader />}
@@ -50,11 +53,7 @@ class Profile extends React.Component {
             <Link to="/profile/editAvatar">
               <button>Edit Profile Photo</button>
             </Link>
-          ) : (
-            <Link to="/profile/editAvatar">
-              <button>Edit Logo</button>
-            </Link>
-          )}
+          ) : null}
 
           <Avatar className="chat_avatar" src={profile.img} />
           <h3>{profile.name}</h3>
@@ -66,27 +65,30 @@ class Profile extends React.Component {
             <h3>Current Role: {profile.currentRole}</h3>
           ) : null}
           <h3>Description: {profile.description}</h3>
-          {candidate ? (
-            <h3>
-              Are you willing to work remote:
-              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
-            </h3>
-          ) : (
-            <h3>
-              Are you willing to hire remote candidates:
-              {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
-            </h3>
-          )}
-          {/* {profile.isRemote ? (
-            <div className="profile-edit-org">
-              <h3>True</h3>
-            </div>
-          ) : (
-            <div>
-              <h3>False</h3>
-            </div>
-          )} */}
-
+          <div className="profile-remote">
+            {candidate ? (
+              <h3 className="profile-remote-question">
+                Are you willing to work remote:
+                {profile.isRemote ? (
+                  <h3 className="profile-remote-question.first-child">Yes</h3>
+                ) : (
+                  <h3>No</h3>
+                )}
+              </h3>
+            ) : (
+              <h3>
+                Are you willing to hire remote candidates:
+                {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
+              </h3>
+            )}
+          </div>
+          {skills
+            ? skills.map((skill) => (
+                <div key={skill.id}>
+                  <p>{skill.name}</p>
+                </div>
+              ))
+            : null}
           <Link to={link}>
             <button
               className="profile-edit-org-button"
@@ -95,21 +97,6 @@ class Profile extends React.Component {
               EDIT
             </button>
           </Link>
-
-          {skills
-            ? // <div>
-              // <h5>Skills:</h5>
-              // </div>
-              skills.map((skill) => (
-                <div key={skill.id}>
-                  <p>{skill.name}</p>
-                </div>
-              ))
-            : null}
-
-          {/* <Link to={link}>
-            <button onClick={this.displayForm}>Edit my profile</button>
-          </Link> */}
         </div>
       </div>
     )

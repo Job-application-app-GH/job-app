@@ -38,8 +38,9 @@ class JobMatchCandidateProfile extends React.Component {
     const skills = this.props.skillsList
     console.log('email->', candidateEmail)
     return (
-      <div>
+          <div className='global-screen-box'>
         <OrgHeader />
+    
         <h3>Want to reach out? </h3>
         {candidateEmail ? (
           <button>
@@ -74,7 +75,7 @@ class JobMatchCandidateProfile extends React.Component {
             ))
           : null}
 
-        <button onClick={this.goBack}>Return to all matches</button>
+        <button onClick={this.goBack}>BACK TO MATCHES</button>
       </div>
     )
   }
