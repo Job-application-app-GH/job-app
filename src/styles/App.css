@@ -250,6 +250,7 @@ a.btn.btn-success {
 #add-form-candidate {
   margin-left: -5%;
 }
+
 .MuiFormLabel-root {
   margin-top: 20px;
 }
@@ -306,6 +307,12 @@ a.btn.btn-success {
   font-weight: 700;
   cursor: pointer;
   margin-top: 15px;
+}
+
+/* ADD JOB FORM*/
+#add-job {
+  margin-top: 25px;
+  overflow-wrap: break-word;
 }
 
 /* UPLOAD IMAGE */
