@@ -68,7 +68,7 @@ class SingleJob extends React.Component {
             </Link>
           </div>
           <Link to="/profile/jobs">
-            <h4 style={{color: 'white'}}>Back to job postings</h4>
+            <h4>Back to job postings</h4>
           </Link>
         </div>
       </div>

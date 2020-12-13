@@ -1,6 +1,7 @@
 import React from 'react'
 import {fetchCandidateProfile} from '../store/profile'
 import {fetchCandidateSkills} from '../store/skillsList'
+import {fetchJobMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
@@ -36,17 +37,15 @@ class JobMatchCandidateProfile extends React.Component {
     // const candidateEmail = profile.user.email || ''
     const candidateEmail = ((profile || {}).user || {}).email
     const skills = this.props.skillsList
+    console.log('props', this.props)
     console.log('email->', candidateEmail)
     return (
       <div className="global-screen-box">
         <OrgHeader />
         <div className="profile-matches-container">
-          <h3>Want to reach out? </h3>
           {candidateEmail ? (
-            <button className="profile-edit-org-button">
-              <a href={'mailto:' + candidateEmail}>
-                Send {profile.name} an email
-              </a>
+            <button className="match-profile-back-button">
+              <a href={'mailto:' + candidateEmail}>Want to reach out?</a>
             </button>
           ) : null}
           <div className="view-profile">
@@ -77,8 +76,12 @@ class JobMatchCandidateProfile extends React.Component {
                 ))
               : null}
           </div>
-          <button className="match-profile-back-button" onClick={this.goBack}>
-            BACK TO MATCHES
+          <button
+            style={{backgroundColor: 'none'}}
+            className="match-profile-back-button"
+            onClick={this.goBack}
+          >
+            Back
           </button>
         </div>
       </div>
@@ -91,6 +94,7 @@ const mapState = (state) => {
     profile: state.profile,
     user: state.user,
     skillsList: state.skillsList,
+    job: state.job,
   }
 }
 
