@@ -832,7 +832,7 @@ a {
 
 /* EDIT ORG PROFILE*/
 .edit-org-profile {
-  margin-top: 100px;
+  margin-top: 30%;
 }
 
 .edit-org-button-save-changes {
@@ -876,7 +876,7 @@ a {
   margin-right: auto;
   margin-left: auto;
   padding: 0 20px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   border: 2px solid white;
   height: 375px;
   width: 300px;
