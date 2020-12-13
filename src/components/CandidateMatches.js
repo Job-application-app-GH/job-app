@@ -126,17 +126,18 @@ class CandidateMatches extends React.Component {
                       <h3>Location: {candidate.location}</h3>
                       <h3>About me: {candidate.description}</h3>
                       <h2> Skills: </h2>
-                      {candidate.skills.map((skill, index) => (
-                        <div key={index}>{skill}</div>
-                      ))}
+                      <div className="card-skill-box">
+                        {candidate.skills.map((skill, index) => (
+                          <div key={index}>{skill}</div>
+                        ))}
+                      </div>
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
               </div>
             ))}
           {!lastMatch.isPerfectMatch && !totalMatches && (
-            <div className='out-of-cards'
-            style={{backgroundColor: 'seashell'}}>
+            <div className="out-of-cards" style={{backgroundColor: 'seashell'}}>
               <h2>Come back later for more Matches </h2>
             </div>
           )}

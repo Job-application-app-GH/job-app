@@ -8,10 +8,10 @@ function SingleChat({name, message, image, timestamp}) {
     <div className="chat">
       <Avatar className="chat_avatar" src={image} />
       <div className="chat_det">
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <p>{message}</p>
       </div>
-      <p className="chat_time">{timestamp}</p>
+      <h5 className="chat_time">{timestamp}</h5>
     </div>
     </Link>
   )

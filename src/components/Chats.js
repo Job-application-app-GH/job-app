@@ -10,9 +10,9 @@ const Chats = (props) => {
     candidate = 'CANDIDATE'
   }
   return (
-    <div>
+    <div className='global-screen-box'>
       {candidate ? <Header /> : <OrgHeader />}
-       
+       <div className='messages-container'>
       <SingleChat
         name ="Google"
         message ="Hello Archana! Your resume looks.."
@@ -21,16 +21,17 @@ const Chats = (props) => {
       />
       <SingleChat
         name ="Amazon"
-        message ="Wonderful! Your interview is scheduled.."
+        message ="Wonderful! Your interview.."
         image ="https://image.shutterstock.com/image-photo/montreal-canada-february-28-2017-260nw-590095607.jpg"
         timestamp ="30 min ago"
       />
       <SingleChat
         name ="Bloomberg"
-        message ="We have noticed you applied for.."
+        message ="We noticed you applied for.."
         image ="https://media.glassdoor.com/sqll/3096/bloomberg-l-p-squarelogo-1485356219895.png"
         timestamp ="2 days ago"
       />
+    </div>
     </div>
   )
 }
