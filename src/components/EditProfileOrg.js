@@ -99,10 +99,7 @@ class EditProfileOrg extends React.Component {
                     value={isRemote}
                     row
                   >
-                    <div
-                      className="profile-edit-org-yes-no"
-                      style={{marginLeft: '60px'}}
-                    >
+                    <div className="profile-edit-org-yes-no">
                       <FormControlLabel
                         value="true"
                         control={<Radio />}
