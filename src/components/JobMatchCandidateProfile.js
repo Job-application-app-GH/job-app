@@ -54,16 +54,18 @@ class JobMatchCandidateProfile extends React.Component {
 
           <h3>Location: {profile.location}</h3>
           {profile.currentCompany ? (
-            <h3>Current Company: {profile.currentCompany}</h3>
+            <h3>
+              Current Role: {profile.currentCompany} @ {profile.currentRole}
+            </h3>
           ) : null}
-          {profile.currentRole ? (
+          {/* {profile.currentRole ? (
             <h3>Current Role: {profile.currentRole}</h3>
-          ) : null}
-          <h3>Description: {profile.description}</h3>
+          ) : null} */}
+          <h3>Bio: {profile.description}</h3>
           {profile.isRemote ? (
-            <h3>Willing to hire remote candidates: True</h3>
+            <h3>Is willing to work remote</h3>
           ) : (
-            <h3>Willing to hire remote candidates: False</h3>
+            <h3>Is not willing to work remote</h3>
           )}
           <h3>Skills</h3>
           {skills
@@ -75,9 +77,7 @@ class JobMatchCandidateProfile extends React.Component {
               ))
             : null}
 
-          <button style={{backgroundColor: 'white'}} onClick={this.goBack}>
-            BACK TO MATCHES
-          </button>
+          <button onClick={this.goBack}>BACK TO MATCHES</button>
         </div>
       </div>
     )
