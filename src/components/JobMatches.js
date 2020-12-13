@@ -21,6 +21,7 @@ class JobMatches extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      isLoading: true,
       isFlipped: false,
     }
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
@@ -29,10 +30,11 @@ class JobMatches extends React.Component {
     this.resetLastMatch = this.resetLastMatch.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const candidateId = this.props.match.params.candidateId
     this.props.loadCandidate()
-    this.props.getSuggestedJobs(candidateId)
+    await this.props.getSuggestedJobs(candidateId)
+    this.setState({isLoading: false})
   }
 
   handleTouchEnd(e) {
@@ -67,6 +69,19 @@ class JobMatches extends React.Component {
   }
 
   render() {
+    //If matches are loading, just return "Loading" message on screen.
+    if (this.state.isLoading) {
+      return (
+        <div className="global-screen-box">
+          <Header style={{color: 'white'}} />
+          <div>
+            <h2 style={{color: 'white', marginTop: '200px'}}>
+              Loading matches ....{' '}
+            </h2>
+          </div>
+        </div>
+      )
+    }
     const candidateId = this.props.match.params.candidateId
     const lastMatch = this.props.lastMatch
     const linkToSearches = `/findJobs/${candidateId}`
