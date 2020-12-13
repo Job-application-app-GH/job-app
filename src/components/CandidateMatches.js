@@ -66,8 +66,8 @@ class CandidateMatches extends React.Component {
   }
 
   render() {
+    //If matches are loading, just return "Loading" message on screen.
     if (this.state.isLoading) {
-      console.log('Is loading ? : ', this.state.isLoading)
       return (
         <div className="global-screen-box">
           <OrgHeader />
