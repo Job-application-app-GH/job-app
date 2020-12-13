@@ -68,7 +68,7 @@ class CandidateMatchJobProfile extends React.Component {
               ))
             : null}
 
-          <button className="profile-edit-org-button" onClick={this.goBack}>
+          <button className="match-profile-back-button" onClick={this.goBack}>
             Return to all matches
           </button>
         </div>
