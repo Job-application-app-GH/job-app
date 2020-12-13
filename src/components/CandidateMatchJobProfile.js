@@ -4,6 +4,7 @@ import {fetchJobSkills} from '../store/skillsList'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
+import Avatar from '@material-ui/core/Avatar'
 
 class CandidateMatchJobProfile extends React.Component {
   constructor(props) {
@@ -37,34 +38,40 @@ class CandidateMatchJobProfile extends React.Component {
     const organizationName = ((profile || {}).organization || {}).name
 
     return (
-      <div>
+      <div className="global-screen-box">
         <Header />
-        <h2>{organizationName}</h2>
-        <h3>{profile.title}</h3>
-        <h6>Location: {profile.location}</h6>
-        {profile.currentCompany ? (
-          <h6>Current Company: {profile.currentCompany}</h6>
-        ) : null}
-        {profile.currentRole ? (
-          <h6>Current Role: {profile.currentRole}</h6>
-        ) : null}
-        <p>Description: {profile.description}</p>
-        {profile.isRemote ? (
-          <h6>Willing to hire remote candidates: True</h6>
-        ) : (
-          <h6>Willing to hire remote candidates: False</h6>
-        )}
 
-        {skills
-          ? // <h5>Skills:</h5>
-            skills.map((skill) => (
-              <div key={skill.id}>
-                <p>{skill.name}</p>
-              </div>
-            ))
-          : null}
+        <div className="profile-matches-container">
+          <Avatar className="chat_avatar" src={profile.img} />
+          <h2>{organizationName}</h2>
+          <h3>{profile.title}</h3>
+          <h3>Location: {profile.location}</h3>
+          {profile.currentCompany ? (
+            <h3>Current Company: {profile.currentCompany}</h3>
+          ) : null}
+          {profile.currentRole ? (
+            <h3>Current Role: {profile.currentRole}</h3>
+          ) : null}
+          <h3>Description: {profile.description}</h3>
+          {profile.isRemote ? (
+            <h3>Willing to hire remote candidates: True</h3>
+          ) : (
+            <h3>Willing to hire remote candidates: False</h3>
+          )}
 
-        <button onClick={this.goBack}>Return to all matches</button>
+          {skills
+            ? // <h5>Skills:</h5>
+              skills.map((skill) => (
+                <div key={skill.id}>
+                  <p>{skill.name}</p>
+                </div>
+              ))
+            : null}
+
+          <button className="profile-edit-org-button" onClick={this.goBack}>
+            Return to all matches
+          </button>
+        </div>
       </div>
     )
   }
