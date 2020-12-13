@@ -22,7 +22,7 @@ class CandidateMatches extends React.Component {
     this.state = {
       isFlipped: false,
     }
-    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.onSwipe = this.onSwipe.bind(this)
     this.resetLastMatch = this.resetLastMatch.bind(this)
@@ -33,7 +33,7 @@ class CandidateMatches extends React.Component {
     this.props.getSuggestedCandidates(jobId)
   }
 
-  handleTouchStart(e) {
+  handleTouchEnd(e) {
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
@@ -72,7 +72,7 @@ class CandidateMatches extends React.Component {
     return (
       <div className="global-screen-box">
         <OrgHeader />
-        <div className="cardsPile">
+        <div className="cardsPile" style={{color: '#ffc654'}}>
           {lastMatch.isPerfectMatch && (
             <MatchNotification
               candidate={lastMatch.matchedCandidate}
@@ -101,8 +101,7 @@ class CandidateMatches extends React.Component {
                     <div
                       key={candidate.id}
                       className="card"
-                      onClick={this.handleClick}
-                      onTouchStart={this.handleTouchStart}
+                     
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS FRONT SIDE OF THE CARD */}
@@ -112,13 +111,13 @@ class CandidateMatches extends React.Component {
                       <h3>Works at: {candidate.currentCompany}</h3>
                       <h2> Skills:</h2>
                       <h4>{getTop3Skills(candidate.skills)}</h4>
+                      <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>View details</h2>
                     </div>
 
                     <div
                       key={candidate.id}
                       className="card"
-                      onClick={this.handleClick}
-                      onTouchStart={this.handleTouchStart}
+                      
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
@@ -126,11 +125,10 @@ class CandidateMatches extends React.Component {
                       <h3>Location: {candidate.location}</h3>
                       <h3>About me: {candidate.description}</h3>
                       <h2> Skills: </h2>
-                      <div className="card-skill-box">
-                        {candidate.skills.map((skill, index) => (
-                          <div key={index}>{skill}</div>
-                        ))}
-                      </div>
+                      {candidate.skills.map((skill, index) => (
+                        <div key={index}>{skill}</div>
+                      ))}
+                      <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>Flip back</h2>
                     </div>
                   </ReactCardFlip>
                 </TinderCard>

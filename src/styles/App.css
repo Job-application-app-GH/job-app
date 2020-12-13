@@ -446,7 +446,7 @@ legend.MuiFormLabel-root.skills-box-container {
   position: relative;
   width: 365px;
   padding: 25px;
-  margin-top: 2%;
+  margin-top: 20%;
   height: 80vh;
   background-color: 'seashell';
   font-size: medium;
@@ -548,7 +548,7 @@ ul.slick-dots {
   cursor: 'pointer';
 }
 .card > h2 {
-  color: #e09808;
+  color: #f5af23;
   text-shadow: 0.5px 0px #643c07;
 }
 .cardFront {
