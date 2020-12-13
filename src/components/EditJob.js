@@ -45,7 +45,7 @@ class EditJob extends React.Component {
       <div className="global-screen-box">
         <OrgHeader />
         <div className="edit-job-form-container">
-          <form className="edit-job-form" ondidatnSubmit={this.handleSubmit}>
+          <form className="edit-job-form" onSubmit={this.handleSubmit}>
             <h3>Title</h3>
             <input
               type="text"
