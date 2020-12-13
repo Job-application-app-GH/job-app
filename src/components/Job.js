@@ -84,7 +84,8 @@ class Job extends React.Component {
             required
           />
           <div>
-            <h3> Are you willing to hire remote employees?</h3>
+            <h3>Are you willing to hire remote employees?</h3>
+
             <FormControl>
               <FormLabel>
                 <FormLabel />
