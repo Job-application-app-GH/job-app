@@ -859,11 +859,39 @@ a {
 /*EDIT CANDIDATE PROFILE*/
 .profile-edit-candidate {
   display: flex;
-  flex-flow: column wrap;
-  margin-top: 40%;
+  flex-direction: column;
+  margin-top: 30%;
   height: inherit;
   color: rgb(82, 81, 81);
-  font-size: 17px;
+  /* font-size: 17px; */
+}
+
+.profile-edit-candidate-details {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  overflow-y: scroll;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 20px;
+  overflow-y: auto;
+  border: 2px solid white;
+  height: 375px;
+  width: 300px;
+  font-size: 1em;
+}
+
+.profile-edit-candidate-details > h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.profile-edit-candidate-details > input {
+  font-size: 1.1em;
+  min-width: 11px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .custom-file-upload {

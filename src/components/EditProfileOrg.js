@@ -46,8 +46,8 @@ class EditProfileOrg extends React.Component {
         <OrgHeader />
         <div className="edit-org-profile">
           {/* <h2>Edit Profile</h2> */}
-          <Avatar className="chat_avatar" src={profile.img} />
           <Link to="/profile/editAvatar">
+            <Avatar className="chat_avatar" src={profile.img} />
             <h3>Edit Logo</h3>
           </Link>
           {/* <h3>{this.props.profile.name}</h3> */}
@@ -92,6 +92,7 @@ class EditProfileOrg extends React.Component {
                 </RadioGroup>
               </FormLabel>
             </FormControl>
+            <div />
             <button className="edit-org-button-save-changes" type="submit">
               Save Changes
             </button>
