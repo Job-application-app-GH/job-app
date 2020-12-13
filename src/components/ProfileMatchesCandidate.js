@@ -19,15 +19,16 @@ class JobMatches extends React.Component {
   }
 
   render() {
-    const matches = this.props.profileMatches
+    const matches = this.props.profileMatches || []
+    console.log('matches-->', matches)
     return (
       <div className="global-screen-box">
         <Header />
         <div className="profile-matches-container">
+          <h2 style={{color: 'white'}}>Your Matches</h2>
           {matches.length ? (
             matches.map((match) => (
               <div>
-                <h2 style={{color: 'white'}}>Your Matches</h2>
                 <Link to={`/jobmatches/${match.job.id}`}>
                   <button className="profile-match">
                     <h5>{match.job.organization.name}</h5>

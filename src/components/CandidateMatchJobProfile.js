@@ -36,13 +36,13 @@ class CandidateMatchJobProfile extends React.Component {
     const user = this.props.user
     const skills = this.props.skillsList
     const organizationName = ((profile || {}).organization || {}).name
-
+    const organizationImg = ((profile || {}).organization || {}).img
     return (
       <div className="global-screen-box">
         <Header />
 
         <div className="profile-matches-container">
-          <Avatar className="chat_avatar" src={profile.img} />
+          <Avatar className="chat_avatar" src={organizationImg} />
           <h2>{organizationName}</h2>
           <h3>{profile.title}</h3>
           <h3>Location: {profile.location}</h3>
