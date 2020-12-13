@@ -33,7 +33,7 @@ class JobMatchCandidateProfile extends React.Component {
   }
 
   render() {
-    const profile = this.props.profile
+    const profile = this.props.profile || {}
     // const candidateEmail = profile.user.email || ''
     const candidateEmail = ((profile || {}).user || {}).email
     const skills = this.props.skillsList
@@ -51,16 +51,18 @@ class JobMatchCandidateProfile extends React.Component {
           <div className="view-profile">
             <h2>{profile.name}</h2>
             <div className="view-matches">
-              <h3>Location: {profile.location}</h3>
-              {profile.currentCompany ? (
-                <h3>
-                  Current Role: {profile.currentCompany} @ {profile.currentRole}
-                </h3>
-              ) : null}
+              <h3>Location</h3>
+              <h4>{profile.location}</h4>
+
+              <h3>Current Role</h3>
+              <h4>
+                {profile.currentCompany} @ {profile.currentRole}
+              </h4>
               {/* {profile.currentRole ? (
             <h3>Current Role: {profile.currentRole}</h3>
           ) : null} */}
-              <h3>Bio: {profile.description}</h3>
+              <h3>Bio</h3>
+              <h4>{profile.description}</h4>
               {profile.isRemote ? (
                 <h3>Is willing to work remote</h3>
               ) : (
