@@ -44,63 +44,71 @@ class EditJob extends React.Component {
     return (
       <div className="global-screen-box">
         <OrgHeader />
-        <div className="edit-job-form-container">
+        {/* <div className="edit-job-form-container"> */}
+        <div className="profile-edit-candidate">
           <form className="edit-job-form" onSubmit={this.handleSubmit}>
-            <h3>Title</h3>
-            <input
-              type="text"
-              name="title"
-              onChange={this.handleChange}
-              value={title}
-              required
-            />
-            <h3>Location</h3>
-            <input
-              type="text"
-              name="location"
-              onChange={this.handleChange}
-              value={location}
-              required
-            />
-            <h3>Description</h3>
-            <input
-              type="text"
-              name="description"
-              onChange={this.handleChange}
-              value={description}
-              required
-            />
-            <h3>Do you hire remote employees?</h3>
-            <FormControl>
-              <FormLabel>
-                <FormLabel />
-                <RadioGroup
-                  name="isRemote"
-                  onChange={this.handleChange}
-                  value={isRemote}
-                  row
-                >
-                  <div className="profile-edit-org-yes-no">
-                    <FormControlLabel
-                      value="true"
-                      control={<Radio />}
-                      label="Yes"
-                    />
-                    <FormControlLabel
-                      value="false"
-                      control={<Radio />}
-                      label="No"
-                    />
-                  </div>
-                </RadioGroup>
-              </FormLabel>
-            </FormControl>
+            <div
+              className="profile-edit-candidate-details"
+              style={{height: '475px'}}
+            >
+              <h3>Title</h3>
+              <input
+                type="text"
+                name="title"
+                onChange={this.handleChange}
+                value={title}
+                required
+              />
+              <h3>Location</h3>
+              <input
+                type="text"
+                name="location"
+                onChange={this.handleChange}
+                value={location}
+                required
+              />
+              <h3>Description</h3>
+              <input
+                type="text"
+                name="description"
+                onChange={this.handleChange}
+                value={description}
+                required
+              />
+              {/* <h3>Do you hire remote employees?</h3> */}
+              <h3 style={{marginTop: '20px'}}>
+                {' '}
+                Are you willing to hire remote employees?{' '}
+              </h3>
+              <FormControl>
+                <FormLabel>
+                  <FormLabel />
+                  <RadioGroup
+                    name="isRemote"
+                    onChange={this.handleChange}
+                    value={isRemote}
+                    row
+                  >
+                    <div className="profile-edit-org-yes-no">
+                      <FormControlLabel
+                        value="true"
+                        control={<Radio />}
+                        label="Yes"
+                      />
+                      <FormControlLabel
+                        value="false"
+                        control={<Radio />}
+                        label="No"
+                      />
+                    </div>
+                  </RadioGroup>
+                </FormLabel>
+              </FormControl>
+            </div>
             <Link to={`/profile/jobs/editskills/${this.props.job.id}`}>
-              <button className="profile-edit-org-button">
-                Edit job skills
-              </button>
+              <button className="profile-edit-skill-button">Edit skills</button>
             </Link>
-            <button className="profile-edit-org-button" type="submit">
+            <button className="profile-edit-skill-button" type="submit">
               Save Changes
             </button>
           </form>
