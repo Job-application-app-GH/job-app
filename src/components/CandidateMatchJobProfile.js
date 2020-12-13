@@ -44,30 +44,31 @@ class CandidateMatchJobProfile extends React.Component {
         <div className="profile-matches-container">
           <Avatar className="chat_avatar" src={organizationImg} />
           <h2>{organizationName}</h2>
-          <h3>{profile.title}</h3>
-          <h3>Location: {profile.location}</h3>
-          {profile.currentCompany ? (
-            <h3>Current Company: {profile.currentCompany}</h3>
-          ) : null}
-          {profile.currentRole ? (
-            <h3>Current Role: {profile.currentRole}</h3>
-          ) : null}
-          <h3>Description: {profile.description}</h3>
-          {profile.isRemote ? (
-            <h3>Willing to hire remote candidates: True</h3>
-          ) : (
-            <h3>Willing to hire remote candidates: False</h3>
-          )}
+          <div className="view-matches">
+            <h3>{profile.title}</h3>
+            <h3>Location: {profile.location}</h3>
+            {profile.currentCompany ? (
+              <h3>Current Company: {profile.currentCompany}</h3>
+            ) : null}
+            {profile.currentRole ? (
+              <h3>Current Role: {profile.currentRole}</h3>
+            ) : null}
+            <h3>Description: {profile.description}</h3>
+            {profile.isRemote ? (
+              <h3>Willing to hire remote candidates: True</h3>
+            ) : (
+              <h3>Willing to hire remote candidates: False</h3>
+            )}
 
-          {skills
-            ? // <h5>Skills:</h5>
-              skills.map((skill) => (
-                <div key={skill.id}>
-                  <p>{skill.name}</p>
-                </div>
-              ))
-            : null}
-
+            {skills
+              ? // <h5>Skills:</h5>
+                skills.map((skill) => (
+                  <div key={skill.id}>
+                    <p>{skill.name}</p>
+                  </div>
+                ))
+              : null}
+          </div>
           <button className="match-profile-back-button" onClick={this.goBack}>
             Return to all matches
           </button>
