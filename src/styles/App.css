@@ -875,9 +875,16 @@ a {
   cursor: pointer;
 }
 
-/* PROFILE MATCHES*/
+/* CANDIDATE PROFILE MATCHES*/
 .profile-matches-container {
   margin-top: 30%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* ORG PROFILE MATCHES*/
+.org-profile-matches-container {
+  margin-top: 50%;
   margin-left: 5%;
   margin-right: 5%;
 }
