@@ -35,60 +35,66 @@ class Profile extends React.Component {
     const skills = this.props.skillsList
     let link
     let candidate
+
     if (user.userType === 'CANDIDATE') {
       candidate = 'CANDIDATE'
-    }
-    if (user.userType === 'CANDIDATE') {
       link = '/profile/edit'
     } else if (user.userType === 'ORGANIZATION') {
       link = '/profile/editOrg'
     }
-    console.log('skills->', skills)
+
     return (
       <div className="global-screen-box">
         {candidate ? <Header /> : <OrgHeader />}
         <div className="profile-edit-org">
-          {candidate ? <h2>User Profile</h2> : <h2>Company Profile</h2>}
+          {/* {candidate ? <h2>User Profile</h2> : <h2>Company Profile</h2>} */}
           {/* {candidate ? (
             <Link to="/profile/editAvatar">
               <button>Edit Profile Photo</button>
             </Link>
           ) : null} */}
-
           <Avatar className="chat_avatar" src={profile.img} />
           <h3>{profile.name}</h3>
-          <h3>Location: {profile.location}</h3>
-          {profile.currentCompany ? (
-            <h3>Current Company: {profile.currentCompany}</h3>
-          ) : null}
-          {profile.currentRole ? (
-            <h3>Current Role: {profile.currentRole}</h3>
-          ) : null}
-          <h3>Description: {profile.description}</h3>
-          <div className="profile-remote">
+          <div className="view_profile">
+            <h3>Location</h3> <h4>{profile.location}</h4>
+            {profile.currentRole ? (
+              <div className="view_profile_candidate">
+                <h3>Current Role</h3>
+                <h4>
+                  {' '}
+                  {profile.currentRole} @ {profile.currentCompany}
+                </h4>
+              </div>
+            ) : null}
+            {/* {profile.currentCompany ? (
+              <h3>@ {profile.currentCompany}</h3>
+            ) : null} */}
+            <h3>About</h3>
+            <h4> {profile.description}</h4>
             {candidate ? (
-              <h3 className="profile-remote-question">
-                Are you willing to work remote:
-                {profile.isRemote ? (
-                  <h3 className="profile-remote-question.first-child">Yes</h3>
-                ) : (
-                  <h3>No</h3>
-                )}
-              </h3>
-            ) : (
-              <h3>
-                Are you willing to hire remote candidates:
-                {profile.isRemote ? <h3>Yes</h3> : <h3>No</h3>}
-              </h3>
-            )}
+              profile.isRemote ? (
+                <h4>I am willing to work remotely</h4>
+              ) : null
+            ) : profile.isRemote ? (
+              <h4>We are willing to hire remote candidates</h4>
+            ) : null}
+            {skills && candidate ? (
+              <div className="view_profile_candidate">
+                <h3> Skills</h3>
+                {skills.map((skill) => (
+                  <div key={skill.id}>
+                    <p>{skill.name}</p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+            {/* {skills && candidate ? (
+              <div className="view_profile_candidate">
+                <h3> Skills</h3>
+                <div> {convertSkillsToString(skills)}</div>
+              </div>
+            ) : null} */}
           </div>
-          {skills && candidate
-            ? skills.map((skill) => (
-                <div key={skill.id}>
-                  <p>{skill.name}</p>
-                </div>
-              ))
-            : null}
           <Link to={link}>
             <button
               className="profile-edit-org-button"

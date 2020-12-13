@@ -611,6 +611,7 @@ ul.slick-dots {
   text-shadow: 0.5px 0px #643c07;
 }
 .skills_container {
+  margin-top: 25%;
   padding: 1em;
   align-items: center;
   align-content: center;
@@ -756,12 +757,43 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-/* EDIT JOB PROFILE INFO */
 
+.view_profile {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  overflow-y: scroll;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  overflow-y: auto;
+  border: 2px solid white;
+  height: 430px;
+  width: 300px;
+  font-size: 1.2em;
+}
+.view_profile > h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.view_profile > h4 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.view_profile_candidate > h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.view_profile_candidate > h4 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+/* EDIT JOB PROFILE INFO */
 .profile-edit-org {
   display: flex;
   flex-flow: column wrap;
-  margin-top: 20%;
+  margin-top: 30%;
   height: inherit;
   color: rgb(82, 81, 81);
   font-size: 17px;
@@ -776,6 +808,7 @@ a {
 .profile-edit-org-button {
   font-size: 21px;
   font-weight: bolder;
+  margin-bottom: 15px;
   padding: 10px 80px;
   border: 0px;
   box-shadow: 2px solid gray;
@@ -831,10 +864,6 @@ a {
   height: inherit;
   color: rgb(82, 81, 81);
   font-size: 17px;
-}
-
-input[type='file'] {
-  display: none;
 }
 
 .custom-file-upload {
@@ -916,44 +945,6 @@ input[type='file'] {
   margin-top: 29%;
 }
 
-.profile-edit-org {
-  display: flex;
-  flex-flow: column wrap;
-  margin-top: 90px;
-  height: inherit;
-  color: rgb(82, 81, 81);
-  font-size: 17px;
-}
-.profile-edit-org > h3 {
-  color: rgb(82, 81, 81);
-}
-.profile-edit-org > h2 {
-  color: White;
-  font-weight: bolder;
-}
-.profile-edit-org-button {
-  font-size: 21px;
-  font-weight: bolder;
-  padding: 10px 80px;
-  border: 0px;
-  box-shadow: 2px solid gray;
-  background-image: linear-gradient(
-    to right,
-    rgb(101, 116, 250) 50%,
-    rgb(101, 116, 250) 50%,
-    rgb(32, 52, 228)
-  );
-  background-size: 200%;
-  background-position: 0%;
-  transition: 0.5s;
-  color: #fff;
-  border-radius: 20px;
-  margin-top: 5%;
-  cursor: pointer;
-}
-.profile-edit-org-button:hover {
-  background-position: 100% 0%;
-}
 .profile-edit-org-yes-no {
   display: flex;
   flex-direction: row;

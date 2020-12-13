@@ -89,7 +89,7 @@ class UploadLogo extends React.Component {
           SUBMIT
         </button>
         <Link to="/signup/organization/job">
-          <h3>SKIP</h3>
+          <h3>Skip</h3>
         </Link>
       </div>
     )
