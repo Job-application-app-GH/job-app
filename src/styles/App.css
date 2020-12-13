@@ -569,7 +569,7 @@ ul.slick-dots {
   position: absolute;
   display: flex;
   /* margin-right: 40vh; */
-  margin-left: -15vh;
+  margin-left: -20vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
