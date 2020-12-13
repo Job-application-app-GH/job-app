@@ -15,8 +15,8 @@ class UploadAvatar extends React.Component {
       rotate: 0,
       borderRadius: 50,
       preview: null,
-      width: 200,
-      height: 200,
+      width: 330,
+      height: 330,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -78,11 +78,11 @@ class UploadAvatar extends React.Component {
             name="upload-img-input"
             type="file"
             onChange={this.handleNewImage}
-          />{' '}
-          Choose photo
+          />
+          <h3>Upload Photo</h3>
         </label>
         <br />
-        <h3>Zoom:</h3>
+        <h3 style={{fontWeight: 'lighter'}}>Zoom</h3>
         <input
           name="scale"
           type="range"
@@ -92,13 +92,13 @@ class UploadAvatar extends React.Component {
           step="0.01"
           defaultValue="1"
         />
-        <div />
-        <button className="upload-img-button" onClick={this.handleSubmit}>
-          SUBMIT
-        </button>
-        <div />
+        <div>
+          <button className="upload-img-button" onClick={this.handleSubmit}>
+            SUBMIT
+          </button>
+        </div>
         <Link to={`/candidateSkills/${this.props.candidate.id}`}>
-          <h3>SKIP</h3>
+          <h3>Skip</h3>
         </Link>
       </div>
     )
