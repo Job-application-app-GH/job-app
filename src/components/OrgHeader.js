@@ -17,6 +17,9 @@ import SmsIcon from '@material-ui/icons/Sms'
 import logo from '../styles/header-logo.png'
 import logoFull from '../styles/seekrsm.png'
 
+
+
+
 const OrgHeader = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
 
@@ -31,6 +34,7 @@ const OrgHeader = (props) => {
   const profile = () => {
     props.history.push('/profile')
   }
+
   const {handleClick} = props
   return (
     <div className="header">
@@ -46,6 +50,7 @@ const OrgHeader = (props) => {
             fontSize="large"
           />
         </Button>
+        
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
@@ -68,6 +73,7 @@ const OrgHeader = (props) => {
             {/* Logout */}
           </Link>
         </Menu>
+       
       </div>
       <Link to="/organization">
         <img
