@@ -24,21 +24,24 @@ class JobMatches extends React.Component {
     return (
       <div className="global-screen-box">
         <OrgHeader />
-        
 
-        {matches.length ? (
-          matches.map((match) => (
-            <div>
-            <h2 style={{color: 'white'}}>Your Matches</h2>
-              <Link to={`/candidatematches/${match.candidate.id}`}>
-                <h3>{match.candidate.name}</h3>
-              </Link>
-            </div>
-          ))
-        ) : (
-          <h2 style={{color: 'white'}}>You do not have any matches yet!</h2>
-        )}
-        <button className='match-button' onClick={this.goBack}>BACK</button>
+        <div className="org-profile-matches-container">
+          {matches.length ? (
+            matches.map((match) => (
+              <div>
+                <h2 style={{color: 'white'}}>Your Matches</h2>
+                <Link to={`/candidatematches/${match.candidate.id}`}>
+                  <h3>{match.candidate.name}</h3>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <h2 style={{color: 'white'}}>You do not have any matches yet!</h2>
+          )}
+          <button className="match-button" onClick={this.goBack}>
+            BACK
+          </button>
+        </div>
       </div>
     )
   }

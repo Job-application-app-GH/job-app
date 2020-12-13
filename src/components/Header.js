@@ -45,12 +45,16 @@ const Header = (props) => {
     <div className="header">
       <div>
         <Button
-          color= 'white'
+          color="white"
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={click}
         >
-          <MenuIcon className="icons"  style={{color: 'white'}} fontSize="large" />
+          <MenuIcon
+            className="icons"
+            style={{color: 'white'}}
+            fontSize="large"
+          />
         </Button>
         <Menu
           id="simple-menu"
@@ -73,13 +77,13 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to="/organization">
+      <Link to={`/findJobs/${candidate.id}`}>
         <img
           className="header-img-icon"
           style={{color: 'white'}}
           fontSize="large"
-          src ={logoFull}
-          alt=''
+          src={logoFull}
+          alt=""
         />
       </Link>
       <Link to="/messages">
