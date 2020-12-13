@@ -55,81 +55,88 @@ class EditProfile extends React.Component {
         <Header />
         {/* <h3>Edit My Profile</h3> */}
         <div className="profile-edit-candidate">
-          <Avatar className="chat_avatar" src={profile.img} />
           <Link to="/profile/editAvatar">
-            <h3>Edit Photo</h3>
+            <Avatar className="chat_avatar" src={profile.img} />
+            <h3 style={{marginTop: '5px', marginBottom: '5px'}}>Edit Photo</h3>
           </Link>
-
-          <h6>Name</h6>
           <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              onChange={this.handleChange}
-              value={name}
-              required
-            />
-            <h6>Current Company</h6>
-            <input
-              type="text"
-              name="currentCompany"
-              onChange={this.handleChange}
-              value={currentCompany}
-              required
-            />
-            <h6>Current Role</h6>
-            <input
-              type="text"
-              name="currentRole"
-              onChange={this.handleChange}
-              value={currentRole}
-              required
-            />
-            <h6>Location</h6>
-            <input
-              type="text"
-              name="location"
-              onChange={this.handleChange}
-              value={location}
-              required
-            />
-            <h6>Description</h6>
-            <input
-              type="text"
-              name="description"
-              onChange={this.handleChange}
-              value={description}
-              required
-            />
-            <h6> Would you like to work remote?</h6>
-            <FormControl>
-              <FormLabel>
-                <FormLabel />
-                <RadioGroup
-                  name="isRemote"
-                  onChange={this.handleChange}
-                  value={isRemote}
-                  row
-                >
-                  <FormControlLabel
-                    value="true"
-                    control={<Radio />}
-                    label="Yes"
-                  />
-                  <FormControlLabel
-                    value="false"
-                    control={<Radio />}
-                    label="No"
-                  />
-                </RadioGroup>
-              </FormLabel>
-            </FormControl>
+            <div className="profile-edit-candidate-details">
+              <h3>Name</h3>
+              <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={name}
+                required
+              />
+              <h3>Current Company</h3>
+              <input
+                type="text"
+                name="currentCompany"
+                onChange={this.handleChange}
+                value={currentCompany}
+                required
+              />
+              <h3>Current Role</h3>
+              <input
+                type="text"
+                name="currentRole"
+                onChange={this.handleChange}
+                value={currentRole}
+                required
+              />
+              <h3>Location</h3>
+              <input
+                type="text"
+                name="location"
+                onChange={this.handleChange}
+                value={location}
+                required
+              />
+              <h3>Tell us about yourself</h3>
+              <input
+                type="text"
+                name="description"
+                onChange={this.handleChange}
+                value={description}
+                required
+              />
+              <h3 style={{marginTop: '20px'}}> Interested in Remote Roles?</h3>
+              <FormControl>
+                <FormLabel>
+                  <FormLabel />
+                  <RadioGroup
+                    name="isRemote"
+                    onChange={this.handleChange}
+                    value={isRemote}
+                    row
+                  >
+                    <div
+                      className="profile-edit-org-yes-no"
+                      style={{marginLeft: '60px'}}
+                    >
+                      <FormControlLabel
+                        value="true"
+                        control={<Radio />}
+                        label="Yes"
+                      />
+                      <FormControlLabel
+                        value="false"
+                        control={<Radio />}
+                        label="No"
+                      />
+                    </div>
+                  </RadioGroup>
+                </FormLabel>
+              </FormControl>
+            </div>
             <Link to={`/profile/editSkills/${this.props.profile.id}`}>
-              <button className="edit-org-button-save-changes">
-                Edit my skills
-              </button>
+              <button className="profile-edit-org-button">Edit skills</button>
             </Link>
-            <button type="submit">Save Changes</button>
+            <div />
+            <button className="profile-edit-org-button" type="submit">
+              Save Changes
+            </button>
           </form>
         </div>
       </div>

@@ -322,7 +322,7 @@ a.btn.btn-success {
 }
 
 /* ADD JOB FORM*/
-.job-profile-card{
+.job-profile-card {
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -332,7 +332,7 @@ a.btn.btn-success {
   background-size: cover;
   background-color: rgb(253, 248, 244);
   background-position: center;
- 
+
   margin-top: 10%;
 }
 #add-job {
@@ -529,8 +529,8 @@ ul.slick-dots {
   background-color: seashell;
   box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
   background-position: center;
-margin-left: 5%;
-margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 10%;
 }
 
@@ -567,7 +567,7 @@ margin-right: 5%;
 .cardsPile {
   position: absolute;
   display: flex;
- align-self: center;
+  align-self: center;
   margin-top: 13vh;
   cursor: 'pointer';
 }
@@ -857,11 +857,39 @@ a {
 /*EDIT CANDIDATE PROFILE*/
 .profile-edit-candidate {
   display: flex;
-  flex-flow: column wrap;
-  margin-top: 40%;
+  flex-direction: column;
+  margin-top: 30%;
   height: inherit;
   color: rgb(82, 81, 81);
-  font-size: 17px;
+  /* font-size: 17px; */
+}
+
+.profile-edit-candidate-details {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  overflow-y: scroll;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 20px;
+  overflow-y: auto;
+  border: 2px solid white;
+  height: 375px;
+  width: 300px;
+  font-size: 1em;
+}
+
+.profile-edit-candidate-details > h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.profile-edit-candidate-details > input {
+  font-size: 1.1em;
+  min-width: 11px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .custom-file-upload {
@@ -952,4 +980,3 @@ a {
 input[type='file'] {
   display: none;
 }
-
