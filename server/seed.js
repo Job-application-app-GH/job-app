@@ -806,7 +806,7 @@ const organizationData = [
     isRemote: true,
   },
   {
-    name: 'Goodsilron',
+    name: 'Goodsiron',
     img: org5,
     description:
       'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
