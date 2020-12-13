@@ -135,8 +135,7 @@ class CandidateMatches extends React.Component {
               </div>
             ))}
           {!lastMatch.isPerfectMatch && !totalMatches && (
-            <div className='out-of-cards'
-            style={{backgroundColor: 'seashell'}}>
+            <div className="out-of-cards" style={{backgroundColor: 'seashell'}}>
               <h2>Come back later for more Matches </h2>
             </div>
           )}
