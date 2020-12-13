@@ -28,12 +28,10 @@ class JobMatches extends React.Component {
           <h2 style={{color: 'white'}}>Your Matches</h2>
           {matches.length ? (
             matches.map((match) => (
-              <div>
+              <div className="job-profile-card">
                 <Link to={`/jobmatches/${match.job.id}`}>
-                  <button className="profile-match">
-                    <h5>{match.job.organization.name}</h5>
-                    <h5>{match.job.title}</h5>
-                  </button>
+                  <h5>{match.job.organization.name}</h5>
+                  <h5>{match.job.title}</h5>
                 </Link>
               </div>
             ))

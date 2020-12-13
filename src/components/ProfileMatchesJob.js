@@ -29,7 +29,7 @@ class JobMatches extends React.Component {
           <h2 style={{color: 'white'}}>Your Matches</h2>
           {matches.length ? (
             matches.map((match) => (
-              <div>
+              <div className="job-profile-card">
                 <Link to={`/candidatematches/${match.candidate.id}`}>
                   <h3>{match.candidate.name}</h3>
                 </Link>
