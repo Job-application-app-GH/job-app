@@ -540,7 +540,7 @@ ul.slick-dots {
   align-content: center;
   width: 280px;
   padding: 25px;
-  height: 65vh;
+  height: 50vh;
   color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
@@ -680,8 +680,8 @@ ul.slick-dots {
 }
 
 /* MESSAGES_CHAT */
-.messages-container{
-  margin-top:25%;
+.messages-container {
+  margin-top: 25%;
 }
 .chatscreen-text {
   margin-left: 5px;
@@ -712,7 +712,6 @@ ul.slick-dots {
   position: fixed;
   bottom: 0;
   width: 100%;
- 
 }
 .chatscreen-input-field {
   flex: 1;
@@ -740,12 +739,12 @@ ul.slick-dots {
   border-bottom: 2px solid gray;
   text-decoration: none;
   border-radius: 10px;
-background-size: cover;
-background-color: rgb(253, 248, 244);
-background-position: center;
-margin-bottom: 2px;
-margin-left: 2%;
-margin-right: 2%;
+  background-size: cover;
+  background-color: rgb(253, 248, 244);
+  background-position: center;
+  margin-bottom: 2px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .chat_det > p {
   color: rgb(241, 159, 52);
@@ -753,19 +752,18 @@ margin-right: 2%;
   margin-top: 0px;
 }
 
-
 a {
   text-decoration: none;
   color: inherit;
 }
 .chat_det {
   flex: 1;
- text-align: left;
- padding: 5px;
- margin-left: 20px;
- margin-bottom: 10px;
+  text-align: left;
+  padding: 5px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
-.chat_time { 
+.chat_time {
   position: relative;
   color: gray;
   margin-bottom: auto;
@@ -787,11 +785,11 @@ a {
   flex-direction: column;
   width: 80%;
   overflow-y: scroll;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   padding: 0 20px;
   overflow-y: auto;
-  border: 2px solid white;
+  border: 1px solid white;
   height: 430px;
   width: 300px;
   font-size: 1.2em;
@@ -856,7 +854,7 @@ a {
 
 /* EDIT ORG PROFILE*/
 .edit-org-profile {
-  margin-top: 100px;
+  margin-top: 30%;
 }
 
 .edit-org-button-save-changes {
@@ -896,12 +894,12 @@ a {
   width: 80%;
   overflow-y: scroll;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 20px;
-  overflow-y: auto;
-  border: 2px solid white;
+  /* overflow-y: auto; */
+  border: 1px solid white;
   height: 375px;
   width: 300px;
   font-size: 1em;
@@ -916,6 +914,33 @@ a {
   min-width: 11px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.profile-edit-skill-button {
+  align-self: center;
+  font-size: 21px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  padding: 10px 60px;
+  width: 300px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  /* margin-top: 20%; */
+  cursor: pointer;
+}
+.profile-edit-skill-button:hover {
+  background-position: 100% 0%;
 }
 
 .custom-file-upload {
@@ -1045,6 +1070,7 @@ a {
   flex-direction: row;
   align-content: space-between;
   padding: 10px;
+  margin-left: 60px;
 }
 input[type='file'] {
   display: none;
