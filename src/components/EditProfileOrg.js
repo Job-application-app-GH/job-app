@@ -14,6 +14,7 @@ class EditProfileOrg extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: this.props.profile.name,
       location: this.props.profile.location,
       description: this.props.profile.description,
       isRemote: this.props.profile.isRemote,
@@ -40,11 +41,11 @@ class EditProfileOrg extends React.Component {
   render() {
     // need to make edit to push - console.log() - please delete later
     const profile = this.props.profile
-    const {location, description, isRemote} = this.state
+    const {name, location, description, isRemote} = this.state
     return (
       <div className="global-screen-box">
         <OrgHeader />
-        <div className="edit-org-profile">
+        <div className="profile-edit-candidate">
           {/* <h2>Edit Profile</h2> */}
           <Link to="/profile/editAvatar">
             <Avatar className="chat_avatar" src={profile.img} />
@@ -52,47 +53,69 @@ class EditProfileOrg extends React.Component {
           </Link>
           {/* <h3>{this.props.profile.name}</h3> */}
           <form onSubmit={this.handleSubmit}>
-            <h3>Location:</h3>
-            <input
-              type="text"
-              name="location"
-              onChange={this.handleChange}
-              value={location}
-              required
-            />
-            <h3>Description:</h3>
-            <textarea
-              className="signup-textbox"
-              type="text"
-              name="description"
-              onChange={this.handleChange}
-              value={description}
-              required
-            />
-            <h3>Are you willing to hire remote employees?</h3>
-            <FormControl>
-              <FormLabel>
-                <FormLabel />
-                <RadioGroup
-                  name="isRemote"
-                  onChange={this.handleChange}
-                  value={isRemote}
-                  row
-                >
-                  <FormControlLabel
-                    value="true"
-                    control={<Radio />}
-                    label="Yes"
-                  />
-                  <FormControlLabel
-                    value="false"
-                    control={<Radio />}
-                    label="No"
-                  />
-                </RadioGroup>
-              </FormLabel>
-            </FormControl>
-            <div />
+            <div className="profile-edit-candidate-details">
+              <h3>Name</h3>
+              <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={name}
+                required
+              />
+              <h3>Location</h3>
+              <input
+                type="text"
+                name="location"
+                onChange={this.handleChange}
+                value={location}
+                required
+              />
+              <h3>Description</h3>
+              <input
+                type="text"
+                name="description"
+                onChange={this.handleChange}
+                value={description}
+                required
+              />
+              {/* <textarea
+                className="signup-textbox"
+                style={{width: '295px'}}
+                type="text"
+                name="description"
+                onChange={this.handleChange}
+                value={description}
+                required
+              /> */}
+              <h3 style={{marginTop: '20px'}}>
+                Are you willing to hire remote employees?
+              </h3>
+              <FormControl>
+                <FormLabel>
+                  <FormLabel />
+                  <RadioGroup
+                    name="isRemote"
+                    onChange={this.handleChange}
+                    value={isRemote}
+                    row
+                  >
+                    <div className="profile-edit-org-yes-no">
+                      <FormControlLabel
+                        value="true"
+                        control={<Radio />}
+                        label="Yes"
+                      />
+                      <FormControlLabel
+                        value="false"
+                        control={<Radio />}
+                        label="No"
+                      />
+                    </div>
+                  </RadioGroup>
+                </FormLabel>
+              </FormControl>
+            </div>
+
             <button className="edit-org-button-save-changes" type="submit">
               Save Changes
             </button>

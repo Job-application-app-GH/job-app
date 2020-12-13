@@ -53,7 +53,6 @@ class EditProfile extends React.Component {
     return (
       <div className="global-screen-box">
         <Header />
-        {/* <h3>Edit My Profile</h3> */}
         <div className="profile-edit-candidate">
           <Link to="/profile/editAvatar">
             <Avatar className="chat_avatar" src={profile.img} />
@@ -111,10 +110,7 @@ class EditProfile extends React.Component {
                     value={isRemote}
                     row
                   >
-                    <div
-                      className="profile-edit-org-yes-no"
-                      style={{marginLeft: '60px'}}
-                    >
+                    <div className="profile-edit-org-yes-no">
                       <FormControlLabel
                         value="true"
                         control={<Radio />}
@@ -131,10 +127,10 @@ class EditProfile extends React.Component {
               </FormControl>
             </div>
             <Link to={`/profile/editSkills/${this.props.profile.id}`}>
-              <button className="profile-edit-org-button">Edit skills</button>
+              <button className="profile-edit-skill-button">Edit skills</button>
             </Link>
             <div />
-            <button className="profile-edit-org-button" type="submit">
+            <button className="profile-edit-skill-button" type="submit">
               Save Changes
             </button>
           </form>

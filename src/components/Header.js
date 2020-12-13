@@ -33,13 +33,15 @@ const Header = (props) => {
   }
 
   const candidate = props.profile
+  const candidateId = props.candidate.id
   // let matchesLink
   // if (props.user.userType === 'CANDIDATE') {
   //   matchesLink = `/profile/candidate/matches/${candidate.id}`
   // } else {
   //   // matchesLink = `/profile/job/matches/${this.props.job.id}`
   // }
-
+  console.log('Candidate -->', candidateId)
+  // console.log('candidate ID: ', candidate.id)
   const {handleClick} = props
   return (
     <div className="header">
@@ -66,7 +68,7 @@ const Header = (props) => {
           <Link to="/profile">
             <MenuItem onClick={handleClose}>Profile</MenuItem>
           </Link>
-          <Link to={`/profile/candidate/matches/${candidate.id}`}>
+          <Link to={`/profile/candidate/matches/${candidateId}`}>
             <MenuItem>Matches</MenuItem>
           </Link>
 
@@ -101,6 +103,7 @@ const mapState = (state) => {
     isLoggedIn: !!state.user.id,
     profile: state.profile,
     user: state.user,
+    candidate: state.candidate,
   }
 }
 
