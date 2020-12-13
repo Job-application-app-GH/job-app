@@ -49,35 +49,37 @@ class JobMatchCandidateProfile extends React.Component {
               </a>
             </button>
           ) : null}
+          <div className="view-profile">
+            <h2>{profile.name}</h2>
 
-          <h2>{profile.name}</h2>
-
-          <h3>Location: {profile.location}</h3>
-          {profile.currentCompany ? (
-            <h3>
-              Current Role: {profile.currentCompany} @ {profile.currentRole}
-            </h3>
-          ) : null}
-          {/* {profile.currentRole ? (
+            <h3>Location: {profile.location}</h3>
+            {profile.currentCompany ? (
+              <h3>
+                Current Role: {profile.currentCompany} @ {profile.currentRole}
+              </h3>
+            ) : null}
+            {/* {profile.currentRole ? (
             <h3>Current Role: {profile.currentRole}</h3>
           ) : null} */}
-          <h3>Bio: {profile.description}</h3>
-          {profile.isRemote ? (
-            <h3>Is willing to work remote</h3>
-          ) : (
-            <h3>Is not willing to work remote</h3>
-          )}
-          <h3>Skills</h3>
-          {skills
-            ? // <h5>Skills:</h5>
-              skills.map((skill) => (
-                <div key={skill.id}>
-                  <p>{skill.name}</p>
-                </div>
-              ))
-            : null}
-
-          <button onClick={this.goBack}>BACK TO MATCHES</button>
+            <h3>Bio: {profile.description}</h3>
+            {profile.isRemote ? (
+              <h3>Is willing to work remote</h3>
+            ) : (
+              <h3>Is not willing to work remote</h3>
+            )}
+            <h3>Skills</h3>
+            {skills
+              ? // <h5>Skills:</h5>
+                skills.map((skill) => (
+                  <div key={skill.id}>
+                    <p>{skill.name}</p>
+                  </div>
+                ))
+              : null}
+          </div>
+          <button className="match-profile-back-button" onClick={this.goBack}>
+            BACK TO MATCHES
+          </button>
         </div>
       </div>
     )

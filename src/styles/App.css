@@ -889,6 +889,28 @@ a {
   margin-right: 5%;
 }
 
+.match-profile-back-button {
+  font-size: 21px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  /* margin-top: 20%; */
+  cursor: pointer;
+}
+
 .profile-match {
   width: 250px;
   background-color: white;
