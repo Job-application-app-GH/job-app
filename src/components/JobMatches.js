@@ -12,6 +12,9 @@ import Header from './Header'
 import Avatar from '@material-ui/core/Avatar'
 import MatchNotification from './MatchNotification'
 
+
+
+
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(' • ')
   return top3Skills
@@ -28,6 +31,7 @@ class JobMatches extends React.Component {
     this.onSwipe = this.onSwipe.bind(this)
     this.resetLastMatch = this.resetLastMatch.bind(this)
   }
+  
 
   componentDidMount() {
     const candidateId = this.props.match.params.candidateId
@@ -41,6 +45,7 @@ class JobMatches extends React.Component {
   }
 
   handleClick(e) {
+    
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
@@ -51,6 +56,7 @@ class JobMatches extends React.Component {
       case 'left':
         isLiked = false
         this.props.sendJobMatch(jobId, candidateId, isLiked)
+  
         break
       case 'right':
         isLiked = true
@@ -103,7 +109,6 @@ class JobMatches extends React.Component {
                   >
                     <div
                       className="card"
-                      onTouchEnd={this.handleTouchEnd}
                       onClick={this.handleClick}
                       style={{backgroundColor: 'seashell'}}
                     >
@@ -116,12 +121,13 @@ class JobMatches extends React.Component {
                       </h3>
                       <h2>Required Skills: </h2>
                       <h4>{getTop3Skills(job.skills)}</h4>
+                      <h2  onTouchEnd={this.handleTouchEnd}>View details</h2>
                     </div>
 
                     <div
                       className="card"
                       onClick={this.handleClick}
-                      onTouchEnd={this.handleTouchEnd}
+                    
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
@@ -135,6 +141,7 @@ class JobMatches extends React.Component {
                           <div key={index}>{skill}</div>
                         ))}
                       </div>
+                      <h2  onTouchEnd={this.handleTouchEnd}>Flip back</h2>
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
