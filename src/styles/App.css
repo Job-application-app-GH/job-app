@@ -567,7 +567,7 @@ ul.slick-dots {
 .cardsPile {
   position: absolute;
   display: flex;
-  /* margin-right: 40vh; */
+  margin-right: 40vh;
   margin-top: 13vh;
   cursor: 'pointer';
 }
