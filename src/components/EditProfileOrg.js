@@ -45,9 +45,10 @@ class EditProfileOrg extends React.Component {
         <OrgHeader />
         <div className="edit-org-profile">
           {/* <h2>Edit Profile</h2> */}
-          <Avatar className="chat_avatar" src={profile.img} />
+
           <Link to="/profile/editAvatar">
-            <h3>Edit Logo</h3>
+            <Avatar className="chat_avatar" src={profile.img} />
+            <h4>Edit Logo</h4>
           </Link>
           {/* <h3>{this.props.profile.name}</h3> */}
           <form onSubmit={this.handleSubmit}>
