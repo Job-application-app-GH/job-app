@@ -20,6 +20,7 @@ class CandidateMatches extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      isLoading: true,
       isFlipped: false,
     }
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
@@ -28,9 +29,10 @@ class CandidateMatches extends React.Component {
     this.resetLastMatch = this.resetLastMatch.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const jobId = this.props.match.params.jobId
-    this.props.getSuggestedCandidates(jobId)
+    await this.props.getSuggestedCandidates(jobId)
+    this.setState({isLoading: false})
   }
 
   handleTouchEnd(e) {
@@ -64,6 +66,19 @@ class CandidateMatches extends React.Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      console.log('Is loading ? : ', this.state.isLoading)
+      return (
+        <div className="global-screen-box">
+          <OrgHeader />
+          <div>
+            <h2 style={{color: 'white', marginTop: '200px'}}>
+              Loading matches ....{' '}
+            </h2>
+          </div>
+        </div>
+      )
+    }
     const jobId = this.props.match.params.jobId
     const lastMatch = this.props.lastMatch
     const linkToSearches = `/findCandidates/${jobId}`
@@ -101,7 +116,6 @@ class CandidateMatches extends React.Component {
                     <div
                       key={candidate.id}
                       className="card"
-                     
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS FRONT SIDE OF THE CARD */}
@@ -111,13 +125,17 @@ class CandidateMatches extends React.Component {
                       <h3>Works at: {candidate.currentCompany}</h3>
                       <h2> Skills:</h2>
                       <h4>{getTop3Skills(candidate.skills)}</h4>
-                      <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>View details</h2>
+                      <h2
+                        onClick={this.handleClick}
+                        onTouchEnd={this.handleTouchEnd}
+                      >
+                        View details
+                      </h2>
                     </div>
 
                     <div
                       key={candidate.id}
                       className="card"
-                      
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
@@ -128,7 +146,12 @@ class CandidateMatches extends React.Component {
                       {candidate.skills.map((skill, index) => (
                         <div key={index}>{skill}</div>
                       ))}
-                      <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>Flip back</h2>
+                      <h2
+                        onClick={this.handleClick}
+                        onTouchEnd={this.handleTouchEnd}
+                      >
+                        Flip back
+                      </h2>
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
