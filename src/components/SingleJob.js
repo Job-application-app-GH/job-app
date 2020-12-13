@@ -21,33 +21,50 @@ class SingleJob extends React.Component {
     const skills = this.props.skills
     return (
       <div className="global-screen-box">
-        <div className="single-job-profile">
-          <OrgHeader />
-          {/* <h3>Job Details</h3> */}
+        <OrgHeader />
+        <div className="profile-edit-org">
+          {/* <div className="single-job-profile"> */}
+
+          <h3
+            style={{fontSize: '1.5em', marginTop: '7px', marginBottom: '5px'}}
+          >
+            {job.title}
+          </h3>
           <Link to={`/profile/jobs/matches/${job.id}`}>
             <h2 style={{color: 'white'}}>View matches for this job</h2>
           </Link>
 
-          <h3>Title: {job.title}</h3>
-          <h3>Location: {job.location}</h3>
-          <h3>Description:</h3>
-          <p> {job.description}</p>
-          {job.isRemote ? (
-            <h3>Hiring remote candidates: yes </h3>
-          ) : (
-            <h3>Hiring remote candidates: no </h3>
-          )}
-          <h3>Skills</h3>
-          {skills
-            ? skills.map((skill) => (
-                <div key={skill.id}>
-                  <h4>{skill.name}</h4>
-                </div>
-              ))
-            : null}
+          <div className="view_profile">
+            <h3>Location</h3>
+            <h4>{job.location}</h4>
+            <h3>Description</h3>
+            <h4> {job.description}</h4>
+
+            {
+              job.isRemote ? (
+                <h4>We are willing to hire remote candidates</h4>
+              ) : null
+              // <h3>Hiring remote candidates: no </h3>
+            }
+            <div className="view_profile_candidate">
+              <h3>Skills</h3>
+              {skills
+                ? skills.map((skill) => (
+                    <div key={skill.id}>
+                      <p>{skill.name}</p>
+                    </div>
+                  ))
+                : null}
+            </div>
+          </div>
           <div>
             <Link to={`/profile/jobs/edit/${job.id}`}>
-              <button className="profile-edit-org-button">Edit</button>
+              <button
+                className="profile-edit-org-button"
+                style={{marginBottom: '1px'}}
+              >
+                Edit
+              </button>
             </Link>
           </div>
           <Link to="/profile/jobs">

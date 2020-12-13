@@ -88,12 +88,6 @@ class Profile extends React.Component {
                 ))}
               </div>
             ) : null}
-            {/* {skills && candidate ? (
-              <div className="view_profile_candidate">
-                <h3> Skills</h3>
-                <div> {convertSkillsToString(skills)}</div>
-              </div>
-            ) : null} */}
           </div>
           <Link to={link}>
             <button
