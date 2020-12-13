@@ -54,14 +54,14 @@ class EditProfileOrg extends React.Component {
           {/* <h3>{this.props.profile.name}</h3> */}
           <form onSubmit={this.handleSubmit}>
             <div className="profile-edit-candidate-details">
-              {/* <h3>Name</h3>
+              <h3>Name</h3>
               <input
                 type="text"
                 name="name"
                 onChange={this.handleChange}
                 value={name}
                 required
-              /> */}
+              />
               <h3>Location</h3>
               <input
                 type="text"
@@ -71,7 +71,14 @@ class EditProfileOrg extends React.Component {
                 required
               />
               <h3>Description</h3>
-              <textarea
+              <input
+                type="text"
+                name="description"
+                onChange={this.handleChange}
+                value={description}
+                required
+              />
+              {/* <textarea
                 className="signup-textbox"
                 style={{width: '295px'}}
                 type="text"
@@ -79,7 +86,7 @@ class EditProfileOrg extends React.Component {
                 onChange={this.handleChange}
                 value={description}
                 required
-              />
+              /> */}
               <h3 style={{marginTop: '20px'}}>
                 Are you willing to hire remote employees?
               </h3>
