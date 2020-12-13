@@ -537,9 +537,10 @@ ul.slick-dots {
 /* CARDS */
 .card {
   position: relative;
+  align-content: center;
   width: 280px;
   padding: 25px;
-  height: 60vh;
+  height: 65vh;
   color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
@@ -570,7 +571,7 @@ ul.slick-dots {
   margin-right: 40vh;
   /* margin-left: -21vh; */
   align-self: center;
-  margin-top: 13vh;
+  margin-top: 16vh;
   cursor: 'pointer';
 }
 .swipe {
@@ -679,18 +680,20 @@ ul.slick-dots {
 }
 
 /* MESSAGES_CHAT */
-
+.messages-container{
+  margin-top:25%;
+}
 .chatscreen-text {
   margin-left: 5px;
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   text-align: left;
 }
 .chatscreen-message {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 .chatscreen-timestamp {
   text-align: center;
@@ -701,21 +704,21 @@ ul.slick-dots {
   margin-left: auto;
   background-color: rgb(101, 116, 250);
   color: white;
-  padding: 13px;
+  padding: 11px;
   border-radius: 20px;
 }
 .chatscreen-input-container {
   display: flex;
-  padding: 5px;
   position: fixed;
   bottom: 0;
   width: 100%;
-  border-top: 1px solid lightgray;
+ 
 }
 .chatscreen-input-field {
   flex: 1;
   padding: 10px;
   border: none;
+  margin-bottom: 0px;
 }
 
 .chatscreen-input-button {
@@ -736,16 +739,37 @@ ul.slick-dots {
   padding: 20px;
   border-bottom: 2px solid gray;
   text-decoration: none;
+  border-radius: 10px;
+background-size: cover;
+background-color: rgb(253, 248, 244);
+background-position: center;
+margin-bottom: 2px;
+margin-left: 2%;
+margin-right: 2%;
 }
+.chat_det > p {
+  color: rgb(241, 159, 52);
+  width: 100%;
+  margin-top: 0px;
+}
+
+
 a {
   text-decoration: none;
   color: inherit;
 }
 .chat_det {
   flex: 1;
+ text-align: left;
+ padding: 5px;
+ margin-left: 20px;
+ margin-bottom: 10px;
 }
-.chat_time {
+.chat_time { 
+  position: relative;
   color: gray;
+  margin-bottom: auto;
+  margin-top: 0px;
 }
 .MuiAvatar-root.MuiAvatar-circle.chat_avatar {
   width: 80px;
