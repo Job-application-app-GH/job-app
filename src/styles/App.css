@@ -322,7 +322,7 @@ a.btn.btn-success {
 }
 
 /* ADD JOB FORM*/
-.job-profile-card{
+.job-profile-card {
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -332,7 +332,7 @@ a.btn.btn-success {
   background-size: cover;
   background-color: rgb(253, 248, 244);
   background-position: center;
- 
+
   margin-top: 10%;
 }
 #add-job {
@@ -529,8 +529,8 @@ ul.slick-dots {
   background-color: seashell;
   box-shadow: 0px 16px 12px 5px rgba(155, 105, 40, 0.726);
   background-position: center;
-margin-left: 5%;
-margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 10%;
 }
 
@@ -567,7 +567,9 @@ margin-right: 5%;
 .cardsPile {
   position: absolute;
   display: flex;
- align-self: center;
+  margin-right: 40vh;
+  /* margin-left: -21vh; */
+  align-self: center;
   margin-top: 13vh;
   cursor: 'pointer';
 }
@@ -872,6 +874,49 @@ a {
   padding: 6px 12px;
   cursor: pointer;
 }
+
+/* CANDIDATE PROFILE MATCHES*/
+.profile-matches-container {
+  margin-top: 30%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* ORG PROFILE MATCHES*/
+.org-profile-matches-container {
+  margin-top: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.match-profile-back-button {
+  font-size: 21px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border: 0px;
+  box-shadow: 2px solid gray;
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 116, 250) 50%,
+    rgb(101, 116, 250) 50%,
+    rgb(32, 52, 228)
+  );
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.5s;
+  color: #fff;
+  border-radius: 20px;
+  /* margin-top: 20%; */
+  cursor: pointer;
+}
+
+.profile-match {
+  width: 250px;
+  background-color: white;
+  border: none;
+}
+
 .match-card {
   position: fixed;
   width: 280px;
@@ -952,4 +997,3 @@ a {
 input[type='file'] {
   display: none;
 }
-
