@@ -322,13 +322,26 @@ a.btn.btn-success {
 }
 
 /* ADD JOB FORM*/
+.job-profile-card{
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 20px;
+  color: rgb(241, 166, 54);
+  border-radius: 10px;
+  background-size: cover;
+  background-color: rgb(253, 248, 244);
+  background-position: center;
+ 
+  margin-top: 10%;
+}
 #add-job {
   margin-top: 25px;
   overflow-wrap: break-word;
 }
 
 .job-profile-listing {
-  margin-top: 20%;
+  margin-top: 30%;
 }
 
 .job-listing-button {
@@ -950,3 +963,4 @@ input[type='file'] {
 input[type='file'] {
   display: none;
 }
+
