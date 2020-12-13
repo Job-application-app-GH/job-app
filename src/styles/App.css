@@ -540,13 +540,34 @@ ul.slick-dots {
   align-content: center;
   width: 280px;
   padding: 25px;
-  height: 50vh;
+  height: 65vh;
   color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
   box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
   cursor: 'pointer';
 }
+
+.card-detail-box-front {
+  margin: 4px, 4px;
+  padding: 4px;
+  width: 270px;
+  height: 50%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.card-detail-box-back {
+  margin: 4px, 4px;
+  padding: 4px;
+  width: 270px;
+  height: 60%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
 .card > h2 {
   color: #e09808;
   text-shadow: 0.5px 0px #643c07;
