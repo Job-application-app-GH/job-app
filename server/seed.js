@@ -29,6 +29,21 @@ const woman4 =
   'https://images.unsplash.com/photo-1589729482945-ca6f3a235f7a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'
 const woman5 =
   'https://images.unsplash.com/photo-1593579491833-457b2c451e38?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2853&q=80'
+
+const org1 =
+  'https://i.pinimg.com/originals/8e/a9/15/8ea915c2950a58cad7e184b94d6d4bac.jpg'
+
+const org2 =
+  'https://i.pinimg.com/600x315/9e/b1/10/9eb11081161d0dc751278a253b0e9cef.jpg'
+
+const org3 =
+  'https://us.123rf.com/450wm/mehmetbuma/mehmetbuma1807/mehmetbuma180700039/103980619-stock-vector-eagle-hunting-eagle-with-negative-space-on-white-background-vector-illustration-.jpg?ver=6'
+
+const org4 = 'https://www.seoclerk.com/pics/513878-2XSS2p1487670205.png'
+
+const org5 =
+  'https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/08/Logo_Design_Process_jpg_4EOOtXuw.jpg?auto=format&q=60&w=1280&h=1280&fit=crop&crop=faces'
+
 const userData = [
   {
     userType: 'CANDIDATE',
@@ -656,144 +671,169 @@ const candidateData = [
 const organizationData = [
   {
     name: 'Macmillan Toys',
+    img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Pide Piper',
+    img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Prestige Worldwide',
+    img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Rent a Swag',
+    img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Tyrell Corp.',
+    img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Sterling Cooper',
+    img: org2,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Worldwide',
     isRemote: true,
   },
   {
     name: 'Front Street Bakery',
+    img: org2,
     description:
-      'A trendy new bakery looking for someone to design their website',
+      'A trendy new bakery looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Acme Corporation',
-    description: 'A startup looking for someone to design their website',
+    img: org2,
+    description:
+      'A startup looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Globex Corporation',
-    description: 'A startup looking for someone to design their website',
+    img: org2,
+    description:
+      'A startup looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Soylent Corp',
+    img: org3,
     description:
-      'A trendy new bakery looking for someone to design their website',
+      'A trendy new bakery looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Initech',
-    description: 'A startup looking for someone to design their website',
+    img: org3,
+    description:
+      'A startup looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Umbrella Corporation',
-    description: 'A startup looking for someone to design their website',
+    img: org3,
+    description:
+      'A startup looking for someone to design their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Hooli',
+    img: org3,
     description:
-      'We are a startup tech company that is looking for fresh, new talent.',
+      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Vehement Capital Partners',
+    img: org4,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Massive Dynamic',
+    img: org4,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Openlane',
+    img: org4,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Chicago',
     isRemote: true,
   },
   {
     name: 'Yearin',
+    img: org4,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Austin',
     isRemote: true,
   },
   {
     name: 'Goodsilron',
+    img: org5,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'New York',
     isRemote: true,
   },
   {
     name: 'Condax',
+    img: org5,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Chicago',
     isRemote: true,
   },
   {
     name: 'Opentech',
+    img: org5,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'Austin',
     isRemote: true,
   },
   {
     name: 'Golddex',
+    img: org5,
     description:
-      'A startup looking for someone to design and scale their website',
+      'A startup looking for someone to design and scale their website. Our innovative technology, easy-to-use platforms and streamlined delivery capabilities make us an industry leader.',
     location: 'New York',
     isRemote: true,
   },
