@@ -322,7 +322,7 @@ a.btn.btn-success {
 }
 
 /* ADD JOB FORM*/
-.job-profile-card{
+.job-profile-card {
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -332,7 +332,7 @@ a.btn.btn-success {
   background-size: cover;
   background-color: rgb(253, 248, 244);
   background-position: center;
- 
+
   margin-top: 10%;
 }
 #add-job {
@@ -804,6 +804,14 @@ a {
   margin-left: 5%;
 }
 
+.edit-org-profile-test {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
 .edit-org-button-save-changes {
   font-size: 21px;
   font-weight: bolder;
@@ -965,4 +973,3 @@ input[type='file'] {
 input[type='file'] {
   display: none;
 }
-

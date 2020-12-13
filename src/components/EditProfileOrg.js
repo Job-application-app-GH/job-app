@@ -44,7 +44,8 @@ class EditProfileOrg extends React.Component {
     return (
       <div className="global-screen-box">
         <OrgHeader />
-        <div className="edit-org-profile">
+
+        <div className="edit-org-profile-test">
           {/* <h2>Edit Profile</h2> */}
 
           <Link to="/profile/editAvatar">
@@ -72,14 +73,13 @@ class EditProfileOrg extends React.Component {
             />
             <h3>Are you willing to hire remote employees?</h3>
             <FormControl>
-              <FormLabel>
-                <FormLabel />
-                <RadioGroup
-                  name="isRemote"
-                  onChange={this.handleChange}
-                  value={isRemote}
-                  row
-                >
+              <RadioGroup
+                name="isRemote"
+                onChange={this.handleChange}
+                value={isRemote}
+                row
+              >
+                <div className="profile-edit-org-yes-no">
                   <FormControlLabel
                     value="true"
                     control={<Radio />}
@@ -90,9 +90,10 @@ class EditProfileOrg extends React.Component {
                     control={<Radio />}
                     label="No"
                   />
-                </RadioGroup>
-              </FormLabel>
+                </div>
+              </RadioGroup>
             </FormControl>
+
             <button className="edit-org-button-save-changes" type="submit">
               Save Changes
             </button>
