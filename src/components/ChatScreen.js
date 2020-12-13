@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import { Avatar } from '@material-ui/core'
+import Header from './Header'
 
 
 // WIP
 
 
 function ChatScreen() {
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState('');
     const [messages, setMessages] = useState([
         {
             name: 'Google',
@@ -22,14 +23,14 @@ function ChatScreen() {
 
     const handleSend = e => {
         e.preventDefault();
-        setMessages([...messages, {messages: input}])
+        setMessages([...messages, {message: input}])
         setInput('')
     }
 
 
     return (
         <div className='chatScreen'>
-            <h2>chat screen</h2>
+            <Header/>
             <p className='chatscreen-timestamp'>YOU MATCHED WITH GOOGLE ON 12/03/2020</p>
             {messages.map((message) => (
                 message.name ? (
@@ -56,7 +57,7 @@ function ChatScreen() {
                     <input 
                     className='chatscreen-input-field' 
                     value={input} 
-                    onChange={e => setInput(e.target.value)}
+                    onChange={(e) => setInput(e.target.value)}
                     placeholder = 'Type here ..' 
                     type='text'
                     >
