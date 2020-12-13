@@ -111,11 +111,14 @@ class JobMatches extends React.Component {
                       <Avatar className="chat_avatar" src={job.orgImg} />
                       <h2>{job.title}</h2>
                       <h3>@ {job.orgName}</h3>
-                      <h3>
-                        Role posted: <h4>{job.description}</h4>{' '}
-                      </h3>
-                      <h2>Required Skills: </h2>
-                      <h4>{getTop3Skills(job.skills)}</h4>
+                      <div>
+                        <h3 className="card-skill-box">
+                          Description:
+                          <h4>{job.description}</h4>{' '}
+                        </h3>
+                        <h2>Required Skills: </h2>
+                        <h4>{getTop3Skills(job.skills)}</h4>
+                      </div>
                     </div>
 
                     <div
@@ -129,6 +132,7 @@ class JobMatches extends React.Component {
                       <h3>Where: {job.location}</h3>
                       <h3>About {job.orgName}:</h3>
                       <h3>{job.orgDescription}</h3>
+
                       <h2> Preferred Skills: </h2>
                       <div className="card-skill-box">
                         {job.skills.map((skill, index) => (
@@ -138,17 +142,14 @@ class JobMatches extends React.Component {
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
-                
               </div>
             ))}
-            
+
           {!lastMatch.isPerfectMatch && !totalMatches && (
-            <div className='out-of-cards'
-            style={{backgroundColor: 'seashell'}}>
+            <div className="out-of-cards" style={{backgroundColor: 'seashell'}}>
               <h2>Come back later for more Matches </h2>
-              </div>
+            </div>
           )}
-          
         </div>
       </div>
     )
