@@ -17,7 +17,7 @@ class SingleJob extends React.Component {
   }
 
   render() {
-    const job = this.props.job
+    const job = this.props.job || {}
     const skills = this.props.skills
     return (
       <div className="global-screen-box">
