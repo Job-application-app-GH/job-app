@@ -539,13 +539,34 @@ ul.slick-dots {
   align-content: center;
   width: 280px;
   padding: 25px;
-  height: 50vh;
+  height: 65vh;
   color: rgb(82, 82, 81);
   border-radius: 20px;
   background-size: cover;
   box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
   cursor: 'pointer';
 }
+
+.card-detail-box-front {
+  margin: 4px, 4px;
+  padding: 4px;
+  width: 270px;
+  height: 50%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.card-detail-box-back {
+  margin: 4px, 4px;
+  padding: 4px;
+  width: 270px;
+  height: 60%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
 .card > h2 {
   color: #f5af23;
   text-shadow: 0.5px 0px #643c07;
@@ -963,6 +984,34 @@ a {
   margin-top: 50%;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.view-matches {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  overflow-y: scroll;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  overflow-y: auto;
+  border: 1px solid white;
+  height: 450px;
+  width: 300px;
+  font-size: 1.2em;
+}
+
+.view-matches > h3 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.view-matches > h4 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.view-matches > p {
+  margin-bottom: 5px;
 }
 
 .match-profile-back-button {

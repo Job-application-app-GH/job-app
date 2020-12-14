@@ -27,10 +27,12 @@ class JobProfile extends React.Component {
     const jobs = this.sort_by_key(allJobs, 'id')
 
     return (
-      <div className='global-screen-box'>
-        
-          <OrgHeader />
-          <div className="job-profile-listing">
+      <div className="global-screen-box">
+        <OrgHeader />
+        <div className="job-profile-listing">
+          <Link to="/profile/addJob">
+            <button className="add-new-job-button">ADD A JOB</button>
+          </Link>
           {jobs.map((job) => (
             <div key={job.id} className="job-listing">
               <Link to={`/profile/jobs/${job.id}`}>
@@ -42,9 +44,7 @@ class JobProfile extends React.Component {
               </Link>
             </div>
           ))}
-          <Link to="/profile/addJob">
-            <button className="add-new-job-button">ADD A JOB</button>
-          </Link>
+
           <Link to="/profile">
             <h3>Back to profile</h3>
           </Link>

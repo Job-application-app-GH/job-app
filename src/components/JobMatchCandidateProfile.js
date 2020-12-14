@@ -1,6 +1,7 @@
 import React from 'react'
 import {fetchCandidateProfile} from '../store/profile'
 import {fetchCandidateSkills} from '../store/skillsList'
+import {fetchJobMatches} from '../store/profileMatches'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Header from './Header'
@@ -32,53 +33,58 @@ class JobMatchCandidateProfile extends React.Component {
   }
 
   render() {
-    const profile = this.props.profile
+    const profile = this.props.profile || {}
     // const candidateEmail = profile.user.email || ''
     const candidateEmail = ((profile || {}).user || {}).email
     const skills = this.props.skillsList
+    console.log('props', this.props)
     console.log('email->', candidateEmail)
     return (
       <div className="global-screen-box">
         <OrgHeader />
         <div className="profile-matches-container">
-          <h3>Want to reach out? </h3>
           {candidateEmail ? (
-            <button className="profile-edit-org-button">
-              <a href={'mailto:' + candidateEmail}>
-                Send {profile.name} an email
-              </a>
+            <button className="match-profile-back-button">
+              <a href={'mailto:' + candidateEmail}>Want to reach out?</a>
             </button>
           ) : null}
           <div className="view-profile">
             <h2>{profile.name}</h2>
+            <div className="view-matches">
+              <h3>Location</h3>
+              <h4>{profile.location}</h4>
 
-            <h3>Location: {profile.location}</h3>
-            {profile.currentCompany ? (
-              <h3>
-                Current Role: {profile.currentCompany} @ {profile.currentRole}
-              </h3>
-            ) : null}
-            {/* {profile.currentRole ? (
+              <h3>Current Role</h3>
+              <h4>
+                {profile.currentCompany} @ {profile.currentRole}
+              </h4>
+              {/* {profile.currentRole ? (
             <h3>Current Role: {profile.currentRole}</h3>
           ) : null} */}
-            <h3>Bio: {profile.description}</h3>
-            {profile.isRemote ? (
-              <h3>Is willing to work remote</h3>
-            ) : (
-              <h3>Is not willing to work remote</h3>
-            )}
-            <h3>Skills</h3>
-            {skills
-              ? // <h5>Skills:</h5>
-                skills.map((skill) => (
-                  <div key={skill.id}>
-                    <p>{skill.name}</p>
-                  </div>
-                ))
-              : null}
+              <h3>Bio</h3>
+              <h4>{profile.description}</h4>
+              {profile.isRemote ? (
+                <h3>Is willing to work remote</h3>
+              ) : (
+                <h3>Is not willing to work remote</h3>
+              )}
+              <h3>Skills</h3>
+              {skills
+                ? // <h5>Skills:</h5>
+                  skills.map((skill) => (
+                    <div key={skill.id}>
+                      <p>{skill.name}</p>
+                    </div>
+                  ))
+                : null}
+            </div>
           </div>
-          <button className="match-profile-back-button" onClick={this.goBack}>
-            BACK TO MATCHES
+          <button
+            style={{backgroundColor: 'none'}}
+            className="match-profile-back-button"
+            onClick={this.goBack}
+          >
+            Back
           </button>
         </div>
       </div>
@@ -91,6 +97,7 @@ const mapState = (state) => {
     profile: state.profile,
     user: state.user,
     skillsList: state.skillsList,
+    job: state.job,
   }
 }
 

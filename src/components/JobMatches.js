@@ -12,9 +12,6 @@ import Header from './Header'
 import Avatar from '@material-ui/core/Avatar'
 import MatchNotification from './MatchNotification'
 
-
-
-
 function getTop3Skills(skillSet) {
   let top3Skills = skillSet.slice(0, 3).join(' • ')
   return top3Skills
@@ -24,6 +21,7 @@ class JobMatches extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      isLoading: true,
       isFlipped: false,
     }
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
@@ -31,12 +29,12 @@ class JobMatches extends React.Component {
     this.onSwipe = this.onSwipe.bind(this)
     this.resetLastMatch = this.resetLastMatch.bind(this)
   }
-  
 
-  componentDidMount() {
+  async componentDidMount() {
     const candidateId = this.props.match.params.candidateId
     this.props.loadCandidate()
-    this.props.getSuggestedJobs(candidateId)
+    await this.props.getSuggestedJobs(candidateId)
+    this.setState({isLoading: false})
   }
 
   handleTouchEnd(e) {
@@ -45,7 +43,6 @@ class JobMatches extends React.Component {
   }
 
   handleClick(e) {
-    
     e.preventDefault()
     this.setState((state) => ({isFlipped: !this.state.isFlipped}))
   }
@@ -56,6 +53,7 @@ class JobMatches extends React.Component {
       case 'left':
         isLiked = false
         this.props.sendJobMatch(jobId, candidateId, isLiked)
+
         break
       case 'right':
         isLiked = true
@@ -71,6 +69,19 @@ class JobMatches extends React.Component {
   }
 
   render() {
+    //If matches are loading, just return "Loading" message on screen.
+    if (this.state.isLoading) {
+      return (
+        <div className="global-screen-box">
+          <Header style={{color: 'white'}} />
+          <div>
+            <h2 style={{color: 'white', marginTop: '200px'}}>
+              Loading matches ....{' '}
+            </h2>
+          </div>
+        </div>
+      )
+    }
     const candidateId = this.props.match.params.candidateId
     const lastMatch = this.props.lastMatch
     const linkToSearches = `/findJobs/${candidateId}`
@@ -80,7 +91,7 @@ class JobMatches extends React.Component {
     return (
       <div className="global-screen-box">
         <Header style={{color: 'white'}} />
-        <div className="cardsPile">
+        <div className="cardsPile" style={{color: '#ffc654'}}>
           {lastMatch.isPerfectMatch && (
             <MatchNotification
               candidate={this.props.candidate}
@@ -116,37 +127,41 @@ class JobMatches extends React.Component {
                       <h2>{job.title}</h2>
                       <h3>@ {job.orgName}</h3>
 
-                      <div>
-                        <h3 className="card-skill-box">
+                      <div className="card-detail-box-front">
+                        <h3>
                           Description:
                           <h4>{job.description}</h4>{' '}
                         </h3>
                         <h3>Required Skills: </h3>
                         <h4>{getTop3Skills(job.skills)}</h4>
                       </div>
+
                     <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>View details</h2>
+
 
                     </div>
 
                     <div
                       className="card"
-                     
-                    
+
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
                       <h2>{job.title}</h2>
                       <h3>Where: {job.location}</h3>
-                      <h3>About {job.orgName}:</h3>
-                      <h3>{job.orgDescription}</h3>
+                      <div className="card-detail-box-back">
+                        <h3>About {job.orgName}:</h3>
+                        <h3>{job.orgDescription}</h3>
 
-                      <h2> Preferred Skills: </h2>
-                      <div className="card-skill-box">
+                        <h2> Preferred Skills: </h2>
+
                         {job.skills.map((skill, index) => (
                           <div key={index}>{skill}</div>
                         ))}
                       </div>
+
                       <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>Flip back</h2>
+
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
