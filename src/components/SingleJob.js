@@ -23,8 +23,6 @@ class SingleJob extends React.Component {
       <div className="global-screen-box">
         <OrgHeader />
         <div className="profile-edit-org">
-          {/* <div className="single-job-profile"> */}
-
           <h3
             style={{fontSize: '1.5em', marginTop: '7px', marginBottom: '5px'}}
           >
