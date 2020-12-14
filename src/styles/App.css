@@ -97,8 +97,7 @@ body.content {
 
 /*  LOGIN PAGE */
 .form {
-  margin-top: 70%;
-  position: fixed;
+  margin-top: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -595,7 +594,7 @@ ul.slick-dots {
   position: fixed;
   display: flex;
   align-content: center;
-  margin-top: 40%;
+  margin-top: 10%;
   width: 280px;
   padding: 25px;
   height: 30vh;
@@ -996,6 +995,7 @@ a {
 
 .match-card {
   position: fixed;
+  flex-direction: column;
   width: 280px;
   padding: 25px;
   height: 60vh;
@@ -1006,12 +1006,12 @@ a {
   box-shadow: 0px 16px 12px 5px rgba(248, 154, 30, 0.726);
   background-position: center;
   cursor: 'pointer';
-  align-content: center;
+  
 }
 .match-img {
   align-self: center;
   margin-top: 40px;
-  margin-left: -90px;
+  margin-left: 20px;
   width: 100px;
   height: 100px;
   border-radius: 60px;
@@ -1043,17 +1043,23 @@ a {
   display: flex;
   flex-direction: column;
 }
-.match-imgs {
+.match-imgs-container {
+  display: flex;
+  flex-direction: column;
+
+}
+.match-imgs-container > h4{
+width: 80px;
+margin-left: 20px;
+}
+.match-imgs{
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
-  margin-bottom: 30px;
-
-  margin-right: 30px;
 }
-.match-imgs > h3 {
-  margin-left: 50px;
-  margin-top: 0px;
+.match-text{
+  display: flex;
+  flex-direction: row; 
+  
 }
 
 /* EDIT JOB */
