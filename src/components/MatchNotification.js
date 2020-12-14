@@ -14,12 +14,17 @@ function MatchNotification(props) {
 
     <div className="match-card" style={{backgroundColor: 'seashell'}}>
       <h2 style={{color: '#e09808'}}>It's a Match! </h2>
+      <div className='match-imgs-container'>
+
+      <div className='match-text'>
+      <h4> {candidate.name}</h4>
+      <h4> {organization.name}</h4>
+      </div>
       <div className='match-imgs'>
-      <h3> {candidate.name}</h3>
-      <img src={candidate.img} className="match-img" alt="" />
-      <h3> {organization.name}</h3>
+      
       <img src={organization.img} className="match-img" alt="" />
-      <div />
+      <img src={candidate.img} className="match-img" alt="" />
+      </div>
       </div>
       <div className='match-buttons'>
       <Link to={linkToSearches}>

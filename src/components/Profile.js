@@ -54,7 +54,7 @@ class Profile extends React.Component {
             </Link>
           ) : null} */}
           <Avatar className="chat_avatar" src={profile.img} />
-          <h3>{profile.name}</h3>
+          <h2 style={{color: 'white'}}>{profile.name}</h2>
           <div className="view_profile">
             <h3>Location</h3> <h4>{profile.location}</h4>
             {profile.currentRole ? (

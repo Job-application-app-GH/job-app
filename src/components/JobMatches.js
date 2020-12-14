@@ -119,7 +119,7 @@ class JobMatches extends React.Component {
                   >
                     <div
                       className="card"
-                      onClick={this.handleClick}
+                      
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS FRONT SIDE OF THE CARD */}
@@ -132,15 +132,18 @@ class JobMatches extends React.Component {
                           Description:
                           <h4>{job.description}</h4>{' '}
                         </h3>
-                        <h2>Required Skills: </h2>
+                        <h3>Required Skills: </h3>
                         <h4>{getTop3Skills(job.skills)}</h4>
                       </div>
-                      <h2 onTouchEnd={this.handleTouchEnd}>View details</h2>
+
+                    <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>View details</h2>
+
+
                     </div>
 
                     <div
                       className="card"
-                      onClick={this.handleClick}
+
                       style={{backgroundColor: 'seashell'}}
                     >
                       {/* THIS IS BACK SIDE OF THE CARD */}
@@ -156,7 +159,9 @@ class JobMatches extends React.Component {
                           <div key={index}>{skill}</div>
                         ))}
                       </div>
-                      <h2 onTouchEnd={this.handleTouchEnd}>Flip back</h2>
+
+                      <h2  onClick={this.handleClick} onTouchEnd={this.handleTouchEnd}>Flip back</h2>
+
                     </div>
                   </ReactCardFlip>
                 </TinderCard>
