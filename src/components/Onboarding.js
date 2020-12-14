@@ -17,7 +17,7 @@ class Onboarding extends React.Component {
   render() {
     let settings = {
       dots: true,
-      infinite: true,
+      infinite: false,
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
