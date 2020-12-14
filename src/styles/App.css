@@ -835,7 +835,7 @@ a {
 .profile-edit-org {
   display: flex;
   flex-flow: column wrap;
-  margin-top: 30%;
+  margin-top: 25%;
   height: inherit;
   color: rgb(82, 81, 81);
   font-size: 17px;
