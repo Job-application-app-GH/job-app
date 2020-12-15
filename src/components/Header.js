@@ -34,14 +34,6 @@ const Header = (props) => {
 
   const candidate = props.profile
   const candidateId = props.candidate.id
-  // let matchesLink
-  // if (props.user.userType === 'CANDIDATE') {
-  //   matchesLink = `/profile/candidate/matches/${candidate.id}`
-  // } else {
-  //   // matchesLink = `/profile/job/matches/${this.props.job.id}`
-  // }
-  console.log('Candidate -->', candidateId)
-  // console.log('candidate ID: ', candidate.id)
   const {handleClick} = props
   return (
     <div className="header">
@@ -79,7 +71,7 @@ const Header = (props) => {
           </Link>
         </Menu>
       </div>
-      <Link to={`/findJobs/${candidate.id}`}>
+      <Link to={`/findJobs/${candidateId}`}>
         <img
           className="header-img-icon"
           style={{color: 'white'}}

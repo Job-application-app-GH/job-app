@@ -39,7 +39,6 @@ class EditProfileOrg extends React.Component {
     this.props.history.goBack()
   }
   render() {
-    // need to make edit to push - console.log() - please delete later
     const profile = this.props.profile
     const {name, location, description, isRemote} = this.state
     return (

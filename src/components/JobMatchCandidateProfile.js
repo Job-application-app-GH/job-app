@@ -34,11 +34,8 @@ class JobMatchCandidateProfile extends React.Component {
 
   render() {
     const profile = this.props.profile || {}
-    // const candidateEmail = profile.user.email || ''
     const candidateEmail = ((profile || {}).user || {}).email
     const skills = this.props.skillsList
-    console.log('props', this.props)
-    console.log('email->', candidateEmail)
     return (
       <div className="global-screen-box">
         <OrgHeader />
