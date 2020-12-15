@@ -30,7 +30,6 @@ class Onboarding extends React.Component {
     } else {
       link = `/findCandidates/${jobId}`
     }
-    console.log('props-->', this.props)
     return (
       <Slider
         className="slider"

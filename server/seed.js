@@ -673,7 +673,7 @@ const organizationData = [
     name: 'Mac Toys',
     img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -681,7 +681,7 @@ const organizationData = [
     name: 'Piper',
     img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -689,7 +689,7 @@ const organizationData = [
     name: 'Prestige',
     img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -697,7 +697,7 @@ const organizationData = [
     name: 'Rontech',
     img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -705,7 +705,7 @@ const organizationData = [
     name: 'Tyrell',
     img: org1,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -713,7 +713,7 @@ const organizationData = [
     name: 'CooperTech',
     img: org2,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Worldwide',
     isRemote: true,
   },
@@ -721,23 +721,21 @@ const organizationData = [
     name: 'FrontTech',
     img: org2,
     description:
-      'A trendy new bakery looking for someone to design their website. Our innovative technology makes us an industry leader.',
+      'A trendy new bakery looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'AcmeTech',
     img: org2,
-    description:
-      'A startup looking for someone to design their website. Our innovative technology makes us an industry leader.',
+    description: 'A startup looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Globex',
     img: org2,
-    description:
-      'A startup looking for someone to design their website. Our innovative technology makes us an industry leader.',
+    description: 'A startup looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
@@ -745,23 +743,21 @@ const organizationData = [
     name: 'Soylent',
     img: org3,
     description:
-      'A trendy new bakery looking for someone to design their website. Our innovative technology makes us an industry leader.',
+      'A trendy new bakery looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Initech',
     img: org3,
-    description:
-      'A startup looking for someone to design their website. Our innovative technology makes us an industry leader.',
+    description: 'A startup looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
   {
     name: 'Umbrella',
     img: org3,
-    description:
-      'A startup looking for someone to design their website. Our innovative technology makes us an industry leader.',
+    description: 'A startup looking for someone to design their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
@@ -769,7 +765,7 @@ const organizationData = [
     name: 'Hooli',
     img: org3,
     description:
-      'We are a startup tech company that is looking for fresh, new talent. Our innovative technology makes us an industry leader.',
+      'We are a startup tech company that is looking for fresh, new talent.',
     location: 'Venice, CA',
     isRemote: true,
   },
@@ -777,7 +773,7 @@ const organizationData = [
     name: 'SanTech',
     img: org4,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
@@ -785,7 +781,7 @@ const organizationData = [
     name: 'Dynamic',
     img: org4,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Venice, CA',
     isRemote: true,
   },
@@ -793,7 +789,7 @@ const organizationData = [
     name: 'Openlane',
     img: org4,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Chicago',
     isRemote: true,
   },
@@ -801,7 +797,7 @@ const organizationData = [
     name: 'Yearin',
     img: org4,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Austin',
     isRemote: true,
   },
@@ -809,7 +805,7 @@ const organizationData = [
     name: 'Goodsiron',
     img: org5,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'New York',
     isRemote: true,
   },
@@ -817,7 +813,7 @@ const organizationData = [
     name: 'Condax',
     img: org5,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Chicago',
     isRemote: true,
   },
@@ -825,7 +821,7 @@ const organizationData = [
     name: 'Opentech',
     img: org5,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'Austin',
     isRemote: true,
   },
@@ -833,7 +829,7 @@ const organizationData = [
     name: 'Golddex',
     img: org5,
     description:
-      'A startup looking for someone to design and scale their website. Our innovative technology makes us an industry leader.',
+      'A startup looking for someone to design and scale their website.',
     location: 'New York',
     isRemote: true,
   },
@@ -843,63 +839,63 @@ const jobData = [
   {
     title: 'Software Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Backend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Backend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: true,
   },
   {
     title: 'Software Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: false,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: false,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'New York',
     isRemote: false,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a good foundational knowledge of programming languages, databases, operating systems, data structures, algorithms, and complexity trade-offs',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'Chicago',
     isRemote: false,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a talented and hard working Software Engineer to join our team.',
+      'We are looking for someone with a basic knowledge of programming languages.',
     location: 'Silicon Valley',
     isRemote: true,
   },
@@ -927,7 +923,7 @@ const jobData = [
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
 
     location: 'Los Angeles',
     isRemote: true,
@@ -935,56 +931,56 @@ const jobData = [
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
     location: 'Miami',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
     location: 'Chicago',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for a team member with a strong foundation in computer science theory and industry experience.',
+      'We are looking for a team member with a strong foundation in computer science.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
+      'We are looking for someone with a knowledge of software principles.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
+      'We are looking for someone with a knowledge of software principles.',
     location: 'Los Angeles',
     isRemote: true,
   },
   {
     title: 'Frontend Engineer',
     description:
-      'We are looking for someone with a knowledge of software principles, application architecture, data structures, coding conventions, and security practices.',
+      'We are looking for someone with a knowledge of software principles.',
     location: 'Los Angeles',
     isRemote: true,
   },
