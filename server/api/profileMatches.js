@@ -25,14 +25,12 @@ router.get('/user/:candidateId', async (req, res, next) => {
         candidateId: req.params.candidateId,
         isMatch: 'MATCHED',
       },
-      include: [
-        {
-          model: Job,
-          include: {model: Organization},
-        },
-      ],
+      include: {
+        model: Job,
+        include: {model: Organization},
+      },
     })
-    console.log('matches-->', matches)
+    console.log('server matches-->', matches)
     res.send(matches)
   } catch (error) {
     next(error)
