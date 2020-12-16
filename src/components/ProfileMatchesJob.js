@@ -11,8 +11,8 @@ class JobMatches extends React.Component {
     this.goBack = this.goBack.bind(this)
   }
 
-  async componentDidMount() {
-    await this.props.loadMatches(this.props.match.params.id)
+  componentDidMount() {
+    this.props.loadMatches(this.props.match.params.id)
   }
 
   goBack() {
@@ -20,7 +20,8 @@ class JobMatches extends React.Component {
   }
 
   render() {
-    const matches = this.props.profileMatches || []
+    const matches = this.props.profileMatches
+    console.log('job matches->', matches)
     return (
       <div className="global-screen-box">
         <OrgHeader />
