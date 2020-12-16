@@ -21,7 +21,6 @@ class JobMatches extends React.Component {
 
   render() {
     const matches = this.props.profileMatches
-    console.log('job matches->', matches)
     return (
       <div className="global-screen-box">
         <OrgHeader />
